@@ -1,2 +1,2 @@
-# specificatoins-SM
+# specifications-SM
 openEHR Service Model specifications
