@@ -42,7 +42,7 @@ endif::[]
 |===
 |Specification |Description |Wiki
 
-|[EHR Service Model]
+|EHR Service Model
 |Definition of the openEHR coarse-grained interface EHR service interface.
 |http://www.openehr.org/wiki/display/spec/openEHR+Service+Model[Services wiki page] 
 
