@@ -14,16 +14,16 @@
 :description: openEHR Reference Model
 :sectanchors:
 :sm_release: latest
-:jira-roadmap: https://openehr.atlassian.net/projects/SPECSM?selectedItem=com.atlassian.jira.jira-projects-plugin%3Arelease-page&status=unreleased
+:jira-roadmap: https://openehr.atlassian.net/projects/SPECSM?selectedItem=com.atlassian.jira.jira-projects-plugin:release-page
 :jira-hist-issues: https://openehr.atlassian.net/issues/?filter=10720
 
 image::http://www.openehr.org/releases/BASE/latest/resources/images/openehr_logo_large.png["openEHR logo",align="center"]
 
-= Archetype Model (SM) - {sm_release}
+= Service Model (SM) - {sm_release}
 
 // Use the following version for 'latest'
 ifeval::["{sm_release}" == "latest"]
-:jira-issues: https://openehr.atlassian.net/issues/?filter=10721
+:jira-issues: https://openehr.atlassian.net/projects/SPECSM/issues/?filter=allopenissues
 [.title-para]
 {jira-roadmap}[Roadmap] | {jira-issues}[Current Issues] | {jira-hist-issues}[Change History]
 endif::[]
