@@ -42,6 +42,10 @@ endif::[]
 |===
 |Specification |Description |Wiki
 
+|http://www.openehr.org/releases/ITS/latest/ehr_restapi.html[EHR REST API]
+|Definition of the REST API to access EHR content
+|https://openehr.atlassian.net/wiki/display/spec/openEHR+REST+APIs[REST APIs wiki page] 
+
 |EHR Service Model
 |Definition of the openEHR coarse-grained interface EHR service interface.
 |http://www.openehr.org/wiki/display/spec/openEHR+Service+Model[Services wiki page] 
