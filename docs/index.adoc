@@ -42,32 +42,27 @@ endif::[]
 |===
 |Specification |Description |Wiki
 
-|http://www.openehr.org/releases/ITS/latest/ehr_restapi.html[EHR REST API]
-|Definition of the REST API to access EHR content
-|https://openehr.atlassian.net/wiki/display/spec/openEHR+REST+APIs[REST APIs wiki page] 
-
-|EHR Service Model
+|http://www.openehr.org/releases/SM/{sm_release}/openehr_platform.html[openEHR Platform Service Model]
 |Definition of the openEHR coarse-grained interface EHR service interface.
-|http://www.openehr.org/wiki/display/spec/openEHR+Service+Model[Services wiki page] 
-
-|vEHR API
-|API for the openEHR virtual EHR service.
-|http://www.openehr.org/wiki/display/spec/vEHR+Service+Specification[vEHR wiki page]
+|
 
 |===
 
-// == Computable Expressions
-// 
-// [cols="2,5", options="header"]
-// |===
-// |Resource |Description
-// 
-// |http://www.openehr.org/releases/SM/{am_release}/UML/openEHR_UML-AM.mdzip[source files / XMI]
-// |UML file for MagicDraw 18.1. Contains UML 2.5 standard XMI file.
-// 
-// |===
-// 
-// 
-// == Class Index
-// 
-// include::UML/class_index.adoc[leveloffset=+1]
+== Computable Expressions
+ 
+[cols="2,5", options="header"]
+|===
+|Resource |Description
+
+|https://openehr.github.io/specifications-ITS[REST API)]
+|Apiary format REST API specification based on the platform SM.
+
+|http://www.openehr.org/releases/SM/{sm_release}/UML/openEHR_UML-SM.mdzip[source files / XMI]
+|UML file for MagicDraw 18.5. Contains UML 2.5 standard XMI file.
+
+|===
+
+
+== Class Index
+
+include::UML/class_index.adoc[leveloffset=+1]
