@@ -1,0 +1,9 @@
+= Overview
+
+The openEHR Platform Service Model is an abstract formal specifications of logical components of the openEHR Platform, i.e. EHR system environment.
+
+The package structure is illustrated below.
+
+[.text-center]
+.SM package overview
+image::{uml_export_dir}/diagrams/SM-platform-packages.svg[id=platform_packages, align="center"]

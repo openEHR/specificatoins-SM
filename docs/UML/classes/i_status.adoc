@@ -1,0 +1,18 @@
+=== I_STATUS Interface
+
+[cols="^1,2,3"]
+|===
+h|*Interface*
+2+^h|*I_STATUS*
+
+h|*Description*
+2+a|Interface to obtain status of previous calls; use by inheritance.
+
+h|*Functions*
+^h|*Signature*
+^h|*Meaning*
+
+h|
+|*last_call_error*: `Boolean`
+a|
+|===

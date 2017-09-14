@@ -1,0 +1,48 @@
+
+== Component RM
+
+=== Model org.openehr.rm
+
+==== Package composition
+
+[.xcode]
+* http://www.openehr.org/releases/RM/{sm_release}/ehr.html#_ism_transition_class[ISM_TRANSITION]
+
+== Component SM
+
+=== Model org.openehr.sm
+
+==== Package platform
+
+[.xcode]
+* http://www.openehr.org/releases/SM/{sm_release}/platform.html#_call_status_class[CALL_STATUS]
+[.xcode]
+* http://www.openehr.org/releases/SM/{sm_release}/platform.html#_call_statuses_enumeration[CALL_STATUSES]
+[.xcode]
+* http://www.openehr.org/releases/SM/{sm_release}/platform.html#_change_audit_class[CHANGE_AUDIT]
+[.xcode]
+* http://www.openehr.org/releases/SM/{sm_release}/platform.html#_ehr_call_statuses_enumeration[EHR_CALL_STATUSES]
+[.xcode]
+* http://www.openehr.org/releases/SM/{sm_release}/platform.html#_ehr_summary_class[EHR_SUMMARY]
+[.xcode]
+* http://www.openehr.org/releases/SM/{sm_release}/platform.html#_i_definitions_adl14_interface[I_DEFINITIONS_ADL14]
+[.xcode]
+* http://www.openehr.org/releases/SM/{sm_release}/platform.html#_i_definitions_adl2_interface[I_DEFINITIONS_ADL2]
+[.xcode]
+* http://www.openehr.org/releases/SM/{sm_release}/platform.html#_i_ehr_interface[I_EHR]
+[.xcode]
+* http://www.openehr.org/releases/SM/{sm_release}/platform.html#_i_ehr_composition_interface[I_EHR_COMPOSITION]
+[.xcode]
+* http://www.openehr.org/releases/SM/{sm_release}/platform.html#_i_ehr_contribution_interface[I_EHR_CONTRIBUTION]
+[.xcode]
+* http://www.openehr.org/releases/SM/{sm_release}/platform.html#_i_ehr_directory_interface[I_EHR_DIRECTORY]
+[.xcode]
+* http://www.openehr.org/releases/SM/{sm_release}/platform.html#_i_ehr_status_interface[I_EHR_STATUS]
+[.xcode]
+* http://www.openehr.org/releases/SM/{sm_release}/platform.html#_i_status_interface[I_STATUS]
+[.xcode]
+* http://www.openehr.org/releases/SM/{sm_release}/platform.html#_version_update_class[VERSION_UPDATE]
+[.xcode]
+* http://www.openehr.org/releases/SM/{sm_release}/platform.html#_vu_composition_class[VU_COMPOSITION]
+[.xcode]
+* http://www.openehr.org/releases/SM/{sm_release}/platform.html#_vu_folder_class[VU_FOLDER]

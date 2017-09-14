@@ -1,0 +1,23 @@
+= Common Package
+
+== Overview
+
+The `sm.platform.common` package shown below defines common elements of the platform srevice model.
+
+[.text-center]
+.`sm.platform.common` package
+image::{uml_export_dir}/diagrams/SM-platform.common.svg[id=sm_platform_common, align="center"]
+
+== Class Definitions
+
+include::{uml_export_dir}/classes/i_status.adoc[]
+
+include::{uml_export_dir}/classes/call_status.adoc[]
+
+include::{uml_export_dir}/classes/call_statuses.adoc[]
+
+include::{uml_export_dir}/classes/version_update.adoc[]
+
+include::{uml_export_dir}/classes/change_audit.adoc[]
+
+include::{uml_export_dir}/classes/call_statuses.adoc[]

@@ -1,0 +1,26 @@
+=== I_EHR_CONTRIBUTION Interface
+
+[cols="^1,2,3"]
+|===
+h|*Interface*
+2+^h|*I_EHR_CONTRIBUTION*
+
+h|*Description*
+2+a|Interface for explicit Contribution level operations.
+
+h|*Functions*
+^h|*Signature*
+^h|*Meaning*
+
+h|
+|*has_contribution* (auth_tok: `String`, ehr_id: `UUID`, contrib_id: `UUID`)
+a|
+
+h|
+|*commit_contribution* (auth_tok: `String`, ehr_id: `UUID`, versions: `List<VERSION_UPDATE>`, audit: `CHANGE_AUDIT`): `UUID`
+a|Commit a Contribution containing any number of VERSION_UPDATE objects.
+
+h|
+|*get_contribution* (auth_tok: `String`, ehr_id: `UUID`, contrib_id: `UUID`): `CONTRIBUTION`
+a|
+|===

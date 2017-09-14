@@ -1,0 +1,34 @@
+=== VERSION_UPDATE Class
+
+[cols="^1,2,3"]
+|===
+h|*Class*
+2+^h|*VERSION_UPDATE*
+
+h|*Description*
+2+a|An object representing an update to an existing VERSION, that can be provided by a client to the platform. The back-end will construct a full VERSION object from this and server-side generated data items.
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*0..1*
+|*preceding_version_uid*: `OBJECT_VERSION_ID`
+a|Stored version of inheritance precursor.
+
+h|*1..1*
+|*lifecycle_state*: `Terminology_code`
+a|Lifecycle state of the content item in this version.
+
+h|*0..1*
+|*attestations*: `List<ATTESTATION>`
+a|Set of attestations relating to this version.
+
+h|*1..1*
+|*data*: `T`
+a|
+
+h|*1..1*
+|*audit*: `CHANGE_AUDIT`
+a|
+|===

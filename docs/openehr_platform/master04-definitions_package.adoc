@@ -1,0 +1,16 @@
+= Definitions Package
+
+== Overview
+
+The `sm.platform.definition` package shown below defines service interface to the definitions component in the logical platform architecture.
+
+[.text-center]
+.`sm.platform.definition` package
+image::{uml_export_dir}/diagrams/SM-platform.definition.svg[id=sm_platform_definition_if, align="center"]
+
+== Class Definitions
+
+include::{uml_export_dir}/classes/i_definitions_adl2.adoc[]
+
+include::{uml_export_dir}/classes/i_definitions_adl14.adoc[]
+

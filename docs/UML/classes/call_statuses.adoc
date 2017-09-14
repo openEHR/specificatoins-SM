@@ -1,0 +1,22 @@
+=== CALL_STATUSES Enumeration
+
+[cols="^1,2,3"]
+|===
+h|*Enumeration*
+2+^h|*CALL_STATUSES*
+
+h|*Description*
+2+a|Enumeration representing standard call statuses.
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|
+|success
+a|
+
+h|
+|auth_failure
+a|
+|===

@@ -1,0 +1,30 @@
+=== CALL_STATUS Class
+
+[cols="^1,2,3"]
+|===
+h|*Class*
+2+^h|*CALL_STATUS*
+
+h|*Description*
+2+a|Object representing a call status.
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*1..1*
+|*code*: `CALL_STATUSES`
+a|
+
+h|*1..1*
+|*call_name*: `String`
+a|Name of call that this status documents.
+
+h|*1..1*
+|*call_string*: `String`
+a|Full call, in stringified form, including arguments. Non-primitive objects are shown as addresses unless an exported as_string() method is available.
+
+h|*1..1*
+|*meaning*: `String`
+a|Meaning of the result status.
+|===

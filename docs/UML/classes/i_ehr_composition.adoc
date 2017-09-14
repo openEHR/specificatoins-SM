@@ -1,0 +1,42 @@
+=== I_EHR_COMPOSITION Interface
+
+[cols="^1,2,3"]
+|===
+h|*Interface*
+2+^h|*I_EHR_COMPOSITION*
+
+h|*Description*
+2+a|Interface for commit and retrieve of Compositions, with implicit Contribution creation.
+
+h|*Functions*
+^h|*Signature*
+^h|*Meaning*
+
+h|
+|*has_composition* (auth_tok: `String`, ehr_id: `UUID`, a_comp_id: `UUID`): `Boolean`
+a|Return True if a Composition with identifier a_comp_id exists.
+
+h|
+|*create_composition* (auth_tok: `String`, ehr_id: `UUID`, a_comp: `VU_COMPOSITION`): `UUID`
+a|Create the first version of a new Composition.
+
+h|
+|*update_composition* (auth_tok: `String`, ehr_id: `UUID`, a_comp: `VU_COMPOSITION`): `UUID`
+a|Update an existing Composition with a new version.
+
+h|
+|*delete_composition* (auth_tok: `String`, ehr_id: `UUID`, a_comp_ver_uid: `UUID`)
+a|Logically delete a Composition by creating a new version in which the content is removed and the lifecycle state is set to 523&#124;deleted&#124;. The comp_id argument identifies the current top Composition Version.
+
+h|
+|*get_composition* (auth_tok: `String`, ehr_id: `UUID`, a_comp_ver_uid: `UUID`): `COMPOSITION`
+a|Retrieve a Composition by the uid of its version.
+
+h|
+|*get_composition_at_time* (auth_tok: `String`, ehr_id: `UUID`, a_ver_comp_uid: `UUID`, a_time: `Iso8601_date_time`): `COMPOSITION`
+a|Retrieve the Composition version from a Versioned Composition that was the top version at time a_time.
+
+h|
+|*get_versioned_composition* (auth_tok: `String`, ehr_id: `UUID`, a_ver_comp_uid: `UUID`): `VERSIONED_COMPOSITION`
+a|Retrieve the VERSIONED_OBJECT of a Composition by uid.
+|===

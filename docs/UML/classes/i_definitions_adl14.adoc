@@ -1,0 +1,46 @@
+=== I_DEFINITIONS_ADL14 Interface
+
+[cols="^1,2,3"]
+|===
+h|*Interface*
+2+^h|*I_DEFINITIONS_ADL14*
+
+h|*Description*
+2+a|Interface to ADL 1.4 definitions (i.e. archetypes and OPTs) in an EHR 'system'.
+
+h|*Functions*
+^h|*Signature*
+^h|*Meaning*
+
+h|
+|*upload_archetype* (arch: `ARCHETYPE`)
+a|
+
+h|
+|*get_archetype* (id: `ARCHETYPE_ID`): `ARCHETYPE`
+a|
+
+h|
+|*list_archetypes*: `List<ARCHETYPE_ID>`
+a|
+
+h|
+|*has_archetype* (id: `ARCHETYPE_ID`): `Boolean`
+a|
+
+h|
+|*upload_opt* (arch: `ARCHETYPE`)
+a|
+
+h|
+|*get_opt* (id: `UUID`): `ARCHETYPE`
+a|
+
+h|
+|*list_opts*: `List<UUID>`
+a|
+
+h|
+|*has_opt* (id: `UUID`): `Boolean`
+a|
+|===

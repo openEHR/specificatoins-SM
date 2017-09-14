@@ -1,0 +1,42 @@
+=== I_EHR_STATUS Interface
+
+[cols="^1,2,3"]
+|===
+h|*Interface*
+2+^h|*I_EHR_STATUS*
+
+h|*Description*
+2+a|Interface to EHR_STATUS of an EHR, with implicit Contribution creation.
+
+h|*Functions*
+^h|*Signature*
+^h|*Meaning*
+
+h|
+|*get_ehr_status* (auth_tok: `String`, ehr_id: `UUID`): `EHR_STATUS`
+a|Get the current version of the EHR_STATUS object for an EHR.
+
+h|
+|*set_ehr_queryable* (auth_tok: `String`, ehr_id: `UUID`)
+a|Set the EHR is_queryable flag to true; this ensures it is included by the query engine.
+
+h|
+|*set_ehr_modifiable* (auth_tok: `String`, ehr_id: `UUID`)
+a|Set the EHR is_modifable flag to true; this ensures it is treated as active and updatable.
+
+h|
+|*clear_ehr_queryable* (auth_tok: `String`, ehr_id: `UUID`)
+a|Clear the EHR is_queryable flag; this ensures it is ignored by the query engine.
+
+h|
+|*clear_ehr_modifiable* (auth_tok: `String`, ehr_id: `UUID`)
+a|Clear the EHR is_modifiable flag; this ensures it is treated as active.
+
+h|
+|*update_other_details* (auth_tok: `String`, ehr_id: `UUID`, a_details: `ITEM_TREE`)
+a|Update other_details part of EHR_STATUS with new content.
+
+h|
+|*get_versioned_ehr_status* (auth_tok: `String`, ehr_id: `UUID`): `VERSIONED_EHR_STATUS`
+a|Get the VERSIONED_EHR_STATUS object from the EHR with id ehr_id.
+|===
