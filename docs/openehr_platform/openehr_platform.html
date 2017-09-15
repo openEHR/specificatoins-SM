@@ -33,7 +33,12 @@
 <li><a href="#_previous_versions">1.4. Previous Versions</a></li>
 </ul>
 </li>
-<li><a href="#_overview">2. Overview</a></li>
+<li><a href="#_overview">2. Overview</a>
+<ul class="sectlevel2">
+<li><a href="#_openehr_platform_model">2.1. openEHR Platform Model</a></li>
+<li><a href="#_platform_service_interface">2.2. Platform Service Interface</a></li>
+</ul>
+</li>
 <li><a href="#_common_package">3. Common Package</a>
 <ul class="sectlevel2">
 <li><a href="#_overview_2">3.1. Overview</a></li>
@@ -42,8 +47,8 @@
 <li><a href="#_i_status_interface">3.2.1. I_STATUS Interface</a></li>
 <li><a href="#_call_status_class">3.2.2. CALL_STATUS Class</a></li>
 <li><a href="#_call_statuses_enumeration">3.2.3. CALL_STATUSES Enumeration</a></li>
-<li><a href="#_version_update_class">3.2.4. VERSION_UPDATE Class</a></li>
-<li><a href="#_change_audit_class">3.2.5. CHANGE_AUDIT Class</a></li>
+<li><a href="#_update_version_class">3.2.4. UPDATE_VERSION Class</a></li>
+<li><a href="#_update_audit_class">3.2.5. UPDATE_AUDIT Class</a></li>
 <li><a href="#_call_statuses_enumeration_2">3.2.6. CALL_STATUSES Enumeration</a></li>
 </ul>
 </li>
@@ -54,7 +59,7 @@
 <li><a href="#_overview_3">4.1. Overview</a></li>
 <li><a href="#_class_definitions_2">4.2. Class Definitions</a>
 <ul class="sectlevel3">
-<li><a href="#_i_definitions_adl2_interface">4.2.1. I_DEFINITIONS_ADL2 Interface</a></li>
+<li><a href="#_i_definitions_aom2_interface">4.2.1. I_DEFINITIONS_AOM2 Interface</a></li>
 <li><a href="#_i_definitions_adl14_interface">4.2.2. I_DEFINITIONS_ADL14 Interface</a></li>
 </ul>
 </li>
@@ -65,13 +70,14 @@
 <li><a href="#_overview_4">5.1. Overview</a></li>
 <li><a href="#_class_definitions_3">5.2. Class Definitions</a>
 <ul class="sectlevel3">
-<li><a href="#_i_ehr_interface">5.2.1. I_EHR Interface</a></li>
-<li><a href="#_i_ehr_status_interface">5.2.2. I_EHR_STATUS Interface</a></li>
-<li><a href="#_i_ehr_directory_interface">5.2.3. I_EHR_DIRECTORY Interface</a></li>
-<li><a href="#_i_ehr_composition_interface">5.2.4. I_EHR_COMPOSITION Interface</a></li>
-<li><a href="#_i_ehr_contribution_interface">5.2.5. I_EHR_CONTRIBUTION Interface</a></li>
-<li><a href="#_ehr_summary_class">5.2.6. EHR_SUMMARY Class</a></li>
-<li><a href="#_ehr_call_statuses_enumeration">5.2.7. EHR_CALL_STATUSES Enumeration</a></li>
+<li><a href="#_i_ehr_service_interface">5.2.1. I_EHR_SERVICE Interface</a></li>
+<li><a href="#_i_ehr_interface">5.2.2. I_EHR Interface</a></li>
+<li><a href="#_i_ehr_status_interface">5.2.3. I_EHR_STATUS Interface</a></li>
+<li><a href="#_i_ehr_directory_interface">5.2.4. I_EHR_DIRECTORY Interface</a></li>
+<li><a href="#_i_ehr_composition_interface">5.2.5. I_EHR_COMPOSITION Interface</a></li>
+<li><a href="#_i_ehr_contribution_interface">5.2.6. I_EHR_CONTRIBUTION Interface</a></li>
+<li><a href="#_ehr_summary_class">5.2.7. EHR_SUMMARY Class</a></li>
+<li><a href="#_ehr_call_statuses_enumeration">5.2.8. EHR_CALL_STATUSES Enumeration</a></li>
 </ul>
 </li>
 </ul>
@@ -181,7 +187,7 @@
  P Pazos,<br>
  E Sundvall,<br>
  T Beale</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>09 Sep 2017</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>15 Sep 2017</p></td>
 </tr>
 </tbody>
 </table>
@@ -275,8 +281,25 @@
 <div class="sect1">
 <h2 id="_overview"><a class="anchor" href="#_overview"></a>2. Overview</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_openehr_platform_model"><a class="anchor" href="#_openehr_platform_model"></a>2.1. openEHR Platform Model</h3>
 <div class="paragraph">
-<p>The openEHR Platform Service Model is an abstract formal specifications of logical components of the openEHR Platform, i.e. EHR system environment.</p>
+<p>In order to specify service interfaces to the openEHR platform, the latter has to be defined in the abstract, so as to state the scope and purpose of services. The following figure illustrates the assumed components of a notional openEHR Platform.</p>
+</div>
+<div id="platform_model" class="imageblock text-center" style="text-align: center">
+<div class="content">
+<img src="../UML/diagrams/SM-platform_model.svg" alt="SM platform model">
+</div>
+<div class="title">Figure 1. SM Platform Model</div>
+</div>
+<div class="paragraph">
+<p>Each component has one or more associated Interfaces, i.e. abstract service definitions which provide a transactional interface to the service provided by the component.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_platform_service_interface"><a class="anchor" href="#_platform_service_interface"></a>2.2. Platform Service Interface</h3>
+<div class="paragraph">
+<p>The openEHR Platform Service Model is an abstract formal specifications of interfaces to the logical components of the openEHR Platform shown above.</p>
 </div>
 <div class="paragraph">
 <p>The package structure is illustrated below.</p>
@@ -285,7 +308,8 @@
 <div class="content">
 <img src="../UML/diagrams/SM-platform-packages.svg" alt="SM platform packages">
 </div>
-<div class="title">Figure 1. SM package overview</div>
+<div class="title">Figure 2. SM package overview</div>
+</div>
 </div>
 </div>
 </div>
@@ -301,7 +325,7 @@
 <div class="content">
 <img src="../UML/diagrams/SM-platform.common.svg" alt="SM platform.common">
 </div>
-<div class="title">Figure 2. <code>sm.platform.common</code> package</div>
+<div class="title">Figure 3. <code>sm.platform.common</code> package</div>
 </div>
 </div>
 <div class="sect2">
@@ -333,7 +357,9 @@
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>last_call_error</strong>: <code>Boolean</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Return True if the last call generated an error, i.e. any result other than CALL_STATUSES.success.</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -365,7 +391,9 @@
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>code</strong>: <code>CALL_STATUSES</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Call status code for last call.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
@@ -429,7 +457,7 @@
 </table>
 </div>
 <div class="sect3">
-<h4 id="_version_update_class"><a class="anchor" href="#_version_update_class"></a>3.2.4. VERSION_UPDATE Class</h4>
+<h4 id="_update_version_class"><a class="anchor" href="#_update_version_class"></a>3.2.4. UPDATE_VERSION Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 16.6666%;">
@@ -439,7 +467,7 @@
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>VERSION_UPDATE</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>UPDATE_VERSION</strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
@@ -476,18 +504,22 @@
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>data</strong>: <code>T</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Data item being provided in this Version update. Must conform in type to the expected type, which is normally constrained using a derivative class like VU_XX that binds T to a particular type such as COMPOSITION etc.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>audit</strong>: <code>CHANGE_AUDIT</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>audit</strong>: <code>UPDATEE_AUDIT</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Audit details for this update.</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_change_audit_class"><a class="anchor" href="#_change_audit_class"></a>3.2.5. CHANGE_AUDIT Class</h4>
+<h4 id="_update_audit_class"><a class="anchor" href="#_update_audit_class"></a>3.2.5. UPDATE_AUDIT Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 16.6666%;">
@@ -497,7 +529,7 @@
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>CHANGE_AUDIT</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>UPDATEE_AUDIT</strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
@@ -592,13 +624,13 @@
 <div class="content">
 <img src="../UML/diagrams/SM-platform.definition.svg" alt="SM platform.definition">
 </div>
-<div class="title">Figure 3. <code>sm.platform.definition</code> package</div>
+<div class="title">Figure 4. <code>sm.platform.definition</code> package</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_class_definitions_2"><a class="anchor" href="#_class_definitions_2"></a>4.2. Class Definitions</h3>
 <div class="sect3">
-<h4 id="_i_definitions_adl2_interface"><a class="anchor" href="#_i_definitions_adl2_interface"></a>4.2.1. I_DEFINITIONS_ADL2 Interface</h4>
+<h4 id="_i_definitions_aom2_interface"><a class="anchor" href="#_i_definitions_aom2_interface"></a>4.2.1. I_DEFINITIONS_AOM2 Interface</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 16.6666%;">
@@ -608,7 +640,7 @@
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Interface</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>I_DEFINITIONS_ADL2</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>I_DEFINITIONS_AOM2</strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
@@ -623,23 +655,31 @@
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>upload_artefact</strong> (arch: <code>AUTHORED_ARCHETYPE</code>)</p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_artefact</strong> (an_id: <code>ARCHETYPE_HRID</code>): <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Return True if AOM2 artefact with id an_id exists in the service.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_artefact</strong> (id: <code>ARCHETYPE_HRID</code>): <code>AUTHORED_ARCHETYPE</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>upload_artefact</strong> (arch: <code>AUTHORED_ARCHETYPE</code>)</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Upload an ADL2 artefact, i.e. archetype, template or operational_template. If an artefact with the same physical identifier and namespace exists, replcace it.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_artefact</strong> (an_id: <code>ARCHETYPE_HRID</code>): <code>AUTHORED_ARCHETYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Get the AOM2 artefeact with id an_id.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_artefacts</strong>: <code>List&lt;ARCHETYPE_HRID&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_artefact</strong> (id: <code>ARCHETYPE_HRID</code>): <code>Boolean</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>List all AOM2 artefacts known in the service.</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -670,43 +710,59 @@
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>upload_archetype</strong> (arch: <code>ARCHETYPE</code>)</p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_archetype</strong> (an_id: <code>ARCHETYPE_ID</code>): <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Return True if an ADL 1.4 archetype with id an_id exists in the service.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_archetype</strong> (id: <code>ARCHETYPE_ID</code>): <code>ARCHETYPE</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>upload_archetype</strong> (arch: <code>ARCHETYPE</code>)</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Upload an ADL 1.4 archetype. If an archetype with the same id already exists, replace it.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_archetype</strong> (an_id: <code>ARCHETYPE_ID</code>): <code>ARCHETYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Get the ADL 1.4 archetype with id an_id.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_archetypes</strong>: <code>List&lt;ARCHETYPE_ID&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>List all ADL 1.4 archetypes known in the service.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_archetype</strong> (id: <code>ARCHETYPE_ID</code>): <code>Boolean</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_opt</strong> (an_id: <code>UUID</code>): <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Return True if ADL 1.4 OPT with id an_id exists in the service.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>upload_opt</strong> (arch: <code>ARCHETYPE</code>)</p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Upload an ADL 1.4 Operational Template (OPT).</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_opt</strong> (id: <code>UUID</code>): <code>ARCHETYPE</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_opt</strong> (an_id: <code>UUID</code>): <code>ARCHETYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Get the ADL 1.4 OPT with id an_id.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_opts</strong>: <code>List&lt;UUID&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_opt</strong> (id: <code>UUID</code>): <code>Boolean</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>List all AD 1.4 OPTs known in the service.</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -726,13 +782,107 @@
 <div class="content">
 <img src="../UML/diagrams/SM-platform.ehr.svg" alt="SM platform.ehr">
 </div>
-<div class="title">Figure 4. <code>sm.platform.ehr</code> package</div>
+<div class="title">Figure 5. <code>sm.platform.ehr</code> package</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_class_definitions_3"><a class="anchor" href="#_class_definitions_3"></a>5.2. Class Definitions</h3>
 <div class="sect3">
-<h4 id="_i_ehr_interface"><a class="anchor" href="#_i_ehr_interface"></a>5.2.1. I_EHR Interface</h4>
+<h4 id="_i_ehr_service_interface"><a class="anchor" href="#_i_ehr_service_interface"></a>5.2.1. I_EHR_SERVICE Interface</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 33.3333%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Interface</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>I_EHR_SERVICE</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>Interface to EHR persistent repository.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_ehr</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>): <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Return True if a EHR with identifier ehr_id exists.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_ehr_for_subject</strong> (auth_tok: <code>String</code>, a_subject_id: <code>String</code>): <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Returns True if there are EHR(s) for a_subject_id.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_ehr</strong> (auth_tok: <code>String</code>): <code>UUID</code><br>
+<strong><em>Post_has_ehr</em></strong>: has_ehr (auth_tok, Result)</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Create a new EHR and return its EHR id.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_ehr_with_id</strong> (auth_tok: <code>String</code>, an_ehr_id: <code>UUID</code>): <code>UUID</code><br>
+<strong><em>Pre_no_duplicate</em></strong>: not has_ehr (auth_tok, an_ehr_id)</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Create a new EHR with a provided EHR id; return the id as a safety check.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_ehr_with_subject</strong> (auth_tok: <code>String</code>, a_subject_id: <code>String</code>): <code>UUID</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Create a new EHR using a provided subject_id, and return its EHR id.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_ehr_with_id_and_subject</strong> (auth_tok: <code>String</code>, an_ehr_id: <code>UUID</code>, a_subject_id: <code>String</code>): <code>UUID</code><br>
+<strong><em>Pre_no_duplicate</em></strong>: not has_ehr (auth_tok, an_ehr_id)</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Create a new EHR with EHR id and provided subject id. Return the EHR id as a safety check.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_ehr</strong> (auth_tok: <code>String</code>, an_ehr_id: <code>UUID</code>): <code>EHR_SUMMARY</code><br>
+<strong><em>Pre_has_ehr</em></strong>: has_ehr (auth_tok, an_ehr_id)</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Retrieve a summarised form of the EHR root object and EHR_STATUS.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_ehrs_by_subject_id</strong> (auth_tok: <code>String</code>, a_subject_id: <code>String</code>): <code>List&lt;EHR_SUMMARY&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Retrieve EHR or EHRs that have ehr_status.subject_id = supplied subject id.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>i_ehr</strong>: <code>I_EHR</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Create an I_EHR interface instance for access to the parts of an EHR.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_i_ehr_interface"><a class="anchor" href="#_i_ehr_interface"></a>5.2.2. I_EHR Interface</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 16.6666%;">
@@ -751,57 +901,43 @@
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_ehr</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>): <code>Boolean</code></p></td>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ehr_status</strong>: <code>I_EHR_STATUS</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Return True if a EHR with identifier ehr_id exists.</p>
+<p>Access to I_EHR_STATUS interface.</p>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_ehr</strong> (auth_tok: <code>String</code>): <code>UUID</code></p></td>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>directory</strong>: <code>I_EHR_DIRECTORY</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Create a new EHR and return its EHR id.</p>
+<p>Access to I_EHR_DIRECTORY interface.</p>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_ehr_with_subject</strong> (auth_tok: <code>String</code>, a_subject_id: <code>String</code>): <code>UUID</code></p></td>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>compositions</strong>: <code>I_EHR_COMPOSITION</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Create a new EHR using a provided subject_id, and return its EHR id.</p>
+<p>Access to I_EHR_COMPOSITION interface.</p>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_ehr_with_id</strong> (auth_tok: <code>String</code>, an_ehr_id: <code>UUID</code>): <code>UUID</code></p></td>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>contributions</strong>: <code>I_EHR_CONTRIBUTION</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Create a new EHR with a provided EHR id; return the id as a safety check.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_ehr_with_id_and_subject</strong> (auth_tok: <code>String</code>, an_ehr_id: <code>UUID</code>, a_subject_id: <code>String</code>): <code>UUID</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Create a new EHR with EHR id and provided subject id. Return the EHR id as a safety check.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_ehr</strong> (auth_tok: <code>String</code>, an_ehr_id: <code>UUID</code>): <code>EHR_SUMMARY</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Retrieve a summarised form of the EHR root object and EHR_STATUS.</p>
+<p>Access to I_EHR_CONTRIBUTION interface.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_i_ehr_status_interface"><a class="anchor" href="#_i_ehr_status_interface"></a>5.2.2. I_EHR_STATUS Interface</h4>
+<h4 id="_i_ehr_status_interface"><a class="anchor" href="#_i_ehr_status_interface"></a>5.2.3. I_EHR_STATUS Interface</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 16.6666%;">
@@ -826,49 +962,56 @@
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_ehr_status</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>): <code>EHR_STATUS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_ehr_status</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>): <code>EHR_STATUS</code><br>
+<strong><em>Pre_has_ehr</em></strong>: has_ehr (auth_tok, an_ehr_id)</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Get the current version of the EHR_STATUS object for an EHR.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>set_ehr_queryable</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>set_ehr_queryable</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>)<br>
+<strong><em>Pre_has_ehr</em></strong>: has_ehr (auth_tok, an_ehr_id)</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Set the EHR is_queryable flag to true; this ensures it is included by the query engine.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>set_ehr_modifiable</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>set_ehr_modifiable</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>)<br>
+<strong><em>Pre_has_ehr</em></strong>: has_ehr (auth_tok, an_ehr_id)</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Set the EHR is_modifable flag to true; this ensures it is treated as active and updatable.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>clear_ehr_queryable</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>clear_ehr_queryable</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>)<br>
+<strong><em>Pre_has_ehr</em></strong>: has_ehr (auth_tok, an_ehr_id)</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Clear the EHR is_queryable flag; this ensures it is ignored by the query engine.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>clear_ehr_modifiable</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>clear_ehr_modifiable</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>)<br>
+<strong><em>Pre_has_ehr</em></strong>: has_ehr (auth_tok, an_ehr_id)</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Clear the EHR is_modifiable flag; this ensures it is treated as active.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>update_other_details</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>, a_details: <code>ITEM_TREE</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>update_other_details</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>, a_details: <code>ITEM_TREE</code>)<br>
+<strong><em>Pre_has_ehr</em></strong>: has_ehr (auth_tok, an_ehr_id)</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Update other_details part of EHR_STATUS with new content.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_versioned_ehr_status</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>): <code>VERSIONED_EHR_STATUS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_versioned_ehr_status</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>): <code>VERSIONED_EHR_STATUS</code><br>
+<strong><em>Pre_has_ehr</em></strong>: has_ehr (auth_tok, an_ehr_id)</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Get the VERSIONED_EHR_STATUS object from the EHR with id ehr_id.</p>
 </div></div></td>
@@ -877,7 +1020,7 @@
 </table>
 </div>
 <div class="sect3">
-<h4 id="_i_ehr_directory_interface"><a class="anchor" href="#_i_ehr_directory_interface"></a>5.2.3. I_EHR_DIRECTORY Interface</h4>
+<h4 id="_i_ehr_directory_interface"><a class="anchor" href="#_i_ehr_directory_interface"></a>5.2.4. I_EHR_DIRECTORY Interface</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 16.6666%;">
@@ -902,42 +1045,48 @@
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_path</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>, a_path: <code>String</code>): <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_path</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>, a_path: <code>String</code>): <code>Boolean</code><br>
+<strong><em>Pre_has_ehr</em></strong>: has_ehr (auth_tok, an_ehr_id)</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>True if path a_path exists in directory. The a_path argument consists of slash-separated values of the name attribute of Folders in the directory.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>update_directory</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>, a_dir_struct: <code>VU_FOLDER</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>update_directory</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>, a_dir_struct: <code>VU_FOLDER</code>)<br>
+<strong><em>Pre_has_ehr</em></strong>: has_ehr (auth_tok, an_ehr_id)</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Create or update a directory from a complete structure. Preceding version must be supplied and correct if EHR directory already exists.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_directory</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_directory</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>)<br>
+<strong><em>Pre_has_ehr</em></strong>: has_ehr (auth_tok, an_ehr_id)</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Logically delete the directory by creating a new version in which the contents are removed.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_directory</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>): <code>FOLDER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_directory</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>): <code>FOLDER</code><br>
+<strong><em>Pre_has_ehr</em></strong>: has_ehr (auth_tok, an_ehr_id)</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Get directory structure of EHR, if it exists, else Void.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_directory_at_time</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>, a_time: <code>Iso8601_date_time</code>): <code>FOLDER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_directory_at_time</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>, a_time: <code>Iso8601_date_time</code>): <code>FOLDER</code><br>
+<strong><em>Pre_has_ehr</em></strong>: has_ehr (auth_tok, an_ehr_id)</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Get the version of the directory extant at time a_time.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_versioned_directory</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>): <code>VERSIONED_FOLDER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_versioned_directory</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>): <code>VERSIONED_FOLDER</code><br>
+<strong><em>Pre_has_ehr</em></strong>: has_ehr (auth_tok, an_ehr_id)</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Get the VERSIONED_FOLDER directory object for the EHR with ehr_id.</p>
 </div></div></td>
@@ -946,7 +1095,7 @@
 </table>
 </div>
 <div class="sect3">
-<h4 id="_i_ehr_composition_interface"><a class="anchor" href="#_i_ehr_composition_interface"></a>5.2.4. I_EHR_COMPOSITION Interface</h4>
+<h4 id="_i_ehr_composition_interface"><a class="anchor" href="#_i_ehr_composition_interface"></a>5.2.5. I_EHR_COMPOSITION Interface</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 16.6666%;">
@@ -971,49 +1120,57 @@
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_composition</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>, a_comp_id: <code>UUID</code>): <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_composition</strong> (auth_tok: <code>String</code>, an_ehr_id: <code>UUID</code>, a_comp_id: <code>UUID</code>): <code>Boolean</code><br>
+<strong><em>Pre_has_ehr</em></strong>: has_ehr (auth_tok, an_ehr_id)</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Return True if a Composition with identifier a_comp_id exists.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_composition</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>, a_comp: <code>VU_COMPOSITION</code>): <code>UUID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_composition</strong> (auth_tok: <code>String</code>, an_ehr_id: <code>UUID</code>, a_comp: <code>VU_COMPOSITION</code>): <code>UUID</code><br>
+<strong><em>Pre_has_ehr</em></strong>: has_ehr (auth_tok, an_ehr_id)<br>
+<strong><em>Post_has_composition</em></strong>: has_composition (auth_tok, Result)</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Create the first version of a new Composition.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>update_composition</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>, a_comp: <code>VU_COMPOSITION</code>): <code>UUID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>update_composition</strong> (auth_tok: <code>String</code>, an_ehr_id: <code>UUID</code>, a_comp: <code>VU_COMPOSITION</code>): <code>UUID</code><br>
+<strong><em>Pre_has_ehr</em></strong>: has_ehr (auth_tok, an_ehr_id)</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Update an existing Composition with a new version.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_composition</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>, a_comp_ver_uid: <code>UUID</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_composition</strong> (auth_tok: <code>String</code>, an_ehr_id: <code>UUID</code>, a_comp_ver_uid: <code>UUID</code>)<br>
+<strong><em>Pre_has_ehr</em></strong>: has_ehr (auth_tok, an_ehr_id)</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Logically delete a Composition by creating a new version in which the content is removed and the lifecycle state is set to 523&#124;deleted&#124;. The comp_id argument identifies the current top Composition Version.</p>
+<p>Logically delete a Composition by creating a new version in which the content is removed and the lifecycle state is set to 523&#124;deleted&#124;. The a_comp_id argument identifies the current top Composition Version.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_composition</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>, a_comp_ver_uid: <code>UUID</code>): <code>COMPOSITION</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_composition</strong> (auth_tok: <code>String</code>, an_ehr_id: <code>UUID</code>, a_comp_ver_uid: <code>UUID</code>): <code>COMPOSITION</code><br>
+<strong><em>Pre_has_ehr</em></strong>: has_ehr (auth_tok, an_ehr_id)</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Retrieve a Composition by the uid of its version.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_composition_at_time</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>, a_ver_comp_uid: <code>UUID</code>, a_time: <code>Iso8601_date_time</code>): <code>COMPOSITION</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_composition_at_time</strong> (auth_tok: <code>String</code>, an_ehr_id: <code>UUID</code>, a_ver_comp_uid: <code>UUID</code>, a_time: <code>Iso8601_date_time</code>): <code>COMPOSITION</code><br>
+<strong><em>Pre_has_ehr</em></strong>: has_ehr (auth_tok, an_ehr_id)</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Retrieve the Composition version from a Versioned Composition that was the top version at time a_time.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_versioned_composition</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>, a_ver_comp_uid: <code>UUID</code>): <code>VERSIONED_COMPOSITION</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_versioned_composition</strong> (auth_tok: <code>String</code>, an_ehr_id: <code>UUID</code>, a_ver_comp_uid: <code>UUID</code>): <code>VERSIONED_COMPOSITION</code><br>
+<strong><em>Pre_has_ehr</em></strong>: has_ehr (auth_tok, an_ehr_id)</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Retrieve the VERSIONED_OBJECT of a Composition by uid.</p>
 </div></div></td>
@@ -1022,7 +1179,7 @@
 </table>
 </div>
 <div class="sect3">
-<h4 id="_i_ehr_contribution_interface"><a class="anchor" href="#_i_ehr_contribution_interface"></a>5.2.5. I_EHR_CONTRIBUTION Interface</h4>
+<h4 id="_i_ehr_contribution_interface"><a class="anchor" href="#_i_ehr_contribution_interface"></a>5.2.6. I_EHR_CONTRIBUTION Interface</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 16.6666%;">
@@ -1047,26 +1204,35 @@
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_contribution</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>, contrib_id: <code>UUID</code>)</p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_contribution</strong> (auth_tok: <code>String</code>, an_ehr_id: <code>UUID</code>, a_contrib_id: <code>UUID</code>)<br>
+<strong><em>Pre_has_ehr</em></strong>: has_ehr (auth_tok, an_ehr_id)</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Return True if the Contribution with a_contrib_id in EHR with id an_ehr_id exists.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>commit_contribution</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>, versions: <code>List&lt;VERSION_UPDATE&gt;</code>, audit: <code>CHANGE_AUDIT</code>): <code>UUID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>commit_contribution</strong> (auth_tok: <code>String</code>, an_ehr_id: <code>UUID</code>, versions: <code>List&lt;UPDATE_VERSION&gt;</code>, an_audit: <code>UPDATEE_AUDIT</code>): <code>UUID</code><br>
+<strong><em>Pre_has_ehr</em></strong>: has_ehr (auth_tok, an_ehr_id)<br>
+<strong><em>Post_has_contribution</em></strong>: has_contribution (auth_tok, a_contrib_id)</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Commit a Contribution containing any number of VERSION_UPDATE objects.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_contribution</strong> (auth_tok: <code>String</code>, ehr_id: <code>UUID</code>, contrib_id: <code>UUID</code>): <code>CONTRIBUTION</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_contribution</strong> (auth_tok: <code>String</code>, an_ehr_id: <code>UUID</code>, a_contrib_id: <code>UUID</code>): <code>CONTRIBUTION</code><br>
+<strong><em>Pre_has_ehr</em></strong>: has_ehr (auth_tok, an_ehr_id)<br>
+<strong><em>Pre_has_contribution</em></strong>: has_contribution (auth_tok, a_contrib_id)</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Return the Contribution with id a_contrib_id in EHR with id an_ehr_id.</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_ehr_summary_class"><a class="anchor" href="#_ehr_summary_class"></a>5.2.6. EHR_SUMMARY Class</h4>
+<h4 id="_ehr_summary_class"><a class="anchor" href="#_ehr_summary_class"></a>5.2.7. EHR_SUMMARY Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 16.6666%;">
@@ -1088,6 +1254,13 @@
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ehr_id</strong>: <code>UUID</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>EHR identifier of this EHR.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
@@ -1128,7 +1301,7 @@
 </table>
 </div>
 <div class="sect3">
-<h4 id="_ehr_call_statuses_enumeration"><a class="anchor" href="#_ehr_call_statuses_enumeration"></a>5.2.7. EHR_CALL_STATUSES Enumeration</h4>
+<h4 id="_ehr_call_statuses_enumeration"><a class="anchor" href="#_ehr_call_statuses_enumeration"></a>5.2.8. EHR_CALL_STATUSES Enumeration</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 16.6666%;">

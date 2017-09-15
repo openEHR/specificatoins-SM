@@ -1,0 +1,11 @@
+=== I_ADMIN Interface
+
+[cols="^1,2,3"]
+|===
+h|*Interface*
+2+^h|*I_ADMIN*
+
+h|*Description*
+2+a|
+
+|===

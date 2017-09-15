@@ -1,0 +1,30 @@
+=== I_DEFINITIONS_AOM2 Interface
+
+[cols="^1,2,3"]
+|===
+h|*Interface*
+2+^h|*I_DEFINITIONS_AOM2*
+
+h|*Description*
+2+a|Interface to ADL2 definitions (i.e. models) in an EHR 'system'.
+
+h|*Functions*
+^h|*Signature*
+^h|*Meaning*
+
+h|
+|*has_artefact* (an_id: `ARCHETYPE_HRID`): `Boolean`
+a|Return True if AOM2 artefact with id an_id exists in the service.
+
+h|
+|*upload_artefact* (arch: `AUTHORED_ARCHETYPE`)
+a|Upload an ADL2 artefact, i.e. archetype, template or operational_template. If an artefact with the same physical identifier and namespace exists, replcace it.
+
+h|
+|*get_artefact* (an_id: `ARCHETYPE_HRID`): `AUTHORED_ARCHETYPE`
+a|Get the AOM2 artefeact with id an_id.
+
+h|
+|*list_artefacts*: `List<ARCHETYPE_HRID>`
+a|List all AOM2 artefacts known in the service.
+|===

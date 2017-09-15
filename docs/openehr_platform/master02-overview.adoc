@@ -1,6 +1,18 @@
 = Overview
 
-The openEHR Platform Service Model is an abstract formal specifications of logical components of the openEHR Platform, i.e. EHR system environment.
+== openEHR Platform Model
+
+In order to specify service interfaces to the openEHR platform, the latter has to be defined in the abstract, so as to state the scope and purpose of services. The following figure illustrates the assumed components of a notional openEHR Platform.
+
+[.text-center]
+.SM Platform Model
+image::{uml_export_dir}/diagrams/SM-platform_model.svg[id=platform_model, align="center"]
+
+Each component has one or more associated Interfaces, i.e. abstract service definitions which provide a transactional interface to the service provided by the component.
+
+== Platform Service Interface
+
+The openEHR Platform Service Model is an abstract formal specifications of interfaces to the logical components of the openEHR Platform shown above.
 
 The package structure is illustrated below.
 

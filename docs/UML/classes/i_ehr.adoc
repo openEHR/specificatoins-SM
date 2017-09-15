@@ -8,31 +8,23 @@ h|*Interface*
 h|*Description*
 2+a|Interface for single patient EHR-level operations.
 
-h|*Functions*
+h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|
-|*has_ehr* (auth_tok: `String`, ehr_id: `UUID`): `Boolean`
-a|Return True if a EHR with identifier ehr_id exists.
+h|*1..1*
+|*ehr_status*: `I_EHR_STATUS`
+a|Access to I_EHR_STATUS interface.
 
-h|
-|*create_ehr* (auth_tok: `String`): `UUID`
-a|Create a new EHR and return its EHR id.
+h|*1..1*
+|*directory*: `I_EHR_DIRECTORY`
+a|Access to I_EHR_DIRECTORY interface.
 
-h|
-|*create_ehr_with_subject* (auth_tok: `String`, a_subject_id: `String`): `UUID`
-a|Create a new EHR using a provided subject_id, and return its EHR id.
+h|*1..1*
+|*compositions*: `I_EHR_COMPOSITION`
+a|Access to I_EHR_COMPOSITION interface.
 
-h|
-|*create_ehr_with_id* (auth_tok: `String`, an_ehr_id: `UUID`): `UUID`
-a|Create a new EHR with a provided EHR id; return the id as a safety check.
-
-h|
-|*create_ehr_with_id_and_subject* (auth_tok: `String`, an_ehr_id: `UUID`, a_subject_id: `String`): `UUID`
-a|Create a new EHR with EHR id and provided subject id. Return the EHR id as a safety check.
-
-h|
-|*get_ehr* (auth_tok: `String`, an_ehr_id: `UUID`): `EHR_SUMMARY`
-a|Retrieve a summarised form of the EHR root object and EHR_STATUS.
+h|*1..1*
+|*contributions*: `I_EHR_CONTRIBUTION`
+a|Access to I_EHR_CONTRIBUTION interface.
 |===

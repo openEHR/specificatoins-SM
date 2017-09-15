@@ -1,9 +1,9 @@
-=== VERSION_UPDATE Class
+=== UPDATE_VERSION Class
 
 [cols="^1,2,3"]
 |===
 h|*Class*
-2+^h|*VERSION_UPDATE*
+2+^h|*UPDATE_VERSION*
 
 h|*Description*
 2+a|An object representing an update to an existing VERSION, that can be provided by a client to the platform. The back-end will construct a full VERSION object from this and server-side generated data items.
@@ -26,9 +26,9 @@ a|Set of attestations relating to this version.
 
 h|*1..1*
 |*data*: `T`
-a|
+a|Data item being provided in this Version update. Must conform in type to the expected type, which is normally constrained using a derivative class like VU_XX that binds T to a particular type such as COMPOSITION etc.
 
 h|*1..1*
-|*audit*: `CHANGE_AUDIT`
-a|
+|*audit*: `UPDATEE_AUDIT`
+a|Audit details for this update.
 |===

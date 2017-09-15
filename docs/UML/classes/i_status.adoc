@@ -14,5 +14,5 @@ h|*Functions*
 
 h|
 |*last_call_error*: `Boolean`
-a|
+a|Return True if the last call generated an error, i.e. any result other than CALL_STATUSES.success.
 |===

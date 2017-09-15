@@ -13,14 +13,19 @@ h|*Functions*
 ^h|*Meaning*
 
 h|
-|*has_contribution* (auth_tok: `String`, ehr_id: `UUID`, contrib_id: `UUID`)
-a|
+|*has_contribution* (auth_tok: `String`, an_ehr_id: `UUID`, a_contrib_id: `UUID`) +
+*_Pre_has_ehr_*: has_ehr (auth_tok, an_ehr_id)
+a|Return True if the Contribution with a_contrib_id in EHR with id an_ehr_id exists.
 
 h|
-|*commit_contribution* (auth_tok: `String`, ehr_id: `UUID`, versions: `List<VERSION_UPDATE>`, audit: `CHANGE_AUDIT`): `UUID`
+|*commit_contribution* (auth_tok: `String`, an_ehr_id: `UUID`, versions: `List<UPDATE_VERSION>`, an_audit: `UPDATEE_AUDIT`): `UUID` +
+*_Pre_has_ehr_*: has_ehr (auth_tok, an_ehr_id) +
+*_Post_has_contribution_*: has_contribution (auth_tok, a_contrib_id)
 a|Commit a Contribution containing any number of VERSION_UPDATE objects.
 
 h|
-|*get_contribution* (auth_tok: `String`, ehr_id: `UUID`, contrib_id: `UUID`): `CONTRIBUTION`
-a|
+|*get_contribution* (auth_tok: `String`, an_ehr_id: `UUID`, a_contrib_id: `UUID`): `CONTRIBUTION` +
+*_Pre_has_ehr_*: has_ehr (auth_tok, an_ehr_id) +
+*_Pre_has_contribution_*: has_contribution (auth_tok, a_contrib_id)
+a|Return the Contribution with id a_contrib_id in EHR with id an_ehr_id.
 |===

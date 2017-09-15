@@ -13,34 +13,34 @@ h|*Functions*
 ^h|*Meaning*
 
 h|
-|*upload_archetype* (arch: `ARCHETYPE`)
-a|
+|*has_archetype* (an_id: `ARCHETYPE_ID`): `Boolean`
+a|Return True if an ADL 1.4 archetype with id an_id exists in the service.
 
 h|
-|*get_archetype* (id: `ARCHETYPE_ID`): `ARCHETYPE`
-a|
+|*upload_archetype* (arch: `ARCHETYPE`)
+a|Upload an ADL 1.4 archetype. If an archetype with the same id already exists, replace it.
+
+h|
+|*get_archetype* (an_id: `ARCHETYPE_ID`): `ARCHETYPE`
+a|Get the ADL 1.4 archetype with id an_id.
 
 h|
 |*list_archetypes*: `List<ARCHETYPE_ID>`
-a|
+a|List all ADL 1.4 archetypes known in the service.
 
 h|
-|*has_archetype* (id: `ARCHETYPE_ID`): `Boolean`
-a|
+|*has_opt* (an_id: `UUID`): `Boolean`
+a|Return True if ADL 1.4 OPT with id an_id exists in the service.
 
 h|
 |*upload_opt* (arch: `ARCHETYPE`)
-a|
+a|Upload an ADL 1.4 Operational Template (OPT).
 
 h|
-|*get_opt* (id: `UUID`): `ARCHETYPE`
-a|
+|*get_opt* (an_id: `UUID`): `ARCHETYPE`
+a|Get the ADL 1.4 OPT with id an_id.
 
 h|
 |*list_opts*: `List<UUID>`
-a|
-
-h|
-|*has_opt* (id: `UUID`): `Boolean`
-a|
+a|List all AD 1.4 OPTs known in the service.
 |===

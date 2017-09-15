@@ -13,6 +13,10 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
+|*ehr_id*: `UUID`
+a|EHR identifier of this EHR.
+
+h|*1..1*
 |*system_id*: `String`
 a|Copy of EHR.system_id.
 

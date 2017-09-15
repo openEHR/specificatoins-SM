@@ -1,9 +1,9 @@
-=== CHANGE_AUDIT Class
+=== UPDATE_AUDIT Class
 
 [cols="^1,2,3"]
 |===
 h|*Class*
-2+^h|*CHANGE_AUDIT*
+2+^h|*UPDATEE_AUDIT*
 
 h|*Description*
 2+a|The set of attributes required to document the committal of an information item to a repository. Used by the server to create an AUDIT_DETAILS object.

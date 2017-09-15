@@ -10,7 +10,7 @@ image::{uml_export_dir}/diagrams/SM-platform.definition.svg[id=sm_platform_defin
 
 == Class Definitions
 
-include::{uml_export_dir}/classes/i_definitions_adl2.adoc[]
+include::{uml_export_dir}/classes/i_definitions_aom2.adoc[]
 
 include::{uml_export_dir}/classes/i_definitions_adl14.adoc[]
 

@@ -1,0 +1,11 @@
+=== I_QUERY_SERVICE Interface
+
+[cols="^1,2,3"]
+|===
+h|*Interface*
+2+^h|*I_QUERY_SERVICE*
+
+h|*Description*
+2+a|
+
+|===
