@@ -1,6 +1,6 @@
 === I_EHR_DIRECTORY Interface
 
-[cols="^1,2,3"]
+[cols="^1,3,5"]
 |===
 h|*Interface*
 2+^h|*I_EHR_DIRECTORY*
@@ -13,32 +13,79 @@ h|*Functions*
 ^h|*Meaning*
 
 h|
-|*has_path* (auth_tok: `String`, ehr_id: `UUID`, a_path: `String`): `Boolean` +
-*_Pre_has_ehr_*: has_ehr (auth_tok, an_ehr_id)
-a|True if path a_path exists in directory. The a_path argument consists of slash-separated values of the name attribute of Folders in the directory.
+|*has_path* ( +
+auth_tok: `String[1]`, +
+ehr_id: `UUID[1]`, +
+a_path: `String[1]` +
+): `Boolean` +
+*_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
+a|True if path `_a_path_` exists in directory. The `_a_path_` argument consists of slash-separated values of the name attribute of Folders in the directory.
+
+.Errors
+* ehr_does_not_exist
 
 h|
-|*update_directory* (auth_tok: `String`, ehr_id: `UUID`, a_dir_struct: `VU_FOLDER`) +
-*_Pre_has_ehr_*: has_ehr (auth_tok, an_ehr_id)
+|*update_directory* ( +
+auth_tok: `String[1]`, +
+ehr_id: `UUID[1]`, +
+a_dir_struct: `UV_FOLDER[1]` +
+) +
+*_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
 a|Create or update a directory from a complete structure. Preceding version must be supplied and correct if EHR directory already exists.
 
+.Errors
+* ehr_does_not_exist
+
+.Parameters +
+[horizontal]
+`_a_dir_struct_`:: Directory structure with which to replace current structure.
+
 h|
-|*delete_directory* (auth_tok: `String`, ehr_id: `UUID`) +
-*_Pre_has_ehr_*: has_ehr (auth_tok, an_ehr_id)
+|*delete_directory* ( +
+auth_tok: `String[1]`, +
+ehr_id: `UUID[1]` +
+) +
+*_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
 a|Logically delete the directory by creating a new version in which the contents are removed.
 
+.Errors
+* ehr_does_not_exist
+
 h|
-|*get_directory* (auth_tok: `String`, ehr_id: `UUID`): `FOLDER` +
-*_Pre_has_ehr_*: has_ehr (auth_tok, an_ehr_id)
+|*get_directory* ( +
+auth_tok: `String[1]`, +
+ehr_id: `UUID[1]` +
+): `FOLDER` +
+*_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
 a|Get directory structure of EHR, if it exists, else Void.
 
-h|
-|*get_directory_at_time* (auth_tok: `String`, ehr_id: `UUID`, a_time: `Iso8601_date_time`): `FOLDER` +
-*_Pre_has_ehr_*: has_ehr (auth_tok, an_ehr_id)
-a|Get the version of the directory extant at time a_time.
+.Errors
+* ehr_does_not_exist
 
 h|
-|*get_versioned_directory* (auth_tok: `String`, ehr_id: `UUID`): `VERSIONED_FOLDER` +
-*_Pre_has_ehr_*: has_ehr (auth_tok, an_ehr_id)
-a|Get the VERSIONED_FOLDER directory object for the EHR with ehr_id.
+|*get_directory_at_time* ( +
+auth_tok: `String[1]`, +
+ehr_id: `UUID[1]`, +
+a_time: `Iso8601_date_time[1]` +
+): `FOLDER` +
+*_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
+a|Get the version of the Directory extant at time `_a_time_`.
+
+.Errors
+* ehr_does_not_exist
+
+.Parameters +
+[horizontal]
+`_a_time_`:: Time specifying the extant top version of the Directory.
+
+h|
+|*get_versioned_directory* ( +
+auth_tok: `String[1]`, +
+ehr_id: `UUID[1]` +
+): `VERSIONED_FOLDER` +
+*_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
+a|Get the `VERSIONED_FOLDER` Directory object for the EHR with ehr_id.
+
+.Errors
+* ehr_does_not_exist
 |===

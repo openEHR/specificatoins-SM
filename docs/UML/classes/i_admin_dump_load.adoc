@@ -1,0 +1,31 @@
+=== I_ADMIN_DUMP_LOAD Interface
+
+[cols="^1,3,5"]
+|===
+h|*Interface*
+2+^h|*I_ADMIN_DUMP_LOAD*
+
+h|*Description*
+2+a|Interface to dump/load facilities.
+
+h|*Functions*
+^h|*Signature*
+^h|*Meaning*
+
+h|
+|*export_ehrs* ( +
+auth_tok: `String[1]`, +
+file_sys_loc: `String[1]`, +
+logical_fmt: `EXPORT_FORMAT[0..1]`, +
+comp_fmt: `COMPRESSION_FORMAT[0..1]`, +
+enc_format[0..1] +
+)
+a|Export all EHRs to a file-system location in a specified format.
+
+h|
+|*load_ehrs* ( +
+auth_tok: `String[1]`, +
+file_sys_loc: `String[1]` +
+)
+a|Populate EHR repository from export archive on file system. Repository need not be empty, but import EHRs with duplicate EHR ids will fail.
+|===

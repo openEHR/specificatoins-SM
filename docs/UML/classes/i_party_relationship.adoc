@@ -1,0 +1,11 @@
+=== I_PARTY_RELATIONSHIP Interface
+
+[cols="^1,3,5"]
+|===
+h|*Interface*
+2+^h|*I_PARTY_RELATIONSHIP*
+
+h|*Description*
+2+a|Interface for PARTY_RELATIONSHIP operations.
+
+|===

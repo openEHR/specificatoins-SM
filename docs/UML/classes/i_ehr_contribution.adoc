@@ -1,6 +1,6 @@
 === I_EHR_CONTRIBUTION Interface
 
-[cols="^1,2,3"]
+[cols="^1,3,5"]
 |===
 h|*Interface*
 2+^h|*I_EHR_CONTRIBUTION*
@@ -13,19 +13,44 @@ h|*Functions*
 ^h|*Meaning*
 
 h|
-|*has_contribution* (auth_tok: `String`, an_ehr_id: `UUID`, a_contrib_id: `UUID`) +
-*_Pre_has_ehr_*: has_ehr (auth_tok, an_ehr_id)
-a|Return True if the Contribution with a_contrib_id in EHR with id an_ehr_id exists.
+|*has_contribution* ( +
+auth_tok: `String[1]`, +
+an_ehr_id: `UUID[1]`, +
+a_contrib_id: `UUID[1]` +
+) +
+*_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
+a|Return True if the Contribution with `_a_contrib_id_` in EHR with id `_an_ehr_id_` exists.
+
+.Errors
+* auth_failure
+* ehr_does_not_exist
 
 h|
-|*commit_contribution* (auth_tok: `String`, an_ehr_id: `UUID`, versions: `List<UPDATE_VERSION>`, an_audit: `UPDATEE_AUDIT`): `UUID` +
-*_Pre_has_ehr_*: has_ehr (auth_tok, an_ehr_id) +
-*_Post_has_contribution_*: has_contribution (auth_tok, a_contrib_id)
-a|Commit a Contribution containing any number of VERSION_UPDATE objects.
+|*commit_contribution* ( +
+auth_tok: `String[1]`, +
+an_ehr_id: `UUID[1]`, +
+versions: `List<UPDATE_VERSION>[1]`, +
+an_audit: `UPDATE_AUDIT[1]` +
+): `UUID` +
+*_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)` +
+*_Post_has_contribution_*: `has_contribution (auth_tok, a_contrib_id)`
+a|Commit a Contribution containing any number of `VERSION_UPDATE` objects.
+
+.Errors
+* auth_failure
+* ehr_does_not_exist
 
 h|
-|*get_contribution* (auth_tok: `String`, an_ehr_id: `UUID`, a_contrib_id: `UUID`): `CONTRIBUTION` +
-*_Pre_has_ehr_*: has_ehr (auth_tok, an_ehr_id) +
-*_Pre_has_contribution_*: has_contribution (auth_tok, a_contrib_id)
-a|Return the Contribution with id a_contrib_id in EHR with id an_ehr_id.
+|*get_contribution* ( +
+auth_tok: `String[1]`, +
+an_ehr_id: `UUID[1]`, +
+a_contrib_id: `UUID[1]` +
+): `CONTRIBUTION` +
+*_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)` +
+*_Pre_has_contribution_*: `has_contribution (auth_tok, a_contrib_id)`
+a|Return the Contribution with id `_a_contrib_id_` in EHR with id `_an_ehr_id_`.
+
+.Errors
+* auth_failure
+* ehr_does_not_exist
 |===

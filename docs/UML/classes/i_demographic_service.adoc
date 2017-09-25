@@ -1,11 +1,11 @@
 === I_DEMOGRAPHIC_SERVICE Interface
 
-[cols="^1,2,3"]
+[cols="^1,3,5"]
 |===
 h|*Interface*
 2+^h|*I_DEMOGRAPHIC_SERVICE*
 
 h|*Description*
-2+a|
+2+a|Primary interface to DEMOGRAPHIC_SERVICE
 
 |===

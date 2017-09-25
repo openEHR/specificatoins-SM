@@ -19,5 +19,3 @@ include::{uml_export_dir}/classes/call_statuses.adoc[]
 include::{uml_export_dir}/classes/update_version.adoc[]
 
 include::{uml_export_dir}/classes/update_audit.adoc[]
-
-include::{uml_export_dir}/classes/call_statuses.adoc[]

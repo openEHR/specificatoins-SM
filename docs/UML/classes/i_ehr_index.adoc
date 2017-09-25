@@ -1,0 +1,11 @@
+=== I_EHR_INDEX Interface
+
+[cols="^1,3,5"]
+|===
+h|*Interface*
+2+^h|*I_EHR_INDEX*
+
+h|*Description*
+2+a|
+
+|===

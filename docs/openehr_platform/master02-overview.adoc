@@ -19,3 +19,79 @@ The package structure is illustrated below.
 [.text-center]
 .SM package overview
 image::{uml_export_dir}/diagrams/SM-platform-packages.svg[id=platform_packages, align="center"]
+
+== Functional Style
+
+Various ways of expressing service interface functions to underlying resources are possible, with choices available in various dimensions:
+
+* stateless / mostly stateless / stateless;
+* use of pre- and post-conditions and exception-handling style;
+* approach to access control and authorisation;
+* single interface / composed interface ;
+* full argument lists / parameter-carrying object arguments / mixture.
+
+The concrete style doesn't matter greatly apart from the choice on statelessness, since the interface structure on the server side handles remote calls via a call manager within an enterprise service bus or other middleware. The original calls may be in the form of REST API calls, WSDL SOAP calls, RPC calls or something else, and there will always be mapping involved (which occasionally may be one-to-one). 
+
+Here we use a _nearly_ stateless approach, where the exception is to use a second call to determine success status and any error information. This can easily be engineered to be fully stateless in a server driven by a managed request queue, as long as the call dispatcher always treats the call-and-check logic as atomic. This approach enables functions to be declared in a standard programming style, with return types reflecting successful execution. The function declarations are accordingly of the following style:
+
+[source,idl]
+----
+// definition
+
+interface I_EHR_SERVICE : I_STATUS {
+    Boolean has_ehr(in UUID auth_tok, in UUID an_ehr_id);
+    UUID create_ehr(in String auth_tok);
+    UUID create_ehr_with_id(in String auth_tok, in UUID an_ehr_id);
+}
+----
+
+Failures are dealt with by calling a standard function `last_call_failed()` and if `True`, calling `last_call_status()` which returns a structured error object. This enables the recording of errors (such as authorisation failure), pre-condition exceptions (generally relating to argument vaidity) and server exceptions (equivalent to post-condition or invariant exceptions). This leads to the following style of code that would be used in an ESB interface call queue manager.
+
+[source,java]
+----
+// middleware managed call
+I_EHR_SERVICE i_ehr_service;
+CALL_STATUS call_status;
+UUID result;
+UUID test_res;
+
+try {
+    test_res = i_ehr_service.create_ehr_with_id(some_auth_tok, some_ehr_id);
+    if (i_ehr_service.last_call_error())
+        call_status = i_ehr_service.last_call_status();
+    else
+        result = test_res;
+    
+}
+catch (PreConditionException e) {
+    // deal with pre-condition violations
+    
+    call_status = new CallStatus(CallStatuses.precondition_violation)
+    // set any other information
+}
+catch (Exception e) {
+    // deal with other exceptions
+    
+    call_status = new CallStatus(CallStatuses.exception)
+    // set any other information
+}
+
+    
+// package up call_status, result in response
+----
+
+Apart from error-handling, the interfaces are stateless in the sense that any single call constitutes a self-standing transaction on the back-end service. Thus, each function call represents a transaction definition that when executed on the service will leave it in a consistent state.
+
+The above illustrates just one pattern of calling in the server. The intent of this specifiation is not to define or even describe server-side implementation in detail, only to show how the interface style used works in the abstract from a client point of view.
+
+== Authentication and Authorisation
+
+Authorisation is handled in all interface calls by the passing of an authorisation token (`_auth_tok_` parameter). This token is assumed to contain whatever level of authentication and authorisation data the service supports, which may include any or all of the following:
+
+* authentication token (e.g. from a personal key);
+* professional role.
+
+[.tbd]
+TBC
+
+It is used on the server to determine right to access the service, and right to access the particular patient, where relevant.

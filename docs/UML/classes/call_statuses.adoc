@@ -1,6 +1,6 @@
 === CALL_STATUSES Enumeration
 
-[cols="^1,2,3"]
+[cols="^1,3,5"]
 |===
 h|*Enumeration*
 2+^h|*CALL_STATUSES*
@@ -18,5 +18,13 @@ a|
 
 h|
 |auth_failure
+a|
+
+h|
+|precondition_violation
+a|
+
+h|
+|exeception
 a|
 |===

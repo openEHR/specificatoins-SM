@@ -1,0 +1,21 @@
+= Admin Package
+
+== Overview
+
+The `sm.platform.admin` package shown below defines service interface to the `ADMIN` component in the logical platform architecture.
+
+[.text-center]
+.`sm.platform.admin` package
+image::{uml_export_dir}/diagrams/SM-platform.admin.svg[id=sm_platform_admin_if, align="center"]
+
+== Class Definitions
+
+include::{uml_export_dir}/classes/i_admin_service.adoc[]
+
+include::{uml_export_dir}/classes/i_admin_archive.adoc[]
+
+include::{uml_export_dir}/classes/i_admin_dump_load.adoc[]
+
+include::{uml_export_dir}/classes/dump_load_fail_report.adoc[]
+
+include::{uml_export_dir}/classes/export_spec.adoc[]

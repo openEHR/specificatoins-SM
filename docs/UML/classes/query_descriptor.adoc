@@ -1,0 +1,26 @@
+=== QUERY_DESCRIPTOR Class
+
+[cols="^1,3,5"]
+|===
+h|*Class*
+2+^h|*QUERY_DESCRIPTOR*
+
+h|*Description*
+2+a|
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*1..1*
+|*query_id*: `UUID`
+a|
+
+h|*0..1*
+|*query_name*: `String`
+a|
+
+h|*1..1*
+|*registration_time*: `Iso8601_date_time`
+a|
+|===

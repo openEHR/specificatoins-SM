@@ -1,49 +1,92 @@
 === I_EHR_STATUS Interface
 
-[cols="^1,2,3"]
+[cols="^1,3,5"]
 |===
 h|*Interface*
 2+^h|*I_EHR_STATUS*
 
 h|*Description*
-2+a|Interface to EHR_STATUS of an EHR, with implicit Contribution creation.
+2+a|Interface to `EHR_STATUS` of an EHR, with implicit Contribution creation.
 
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|
-|*get_ehr_status* (auth_tok: `String`, ehr_id: `UUID`): `EHR_STATUS` +
-*_Pre_has_ehr_*: has_ehr (auth_tok, an_ehr_id)
-a|Get the current version of the EHR_STATUS object for an EHR.
+|*get_ehr_status* ( +
+auth_tok: `String[1]`, +
+ehr_id: `UUID[1]` +
+): `EHR_STATUS` +
+*_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
+a|Get the current version of the `EHR_STATUS` object for an EHR.
+
+.Errors
+* ehr_does_not_exist
 
 h|
-|*set_ehr_queryable* (auth_tok: `String`, ehr_id: `UUID`) +
-*_Pre_has_ehr_*: has_ehr (auth_tok, an_ehr_id)
-a|Set the EHR is_queryable flag to true; this ensures it is included by the query engine.
+|*set_ehr_queryable* ( +
+auth_tok: `String[1]`, +
+ehr_id: `UUID[1]` +
+) +
+*_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
+a|Set the EHR `_is_queryable_` flag to true; this ensures it is included by the query engine.
+
+.Errors
+* ehr_does_not_exist
 
 h|
-|*set_ehr_modifiable* (auth_tok: `String`, ehr_id: `UUID`) +
-*_Pre_has_ehr_*: has_ehr (auth_tok, an_ehr_id)
-a|Set the EHR is_modifable flag to true; this ensures it is treated as active and updatable.
+|*set_ehr_modifiable* ( +
+auth_tok: `String[1]`, +
+ehr_id: `UUID[1]` +
+) +
+*_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
+a|Set the EHR `_is_modifable_` flag to true; this ensures it is treated as active and updatable.
+
+.Errors
+* ehr_does_not_exist
 
 h|
-|*clear_ehr_queryable* (auth_tok: `String`, ehr_id: `UUID`) +
-*_Pre_has_ehr_*: has_ehr (auth_tok, an_ehr_id)
-a|Clear the EHR is_queryable flag; this ensures it is ignored by the query engine.
+|*clear_ehr_queryable* ( +
+auth_tok: `String[1]`, +
+ehr_id: `UUID[1]` +
+) +
+*_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
+a|Clear the EHR `_is_queryable_` flag; this ensures it is ignored by the query engine.
+
+.Errors
+* ehr_does_not_exist
 
 h|
-|*clear_ehr_modifiable* (auth_tok: `String`, ehr_id: `UUID`) +
-*_Pre_has_ehr_*: has_ehr (auth_tok, an_ehr_id)
-a|Clear the EHR is_modifiable flag; this ensures it is treated as active.
+|*clear_ehr_modifiable* ( +
+auth_tok: `String[1]`, +
+ehr_id: `UUID[1]` +
+) +
+*_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
+a|Clear the EHR `_is_modifiable_` flag; this ensures it is treated as active.
+
+.Errors
+* ehr_does_not_exist
 
 h|
-|*update_other_details* (auth_tok: `String`, ehr_id: `UUID`, a_details: `ITEM_TREE`) +
-*_Pre_has_ehr_*: has_ehr (auth_tok, an_ehr_id)
-a|Update other_details part of EHR_STATUS with new content.
+|*update_other_details* ( +
+auth_tok: `String[1]`, +
+ehr_id: `UUID[1]`, +
+a_details: `ITEM_TREE[1]` +
+) +
+*_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
+a|Update other_details part of `EHR_STATUS` with new content.
+
+.Errors
+* ehr_does_not_exist
 
 h|
-|*get_versioned_ehr_status* (auth_tok: `String`, ehr_id: `UUID`): `VERSIONED_EHR_STATUS` +
-*_Pre_has_ehr_*: has_ehr (auth_tok, an_ehr_id)
-a|Get the VERSIONED_EHR_STATUS object from the EHR with id ehr_id.
+|*get_versioned_ehr_status* ( +
+auth_tok: `String[1]`, +
+ehr_id: `UUID[1]` +
+): `VERSIONED_EHR_STATUS` +
+*_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
+a|Get the `VERSIONED_EHR_STATUS` object from the EHR with id `_ehr_id_`.
+
+.Errors
+* ehr_does_not_exist
 |===

@@ -1,0 +1,64 @@
+=== I_DEFINITION_QUERY Interface
+
+[cols="^1,3,5"]
+|===
+h|*Interface*
+2+^h|*I_DEFINITION_QUERY*
+
+h|*Description*
+2+a|Interface for storying queries and query sets.
+
+h|*Functions*
+^h|*Signature*
+^h|*Meaning*
+
+h|
+|*register_query* ( +
+auth_tok: `String[1]`, +
+a_query_text: `String[1]`, +
+a_query_name: `String[0..1]` +
+): `UUID`
+a|
+
+h|
+|*register_query_set* ( +
+auth_tok: `String[1]`, +
+a_query_set_name: `String[0..1]` +
+): `UUID`
+a|
+
+h|
+|*list_all_queries* ( +
+auth_tok: `String[1]`, +
+row_offset: `Integer[0..1]`, +
+rows_to_fetch: `Integer[0..1]` +
+): `List<QUERY_DESCRIPTOR>`
+a|List all registered queries.
+
+.Parameters +
+[horizontal]
+`_rows_to_fetch_`:: Optional parameter specifying number of query response rows to fetch, used for large result sets. A zero or negative value means 'all'.
+
+h|
+|*list_matching_queries* ( +
+auth_tok: `String[1]`, +
+id_pattern: `String[1]`, +
+artefact_id_pattern: `String[1]`, +
+row_offset: `Integer[0..1]`, +
+rows_to_fetch: `Integer[0..1]` +
+): `List<QUERY_DESCRIPTOR>`
+a|List all registered queries matching an identifier pattern (regex) and an artefact identifier pattern (regex) for artefacts referenced in the query. Either pattern may be the regex for 'match any'.
+
+.Errors
+* invalid_id_pattern
+
+.Parameters +
+[horizontal]
+`_id_pattern_`:: PERL regular expression on query identifier.
+
+`_artefact_id_pattern_`:: PERL regular expression on archetype / template identifiers.
+
+`_row_offset_`:: Optional parameter specifying offset in query response rows to return, used for large result sets. A zero or negative value means offset of zero.
+
+`_rows_to_fetch_`:: Optional parameter specifying number of query response rows to fetch, used for large result sets. A zero or negative value means 'all'.
+|===

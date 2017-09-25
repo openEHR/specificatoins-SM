@@ -1,0 +1,21 @@
+=== I_ADMIN_ARCHIVE Interface
+
+[cols="^1,3,5"]
+|===
+h|*Interface*
+2+^h|*I_ADMIN_ARCHIVE*
+
+h|*Description*
+2+a|Interface for Archive-related functions.
+
+h|*Functions*
+^h|*Signature*
+^h|*Meaning*
+
+h|
+|*archive_ehrs* ( +
+auth_tok: `String[1]`, +
+ehr_ids: `List<UUID>[0..1]` +
+)
+a|Archive EHRs
+|===

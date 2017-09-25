@@ -1,0 +1,74 @@
+=== I_DEFINITION_AOM2 Interface
+
+[cols="^1,3,5"]
+|===
+h|*Interface*
+2+^h|*I_DEFINITION_AOM2*
+
+h|*Description*
+2+a|Interface to ADL2 definitions (i.e. models) in an EHR 'system'.
+
+h|*Functions*
+^h|*Signature*
+^h|*Meaning*
+
+h|
+|*has_artefact* ( +
+auth_tok: `String[1]`, +
+an_id: `ARCHETYPE_HRID[1]` +
+): `Boolean`
+a|Return True if AOM2 artefact with id an_id exists in the service.
+
+h|
+|*upload_artefact* ( +
+auth_tok: `String[1]`, +
+arch: `AUTHORED_ARCHETYPE[1]` +
+)
+a|Upload an ADL2 artefact, i.e. archetype, template or operational_template. If an artefact with the same physical identifier and namespace exists, replace it.
+
+The artefact must validate.
+
+.Errors
+* invalid artefact (+ specific messages)
+
+h|
+|*get_artefact* ( +
+auth_tok: `String[1]`, +
+an_id: `ARCHETYPE_HRID[1]` +
+): `AUTHORED_ARCHETYPE` +
+*_Pre_artefact_exists_*: `has_artefact (an_id)`
+a|Get the AOM2 artefact with id `_an_id_`.
+
+.Errors
+* precondition_failure
+
+h|
+|*list_all_artefacts* ( +
+auth_tok: `String[1]`, +
+row_offset: `Integer[0..1]`, +
+rows_to_fetch: `Integer[0..1]` +
+): `List<ARCHETYPE_HRID>`
+a|List all AOM2 artefacts known in the service.
+
+.Parameters +
+[horizontal]
+`_row_offset_`:: Optional parameter specifying offset in query response rows to return, used for large result sets. A zero or negative value means offset of zero.
+
+h|
+|*list_matching_artefacts* ( +
+auth_tok: `String[1]`, +
+id_pattern: `String[1]`, +
+row_offset: `Integer[0..1]`, +
+rows_to_fetch: `Integer[0..1]` +
+): `List<ARCHETYPE_HRID>`
+a|List all artefacts whose identifiers match a regex pattern.
+
+.Errors
+* invalid_id_pattern
+
+.Parameters +
+[horizontal]
+`_auth_tok_`:: PERL regular expression pattern on `ARCHETYPE_HRID` strings.
+
+`_row_offset_`:: Optional parameter specifying offset in query response rows to return, used for large result sets. A zero or negative value means offset of zero.
+|===
