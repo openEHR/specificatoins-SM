@@ -6,7 +6,7 @@ h|*Enumeration*
 2+^h|*DEFINITION_CALL_STATUSES*
 
 h|*Description*
-2+a|
+2+a|Enumeration representing call statuses for `DEFINITION` service interface calls.
 
 h|*Attributes*
 ^h|*Signature*
@@ -14,25 +14,25 @@ h|*Attributes*
 
 h|
 |invalid_archetype
-a|
+a|An invalid archetype was provided as a parameter.
 
 h|
 |invalid_template
-a|
+a|An invalid template was provided as a parameter.
 
 h|
 |invalid_query
-a|
+a|An invalid query was provided as a parameter.
 
 h|
 |invalid_id_pattern
-a|
+a|An invalid archetype identifier regex pattern was provided.
 
 h|
 |artefact_does_not_exist
-a|
+a|A provided archetype identifier does not exist.
 
 h|
 |template_does_not_exist
-a|
+a|A provided template identifier does not exist.
 |===

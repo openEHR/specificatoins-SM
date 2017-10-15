@@ -14,17 +14,17 @@ h|*Attributes*
 
 h|
 |success
-a|
+a|Call succeeded.
 
 h|
 |auth_failure
-a|
+a|Authorisation failure.
 
 h|
 |precondition_violation
-a|
+a|Precondition violation occurred.
 
 h|
-|exeception
-a|
+|exception
+a|Exception other than precondition violation occurred.
 |===

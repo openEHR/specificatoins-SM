@@ -12,14 +12,14 @@
 :sectnumlevels: 4
 // git rid of PDF 'Chapter' labs on level 1 headings
 :chapter-label:
-:copyright_year: 2016
+:copyright_year: 2017
 //
 // HTML-only attributes
 //
 :linkcss:
-:keywords: openehr, identifiers, types
+:keywords: openehr, service, API
 :description: openEHR Platform Service Model
-:spec_status: DEVELOPMENT
+:spec_status: TRIAL
 
 //
 // ============================================ Asciidoc PREAMBLE =============================================
@@ -46,7 +46,7 @@ include::master00-amendment_record.adoc[leveloffset=+1]
 
 === Contributors
 
-This specification has benefited from formal and informal input from the openEHR and wider health informatics community.
+This specification has benefited from formal and informal input from the openEHR community.
 
 === Trademarks
 

@@ -40,7 +40,7 @@ time_range: `Interval<Iso8601_date_time>[0..1]` +
 a|Obtain a list of identifiers of Contributions in EHR.
 
 .Errors
-* ehr_does_not_exist
+* `ehr_does_not_exist`
 
 .Parameters +
 [horizontal]
@@ -57,7 +57,7 @@ time_range: `Interval<Iso8601_date_time>[0..1]` +
 a|Obtain a count of Contributions in EHR.
 
 .Errors
-* ehr_does_not_exist
+* `ehr_does_not_exist`
 
 .Parameters +
 [horizontal]

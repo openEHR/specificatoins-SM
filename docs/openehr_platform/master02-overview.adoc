@@ -80,9 +80,9 @@ catch (Exception e) {
 // package up call_status, result in response
 ----
 
-Apart from error-handling, the interfaces are stateless in the sense that any single call constitutes a self-standing transaction on the back-end service. Thus, each function call represents a transaction definition that when executed on the service will leave it in a consistent state.
+Apart from error-handling, the interfaces are stateless in the sense that any single call constitutes a self-standing transaction on the back-end service, i.e. a transaction that when executed on the service will leave it in a consistent state.
 
-The above illustrates just one pattern of calling in the server. The intent of this specifiation is not to define or even describe server-side implementation in detail, only to show how the interface style used works in the abstract from a client point of view.
+The above illustrates just one pattern of calling in the server. Another common style is to include results as 'out' parameters, and to always return call status. Either style can be used, and can be converted from one to the other via the use of trivial wrappers. 
 
 == Authentication and Authorisation
 

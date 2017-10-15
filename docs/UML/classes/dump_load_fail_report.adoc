@@ -8,4 +8,23 @@ h|*Class*
 h|*Description*
 2+a|Dump or Load fail report for a single entity, e.g. EHR, PARTY etc .
 
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*1..1*
+|*entity_type*: `String`
+a|Type name of entity.
+
+h|*1..1*
+|*entity_id*: `String`
+a|Identifier of entity.
+
+h|*1..1*
+|*dump_status*: `Boolean`
+a|Status of entity in dump operation: `True` means successfully dumped; `False` means dump failed for this entity.
+
+h|*0..1*
+|*error*: `String`
+a|Detailed error information, if available.
 |===

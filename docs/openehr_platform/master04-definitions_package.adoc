@@ -10,9 +10,6 @@ image::{uml_export_dir}/diagrams/SM-platform.definition.svg[id=sm_platform_defin
 
 The interfaces provided in this service are designed to enable any model-like or reference artefacts, other than terminology, to be stored for use by the rest of the system. This includes archetypes, templates, queries, and query sets.
 
-[.tbd]
-TBC
-
 == Class Definitions
 
 include::{uml_export_dir}/classes/i_definition_aom2.adoc[]

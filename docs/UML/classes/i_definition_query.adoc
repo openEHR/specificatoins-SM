@@ -17,15 +17,19 @@ h|
 auth_tok: `String[1]`, +
 a_query_text: `String[1]`, +
 a_query_name: `String[0..1]` +
-): `UUID`
-a|
+): `QUERY_DESCRIPTOR`
+a|Register a query under an optional name. If no name is provided, one is created in the service. Return a Query descriptor containing the query name and unique identifier.
+
+TODO: validate query text?
 
 h|
 |*register_query_set* ( +
 auth_tok: `String[1]`, +
 a_query_set_name: `String[0..1]` +
 ): `UUID`
-a|
+a|Register a query set.
+
+TODO: determine details.
 
 h|
 |*list_all_queries* ( +
@@ -50,7 +54,7 @@ rows_to_fetch: `Integer[0..1]` +
 a|List all registered queries matching an identifier pattern (regex) and an artefact identifier pattern (regex) for artefacts referenced in the query. Either pattern may be the regex for 'match any'.
 
 .Errors
-* invalid_id_pattern
+* `invalid_id_pattern`
 
 .Parameters +
 [horizontal]

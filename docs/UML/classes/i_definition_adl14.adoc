@@ -27,7 +27,7 @@ arch: `ARCHETYPE[1]` +
 a|Upload a valid ADL 1.4 archetype. If an archetype with the same id already exists, replace it. The archetype must be valid to succeed.
 
 .Errors
-* invalid_archetype
+* `invalid_archetype`
 
 h|
 |*get_archetype* ( +
@@ -37,7 +37,7 @@ an_id: `ARCHETYPE_ID[1]` +
 a|Get the ADL 1.4 archetype with id an_id.
 
 .Errors
-* artefact_does_not_exist
+* `artefact_does_not_exist`
 
 h|
 |*list_all_archetypes* ( +
@@ -63,7 +63,7 @@ rows_to_fetch: `Integer[0..1]` +
 a|List all archetypes whose identifiers match a regex pattern.
 
 .Errors
-* invalid_id_pattern
+* `invalid_id_pattern`
 
 .Parameters +
 [horizontal]
@@ -88,7 +88,7 @@ arch: `ARCHETYPE[1]` +
 a|Upload an ADL 1.4 Operational Template (OPT).
 
 .Errors:
-* invalid_template.
+* `invalid_template`
 
 h|
 |*get_opt* ( +
@@ -98,7 +98,7 @@ an_id: `UUID[1]` +
 a|Get the ADL 1.4 OPT with id an_id.
 
 .Errors
-* artefact_does_not_exist
+* `artefact_does_not_exist`
 
 h|
 |*list_all_opts* ( +
@@ -124,7 +124,7 @@ rows_to_fetch: `Integer[0..1]` +
 a|List all OPTs whose identifiers match a regex pattern.
 
 .Errors
-* invalid_id_pattern
+* `invalid_id_pattern`
 
 .Parameters +
 [horizontal]

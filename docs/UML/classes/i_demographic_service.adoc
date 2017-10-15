@@ -6,6 +6,6 @@ h|*Interface*
 2+^h|*I_DEMOGRAPHIC_SERVICE*
 
 h|*Description*
-2+a|Primary interface to DEMOGRAPHIC_SERVICE
+2+a|Primary interface to `DEMOGRAPHIC_SERVICE`.
 
 |===

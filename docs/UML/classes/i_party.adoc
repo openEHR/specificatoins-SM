@@ -6,6 +6,6 @@ h|*Interface*
 2+^h|*I_PARTY*
 
 h|*Description*
-2+a|Interface for PARTY-level operations.
+2+a|Interface for `PARTY` level operations.
 
 |===

@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*EXPORT_SPEC*
 
 h|*Description*
-2+a|
+2+a|Specifies the details for an export operation.
 
 h|*Attributes*
 ^h|*Signature*
@@ -14,15 +14,15 @@ h|*Attributes*
 
 h|*0..1*
 |*logical_format*: `EXPORT_FORMAT`
-a|
+a|Logical format to use, i.e. flavour of XML, JSON etc.
 
 h|*0..1*
 |*compression_format*: `COMPRESSION_FORMAT`
-a|
+a|Compression format to use during dump.
 
 h|*0..1*
 |*encoding*: `ENCODING_FORMAT`
-a|
+a|Encoding to use.
 
 h|*1..1*
 |*segment_split_size*: `Integer`

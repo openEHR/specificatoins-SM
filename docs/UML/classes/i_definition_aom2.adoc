@@ -29,7 +29,7 @@ a|Upload an ADL2 artefact, i.e. archetype, template or operational_template. If 
 The artefact must validate.
 
 .Errors
-* invalid artefact (+ specific messages)
+* `invalid artefact` (+ specific messages)
 
 h|
 |*get_artefact* ( +
@@ -40,7 +40,7 @@ an_id: `ARCHETYPE_HRID[1]` +
 a|Get the AOM2 artefact with id `_an_id_`.
 
 .Errors
-* precondition_failure
+* `artefact_does_not_exist`
 
 h|
 |*list_all_artefacts* ( +
@@ -64,11 +64,21 @@ rows_to_fetch: `Integer[0..1]` +
 a|List all artefacts whose identifiers match a regex pattern.
 
 .Errors
-* invalid_id_pattern
+* `invalid_id_pattern`
 
 .Parameters +
 [horizontal]
 `_auth_tok_`:: PERL regular expression pattern on `ARCHETYPE_HRID` strings.
 
 `_row_offset_`:: Optional parameter specifying offset in query response rows to return, used for large result sets. A zero or negative value means offset of zero.
+
+h|
+|*delete_artefact* ( +
+auth_tok: `String[1]`, +
+an_id: `ARCHETYPE_HRID[1]` +
+)
+a|Delete the AOM2 artefact with id `_an_id_`.
+
+.Errors
+* `artefact_does_not_exist`
 |===

@@ -21,7 +21,7 @@ ehr_id: `UUID[1]` +
 a|Get the current version of the `EHR_STATUS` object for an EHR.
 
 .Errors
-* ehr_does_not_exist
+* `ehr_does_not_exist`
 
 h|
 |*set_ehr_queryable* ( +
@@ -32,7 +32,7 @@ ehr_id: `UUID[1]` +
 a|Set the EHR `_is_queryable_` flag to true; this ensures it is included by the query engine.
 
 .Errors
-* ehr_does_not_exist
+* `ehr_does_not_exist`
 
 h|
 |*set_ehr_modifiable* ( +
@@ -43,7 +43,7 @@ ehr_id: `UUID[1]` +
 a|Set the EHR `_is_modifable_` flag to true; this ensures it is treated as active and updatable.
 
 .Errors
-* ehr_does_not_exist
+* `ehr_does_not_exist`
 
 h|
 |*clear_ehr_queryable* ( +
@@ -54,7 +54,7 @@ ehr_id: `UUID[1]` +
 a|Clear the EHR `_is_queryable_` flag; this ensures it is ignored by the query engine.
 
 .Errors
-* ehr_does_not_exist
+* `ehr_does_not_exist`
 
 h|
 |*clear_ehr_modifiable* ( +
@@ -65,7 +65,7 @@ ehr_id: `UUID[1]` +
 a|Clear the EHR `_is_modifiable_` flag; this ensures it is treated as active.
 
 .Errors
-* ehr_does_not_exist
+* `ehr_does_not_exist`
 
 h|
 |*update_other_details* ( +
@@ -77,7 +77,7 @@ a_details: `ITEM_TREE[1]` +
 a|Update other_details part of `EHR_STATUS` with new content.
 
 .Errors
-* ehr_does_not_exist
+* `ehr_does_not_exist`
 
 h|
 |*get_versioned_ehr_status* ( +
@@ -88,5 +88,5 @@ ehr_id: `UUID[1]` +
 a|Get the `VERSIONED_EHR_STATUS` object from the EHR with id `_ehr_id_`.
 
 .Errors
-* ehr_does_not_exist
+* `ehr_does_not_exist`
 |===

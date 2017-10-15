@@ -6,7 +6,7 @@ h|*Interface*
 2+^h|*I_QUERY_SERVICE*
 
 h|*Description*
-2+a|
+2+a|Query execution service interface.
 
 h|*Functions*
 ^h|*Signature*

@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.4">
 <meta name="description" content="openEHR Platform Service Model">
-<meta name="keywords" content="openehr, identifiers, types">
+<meta name="keywords" content="openehr, service, API">
 <title>openEHR Platform Service Model</title>
 <link rel="stylesheet" href="http://www.openehr.org/releases/BASE/latest/resources/css/openehr.css">
 <link rel="stylesheet" href="http://www.openehr.org/releases/BASE/latest/resources/css/pygments-default.css">
@@ -30,7 +30,6 @@
 <li><a href="#_purpose">1.1. Purpose</a></li>
 <li><a href="#_related_documents">1.2. Related Documents</a></li>
 <li><a href="#_status">1.3. Status</a></li>
-<li><a href="#_previous_versions">1.4. Previous Versions</a></li>
 </ul>
 </li>
 <li><a href="#_overview">2. Overview</a>
@@ -157,14 +156,14 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Release</strong>: latest</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Status</strong>: DEVELOPMENT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Status</strong>: TRIAL</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Revision</strong>: <a href="#latest_issue">[latest_issue]</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Date</strong>: <a href="#latest_issue_date">[latest_issue_date]</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>Keywords</strong>: openehr, identifiers, types</p></td>
+<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>Keywords</strong>: openehr, service, API</p></td>
 </tr>
 </tbody>
 </table>
@@ -180,7 +179,7 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-center valign-top" colspan="2">&#169; 2016 - 2017 The openEHR Foundation</th>
+<th class="tableblock halign-center valign-top" colspan="2">&#169; 2017 - 2017 The openEHR Foundation</th>
 </tr>
 </thead>
 <tbody>
@@ -220,10 +219,16 @@
 </thead>
 <tbody>
 <tr>
-<th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>R E L E A S E&#160;&#160;&#160;&#160;&#160;1.1.0</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>R E L E A S E&#160;&#160;&#160;&#160;&#160;1.0.0</strong></p></th>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>0.9.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>0.9.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Minor corrections.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>15 Oct 2017</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.9.0</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://openehr.atlassian.net/browse/SPECSM-1">SPECSM-1</a>: Initial writing.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">H Frankel,<br>
  S Iancu,<br>
@@ -231,7 +236,7 @@
  P Pazos,<br>
  E Sundvall,<br>
  T Beale</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>15 Sep 2017</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15 Sep 2017</p></td>
 </tr>
 </tbody>
 </table>
@@ -243,7 +248,7 @@
 <div class="sect2">
 <h3 id="_contributors">Contributors</h3>
 <div class="paragraph">
-<p>This specification has benefited from formal and informal input from the openEHR and wider health informatics community.</p>
+<p>This specification has benefited from formal and informal input from the openEHR community.</p>
 </div>
 </div>
 <div class="sect2">
@@ -302,7 +307,7 @@
 <div class="sect2">
 <h3 id="_status"><a class="anchor" href="#_status"></a>1.3. Status</h3>
 <div class="paragraph">
-<p>This specification is in the DEVELOPMENT state. The development version of this document can be found at <a href="http://www.openehr.org/releases/BASE/latest/base_types.html" class="bare">http://www.openehr.org/releases/BASE/latest/base_types.html</a>.</p>
+<p>This specification is in the TRIAL state. The development version of this document can be found at <a href="http://www.openehr.org/releases/SM/latest/openehr_platform.html" class="bare">http://www.openehr.org/releases/SM/latest/openehr_platform.html</a>.</p>
 </div>
 <div class="paragraph">
 <p>Known omissions or questions are indicated in the text with a 'to be determined' paragraph, as follows:</p>
@@ -312,12 +317,6 @@
 </div>
 <div class="paragraph">
 <p>Users are encouraged to comment on and/or advise on these paragraphs as well as the main content.  Feedback should be provided either on the <a href="http://lists.openehr.org/mailman/listinfo/openehr-technical_lists.openehr.org">technical mailing list</a>, or on the <a href="https://openehr.atlassian.net/browse/SPECPR/?selectedTab=com.atlassian.jira.jira-projects-plugin:issues-panel">specifications issue tracker</a>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_previous_versions"><a class="anchor" href="#_previous_versions"></a>1.4. Previous Versions</h3>
-<div class="paragraph">
-<p>This specification is based on the types orginally defined in the <a href="http://www.openehr.org/releases/RM/Release-1.0.3/support.html">openEHR Support Information Model from Release 1.0.3 of the Reference Model</a>. Some changes have been made as follows.</p>
 </div>
 </div>
 </div>
@@ -433,10 +432,10 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 </div>
 </div>
 <div class="paragraph">
-<p>Apart from error-handling, the interfaces are stateless in the sense that any single call constitutes a self-standing transaction on the back-end service. Thus, each function call represents a transaction definition that when executed on the service will leave it in a consistent state.</p>
+<p>Apart from error-handling, the interfaces are stateless in the sense that any single call constitutes a self-standing transaction on the back-end service, i.e. a transaction that when executed on the service will leave it in a consistent state.</p>
 </div>
 <div class="paragraph">
-<p>The above illustrates just one pattern of calling in the server. The intent of this specifiation is not to define or even describe server-side implementation in detail, only to show how the interface style used works in the abstract from a client point of view.</p>
+<p>The above illustrates just one pattern of calling in the server. Another common style is to include results as 'out' parameters, and to always return call status. Either style can be used, and can be converted from one to the other via the use of trivial wrappers.</p>
 </div>
 </div>
 <div class="sect2">
@@ -610,22 +609,30 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock">success</p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Call succeeded.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock">auth_failure</p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Authorisation failure.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock">precondition_violation</p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Precondition violation occurred.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock">exeception</p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">exception</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Exception other than precondition violation occurred.</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -766,9 +773,6 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 <div class="paragraph">
 <p>The interfaces provided in this service are designed to enable any model-like or reference artefacts, other than terminology, to be stored for use by the rest of the system. This includes archetypes, templates, queries, and query sets.</p>
 </div>
-<div class="paragraph tbd">
-<p>TBC</p>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_class_definitions_2"><a class="anchor" href="#_class_definitions_2"></a>4.2. Class Definitions</h3>
@@ -822,7 +826,7 @@ arch: <code>AUTHORED_ARCHETYPE[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>invalid artefact (+ specific messages)</p>
+<p><code>invalid artefact</code> (+ specific messages)</p>
 </li>
 </ul>
 </div></div></td>
@@ -841,7 +845,7 @@ an_id: <code>ARCHETYPE_HRID[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>precondition_failure</p>
+<p><code>artefact_does_not_exist</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -885,7 +889,7 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>invalid_id_pattern</p>
+<p><code>invalid_id_pattern</code></p>
 </li>
 </ul>
 </div>
@@ -909,6 +913,24 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 </td>
 </tr>
 </table>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_artefact</strong> (<br>
+auth_tok: <code>String[1]</code>,<br>
+an_id: <code>ARCHETYPE_HRID[1]</code><br>
+)</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Delete the AOM2 artefact with id <code><em>an_id</em></code>.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>artefact_does_not_exist</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 </tbody>
@@ -961,7 +983,7 @@ arch: <code>ARCHETYPE[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>invalid_archetype</p>
+<p><code>invalid_archetype</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -979,7 +1001,7 @@ an_id: <code>ARCHETYPE_ID[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>artefact_does_not_exist</p>
+<p><code>artefact_does_not_exist</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -1031,7 +1053,7 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>invalid_id_pattern</p>
+<p><code>invalid_id_pattern</code></p>
 </li>
 </ul>
 </div>
@@ -1088,7 +1110,7 @@ arch: <code>ARCHETYPE[1]</code><br>
 <div class="title">Errors:</div>
 <ul>
 <li>
-<p>invalid_template.</p>
+<p><code>invalid_template</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -1106,7 +1128,7 @@ an_id: <code>UUID[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>artefact_does_not_exist</p>
+<p><code>artefact_does_not_exist</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -1158,7 +1180,7 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>invalid_id_pattern</p>
+<p><code>invalid_id_pattern</code></p>
 </li>
 </ul>
 </div>
@@ -1225,8 +1247,13 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 auth_tok: <code>String[1]</code>,<br>
 a_query_text: <code>String[1]</code>,<br>
 a_query_name: <code>String[0..1]</code><br>
-): <code>UUID</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+): <code>QUERY_DESCRIPTOR</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Register a query under an optional name. If no name is provided, one is created in the service. Return a Query descriptor containing the query name and unique identifier.</p>
+</div>
+<div class="paragraph">
+<p>TODO: validate query text?</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
@@ -1234,7 +1261,12 @@ a_query_name: <code>String[0..1]</code><br>
 auth_tok: <code>String[1]</code>,<br>
 a_query_set_name: <code>String[0..1]</code><br>
 ): <code>UUID</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Register a query set.</p>
+</div>
+<div class="paragraph">
+<p>TODO: determine details.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
@@ -1276,7 +1308,7 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>invalid_id_pattern</p>
+<p><code>invalid_id_pattern</code></p>
 </li>
 </ul>
 </div>
@@ -1336,7 +1368,9 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div></div></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>Enumeration representing call statuses for <code>DEFINITION</code> service interface calls.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -1346,32 +1380,44 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock">invalid_archetype</p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>An invalid archetype was provided as a parameter.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock">invalid_template</p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>An invalid template was provided as a parameter.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock">invalid_query</p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>An invalid query was provided as a parameter.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock">invalid_id_pattern</p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>An invalid archetype identifier regex pattern was provided.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock">artefact_does_not_exist</p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>A provided archetype identifier does not exist.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock">template_does_not_exist</p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>A provided template identifier does not exist.</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -1391,7 +1437,9 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div></div></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>Object describing a query in terms of its unique identifier, name under which it is currently registered and registration time under the current name.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -1401,17 +1449,26 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>query_id</strong>: <code>UUID</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Unique query identifier associated with this query.</p>
+</div>
+<div class="paragraph">
+<p>TODO: only by this service?</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>query_name</strong>: <code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Unique name of query.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>registration_time</strong>: <code>Iso8601_date_time</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Time query was registered in the service.</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -1496,7 +1553,7 @@ a_subject_id: <code>PARTY_REF[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>ehr_does_not_exist</p>
+<p><code>ehr_does_not_exist</code></p>
 </li>
 </ul>
 </div>
@@ -1538,7 +1595,7 @@ an_ehr_id: <code>UUID[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>ehr_does_not_exist</p>
+<p><code>ehr_does_not_exist</code></p>
 </li>
 </ul>
 </div>
@@ -1594,7 +1651,7 @@ a_subject_id: <code>PARTY_REF[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>ehr_does_not_exist</p>
+<p><code>ehr_does_not_exist</code></p>
 </li>
 </ul>
 </div>
@@ -1634,7 +1691,7 @@ an_ehr_id: <code>UUID[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>ehr_does_not_exist</p>
+<p><code>ehr_does_not_exist</code></p>
 </li>
 </ul>
 </div>
@@ -1756,7 +1813,7 @@ time_range: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>ehr_does_not_exist</p>
+<p><code>ehr_does_not_exist</code></p>
 </li>
 </ul>
 </div>
@@ -1796,7 +1853,7 @@ time_range: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>ehr_does_not_exist</p>
+<p><code>ehr_does_not_exist</code></p>
 </li>
 </ul>
 </div>
@@ -1863,7 +1920,7 @@ ehr_id: <code>UUID[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>ehr_does_not_exist</p>
+<p><code>ehr_does_not_exist</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -1882,7 +1939,7 @@ ehr_id: <code>UUID[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>ehr_does_not_exist</p>
+<p><code>ehr_does_not_exist</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -1901,7 +1958,7 @@ ehr_id: <code>UUID[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>ehr_does_not_exist</p>
+<p><code>ehr_does_not_exist</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -1920,7 +1977,7 @@ ehr_id: <code>UUID[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>ehr_does_not_exist</p>
+<p><code>ehr_does_not_exist</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -1939,7 +1996,7 @@ ehr_id: <code>UUID[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>ehr_does_not_exist</p>
+<p><code>ehr_does_not_exist</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -1959,7 +2016,7 @@ a_details: <code>ITEM_TREE[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>ehr_does_not_exist</p>
+<p><code>ehr_does_not_exist</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -1978,7 +2035,7 @@ ehr_id: <code>UUID[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>ehr_does_not_exist</p>
+<p><code>ehr_does_not_exist</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -2025,7 +2082,7 @@ a_path: <code>String[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>ehr_does_not_exist</p>
+<p><code>ehr_does_not_exist</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -2045,7 +2102,7 @@ a_dir_struct: <code>UV_FOLDER[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>ehr_does_not_exist</p>
+<p><code>ehr_does_not_exist</code></p>
 </li>
 </ul>
 </div>
@@ -2077,7 +2134,7 @@ ehr_id: <code>UUID[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>ehr_does_not_exist</p>
+<p><code>ehr_does_not_exist</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -2116,7 +2173,7 @@ a_time: <code>Iso8601_date_time[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>ehr_does_not_exist</p>
+<p><code>ehr_does_not_exist</code></p>
 </li>
 </ul>
 </div>
@@ -2148,7 +2205,7 @@ ehr_id: <code>UUID[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>ehr_does_not_exist</p>
+<p><code>ehr_does_not_exist</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -2547,7 +2604,7 @@ a_contrib_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
-<p>Primary interface to DEMOGRAPHIC_SERVICE</p>
+<p>Primary interface to <code>DEMOGRAPHIC_SERVICE</code>.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2569,7 +2626,7 @@ a_contrib_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
-<p>Interface for PARTY-level operations.</p>
+<p>Interface for <code>PARTY</code> level operations.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2591,7 +2648,7 @@ a_contrib_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
-<p>Interface for PARTY_RELATIONSHIP operations.</p>
+<p>Interface for <code>PARTY_RELATIONSHIP</code> operations.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2652,7 +2709,9 @@ a_contrib_id: <code>UUID[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div></div></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>Query execution service interface.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
@@ -2789,13 +2848,8 @@ ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>qualified_query_name</strong>: <code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="dlist">
-<dl>
-<dt class="hdlist1">Qualified name of query, which is of the form `reverse_domain </dt>
-<dd>
-<p>name`.</p>
-</dd>
-</dl>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Qualified name of query, which is of the form <code>reverse_domain::name</code>.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -3214,6 +3268,39 @@ file_sys_loc: <code>String[1]</code><br>
 <p>Dump or Load fail report for a single entity, e.g. EHR, PARTY etc .</p>
 </div></div></td>
 </tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>entity_type</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Type name of entity.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>entity_id</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Identifier of entity.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>dump_status</strong>: <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Status of entity in dump operation: <code>True</code> means successfully dumped; <code>False</code> means dump failed for this entity.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>error</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Detailed error information, if available.</p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -3232,7 +3319,9 @@ file_sys_loc: <code>String[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div></div></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>Specifies the details for an export operation.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -3242,17 +3331,23 @@ file_sys_loc: <code>String[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>logical_format</strong>: <code>EXPORT_FORMAT</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Logical format to use, i.e. flavour of XML, JSON etc.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>compression_format</strong>: <code>COMPRESSION_FORMAT</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Compression format to use during dump.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>encoding</strong>: <code>ENCODING_FORMAT</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Encoding to use.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
@@ -3270,7 +3365,7 @@ file_sys_loc: <code>String[1]</code><br>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-09-16 18:51:46 BST
+Last updated 2017-10-15 09:49:37 BST
 </div>
 </div>
 </body>

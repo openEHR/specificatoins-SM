@@ -6,7 +6,7 @@ h|*Enumeration*
 2+^h|*COMPRESSION_FORMAT*
 
 h|*Description*
-2+a|
+2+a|Type of compression to use when exporting.
 
 h|*Attributes*
 ^h|*Signature*
