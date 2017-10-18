@@ -13,6 +13,13 @@ h|*Functions*
 ^h|*Meaning*
 
 h|
+|*has_query* ( +
+auth_tok: `String[1]`, +
+a_query_id: `UUID[1]` +
+): `Boolean`
+a|Return True if the query identified by `_a_query_id_` is registered.
+
+h|
 |*register_query* ( +
 auth_tok: `String[1]`, +
 a_query_text: `String[1]`, +
@@ -65,4 +72,11 @@ a|List all registered queries matching an identifier pattern (regex) and an arte
 `_row_offset_`:: Optional parameter specifying offset in query response rows to return, used for large result sets. A zero or negative value means offset of zero.
 
 `_rows_to_fetch_`:: Optional parameter specifying number of query response rows to fetch, used for large result sets. A zero or negative value means 'all'.
+
+h|
+|*delete_query* ( +
+auth_tok: `String[1]`, +
+a_query_id: `UUID[1]` +
+)
+a|
 |===

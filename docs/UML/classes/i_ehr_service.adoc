@@ -71,7 +71,7 @@ a|Create a new EHR with `EHR_STATUS._subject_` set to point to `_subject_id_`, a
 `_a_subject_id_`:: Subject identifier.
 
 h|
-|*create_ehr_with_id_and_subject* ( +
+|*create_ehr_for_subject_with_id* ( +
 auth_tok: `String[1]`, +
 an_ehr_id: `UUID[1]`, +
 a_subject_id: `PARTY_REF[1]` +

@@ -13,6 +13,14 @@ h|*Functions*
 ^h|*Meaning*
 
 h|
+|*create_directory* ( +
+auth_tok: `String[1]`, +
+ehr_id: `UUID[1]`, +
+a_dir_struct: `UV_FOLDER[1]` +
+)
+a|
+
+h|
 |*has_path* ( +
 auth_tok: `String[1]`, +
 ehr_id: `UUID[1]`, +
@@ -57,7 +65,7 @@ auth_tok: `String[1]`, +
 ehr_id: `UUID[1]` +
 ): `FOLDER` +
 *_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
-a|Get directory structure of EHR, if it exists, else Void.
+a|Get current version of EHR Directory structure, if it exists, else Void.
 
 .Errors
 * ehr_does_not_exist
@@ -77,6 +85,14 @@ a|Get the version of the Directory extant at time `_a_time_`.
 .Parameters +
 [horizontal]
 `_a_time_`:: Time specifying the extant top version of the Directory.
+
+h|
+|*get_directory_at_version* ( +
+auth_tok: `String[1]`, +
+an_ehr_id: `UUID[1]`, +
+a_dir_ver_uid: `UUID[1]` +
+): `FOLDER`
+a|Get a particular version of the EHR Directory.
 
 h|
 |*get_versioned_directory* ( +

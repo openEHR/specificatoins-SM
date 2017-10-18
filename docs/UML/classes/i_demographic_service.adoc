@@ -8,4 +8,21 @@ h|*Interface*
 h|*Description*
 2+a|Primary interface to `DEMOGRAPHIC_SERVICE`.
 
+h|*Functions*
+^h|*Signature*
+^h|*Meaning*
+
+h|
+|*create_party* ( +
+auth_tok: `String[1]`, +
+a_version: `PARTY[1]` +
+): `UUID`
+a|Create a new Party.
+
+h|
+|*create_party_relationship* ( +
+auth_tok: `String[1]`, +
+a_version: `PARTY_RELATIONSHIP[1]` +
+): `UUID`
+a|Create a new Party Relationship.
 |===

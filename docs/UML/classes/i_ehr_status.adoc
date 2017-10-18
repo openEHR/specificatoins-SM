@@ -89,4 +89,12 @@ a|Get the `VERSIONED_EHR_STATUS` object from the EHR with id `_ehr_id_`.
 
 .Errors
 * `ehr_does_not_exist`
+
+h|
+|*get_ehr_status_at_version* ( +
+auth_tok: `String[1]`, +
+an_ehr_id: `UUID[1]`, +
+a_ehr_status_ver_uid: `UUID[1]` +
+): `EHR_STATUS`
+a|Get a particular version of an EHR Status object.
 |===

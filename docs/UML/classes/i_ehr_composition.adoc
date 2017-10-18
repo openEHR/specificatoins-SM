@@ -68,7 +68,7 @@ h|
 |*get_composition* ( +
 auth_tok: `String[1]`, +
 an_ehr_id: `UUID[1]`, +
-a_comp_ver_uid: `UUID[1]` +
+a_ver_comp_uid: `UUID[1]` +
 ): `COMPOSITION` +
 *_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
 a|Retrieve a Composition by the uid of its version.
@@ -76,6 +76,10 @@ a|Retrieve a Composition by the uid of its version.
 .Errors
 * ehr_does_not_exist
 * composition_does_not_exist
+
+.Parameters +
+[horizontal]
+`_a_ver_comp_uid_`:: Uid of the `VERSIONED_COMPOSITION`.
 
 h|
 |*get_composition_at_time* ( +
@@ -92,10 +96,22 @@ a|Retrieve the Composition version from a Versioned Composition that was the top
 * composition_does_not_exist
 
 h|
+|*get_composition_at_version* ( +
+auth_tok: `String[1]`, +
+an_ehr_id: `UUID[1]`, +
+a_comp_ver_uid: `UUID[1]` +
+): `COMPOSITION`
+a|Get a particular version of a Composition.
+
+.Parameters +
+[horizontal]
+`_a_comp_ver_uid_`:: Uid of a `VERSION` in a `VERSIONED_COMPOSITION`.
+
+h|
 |*get_versioned_composition* ( +
 auth_tok: `String[1]`, +
 an_ehr_id: `UUID[1]`, +
-a_ver_comp_uid: `UUID[1]` +
+a_comp_ver_uid: `UUID[1]` +
 ): `VERSIONED_COMPOSITION` +
 *_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
 a|Retrieve the `VERSIONED_OBJECT` of a Composition by uid.

@@ -1,4 +1,4 @@
-= Definitions Package
+= Definition Package
 
 == Overview
 
@@ -12,7 +12,7 @@ The interfaces provided in this service are designed to enable any model-like or
 
 == Class Definitions
 
-include::{uml_export_dir}/classes/i_definition_aom2.adoc[]
+include::{uml_export_dir}/classes/i_definition_adl2.adoc[]
 
 include::{uml_export_dir}/classes/i_definition_adl14.adoc[]
 

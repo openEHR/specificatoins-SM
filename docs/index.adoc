@@ -54,8 +54,8 @@ endif::[]
 |===
 |Resource |Description
 
-|https://openehr.github.io/specifications-ITS[REST API)]
-|Apiary format REST API specification based on the platform SM.
+|https://openehr.github.io/specifications-ITS[REST API]
+|ITS component - Apiary format REST API specification based on the platform SM.
 
 |http://www.openehr.org/releases/SM/{sm_release}/UML/openEHR_UML-SM.mdzip[source files / XMI]
 |UML file for MagicDraw 18.5. Contains UML 2.5 standard XMI file.

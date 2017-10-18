@@ -49,7 +49,7 @@ an_ehr_id: `UUID[1]` +
 a|Physical deletion of specified EHR.
 
 h|
-|*physical_demographic_delete* ( +
+|*physical_party_delete* ( +
 auth_tok: `String[1]`, +
 a_party: `PARTY_REF[1]` +
 )

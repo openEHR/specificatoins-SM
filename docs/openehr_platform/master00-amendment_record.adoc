@@ -7,9 +7,10 @@
 4+^h|*R E L E A S E{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}1.0.0*
 
 |[[latest_issue]]0.9.1
-|Minor corrections.
+|Added demographic interface calls; +
+ added more admin interface calls.
 |T Beale 
-|[[latest_issue_date]]15 Oct 2017
+|[[latest_issue_date]]18 Oct 2017
 
 |0.9.0
 |{openehr_jira}/SPECSM-1[SPECSM-1]: Initial writing.

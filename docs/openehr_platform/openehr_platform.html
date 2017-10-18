@@ -54,12 +54,12 @@
 </li>
 </ul>
 </li>
-<li><a href="#_definitions_package">4. Definitions Package</a>
+<li><a href="#_definition_package">4. Definition Package</a>
 <ul class="sectlevel2">
 <li><a href="#_overview_3">4.1. Overview</a></li>
 <li><a href="#_class_definitions_2">4.2. Class Definitions</a>
 <ul class="sectlevel3">
-<li><a href="#_i_definition_aom2_interface">4.2.1. I_DEFINITION_AOM2 Interface</a></li>
+<li><a href="#_i_definition_adl2_interface">4.2.1. I_DEFINITION_ADL2 Interface</a></li>
 <li><a href="#_i_definition_adl14_interface">4.2.2. I_DEFINITION_ADL14 Interface</a></li>
 <li><a href="#_i_definition_query_interface">4.2.3. I_DEFINITION_QUERY Interface</a></li>
 <li><a href="#_definition_call_statuses_enumeration">4.2.4. DEFINITION_CALL_STATUSES Enumeration</a></li>
@@ -223,9 +223,10 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>0.9.1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Minor corrections.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Added demographic interface calls;<br>
+ added more admin interface calls.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>15 Oct 2017</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>18 Oct 2017</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0.9.0</p></td>
@@ -757,7 +758,7 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_definitions_package"><a class="anchor" href="#_definitions_package"></a>4. Definitions Package</h2>
+<h2 id="_definition_package"><a class="anchor" href="#_definition_package"></a>4. Definition Package</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_overview_3"><a class="anchor" href="#_overview_3"></a>4.1. Overview</h3>
@@ -777,7 +778,7 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 <div class="sect2">
 <h3 id="_class_definitions_2"><a class="anchor" href="#_class_definitions_2"></a>4.2. Class Definitions</h3>
 <div class="sect3">
-<h4 id="_i_definition_aom2_interface"><a class="anchor" href="#_i_definition_aom2_interface"></a>4.2.1. I_DEFINITION_AOM2 Interface</h4>
+<h4 id="_i_definition_adl2_interface"><a class="anchor" href="#_i_definition_adl2_interface"></a>4.2.1. I_DEFINITION_ADL2 Interface</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -787,7 +788,7 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Interface</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>I_DEFINITION_AOM2</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>I_DEFINITION_ADL2</strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
@@ -807,7 +808,7 @@ auth_tok: <code>String[1]</code>,<br>
 an_id: <code>ARCHETYPE_HRID[1]</code><br>
 ): <code>Boolean</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Return True if AOM2 artefact with id an_id exists in the service.</p>
+<p>Return True if AOM2 artefact with id <code><em>an_id</em></code> exists in the service.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -872,6 +873,39 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 </td>
 </tr>
 </table>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_all_archetypes</strong> (<br>
+auth_tok: <code>String[1]</code>,<br>
+row_offset: <code>Integer[0..1]</code>,<br>
+rows_to_fetch: <code>Integer[0..1]</code><br>
+): <code>List&lt;ARCHETYPE_HRID&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>List all archetypes, i.e. artefacts whose concrete type is <code>AUTHORED_ARCHETYPE</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_all_templates</strong> (<br>
+auth_tok: <code>String[1]</code>,<br>
+row_offset: <code>Integer[0..1]</code>,<br>
+rows_to_fetch: <code>Integer[0..1]</code><br>
+): <code>List&lt;ARCHETYPE_HRID&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>List all archetypes, i.e. artefacts whose concrete type is <code>TEMPLATE</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_all_opts</strong> (<br>
+auth_tok: <code>String[1]</code>,<br>
+row_offset: <code>Integer[0..1]</code>,<br>
+rows_to_fetch: <code>Integer[0..1]</code><br>
+): <code>List&lt;ARCHETYPE_HRID&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>List all archetypes, i.e. artefacts whose concrete type is <code>OPERATIONAL_TEMPLATE</code>.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1243,6 +1277,16 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_query</strong> (<br>
+auth_tok: <code>String[1]</code>,<br>
+a_query_id: <code>UUID[1]</code><br>
+): <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Return True if the query identified by <code><em>a_query_id</em></code> is registered.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>register_query</strong> (<br>
 auth_tok: <code>String[1]</code>,<br>
 a_query_text: <code>String[1]</code>,<br>
@@ -1349,6 +1393,14 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 </tr>
 </table>
 </div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_query</strong> (<br>
+auth_tok: <code>String[1]</code>,<br>
+a_query_id: <code>UUID[1]</code><br>
+)</p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
 </tr>
 </tbody>
 </table>
@@ -1638,7 +1690,7 @@ a_subject_id: <code>PARTY_REF[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_ehr_with_id_and_subject</strong> (<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_ehr_for_subject_with_id</strong> (<br>
 auth_tok: <code>String[1]</code>,<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_subject_id: <code>PARTY_REF[1]</code><br>
@@ -2040,6 +2092,17 @@ ehr_id: <code>UUID[1]</code><br>
 </ul>
 </div></div></td>
 </tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_ehr_status_at_version</strong> (<br>
+auth_tok: <code>String[1]</code>,<br>
+an_ehr_id: <code>UUID[1]</code>,<br>
+a_ehr_status_ver_uid: <code>UUID[1]</code><br>
+): <code>EHR_STATUS</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Get a particular version of an EHR Status object.</p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -2066,6 +2129,15 @@ ehr_id: <code>UUID[1]</code><br>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_directory</strong> (<br>
+auth_tok: <code>String[1]</code>,<br>
+ehr_id: <code>UUID[1]</code>,<br>
+a_dir_struct: <code>UV_FOLDER[1]</code><br>
+)</p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
@@ -2147,7 +2219,7 @@ ehr_id: <code>UUID[1]</code><br>
 ): <code>FOLDER</code><br>
 <strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Get directory structure of EHR, if it exists, else Void.</p>
+<p>Get current version of EHR Directory structure, if it exists, else Void.</p>
 </div>
 <div class="ulist">
 <div class="title">Errors</div>
@@ -2189,6 +2261,17 @@ a_time: <code>Iso8601_date_time[1]</code><br>
 </td>
 </tr>
 </table>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_directory_at_version</strong> (<br>
+auth_tok: <code>String[1]</code>,<br>
+an_ehr_id: <code>UUID[1]</code>,<br>
+a_dir_ver_uid: <code>UUID[1]</code><br>
+): <code>FOLDER</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Get a particular version of the EHR Directory.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -2332,7 +2415,7 @@ a_comp_ver_uid: <code>UUID[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_composition</strong> (<br>
 auth_tok: <code>String[1]</code>,<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
-a_comp_ver_uid: <code>UUID[1]</code><br>
+a_ver_comp_uid: <code>UUID[1]</code><br>
 ): <code>COMPOSITION</code><br>
 <strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -2348,6 +2431,19 @@ a_comp_ver_uid: <code>UUID[1]</code><br>
 <p>composition_does_not_exist</p>
 </li>
 </ul>
+</div>
+<div class="hdlist">
+<div class="title">Parameters<br></div>
+<table>
+<tr>
+<td class="hdlist1">
+<code><em>a_ver_comp_uid</em></code>
+</td>
+<td class="hdlist2">
+<p>Uid of the <code>VERSIONED_COMPOSITION</code>.</p>
+</td>
+</tr>
+</table>
 </div></div></td>
 </tr>
 <tr>
@@ -2376,10 +2472,34 @@ a_time: <code>Iso8601_date_time[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_composition_at_version</strong> (<br>
+auth_tok: <code>String[1]</code>,<br>
+an_ehr_id: <code>UUID[1]</code>,<br>
+a_comp_ver_uid: <code>UUID[1]</code><br>
+): <code>COMPOSITION</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Get a particular version of a Composition.</p>
+</div>
+<div class="hdlist">
+<div class="title">Parameters<br></div>
+<table>
+<tr>
+<td class="hdlist1">
+<code><em>a_comp_ver_uid</em></code>
+</td>
+<td class="hdlist2">
+<p>Uid of a <code>VERSION</code> in a <code>VERSIONED_COMPOSITION</code>.</p>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_versioned_composition</strong> (<br>
 auth_tok: <code>String[1]</code>,<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
-a_ver_comp_uid: <code>UUID[1]</code><br>
+a_comp_ver_uid: <code>UUID[1]</code><br>
 ): <code>VERSIONED_COMPOSITION</code><br>
 <strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -2439,9 +2559,6 @@ a_contrib_id: <code>UUID[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>auth_failure</p>
-</li>
-<li>
 <p>ehr_does_not_exist</p>
 </li>
 </ul>
@@ -2464,9 +2581,6 @@ an_audit: <code>UPDATE_AUDIT[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>auth_failure</p>
-</li>
-<li>
 <p>ehr_does_not_exist</p>
 </li>
 </ul>
@@ -2488,12 +2602,23 @@ a_contrib_id: <code>UUID[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>auth_failure</p>
-</li>
-<li>
 <p>ehr_does_not_exist</p>
 </li>
+<li>
+<p>contribution_does_not_exist</p>
+</li>
 </ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_all_contributions</strong> (<br>
+auth_tok: <code>String[1]</code>,<br>
+row_offset: <code>Integer[0..1]</code>,<br>
+rows_to_fetch: <code>Integer[0..1]</code><br>
+): <code>List&lt;UUID&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>List all available Contributions.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2607,6 +2732,31 @@ a_contrib_id: <code>UUID[1]</code><br>
 <p>Primary interface to <code>DEMOGRAPHIC_SERVICE</code>.</p>
 </div></div></td>
 </tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_party</strong> (<br>
+auth_tok: <code>String[1]</code>,<br>
+a_version: <code>PARTY[1]</code><br>
+): <code>UUID</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Create a new Party.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_party_relationship</strong> (<br>
+auth_tok: <code>String[1]</code>,<br>
+a_version: <code>PARTY_RELATIONSHIP[1]</code><br>
+): <code>UUID</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Create a new Party Relationship.</p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -2629,6 +2779,73 @@ a_contrib_id: <code>UUID[1]</code><br>
 <p>Interface for <code>PARTY</code> level operations.</p>
 </div></div></td>
 </tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_party</strong> (<br>
+auth_tok: <code>String[1]</code>,<br>
+a_versioned_party_id: <code>UUID[1]</code><br>
+): <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Return True if Party exists in service.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_party</strong> (<br>
+auth_tok: <code>String[1]</code>,<br>
+a_versioned_party_id: <code>UUID[1]</code><br>
+): <code>PARTY</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Get the current Version of a Party.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_party_at_version</strong> (<br>
+auth_tok: <code>String[1]</code>,<br>
+a_party_version_id: <code>UUID[1]</code><br>
+): <code>PARTY</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Get a particular Party Version.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_party_at_time</strong> (<br>
+auth_tok: <code>String[1]</code>,<br>
+a_versioned_party_id: <code>UUID[1]</code>,<br>
+a_time: <code>Iso8601_date_time[1]</code><br>
+): <code>PARTY</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Get the Version of a Party current at <code><em>a_time</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>update_party</strong> (<br>
+auth_tok: <code>String[1]</code>,<br>
+a_versioned_party_id: <code>UUID[1]</code>,<br>
+a_version: <code>PARTY[1]</code><br>
+): <code>UUID</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Update a Party with a new Version.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_party</strong> (<br>
+auth_tok: <code>String[1]</code>,<br>
+a_versioned_party_id: <code>UUID[1]</code><br>
+)</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Delete an existing Party.</p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -2649,6 +2866,73 @@ a_contrib_id: <code>UUID[1]</code><br>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
 <p>Interface for <code>PARTY_RELATIONSHIP</code> operations.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_party_relationship</strong> (<br>
+auth_tok: <code>String[1]</code>,<br>
+a_versioned_party_id: <code>UUID[1]</code><br>
+): <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Return True if Party relationship exists in service.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_party_relationship</strong> (<br>
+auth_tok: <code>String[1]</code>,<br>
+a_versioned_party_id: <code>UUID[1]</code><br>
+): <code>PARTY_RELATIONSHIP</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Get the current Version of a Party relationship.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_party_relationship_at_version</strong> (<br>
+auth_tok: <code>String[1]</code>,<br>
+a_party_version_id: <code>UUID[1]</code><br>
+): <code>PARTY_RELATIONSHIP</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Get a particular Party relationship Version.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_party_relationship_at_time</strong> (<br>
+auth_tok: <code>String[1]</code>,<br>
+a_versioned_party_id: <code>UUID[1]</code>,<br>
+a_time: <code>Iso8601_date_time[1]</code><br>
+): <code>PARTY_RELATIONSHIP</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Get the Version of a Party relationship current at <code><em>a_time</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>update_party_relationship</strong> (<br>
+auth_tok: <code>String[1]</code>,<br>
+a_versioned_party_id: <code>UUID[1]</code>,<br>
+a_version: <code>PARTY_RELATIONSHIP[1]</code><br>
+): <code>UUID</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Update a Party relationship with a new Version.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_party_relationship</strong> (<br>
+auth_tok: <code>String[1]</code>,<br>
+a_versioned_party_id: <code>UUID[1]</code><br>
+)</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Delete an existing Party relationship.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -3151,7 +3435,7 @@ an_ehr_id: <code>UUID[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>physical_demographic_delete</strong> (<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>physical_party_delete</strong> (<br>
 auth_tok: <code>String[1]</code>,<br>
 a_party: <code>PARTY_REF[1]</code><br>
 )</p></td>
@@ -3193,7 +3477,17 @@ auth_tok: <code>String[1]</code>,<br>
 ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Archive EHRs</p>
+<p>Move selected EHRs to archival storage.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>archive_parties</strong> (<br>
+auth_tok: <code>String[1]</code>,<br>
+ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
+)</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Move selected Parties and relationships to archival storage.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -3365,7 +3659,7 @@ file_sys_loc: <code>String[1]</code><br>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-15 09:49:37 BST
+Last updated 2017-10-18 13:57:39 BST
 </div>
 </div>
 </body>

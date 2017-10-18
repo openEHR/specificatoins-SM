@@ -1,9 +1,9 @@
-=== I_DEFINITION_AOM2 Interface
+=== I_DEFINITION_ADL2 Interface
 
 [cols="^1,3,5"]
 |===
 h|*Interface*
-2+^h|*I_DEFINITION_AOM2*
+2+^h|*I_DEFINITION_ADL2*
 
 h|*Description*
 2+a|Interface to ADL2 definitions (i.e. models) in an EHR 'system'.
@@ -17,7 +17,7 @@ h|
 auth_tok: `String[1]`, +
 an_id: `ARCHETYPE_HRID[1]` +
 ): `Boolean`
-a|Return True if AOM2 artefact with id an_id exists in the service.
+a|Return True if AOM2 artefact with id `_an_id_` exists in the service.
 
 h|
 |*upload_artefact* ( +
@@ -53,6 +53,30 @@ a|List all AOM2 artefacts known in the service.
 .Parameters +
 [horizontal]
 `_row_offset_`:: Optional parameter specifying offset in query response rows to return, used for large result sets. A zero or negative value means offset of zero.
+
+h|
+|*list_all_archetypes* ( +
+auth_tok: `String[1]`, +
+row_offset: `Integer[0..1]`, +
+rows_to_fetch: `Integer[0..1]` +
+): `List<ARCHETYPE_HRID>`
+a|List all archetypes, i.e. artefacts whose concrete type is `AUTHORED_ARCHETYPE`.
+
+h|
+|*list_all_templates* ( +
+auth_tok: `String[1]`, +
+row_offset: `Integer[0..1]`, +
+rows_to_fetch: `Integer[0..1]` +
+): `List<ARCHETYPE_HRID>`
+a|List all archetypes, i.e. artefacts whose concrete type is `TEMPLATE`.
+
+h|
+|*list_all_opts* ( +
+auth_tok: `String[1]`, +
+row_offset: `Integer[0..1]`, +
+rows_to_fetch: `Integer[0..1]` +
+): `List<ARCHETYPE_HRID>`
+a|List all archetypes, i.e. artefacts whose concrete type is `OPERATIONAL_TEMPLATE`.
 
 h|
 |*list_matching_artefacts* ( +

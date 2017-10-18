@@ -22,7 +22,6 @@ a_contrib_id: `UUID[1]` +
 a|Return True if the Contribution with `_a_contrib_id_` in EHR with id `_an_ehr_id_` exists.
 
 .Errors
-* auth_failure
 * ehr_does_not_exist
 
 h|
@@ -37,7 +36,6 @@ an_audit: `UPDATE_AUDIT[1]` +
 a|Commit a Contribution containing any number of `VERSION_UPDATE` objects.
 
 .Errors
-* auth_failure
 * ehr_does_not_exist
 
 h|
@@ -51,6 +49,14 @@ a_contrib_id: `UUID[1]` +
 a|Return the Contribution with id `_a_contrib_id_` in EHR with id `_an_ehr_id_`.
 
 .Errors
-* auth_failure
 * ehr_does_not_exist
+* contribution_does_not_exist
+
+h|
+|*list_all_contributions* ( +
+auth_tok: `String[1]`, +
+row_offset: `Integer[0..1]`, +
+rows_to_fetch: `Integer[0..1]` +
+): `List<UUID>`
+a|List all available Contributions.
 |===

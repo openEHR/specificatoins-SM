@@ -65,7 +65,7 @@ This specification has benefited from formal and informal input from the openEHR
 include::master01-preface.adoc[leveloffset=+1]
 include::master02-overview.adoc[leveloffset=+1]
 include::master03-common_package.adoc[leveloffset=+1]
-include::master04-definitions_package.adoc[leveloffset=+1]
+include::master04-definition_package.adoc[leveloffset=+1]
 include::master05-ehr_package.adoc[leveloffset=+1]
 include::master06-demographic_package.adoc[leveloffset=+1]
 include::master07-query_package.adoc[leveloffset=+1]
