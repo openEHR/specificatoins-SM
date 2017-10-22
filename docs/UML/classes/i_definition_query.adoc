@@ -14,14 +14,12 @@ h|*Functions*
 
 h|
 |*has_query* ( +
-auth_tok: `String[1]`, +
 a_query_id: `UUID[1]` +
 ): `Boolean`
 a|Return True if the query identified by `_a_query_id_` is registered.
 
 h|
 |*register_query* ( +
-auth_tok: `String[1]`, +
 a_query_text: `String[1]`, +
 a_query_name: `String[0..1]` +
 ): `QUERY_DESCRIPTOR`
@@ -31,7 +29,6 @@ TODO: validate query text?
 
 h|
 |*register_query_set* ( +
-auth_tok: `String[1]`, +
 a_query_set_name: `String[0..1]` +
 ): `UUID`
 a|Register a query set.
@@ -40,7 +37,6 @@ TODO: determine details.
 
 h|
 |*list_all_queries* ( +
-auth_tok: `String[1]`, +
 row_offset: `Integer[0..1]`, +
 rows_to_fetch: `Integer[0..1]` +
 ): `List<QUERY_DESCRIPTOR>`
@@ -52,7 +48,6 @@ a|List all registered queries.
 
 h|
 |*list_matching_queries* ( +
-auth_tok: `String[1]`, +
 id_pattern: `String[1]`, +
 artefact_id_pattern: `String[1]`, +
 row_offset: `Integer[0..1]`, +
@@ -75,7 +70,6 @@ a|List all registered queries matching an identifier pattern (regex) and an arte
 
 h|
 |*delete_query* ( +
-auth_tok: `String[1]`, +
 a_query_id: `UUID[1]` +
 )
 a|

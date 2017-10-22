@@ -14,35 +14,30 @@ h|*Functions*
 
 h|
 |*list_contributions* ( +
-auth_tok: `String[1]`, +
 time_interval: `Interval<Iso8601_date_time>[0..1]` +
 ): `List<UUID>`
 a|Obtain a list of ids of all Contributions in EHR system; an optional time range may be supplied.
 
 h|
 |*contribution_count* ( +
-auth_tok: `String[1]`, +
 time_interval: `Interval<Iso8601_date_time>[0..1]` +
 ): `Integer`
 a|Obtain the count of all Contributions made on EHR system; an optional time range may be supplied.
 
 h|
 |*versioned_composition_count* ( +
-auth_tok: `String[1]`, +
 time_interval: `Interval<Iso8601_date_time>[0..1]` +
 ): `Integer`
 a|Obtain the count of all Versioned Compositions on EHR system; an optional time range may be supplied.
 
 h|
 |*composition_version_count* ( +
-auth_tok: `String[1]`, +
 time_interval: `Interval<Iso8601_date_time>[0..1]` +
 ): `Integer`
 a|Obtain the count of all Composition Versions on EHR system; an optional time range may be supplied.
 
 h|
 |*physical_ehr_delete* ( +
-auth_tok: `String[1]`, +
 an_ehr_id: `UUID[1]` +
 ) +
 *_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
@@ -50,7 +45,6 @@ a|Physical deletion of specified EHR.
 
 h|
 |*physical_party_delete* ( +
-auth_tok: `String[1]`, +
 a_party: `PARTY_REF[1]` +
 )
 a|Physical delete of specified Party, along with related Party relationships.

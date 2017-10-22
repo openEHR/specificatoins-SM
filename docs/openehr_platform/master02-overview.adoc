@@ -2,23 +2,56 @@
 
 == openEHR Platform Model
 
-In order to specify service interfaces to the openEHR platform, the latter has to be defined in the abstract, so as to state the scope and purpose of services. The following figure illustrates the assumed components of a notional openEHR Platform.
+In order to specify concrete service interfaces (i.e. APIs) to openEHR platform product components, a _formal, abstract definition_ of the platform interfaces is useful, so as to be able to state the interface call semantics independent of any particular technology. This approach clarifies the distinction between required semantics and the details contingent in any concrete technology, such as SOAP/WSDL, REST, RPC, Protocol Buffers, etc, each of which has its own characteristics and rules. 
+
+The following figure illustrates the assumed components of an abstract openEHR Platform.
 
 [.text-center]
 .SM Platform Model
 image::{uml_export_dir}/diagrams/SM-platform_model.svg[id=platform_model, align="center"]
 
-Each component has one or more associated Interfaces, i.e. abstract service definitions which provide a transactional interface to the service provided by the component.
+Each component has one or more associated Interfaces, i.e. abstract service definitions which define an abstract _transactional interface_ to the service provided by the component. Each interface consists of a number of _calls_, and each call is defined in an abstract way.
 
-== Platform Service Interface
+This view does not attempt to define or specify any real product architecture as produced by a platform developer, but instead, to standardise the _naming_ of components and semantics of their logical interfaces so that platform procurers and users can speak of, for example, the 'Admin service' or the 'EHR service' within tender documents, without ambiguity. The abstract service architecture described here provides platform implementers a standard reference point for mapping agreed functionality (such as requested in a tender or other solicitation) into their own architectures, which may be organised quite differently. 
 
-The openEHR Platform Service Model is an abstract formal specifications of interfaces to the logical components of the openEHR Platform shown above.
+== Interface Calls
 
-The package structure is illustrated below.
+Regardless of the internal organisation of real product architectures, agreement across a community of producers and users of products that claim to _conform_ to a published platform specification, must by definition be based on something formally statable and testable. As noted above, this is described here in the form of logical components which have logical interfaces, each consisting of a set of calls, of which the latter constitute the finest level of specification.
 
-[.text-center]
-.SM package overview
-image::{uml_export_dir}/diagrams/SM-platform-packages.svg[id=platform_packages, align="center"]
+A logical interface call is understood here in the standard computer science manner, i.e. as a routine with a formal, typed signature. Good practice usually dictates that such routines should take the form of either pure _functions_, or pure _procedures_, but not bothl side-effect producing functions should generally be avoided. In other words, interface calls are either _queries_ that return something but do not change state, or _commands_ that cause a change, but don't compute or return anything. The separation is sometimes known as _command / query separation_.
+
+The signatures of query and procedure thus take the following syntactic forms:
+
+----
+    func: T                                 -- function with no arguments
+    func(arg1: X, arg2: Y, arg3: Z): T      -- function with arguments
+    
+    proc                                    -- procedure with no arguments
+    proc(arg1: X, arg2: Y)                  -- procedure with arguments
+----
+
+One of the key assumptions of this specification (and indeed formal standardisation in general) is that although real implementations of a platform may have differently structured components and different naming of functions, arguments etc, that there is a _formal equivalence_ between calls specified in a published standard and those in the implementation. Thus, it must be the case that even if three calls in an implementation are required to achieve the effect of a single call in this specification, that the semantics described here prior and after the call(s) are the same in both cases. If this is not true, it implies that the implementation is doing something different than what is specified.
+
+== Anatomy of an Abstract Call Specification
+
+A fuller specification of any function or procedure includes its semantic effects, stated in terms of pre-conditions, post-conditions and exception cases, along with  documentation. This is exactly as found in any standard library in most programming languages, and indeed, standardised meta-data keywords and labelling have evolved in most programming documentation systems to support exactly this kind of specification, even where the language doesn't directly support some of its features, such as pro- or post-conditions.
+
+This specification uses the same form of specification, which can be illustrated as follows:
+
+[cols="1,2,4"]
+|===
+|_Call_                 |`create_ehr_with_id`               |This call creates a new EHR in the EHR persistence service, with ....
+|_Arguments_            |`a_uuid`: `UUID`                   |A UUID.
+|_Pre-conditions_       |Valid_id: `not has_ehr (an_id)`    |
+|_Post-conditions_      |Ehr_created: `has_ehr (an_id)`     |
+.2+|_Exceptions_        |`Ehr_already_exists`               |EHR with <an_id> already exists.
+                        |`Auth_error`                       |Caller not authorised to make this call.
+                                                            
+|===
+
+The above kind of specification can in general be easily mapped to any concrete API technology. In each case, how the arguments are expressed, details of serialisation (for textual technologies like SOAP and REST), error handling, etc, will be different. Google protocol buffers for example uses an OMG IDL-like approach to specification, i.e. structured type definitions. REST on the other hand is a web-based type of API normally mapped onto http verbs, URIs and http error codes.
+
+The intent of the current specification is thus to express the abstract element of each interface call, so that both back-end semantics can be correctly designed, and API definitions can be correctly written.
 
 == Functional Style
 
@@ -30,37 +63,37 @@ Various ways of expressing service interface functions to underlying resources a
 * single interface / composed interface ;
 * full argument lists / parameter-carrying object arguments / mixture.
 
-The concrete style doesn't matter greatly apart from the choice on statelessness, since the interface structure on the server side handles remote calls via a call manager within an enterprise service bus or other middleware. The original calls may be in the form of REST API calls, WSDL SOAP calls, RPC calls or something else, and there will always be mapping involved (which occasionally may be one-to-one). 
+In real implementations, different choices will be made; all that matters is that the implementation contains one or more calls that can be made for each call documented here, with the same transactional semantics. Consequently, the functional style used in this specification does not need to be exactly replicated in either a back-end or an API, only the resulting semantics do.
 
-Here we use a _nearly_ stateless approach, where the exception is to use a second call to determine success status and any error information. This can easily be engineered to be fully stateless in a server driven by a managed request queue, as long as the call dispatcher always treats the call-and-check logic as atomic. This approach enables functions to be declared in a standard programming style, with return types reflecting successful execution. The function declarations are accordingly of the following style:
+Here we use a _nearly_ stateless approach, where the exception is to use a second call to determine success status and any error information. This can easily be mapped to a fully stateless style, as would be used in a server driven by a managed request queue. This approach enables functions to be declared in a standard programming style, with return types reflecting successful execution. The function declarations are accordingly of the following style:
 
 [source,idl]
 ----
 // definition
 
 interface I_EHR_SERVICE : I_STATUS {
-    Boolean has_ehr(in UUID auth_tok, in UUID an_ehr_id);
-    UUID create_ehr(in String auth_tok);
-    UUID create_ehr_with_id(in String auth_tok, in UUID an_ehr_id);
+    Boolean has_ehr(UUID an_ehr_id);
+    UUID create_ehr();
+    UUID create_ehr_with_id(UUID an_ehr_id);
 }
 ----
 
-Failures are dealt with by calling a standard function `last_call_failed()` and if `True`, calling `last_call_status()` which returns a structured error object. This enables the recording of errors (such as authorisation failure), pre-condition exceptions (generally relating to argument vaidity) and server exceptions (equivalent to post-condition or invariant exceptions). This leads to the following style of code that would be used in an ESB interface call queue manager.
+Authentication and authorisation is assumed to have been dealt with before any particular call has been made by a combination of standard authentication technologies (e.g. OAuth, RFC 7235) and role-based access control.
+
+Failures are dealt with by calling a standard function `last_call_failed()` and if `True`, calling `last_call_status()` which returns a structured error object. This enables the recording of errors (such as authorisation failure), pre-condition exceptions (generally relating to argument vaidity) and server exceptions (equivalent to post-condition or invariant exceptions). This leads to the following notional call sequence for any given call defined in this specification.
 
 [source,java]
 ----
-// middleware managed call
 I_EHR_SERVICE i_ehr_service;
 CALL_STATUS call_status;
-UUID result;
-UUID test_res;
+UUID test_result, result, an_ehr_id;
 
 try {
-    test_res = i_ehr_service.create_ehr_with_id(some_auth_tok, some_ehr_id);
+    test_result = i_ehr_service.create_ehr_with_id(an_ehr_id);
     if (i_ehr_service.last_call_error())
         call_status = i_ehr_service.last_call_status();
     else
-        result = test_res;
+        result = test_result;
     
 }
 catch (PreConditionException e) {
@@ -82,16 +115,12 @@ catch (Exception e) {
 
 Apart from error-handling, the interfaces are stateless in the sense that any single call constitutes a self-standing transaction on the back-end service, i.e. a transaction that when executed on the service will leave it in a consistent state.
 
-The above illustrates just one pattern of calling in the server. Another common style is to include results as 'out' parameters, and to always return call status. Either style can be used, and can be converted from one to the other via the use of trivial wrappers. 
+The above illustrates just one pattern of calling in a notional server. Another common style is to include results as 'out' parameters, and to use the return value to return call status. Either style can be used, and can be trivially mapped from one to the other. No such code is intended to implemented directly; the above is merely a way of helping to explain the semantics within context of the interface calls documented in this specification.
 
-== Authentication and Authorisation
+== Package Structure
 
-Authorisation is handled in all interface calls by the passing of an authorisation token (`_auth_tok_` parameter). This token is assumed to contain whatever level of authentication and authorisation data the service supports, which may include any or all of the following:
+The openEHR Platform Service Model package structure is illustrated below.
 
-* authentication token (e.g. from a personal key);
-* professional role.
-
-[.tbd]
-TBC
-
-It is used on the server to determine right to access the service, and right to access the particular patient, where relevant.
+[.text-center]
+.SM package overview
+image::{uml_export_dir}/diagrams/SM-platform-packages.svg[id=platform_packages, align="center"]

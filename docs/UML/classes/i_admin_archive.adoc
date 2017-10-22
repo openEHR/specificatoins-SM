@@ -14,14 +14,12 @@ h|*Functions*
 
 h|
 |*archive_ehrs* ( +
-auth_tok: `String[1]`, +
 ehr_ids: `List<UUID>[0..1]` +
 )
 a|Move selected EHRs to archival storage.
 
 h|
 |*archive_parties* ( +
-auth_tok: `String[1]`, +
 ehr_ids: `List<UUID>[0..1]` +
 )
 a|Move selected Parties and relationships to archival storage.

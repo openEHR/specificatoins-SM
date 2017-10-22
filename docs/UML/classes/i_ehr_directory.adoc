@@ -14,7 +14,6 @@ h|*Functions*
 
 h|
 |*create_directory* ( +
-auth_tok: `String[1]`, +
 ehr_id: `UUID[1]`, +
 a_dir_struct: `UV_FOLDER[1]` +
 )
@@ -22,7 +21,6 @@ a|
 
 h|
 |*has_path* ( +
-auth_tok: `String[1]`, +
 ehr_id: `UUID[1]`, +
 a_path: `String[1]` +
 ): `Boolean` +
@@ -34,7 +32,6 @@ a|True if path `_a_path_` exists in directory. The `_a_path_` argument consists 
 
 h|
 |*update_directory* ( +
-auth_tok: `String[1]`, +
 ehr_id: `UUID[1]`, +
 a_dir_struct: `UV_FOLDER[1]` +
 ) +
@@ -50,7 +47,6 @@ a|Create or update a directory from a complete structure. Preceding version must
 
 h|
 |*delete_directory* ( +
-auth_tok: `String[1]`, +
 ehr_id: `UUID[1]` +
 ) +
 *_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
@@ -61,7 +57,6 @@ a|Logically delete the directory by creating a new version in which the contents
 
 h|
 |*get_directory* ( +
-auth_tok: `String[1]`, +
 ehr_id: `UUID[1]` +
 ): `FOLDER` +
 *_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
@@ -72,8 +67,7 @@ a|Get current version of EHR Directory structure, if it exists, else Void.
 
 h|
 |*get_directory_at_time* ( +
-auth_tok: `String[1]`, +
-ehr_id: `UUID[1]`, +
+an_ehr_id: `UUID[1]`, +
 a_time: `Iso8601_date_time[1]` +
 ): `FOLDER` +
 *_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
@@ -88,7 +82,6 @@ a|Get the version of the Directory extant at time `_a_time_`.
 
 h|
 |*get_directory_at_version* ( +
-auth_tok: `String[1]`, +
 an_ehr_id: `UUID[1]`, +
 a_dir_ver_uid: `UUID[1]` +
 ): `FOLDER`
@@ -96,8 +89,7 @@ a|Get a particular version of the EHR Directory.
 
 h|
 |*get_versioned_directory* ( +
-auth_tok: `String[1]`, +
-ehr_id: `UUID[1]` +
+an_ehr_id: `UUID[1]` +
 ): `VERSIONED_FOLDER` +
 *_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
 a|Get the `VERSIONED_FOLDER` Directory object for the EHR with ehr_id.

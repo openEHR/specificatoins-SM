@@ -14,28 +14,24 @@ h|*Functions*
 
 h|
 |*has_party* ( +
-auth_tok: `String[1]`, +
 a_versioned_party_id: `UUID[1]` +
 ): `Boolean`
 a|Return True if Party exists in service.
 
 h|
 |*get_party* ( +
-auth_tok: `String[1]`, +
 a_versioned_party_id: `UUID[1]` +
 ): `PARTY`
 a|Get the current Version of a Party.
 
 h|
 |*get_party_at_version* ( +
-auth_tok: `String[1]`, +
 a_party_version_id: `UUID[1]` +
 ): `PARTY`
 a|Get a particular Party Version.
 
 h|
 |*get_party_at_time* ( +
-auth_tok: `String[1]`, +
 a_versioned_party_id: `UUID[1]`, +
 a_time: `Iso8601_date_time[1]` +
 ): `PARTY`
@@ -43,7 +39,6 @@ a|Get the Version of a Party current at `_a_time_`.
 
 h|
 |*update_party* ( +
-auth_tok: `String[1]`, +
 a_versioned_party_id: `UUID[1]`, +
 a_version: `PARTY[1]` +
 ): `UUID`
@@ -51,7 +46,6 @@ a|Update a Party with a new Version.
 
 h|
 |*delete_party* ( +
-auth_tok: `String[1]`, +
 a_versioned_party_id: `UUID[1]` +
 )
 a|Delete an existing Party.

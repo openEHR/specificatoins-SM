@@ -14,8 +14,7 @@ h|*Functions*
 
 h|
 |*get_ehr_status* ( +
-auth_tok: `String[1]`, +
-ehr_id: `UUID[1]` +
+an_ehr_id: `UUID[1]` +
 ): `EHR_STATUS` +
 *_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
 a|Get the current version of the `EHR_STATUS` object for an EHR.
@@ -25,8 +24,7 @@ a|Get the current version of the `EHR_STATUS` object for an EHR.
 
 h|
 |*set_ehr_queryable* ( +
-auth_tok: `String[1]`, +
-ehr_id: `UUID[1]` +
+an_ehr_id: `UUID[1]` +
 ) +
 *_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
 a|Set the EHR `_is_queryable_` flag to true; this ensures it is included by the query engine.
@@ -36,8 +34,7 @@ a|Set the EHR `_is_queryable_` flag to true; this ensures it is included by the 
 
 h|
 |*set_ehr_modifiable* ( +
-auth_tok: `String[1]`, +
-ehr_id: `UUID[1]` +
+an_ehr_id: `UUID[1]` +
 ) +
 *_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
 a|Set the EHR `_is_modifable_` flag to true; this ensures it is treated as active and updatable.
@@ -47,8 +44,7 @@ a|Set the EHR `_is_modifable_` flag to true; this ensures it is treated as activ
 
 h|
 |*clear_ehr_queryable* ( +
-auth_tok: `String[1]`, +
-ehr_id: `UUID[1]` +
+an_ehr_id: `UUID[1]` +
 ) +
 *_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
 a|Clear the EHR `_is_queryable_` flag; this ensures it is ignored by the query engine.
@@ -58,8 +54,7 @@ a|Clear the EHR `_is_queryable_` flag; this ensures it is ignored by the query e
 
 h|
 |*clear_ehr_modifiable* ( +
-auth_tok: `String[1]`, +
-ehr_id: `UUID[1]` +
+an_ehr_id: `UUID[1]` +
 ) +
 *_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
 a|Clear the EHR `_is_modifiable_` flag; this ensures it is treated as active.
@@ -69,8 +64,7 @@ a|Clear the EHR `_is_modifiable_` flag; this ensures it is treated as active.
 
 h|
 |*update_other_details* ( +
-auth_tok: `String[1]`, +
-ehr_id: `UUID[1]`, +
+an_ehr_id: `UUID[1]`, +
 a_details: `ITEM_TREE[1]` +
 ) +
 *_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
@@ -81,8 +75,7 @@ a|Update other_details part of `EHR_STATUS` with new content.
 
 h|
 |*get_versioned_ehr_status* ( +
-auth_tok: `String[1]`, +
-ehr_id: `UUID[1]` +
+an_ehr_id: `UUID[1]` +
 ): `VERSIONED_EHR_STATUS` +
 *_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
 a|Get the `VERSIONED_EHR_STATUS` object from the EHR with id `_ehr_id_`.
@@ -92,7 +85,6 @@ a|Get the `VERSIONED_EHR_STATUS` object from the EHR with id `_ehr_id_`.
 
 h|
 |*get_ehr_status_at_version* ( +
-auth_tok: `String[1]`, +
 an_ehr_id: `UUID[1]`, +
 a_ehr_status_ver_uid: `UUID[1]` +
 ): `EHR_STATUS`

@@ -5,9 +5,9 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.4">
-<meta name="description" content="openEHR Platform Service Model">
+<meta name="description" content="openEHR Platform Abstract Service Model">
 <meta name="keywords" content="openehr, service, API">
-<title>openEHR Platform Service Model</title>
+<title>openEHR Platform Abstract Service Model</title>
 <link rel="stylesheet" href="http://www.openehr.org/releases/BASE/latest/resources/css/openehr.css">
 <link rel="stylesheet" href="http://www.openehr.org/releases/BASE/latest/resources/css/pygments-default.css">
 </head>
@@ -16,7 +16,7 @@
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel0">
-<li><a href="#_openehr_platform_service_model">openEHR Platform Service Model</a>
+<li><a href="#_openehr_platform_abstract_service_model">openEHR Platform Abstract Service Model</a>
 <ul class="sectlevel1">
 <li><a href="#_amendment_record">Amendment Record</a></li>
 <li><a href="#_acknowledgements">Acknowledgements</a>
@@ -35,9 +35,10 @@
 <li><a href="#_overview">2. Overview</a>
 <ul class="sectlevel2">
 <li><a href="#_openehr_platform_model">2.1. openEHR Platform Model</a></li>
-<li><a href="#_platform_service_interface">2.2. Platform Service Interface</a></li>
-<li><a href="#_functional_style">2.3. Functional Style</a></li>
-<li><a href="#_authentication_and_authorisation">2.4. Authentication and Authorisation</a></li>
+<li><a href="#_interface_calls">2.2. Interface Calls</a></li>
+<li><a href="#_anatomy_of_an_abstract_call_specification">2.3. Anatomy of an Abstract Call Specification</a></li>
+<li><a href="#_functional_style">2.4. Functional Style</a></li>
+<li><a href="#_package_structure">2.5. Package Structure</a></li>
 </ul>
 </li>
 <li><a href="#_common_package">3. Common Package</a>
@@ -140,7 +141,7 @@
 </div>
 </div>
 </div>
-<h1 id="_openehr_platform_service_model" class="sect0">openEHR Platform Service Model</h1>
+<h1 id="_openehr_platform_abstract_service_model" class="sect0">openEHR Platform Abstract Service Model</h1>
 <div class="openblock partintro">
 <div class="content">
 <table class="tableblock frame-all grid-all spread">
@@ -222,21 +223,23 @@
 <th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>R E L E A S E&#160;&#160;&#160;&#160;&#160;1.0.0</strong></p></th>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>0.9.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>0.9.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Improve documentation text;<br>
+ remove <code><em>auth_tok</em></code> argument from calls.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>22 Oct 2017</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.9.1</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Added demographic interface calls;<br>
  added more admin interface calls.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>18 Oct 2017</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">18 Oct 2017</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0.9.0</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://openehr.atlassian.net/browse/SPECSM-1">SPECSM-1</a>: Initial writing.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">H Frankel,<br>
- S Iancu,<br>
- B Lah,<br>
- P Pazos,<br>
- E Sundvall,<br>
- T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">openEHR SEC</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">15 Sep 2017</p></td>
 </tr>
 </tbody>
@@ -270,7 +273,7 @@
 <div class="sect2">
 <h3 id="_purpose"><a class="anchor" href="#_purpose"></a>1.1. Purpose</h3>
 <div class="paragraph">
-<p>This document describes the openEHR Base Types, a collection of general types used by other openEHR specifications.</p>
+<p>This document specifies core components of the openEHR platform a formal, abstract form, for use in developing concrete service API definitions such as SOAP, REST, Google protocol buffers and other interface technologies.</p>
 </div>
 <div class="paragraph">
 <p>The intended audience includes:</p>
@@ -279,12 +282,6 @@
 <ul>
 <li>
 <p>Standards bodies producing health informatics standards;</p>
-</li>
-<li>
-<p>Research groups using openEHR, ISO 13606, archetypes and related technologies;</p>
-</li>
-<li>
-<p>The open source healthcare community;</p>
 </li>
 <li>
 <p>Solution vendors.</p>
@@ -301,6 +298,16 @@
 <ul>
 <li>
 <p>The <a href="http://www.openehr.org/releases/BASE/latest/architecture_overview.html">openEHR Architecture Overview</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Related documents include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <a href="https://openehr.github.io/specifications-ITS/">openEHR REST APIs</a>.</p>
 </li>
 </ul>
 </div>
@@ -328,7 +335,10 @@
 <div class="sect2">
 <h3 id="_openehr_platform_model"><a class="anchor" href="#_openehr_platform_model"></a>2.1. openEHR Platform Model</h3>
 <div class="paragraph">
-<p>In order to specify service interfaces to the openEHR platform, the latter has to be defined in the abstract, so as to state the scope and purpose of services. The following figure illustrates the assumed components of a notional openEHR Platform.</p>
+<p>In order to specify concrete service interfaces (i.e. APIs) to openEHR platform product components, a <em>formal, abstract definition</em> of the platform interfaces is useful, so as to be able to state the interface call semantics independent of any particular technology. This approach clarifies the distinction between required semantics and the details contingent in any concrete technology, such as SOAP/WSDL, REST, RPC, Protocol Buffers, etc, each of which has its own characteristics and rules.</p>
+</div>
+<div class="paragraph">
+<p>The following figure illustrates the assumed components of an abstract openEHR Platform.</p>
 </div>
 <div id="platform_model" class="imageblock text-center" style="text-align: center">
 <div class="content">
@@ -337,26 +347,91 @@
 <div class="title">Figure 1. SM Platform Model</div>
 </div>
 <div class="paragraph">
-<p>Each component has one or more associated Interfaces, i.e. abstract service definitions which provide a transactional interface to the service provided by the component.</p>
+<p>Each component has one or more associated Interfaces, i.e. abstract service definitions which define an abstract <em>transactional interface</em> to the service provided by the component. Each interface consists of a number of <em>calls</em>, and each call is defined in an abstract way.</p>
+</div>
+<div class="paragraph">
+<p>This view does not attempt to define or specify any real product architecture as produced by a platform developer, but instead, to standardise the <em>naming</em> of components and semantics of their logical interfaces so that platform procurers and users can speak of, for example, the 'Admin service' or the 'EHR service' within tender documents, without ambiguity. The abstract service architecture described here provides platform implementers a standard reference point for mapping agreed functionality (such as requested in a tender or other solicitation) into their own architectures, which may be organised quite differently.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_platform_service_interface"><a class="anchor" href="#_platform_service_interface"></a>2.2. Platform Service Interface</h3>
+<h3 id="_interface_calls"><a class="anchor" href="#_interface_calls"></a>2.2. Interface Calls</h3>
 <div class="paragraph">
-<p>The openEHR Platform Service Model is an abstract formal specifications of interfaces to the logical components of the openEHR Platform shown above.</p>
+<p>Regardless of the internal organisation of real product architectures, agreement across a community of producers and users of products that claim to <em>conform</em> to a published platform specification, must by definition be based on something formally statable and testable. As noted above, this is described here in the form of logical components which have logical interfaces, each consisting of a set of calls, of which the latter constitute the finest level of specification.</p>
 </div>
 <div class="paragraph">
-<p>The package structure is illustrated below.</p>
+<p>A logical interface call is understood here in the standard computer science manner, i.e. as a routine with a formal, typed signature. Good practice usually dictates that such routines should take the form of either pure <em>functions</em>, or pure <em>procedures</em>, but not bothl side-effect producing functions should generally be avoided. In other words, interface calls are either <em>queries</em> that return something but do not change state, or <em>commands</em> that cause a change, but don&#8217;t compute or return anything. The separation is sometimes known as <em>command / query separation</em>.</p>
 </div>
-<div id="platform_packages" class="imageblock text-center" style="text-align: center">
+<div class="paragraph">
+<p>The signatures of query and procedure thus take the following syntactic forms:</p>
+</div>
+<div class="listingblock">
 <div class="content">
-<img src="../UML/diagrams/SM-platform-packages.svg" alt="SM platform packages">
+<pre>    func: T                                 -- function with no arguments
+    func(arg1: X, arg2: Y, arg3: Z): T      -- function with arguments
+
+    proc                                    -- procedure with no arguments
+    proc(arg1: X, arg2: Y)                  -- procedure with arguments</pre>
 </div>
-<div class="title">Figure 2. SM package overview</div>
+</div>
+<div class="paragraph">
+<p>One of the key assumptions of this specification (and indeed formal standardisation in general) is that although real implementations of a platform may have differently structured components and different naming of functions, arguments etc, that there is a <em>formal equivalence</em> between calls specified in a published standard and those in the implementation. Thus, it must be the case that even if three calls in an implementation are required to achieve the effect of a single call in this specification, that the semantics described here prior and after the call(s) are the same in both cases. If this is not true, it implies that the implementation is doing something different than what is specified.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_functional_style"><a class="anchor" href="#_functional_style"></a>2.3. Functional Style</h3>
+<h3 id="_anatomy_of_an_abstract_call_specification"><a class="anchor" href="#_anatomy_of_an_abstract_call_specification"></a>2.3. Anatomy of an Abstract Call Specification</h3>
+<div class="paragraph">
+<p>A fuller specification of any function or procedure includes its semantic effects, stated in terms of pre-conditions, post-conditions and exception cases, along with  documentation. This is exactly as found in any standard library in most programming languages, and indeed, standardised meta-data keywords and labelling have evolved in most programming documentation systems to support exactly this kind of specification, even where the language doesn&#8217;t directly support some of its features, such as pro- or post-conditions.</p>
+</div>
+<div class="paragraph">
+<p>This specification uses the same form of specification, which can be illustrated as follows:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 14.2857%;">
+<col style="width: 28.5714%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Call</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>create_ehr_with_id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This call creates a new EHR in the EHR persistence service, with &#8230;&#8203;.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Arguments</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a_uuid</code>: <code>UUID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A UUID.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Pre-conditions</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Valid_id: <code>not has_ehr (an_id)</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Post-conditions</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ehr_created: <code>has_ehr (an_id)</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock"><em>Exceptions</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Ehr_already_exists</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EHR with &lt;an_id&gt; already exists.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Auth_error</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Caller not authorised to make this call.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The above kind of specification can in general be easily mapped to any concrete API technology. In each case, how the arguments are expressed, details of serialisation (for textual technologies like SOAP and REST), error handling, etc, will be different. Google protocol buffers for example uses an OMG IDL-like approach to specification, i.e. structured type definitions. REST on the other hand is a web-based type of API normally mapped onto http verbs, URIs and http error codes.</p>
+</div>
+<div class="paragraph">
+<p>The intent of the current specification is thus to express the abstract element of each interface call, so that both back-end semantics can be correctly designed, and API definitions can be correctly written.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_functional_style"><a class="anchor" href="#_functional_style"></a>2.4. Functional Style</h3>
 <div class="paragraph">
 <p>Various ways of expressing service interface functions to underlying resources are possible, with choices available in various dimensions:</p>
 </div>
@@ -380,39 +455,40 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>The concrete style doesn&#8217;t matter greatly apart from the choice on statelessness, since the interface structure on the server side handles remote calls via a call manager within an enterprise service bus or other middleware. The original calls may be in the form of REST API calls, WSDL SOAP calls, RPC calls or something else, and there will always be mapping involved (which occasionally may be one-to-one).</p>
+<p>In real implementations, different choices will be made; all that matters is that the implementation contains one or more calls that can be made for each call documented here, with the same transactional semantics. Consequently, the functional style used in this specification does not need to be exactly replicated in either a back-end or an API, only the resulting semantics do.</p>
 </div>
 <div class="paragraph">
-<p>Here we use a <em>nearly</em> stateless approach, where the exception is to use a second call to determine success status and any error information. This can easily be engineered to be fully stateless in a server driven by a managed request queue, as long as the call dispatcher always treats the call-and-check logic as atomic. This approach enables functions to be declared in a standard programming style, with return types reflecting successful execution. The function declarations are accordingly of the following style:</p>
+<p>Here we use a <em>nearly</em> stateless approach, where the exception is to use a second call to determine success status and any error information. This can easily be mapped to a fully stateless style, as would be used in a server driven by a managed request queue. This approach enables functions to be declared in a standard programming style, with return types reflecting successful execution. The function declarations are accordingly of the following style:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="idl"><span class="tok-o">//</span> definition
 
 interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
-    Boolean has_ehr(in UUID auth_tok, in UUID an_ehr_id);
-    UUID create_ehr(in <span class="tok-nb">String</span> auth_tok);
-    UUID create_ehr_with_id(in <span class="tok-nb">String</span> auth_tok, in UUID an_ehr_id);
+    Boolean has_ehr(UUID an_ehr_id);
+    UUID create_ehr();
+    UUID create_ehr_with_id(UUID an_ehr_id);
 }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Failures are dealt with by calling a standard function <code>last_call_failed()</code> and if <code>True</code>, calling <code>last_call_status()</code> which returns a structured error object. This enables the recording of errors (such as authorisation failure), pre-condition exceptions (generally relating to argument vaidity) and server exceptions (equivalent to post-condition or invariant exceptions). This leads to the following style of code that would be used in an ESB interface call queue manager.</p>
+<p>Authentication and authorisation is assumed to have been dealt with before any particular call has been made by a combination of standard authentication technologies (e.g. OAuth, RFC 7235) and role-based access control.</p>
+</div>
+<div class="paragraph">
+<p>Failures are dealt with by calling a standard function <code>last_call_failed()</code> and if <code>True</code>, calling <code>last_call_status()</code> which returns a structured error object. This enables the recording of errors (such as authorisation failure), pre-condition exceptions (generally relating to argument vaidity) and server exceptions (equivalent to post-condition or invariant exceptions). This leads to the following notional call sequence for any given call defined in this specification.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java"><span class="tok-c1">// middleware managed call</span>
-<span class="tok-n">I_EHR_SERVICE</span> <span class="tok-n">i_ehr_service</span><span class="tok-o">;</span>
+<pre class="pygments highlight"><code data-lang="java"><span class="tok-n">I_EHR_SERVICE</span> <span class="tok-n">i_ehr_service</span><span class="tok-o">;</span>
 <span class="tok-n">CALL_STATUS</span> <span class="tok-n">call_status</span><span class="tok-o">;</span>
-<span class="tok-n">UUID</span> <span class="tok-n">result</span><span class="tok-o">;</span>
-<span class="tok-n">UUID</span> <span class="tok-n">test_res</span><span class="tok-o">;</span>
+<span class="tok-n">UUID</span> <span class="tok-n">test_result</span><span class="tok-o">,</span> <span class="tok-n">result</span><span class="tok-o">,</span> <span class="tok-n">an_ehr_id</span><span class="tok-o">;</span>
 
 <span class="tok-k">try</span> <span class="tok-o">{</span>
-    <span class="tok-n">test_res</span> <span class="tok-o">=</span> <span class="tok-n">i_ehr_service</span><span class="tok-o">.</span><span class="tok-na">create_ehr_with_id</span><span class="tok-o">(</span><span class="tok-n">some_auth_tok</span><span class="tok-o">,</span> <span class="tok-n">some_ehr_id</span><span class="tok-o">);</span>
+    <span class="tok-n">test_result</span> <span class="tok-o">=</span> <span class="tok-n">i_ehr_service</span><span class="tok-o">.</span><span class="tok-na">create_ehr_with_id</span><span class="tok-o">(</span><span class="tok-n">an_ehr_id</span><span class="tok-o">);</span>
     <span class="tok-k">if</span> <span class="tok-o">(</span><span class="tok-n">i_ehr_service</span><span class="tok-o">.</span><span class="tok-na">last_call_error</span><span class="tok-o">())</span>
         <span class="tok-n">call_status</span> <span class="tok-o">=</span> <span class="tok-n">i_ehr_service</span><span class="tok-o">.</span><span class="tok-na">last_call_status</span><span class="tok-o">();</span>
     <span class="tok-k">else</span>
-        <span class="tok-n">result</span> <span class="tok-o">=</span> <span class="tok-n">test_res</span><span class="tok-o">;</span>
+        <span class="tok-n">result</span> <span class="tok-o">=</span> <span class="tok-n">test_result</span><span class="tok-o">;</span>
 
 <span class="tok-o">}</span>
 <span class="tok-k">catch</span> <span class="tok-o">(</span><span class="tok-n">PreConditionException</span> <span class="tok-n">e</span><span class="tok-o">)</span> <span class="tok-o">{</span>
@@ -436,29 +512,19 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 <p>Apart from error-handling, the interfaces are stateless in the sense that any single call constitutes a self-standing transaction on the back-end service, i.e. a transaction that when executed on the service will leave it in a consistent state.</p>
 </div>
 <div class="paragraph">
-<p>The above illustrates just one pattern of calling in the server. Another common style is to include results as 'out' parameters, and to always return call status. Either style can be used, and can be converted from one to the other via the use of trivial wrappers.</p>
+<p>The above illustrates just one pattern of calling in a notional server. Another common style is to include results as 'out' parameters, and to use the return value to return call status. Either style can be used, and can be trivially mapped from one to the other. No such code is intended to implemented directly; the above is merely a way of helping to explain the semantics within context of the interface calls documented in this specification.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_authentication_and_authorisation"><a class="anchor" href="#_authentication_and_authorisation"></a>2.4. Authentication and Authorisation</h3>
+<h3 id="_package_structure"><a class="anchor" href="#_package_structure"></a>2.5. Package Structure</h3>
 <div class="paragraph">
-<p>Authorisation is handled in all interface calls by the passing of an authorisation token (<code><em>auth_tok</em></code> parameter). This token is assumed to contain whatever level of authentication and authorisation data the service supports, which may include any or all of the following:</p>
+<p>The openEHR Platform Service Model package structure is illustrated below.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>authentication token (e.g. from a personal key);</p>
-</li>
-<li>
-<p>professional role.</p>
-</li>
-</ul>
+<div id="platform_packages" class="imageblock text-center" style="text-align: center">
+<div class="content">
+<img src="../UML/diagrams/SM-platform-packages.svg" alt="SM platform packages">
 </div>
-<div class="paragraph tbd">
-<p>TBC</p>
-</div>
-<div class="paragraph">
-<p>It is used on the server to determine right to access the service, and right to access the particular patient, where relevant.</p>
+<div class="title">Figure 2. SM package overview</div>
 </div>
 </div>
 </div>
@@ -804,7 +870,6 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_artefact</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 an_id: <code>ARCHETYPE_HRID[1]</code><br>
 ): <code>Boolean</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -814,7 +879,6 @@ an_id: <code>ARCHETYPE_HRID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>upload_artefact</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 arch: <code>AUTHORED_ARCHETYPE[1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -835,7 +899,6 @@ arch: <code>AUTHORED_ARCHETYPE[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_artefact</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 an_id: <code>ARCHETYPE_HRID[1]</code><br>
 ): <code>AUTHORED_ARCHETYPE</code><br>
 <strong><em>Pre_artefact_exists</em></strong>: <code>has_artefact (an_id)</code></p></td>
@@ -854,7 +917,6 @@ an_id: <code>ARCHETYPE_HRID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_all_artefacts</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 row_offset: <code>Integer[0..1]</code>,<br>
 rows_to_fetch: <code>Integer[0..1]</code><br>
 ): <code>List&lt;ARCHETYPE_HRID&gt;</code></p></td>
@@ -878,7 +940,6 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_all_archetypes</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 row_offset: <code>Integer[0..1]</code>,<br>
 rows_to_fetch: <code>Integer[0..1]</code><br>
 ): <code>List&lt;ARCHETYPE_HRID&gt;</code></p></td>
@@ -889,7 +950,6 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_all_templates</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 row_offset: <code>Integer[0..1]</code>,<br>
 rows_to_fetch: <code>Integer[0..1]</code><br>
 ): <code>List&lt;ARCHETYPE_HRID&gt;</code></p></td>
@@ -900,7 +960,6 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_all_opts</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 row_offset: <code>Integer[0..1]</code>,<br>
 rows_to_fetch: <code>Integer[0..1]</code><br>
 ): <code>List&lt;ARCHETYPE_HRID&gt;</code></p></td>
@@ -911,7 +970,6 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_matching_artefacts</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 id_pattern: <code>String[1]</code>,<br>
 row_offset: <code>Integer[0..1]</code>,<br>
 rows_to_fetch: <code>Integer[0..1]</code><br>
@@ -932,14 +990,6 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <table>
 <tr>
 <td class="hdlist1">
-<code><em>auth_tok</em></code>
-</td>
-<td class="hdlist2">
-<p>PERL regular expression pattern on <code>ARCHETYPE_HRID</code> strings.</p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
 <code><em>row_offset</em></code>
 </td>
 <td class="hdlist2">
@@ -952,7 +1002,6 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_artefact</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 an_id: <code>ARCHETYPE_HRID[1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -997,7 +1046,6 @@ an_id: <code>ARCHETYPE_HRID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_archetype</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 an_id: <code>ARCHETYPE_ID[1]</code><br>
 ): <code>Boolean</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -1007,7 +1055,6 @@ an_id: <code>ARCHETYPE_ID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>upload_archetype</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 arch: <code>ARCHETYPE[1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -1025,7 +1072,6 @@ arch: <code>ARCHETYPE[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_archetype</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 an_id: <code>ARCHETYPE_ID[1]</code><br>
 ): <code>ARCHETYPE</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -1043,7 +1089,6 @@ an_id: <code>ARCHETYPE_ID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_all_archetypes</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 row_offset: <code>Integer[0..1]</code>,<br>
 rows_to_fetch: <code>Integer[0..1]</code><br>
 ): <code>List&lt;ARCHETYPE_ID&gt;</code></p></td>
@@ -1075,7 +1120,6 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_matching_archetypes</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 id_pattern: <code>String[1]</code>,<br>
 row_offset: <code>Integer[0..1]</code>,<br>
 rows_to_fetch: <code>Integer[0..1]</code><br>
@@ -1094,14 +1138,6 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <div class="hdlist">
 <div class="title">Parameters<br></div>
 <table>
-<tr>
-<td class="hdlist1">
-<code><em>auth_tok</em></code>
-</td>
-<td class="hdlist2">
-<p>PERL regular expression pattern on <code>ARCHETYPE_HRID</code> strings.</p>
-</td>
-</tr>
 <tr>
 <td class="hdlist1">
 <code><em>row_offset</em></code>
@@ -1124,7 +1160,6 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_opt</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 an_id: <code>UUID[1]</code><br>
 ): <code>Boolean</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -1134,7 +1169,6 @@ an_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>upload_opt</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 arch: <code>ARCHETYPE[1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -1152,7 +1186,6 @@ arch: <code>ARCHETYPE[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_opt</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 an_id: <code>UUID[1]</code><br>
 ): <code>ARCHETYPE</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -1170,7 +1203,6 @@ an_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_all_opts</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 row_offset: <code>Integer[0..1]</code>,<br>
 rows_to_fetch: <code>Integer[0..1]</code><br>
 ): <code>List&lt;UUID&gt;</code></p></td>
@@ -1202,7 +1234,6 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_matching_opts</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 id_pattern: <code>String[1]</code>,<br>
 row_offset: <code>Integer[0..1]</code>,<br>
 rows_to_fetch: <code>Integer[0..1]</code><br>
@@ -1221,14 +1252,6 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <div class="hdlist">
 <div class="title">Parameters<br></div>
 <table>
-<tr>
-<td class="hdlist1">
-<code><em>auth_tok</em></code>
-</td>
-<td class="hdlist2">
-<p>PERL regular expression pattern on <code>ARCHETYPE_HRID</code> strings.</p>
-</td>
-</tr>
 <tr>
 <td class="hdlist1">
 <code><em>row_offset</em></code>
@@ -1278,7 +1301,6 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_query</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 a_query_id: <code>UUID[1]</code><br>
 ): <code>Boolean</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -1288,7 +1310,6 @@ a_query_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>register_query</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 a_query_text: <code>String[1]</code>,<br>
 a_query_name: <code>String[0..1]</code><br>
 ): <code>QUERY_DESCRIPTOR</code></p></td>
@@ -1302,7 +1323,6 @@ a_query_name: <code>String[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>register_query_set</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 a_query_set_name: <code>String[0..1]</code><br>
 ): <code>UUID</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -1315,7 +1335,6 @@ a_query_set_name: <code>String[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_all_queries</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 row_offset: <code>Integer[0..1]</code>,<br>
 rows_to_fetch: <code>Integer[0..1]</code><br>
 ): <code>List&lt;QUERY_DESCRIPTOR&gt;</code></p></td>
@@ -1339,7 +1358,6 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_matching_queries</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 id_pattern: <code>String[1]</code>,<br>
 artefact_id_pattern: <code>String[1]</code>,<br>
 row_offset: <code>Integer[0..1]</code>,<br>
@@ -1397,7 +1415,6 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_query</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 a_query_id: <code>UUID[1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div></div></td>
@@ -1572,7 +1589,6 @@ a_query_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_ehr</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 ehr_id: <code>UUID[1]</code><br>
 ): <code>Boolean</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -1595,7 +1611,6 @@ ehr_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_ehr_for_subject</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 a_subject_id: <code>PARTY_REF[1]</code><br>
 ): <code>Boolean</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -1626,22 +1641,29 @@ a_subject_id: <code>PARTY_REF[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_ehr</strong> (<br>
-auth_tok: <code>String[1]</code><br>
+an_ehr_status: <code>EHR_STATUS[0..1]</code>,<br>
+auth_tok: <code>UUID[1]</code><br>
 ): <code>UUID</code><br>
 <strong><em>Post_has_ehr</em></strong>: <code>has_ehr (auth_tok, Result)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Create a new EHR and return its EHR id.</p>
+<p>Create a new EHR with a system-generated identifier and return the id.</p>
+</div>
+<div class="paragraph">
+<p>If the <code><em>an_ehr_status</em></code> parameter is provided, it is created as the EHR&#8217;s <code>EHR_STATUS</code>, otherwise a default <code>EHR_STATUS</code> is created, in which <code><em>is_modifiable</em></code> and <code><em>is_queryable</em></code> are both True.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_ehr_with_id</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
-an_ehr_id: <code>UUID[1]</code><br>
+an_ehr_id: <code>UUID[1]</code>,<br>
+an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
 ): <code>UUID</code><br>
 <strong><em>Pre_no_duplicate</em></strong>: <code>not has_ehr (auth_tok, an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Create a new EHR with a provided EHR id; return the id as a safety check.</p>
+</div>
+<div class="paragraph">
+<p>If the <code><em>an_ehr_status</em></code> parameter is provided, it is created as the EHR&#8217;s <code>EHR_STATUS</code>, otherwise a default <code>EHR_STATUS</code> is created, in which <code><em>is_modifiable</em></code> and <code><em>is_queryable</em></code> are both True.</p>
 </div>
 <div class="ulist">
 <div class="title">Errors</div>
@@ -1668,11 +1690,14 @@ an_ehr_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_ehr_for_subject</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
-a_subject_id: <code>PARTY_REF[1]</code><br>
+a_subject_id: <code>PARTY_REF[1]</code>,<br>
+an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
 ): <code>UUID</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Create a new EHR with <code>EHR_STATUS.<em>subject</em></code> set to point to <code><em>subject_id</em></code>, and return its EHR id.</p>
+</div>
+<div class="paragraph">
+<p>If the <code><em>an_ehr_status</em></code> parameter is provided, it is created as the EHR&#8217;s <code>EHR_STATUS</code>, otherwise a default <code>EHR_STATUS</code> is created, in which <code><em>is_modifiable</em></code> and <code><em>is_queryable</em></code> are both True.</p>
 </div>
 <div class="hdlist">
 <div class="title">Parameters<br></div>
@@ -1691,13 +1716,16 @@ a_subject_id: <code>PARTY_REF[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_ehr_for_subject_with_id</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
-a_subject_id: <code>PARTY_REF[1]</code><br>
+a_subject_id: <code>PARTY_REF[1]</code>,<br>
+an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
 ): <code>UUID</code><br>
 <strong><em>Pre_no_duplicate</em></strong>: <code>not has_ehr (auth_tok, an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Create a new EHR with EHR id and provided subject id. Return the EHR id as a safety check.</p>
+</div>
+<div class="paragraph">
+<p>If the <code><em>an_ehr_status</em></code> parameter is provided, it is created as the EHR&#8217;s <code>EHR_STATUS</code>, otherwise a default <code>EHR_STATUS</code> is created, in which <code><em>is_modifiable</em></code> and <code><em>is_queryable</em></code> are both True.</p>
 </div>
 <div class="ulist">
 <div class="title">Errors</div>
@@ -1732,7 +1760,6 @@ a_subject_id: <code>PARTY_REF[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_ehr</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 an_ehr_id: <code>UUID[1]</code><br>
 ): <code>EHR_SUMMARY</code><br>
 <strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
@@ -1764,7 +1791,6 @@ an_ehr_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_ehrs_for_subject</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 a_subject_id: <code>PARTY_REF[1]</code><br>
 ): <code>List&lt;EHR_SUMMARY&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -1854,7 +1880,6 @@ a_subject_id: <code>PARTY_REF[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_contributions</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 ehr_id: <code>UUID[1]</code>,<br>
 time_range: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
 ): <code>List&lt;UUID&gt;</code></p></td>
@@ -1894,7 +1919,6 @@ time_range: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>contribution_count</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 ehr_id: <code>UUID[1]</code>,<br>
 time_range: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
 ): <code>Integer</code></p></td>
@@ -1961,8 +1985,7 @@ time_range: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_ehr_status</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
-ehr_id: <code>UUID[1]</code><br>
+an_ehr_id: <code>UUID[1]</code><br>
 ): <code>EHR_STATUS</code><br>
 <strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -1980,8 +2003,7 @@ ehr_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>set_ehr_queryable</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
-ehr_id: <code>UUID[1]</code><br>
+an_ehr_id: <code>UUID[1]</code><br>
 )<br>
 <strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -1999,8 +2021,7 @@ ehr_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>set_ehr_modifiable</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
-ehr_id: <code>UUID[1]</code><br>
+an_ehr_id: <code>UUID[1]</code><br>
 )<br>
 <strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -2018,8 +2039,7 @@ ehr_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>clear_ehr_queryable</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
-ehr_id: <code>UUID[1]</code><br>
+an_ehr_id: <code>UUID[1]</code><br>
 )<br>
 <strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -2037,8 +2057,7 @@ ehr_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>clear_ehr_modifiable</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
-ehr_id: <code>UUID[1]</code><br>
+an_ehr_id: <code>UUID[1]</code><br>
 )<br>
 <strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -2056,8 +2075,7 @@ ehr_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>update_other_details</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
-ehr_id: <code>UUID[1]</code>,<br>
+an_ehr_id: <code>UUID[1]</code>,<br>
 a_details: <code>ITEM_TREE[1]</code><br>
 )<br>
 <strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
@@ -2076,8 +2094,7 @@ a_details: <code>ITEM_TREE[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_versioned_ehr_status</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
-ehr_id: <code>UUID[1]</code><br>
+an_ehr_id: <code>UUID[1]</code><br>
 ): <code>VERSIONED_EHR_STATUS</code><br>
 <strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -2095,7 +2112,6 @@ ehr_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_ehr_status_at_version</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_ehr_status_ver_uid: <code>UUID[1]</code><br>
 ): <code>EHR_STATUS</code></p></td>
@@ -2133,7 +2149,6 @@ a_ehr_status_ver_uid: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_directory</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 ehr_id: <code>UUID[1]</code>,<br>
 a_dir_struct: <code>UV_FOLDER[1]</code><br>
 )</p></td>
@@ -2142,7 +2157,6 @@ a_dir_struct: <code>UV_FOLDER[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_path</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 ehr_id: <code>UUID[1]</code>,<br>
 a_path: <code>String[1]</code><br>
 ): <code>Boolean</code><br>
@@ -2162,7 +2176,6 @@ a_path: <code>String[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>update_directory</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 ehr_id: <code>UUID[1]</code>,<br>
 a_dir_struct: <code>UV_FOLDER[1]</code><br>
 )<br>
@@ -2195,7 +2208,6 @@ a_dir_struct: <code>UV_FOLDER[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_directory</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 ehr_id: <code>UUID[1]</code><br>
 )<br>
 <strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
@@ -2214,7 +2226,6 @@ ehr_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_directory</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 ehr_id: <code>UUID[1]</code><br>
 ): <code>FOLDER</code><br>
 <strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
@@ -2233,8 +2244,7 @@ ehr_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_directory_at_time</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
-ehr_id: <code>UUID[1]</code>,<br>
+an_ehr_id: <code>UUID[1]</code>,<br>
 a_time: <code>Iso8601_date_time[1]</code><br>
 ): <code>FOLDER</code><br>
 <strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
@@ -2266,7 +2276,6 @@ a_time: <code>Iso8601_date_time[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_directory_at_version</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_dir_ver_uid: <code>UUID[1]</code><br>
 ): <code>FOLDER</code></p></td>
@@ -2277,8 +2286,7 @@ a_dir_ver_uid: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_versioned_directory</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
-ehr_id: <code>UUID[1]</code><br>
+an_ehr_id: <code>UUID[1]</code><br>
 ): <code>VERSIONED_FOLDER</code><br>
 <strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -2323,7 +2331,6 @@ ehr_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_composition</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_comp_id: <code>UUID[1]</code><br>
 ): <code>Boolean</code><br>
@@ -2343,7 +2350,6 @@ a_comp_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>update_composition</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_comp: <code>UV_COMPOSITION[1]</code><br>
 ): <code>UUID</code><br>
@@ -2366,7 +2372,6 @@ a_comp: <code>UV_COMPOSITION[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_composition</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_comp: <code>UV_COMPOSITION[1]</code><br>
 ): <code>UUID</code><br>
@@ -2390,7 +2395,6 @@ a_comp: <code>UV_COMPOSITION[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_composition</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_comp_ver_uid: <code>UUID[1]</code><br>
 )<br>
@@ -2413,7 +2417,6 @@ a_comp_ver_uid: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_composition</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_ver_comp_uid: <code>UUID[1]</code><br>
 ): <code>COMPOSITION</code><br>
@@ -2449,7 +2452,6 @@ a_ver_comp_uid: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_composition_at_time</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_ver_comp_uid: <code>UUID[1]</code>,<br>
 a_time: <code>Iso8601_date_time[1]</code><br>
@@ -2473,7 +2475,6 @@ a_time: <code>Iso8601_date_time[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_composition_at_version</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_comp_ver_uid: <code>UUID[1]</code><br>
 ): <code>COMPOSITION</code></p></td>
@@ -2497,7 +2498,6 @@ a_comp_ver_uid: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_versioned_composition</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_comp_ver_uid: <code>UUID[1]</code><br>
 ): <code>VERSIONED_COMPOSITION</code><br>
@@ -2547,7 +2547,6 @@ a_comp_ver_uid: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_contribution</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_contrib_id: <code>UUID[1]</code><br>
 )<br>
@@ -2567,7 +2566,6 @@ a_contrib_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>commit_contribution</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 versions: <code>List&lt;UPDATE_VERSION&gt;[1]</code>,<br>
 an_audit: <code>UPDATE_AUDIT[1]</code><br>
@@ -2589,7 +2587,6 @@ an_audit: <code>UPDATE_AUDIT[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_contribution</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_contrib_id: <code>UUID[1]</code><br>
 ): <code>CONTRIBUTION</code><br>
@@ -2613,7 +2610,6 @@ a_contrib_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_all_contributions</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 row_offset: <code>Integer[0..1]</code>,<br>
 rows_to_fetch: <code>Integer[0..1]</code><br>
 ): <code>List&lt;UUID&gt;</code></p></td>
@@ -2740,7 +2736,6 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_party</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 a_version: <code>PARTY[1]</code><br>
 ): <code>UUID</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -2750,7 +2745,6 @@ a_version: <code>PARTY[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_party_relationship</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 a_version: <code>PARTY_RELATIONSHIP[1]</code><br>
 ): <code>UUID</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -2787,7 +2781,6 @@ a_version: <code>PARTY_RELATIONSHIP[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_party</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 a_versioned_party_id: <code>UUID[1]</code><br>
 ): <code>Boolean</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -2797,7 +2790,6 @@ a_versioned_party_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_party</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 a_versioned_party_id: <code>UUID[1]</code><br>
 ): <code>PARTY</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -2807,7 +2799,6 @@ a_versioned_party_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_party_at_version</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 a_party_version_id: <code>UUID[1]</code><br>
 ): <code>PARTY</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -2817,7 +2808,6 @@ a_party_version_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_party_at_time</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 a_versioned_party_id: <code>UUID[1]</code>,<br>
 a_time: <code>Iso8601_date_time[1]</code><br>
 ): <code>PARTY</code></p></td>
@@ -2828,7 +2818,6 @@ a_time: <code>Iso8601_date_time[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>update_party</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 a_versioned_party_id: <code>UUID[1]</code>,<br>
 a_version: <code>PARTY[1]</code><br>
 ): <code>UUID</code></p></td>
@@ -2839,7 +2828,6 @@ a_version: <code>PARTY[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_party</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 a_versioned_party_id: <code>UUID[1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -2876,7 +2864,6 @@ a_versioned_party_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_party_relationship</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 a_versioned_party_id: <code>UUID[1]</code><br>
 ): <code>Boolean</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -2886,7 +2873,6 @@ a_versioned_party_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_party_relationship</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 a_versioned_party_id: <code>UUID[1]</code><br>
 ): <code>PARTY_RELATIONSHIP</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -2896,7 +2882,6 @@ a_versioned_party_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_party_relationship_at_version</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 a_party_version_id: <code>UUID[1]</code><br>
 ): <code>PARTY_RELATIONSHIP</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -2906,7 +2891,6 @@ a_party_version_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_party_relationship_at_time</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 a_versioned_party_id: <code>UUID[1]</code>,<br>
 a_time: <code>Iso8601_date_time[1]</code><br>
 ): <code>PARTY_RELATIONSHIP</code></p></td>
@@ -2917,7 +2901,6 @@ a_time: <code>Iso8601_date_time[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>update_party_relationship</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 a_versioned_party_id: <code>UUID[1]</code>,<br>
 a_version: <code>PARTY_RELATIONSHIP[1]</code><br>
 ): <code>UUID</code></p></td>
@@ -2928,7 +2911,6 @@ a_version: <code>PARTY_RELATIONSHIP[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_party_relationship</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 a_versioned_party_id: <code>UUID[1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -3005,7 +2987,6 @@ a_versioned_party_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>execute_stored_query</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 exec_spec: <code>STORED_QUERY_EXECUTE_SPEC[1]</code>,<br>
 row_offset: <code>Integer[0..1]</code>,<br>
 rows_to_fetch: <code>Integer[0..1]</code>,<br>
@@ -3058,7 +3039,6 @@ ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>execute_ad_hoc_query</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 exec_spec: <code>ADHOC_QUERY_EXECUTE_SPEC[1]</code>,<br>
 row_offset: <code>Integer[0..1]</code>,<br>
 rows_to_fetch: <code>Integer[0..1]</code>,<br>
@@ -3385,7 +3365,6 @@ ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_contributions</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 time_interval: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
 ): <code>List&lt;UUID&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -3395,7 +3374,6 @@ time_interval: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>contribution_count</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 time_interval: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
 ): <code>Integer</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -3405,7 +3383,6 @@ time_interval: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>versioned_composition_count</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 time_interval: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
 ): <code>Integer</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -3415,7 +3392,6 @@ time_interval: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>composition_version_count</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 time_interval: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
 ): <code>Integer</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -3425,7 +3401,6 @@ time_interval: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>physical_ehr_delete</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 an_ehr_id: <code>UUID[1]</code><br>
 )<br>
 <strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
@@ -3436,7 +3411,6 @@ an_ehr_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>physical_party_delete</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 a_party: <code>PARTY_REF[1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -3473,7 +3447,6 @@ a_party: <code>PARTY_REF[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>archive_ehrs</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -3483,7 +3456,6 @@ ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>archive_parties</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -3520,7 +3492,6 @@ ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>export_ehrs</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 file_sys_loc: <code>String[1]</code>,<br>
 logical_fmt: <code>EXPORT_FORMAT[0..1]</code>,<br>
 comp_fmt: <code>COMPRESSION_FORMAT[0..1]</code>,<br>
@@ -3533,7 +3504,6 @@ enc_format[0..1]<br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>load_ehrs</strong> (<br>
-auth_tok: <code>String[1]</code>,<br>
 file_sys_loc: <code>String[1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -3659,7 +3629,7 @@ file_sys_loc: <code>String[1]</code><br>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-18 13:57:39 BST
+Last updated 2017-10-21 17:16:12 BST
 </div>
 </div>
 </body>

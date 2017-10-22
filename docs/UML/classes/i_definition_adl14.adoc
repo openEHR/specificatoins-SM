@@ -14,14 +14,12 @@ h|*Functions*
 
 h|
 |*has_archetype* ( +
-auth_tok: `String[1]`, +
 an_id: `ARCHETYPE_ID[1]` +
 ): `Boolean`
 a|Return True if an ADL 1.4 archetype with id an_id exists in the service.
 
 h|
 |*upload_archetype* ( +
-auth_tok: `String[1]`, +
 arch: `ARCHETYPE[1]` +
 )
 a|Upload a valid ADL 1.4 archetype. If an archetype with the same id already exists, replace it. The archetype must be valid to succeed.
@@ -31,7 +29,6 @@ a|Upload a valid ADL 1.4 archetype. If an archetype with the same id already exi
 
 h|
 |*get_archetype* ( +
-auth_tok: `String[1]`, +
 an_id: `ARCHETYPE_ID[1]` +
 ): `ARCHETYPE`
 a|Get the ADL 1.4 archetype with id an_id.
@@ -41,7 +38,6 @@ a|Get the ADL 1.4 archetype with id an_id.
 
 h|
 |*list_all_archetypes* ( +
-auth_tok: `String[1]`, +
 row_offset: `Integer[0..1]`, +
 rows_to_fetch: `Integer[0..1]` +
 ): `List<ARCHETYPE_ID>`
@@ -55,7 +51,6 @@ a|List all ADL 1.4 archetypes known in the service.
 
 h|
 |*list_matching_archetypes* ( +
-auth_tok: `String[1]`, +
 id_pattern: `String[1]`, +
 row_offset: `Integer[0..1]`, +
 rows_to_fetch: `Integer[0..1]` +
@@ -67,22 +62,18 @@ a|List all archetypes whose identifiers match a regex pattern.
 
 .Parameters +
 [horizontal]
-`_auth_tok_`:: PERL regular expression pattern on `ARCHETYPE_HRID` strings.
-
 `_row_offset_`:: Optional parameter specifying offset in query response rows to return, used for large result sets. A zero or negative value means offset of zero.
 
 `_rows_to_fetch_`:: Optional parameter specifying number of query response rows to fetch, used for large result sets. A zero or negative value means 'all'.
 
 h|
 |*has_opt* ( +
-auth_tok: `String[1]`, +
 an_id: `UUID[1]` +
 ): `Boolean`
 a|Return True if ADL 1.4 OPT with id an_id exists in the service.
 
 h|
 |*upload_opt* ( +
-auth_tok: `String[1]`, +
 arch: `ARCHETYPE[1]` +
 )
 a|Upload an ADL 1.4 Operational Template (OPT).
@@ -92,7 +83,6 @@ a|Upload an ADL 1.4 Operational Template (OPT).
 
 h|
 |*get_opt* ( +
-auth_tok: `String[1]`, +
 an_id: `UUID[1]` +
 ): `ARCHETYPE`
 a|Get the ADL 1.4 OPT with id an_id.
@@ -102,7 +92,6 @@ a|Get the ADL 1.4 OPT with id an_id.
 
 h|
 |*list_all_opts* ( +
-auth_tok: `String[1]`, +
 row_offset: `Integer[0..1]`, +
 rows_to_fetch: `Integer[0..1]` +
 ): `List<UUID>`
@@ -116,7 +105,6 @@ a|List all AD 1.4 OPTs known in the service.
 
 h|
 |*list_matching_opts* ( +
-auth_tok: `String[1]`, +
 id_pattern: `String[1]`, +
 row_offset: `Integer[0..1]`, +
 rows_to_fetch: `Integer[0..1]` +
@@ -128,8 +116,6 @@ a|List all OPTs whose identifiers match a regex pattern.
 
 .Parameters +
 [horizontal]
-`_auth_tok_`:: PERL regular expression pattern on `ARCHETYPE_HRID` strings.
-
 `_row_offset_`:: Optional parameter specifying offset in query response rows to return, used for large result sets. A zero or negative value means offset of zero.
 
 `_rows_to_fetch_`:: Optional parameter specifying number of query response rows to fetch, used for large result sets. A zero or negative value means 'all'.

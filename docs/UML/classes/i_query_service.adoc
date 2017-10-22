@@ -14,7 +14,6 @@ h|*Functions*
 
 h|
 |*execute_stored_query* ( +
-auth_tok: `String[1]`, +
 exec_spec: `STORED_QUERY_EXECUTE_SPEC[1]`, +
 row_offset: `Integer[0..1]`, +
 rows_to_fetch: `Integer[0..1]`, +
@@ -36,7 +35,6 @@ Errors
 
 h|
 |*execute_ad_hoc_query* ( +
-auth_tok: `String[1]`, +
 exec_spec: `ADHOC_QUERY_EXECUTE_SPEC[1]`, +
 row_offset: `Integer[0..1]`, +
 rows_to_fetch: `Integer[0..1]`, +

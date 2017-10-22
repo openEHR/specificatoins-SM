@@ -14,14 +14,12 @@ h|*Functions*
 
 h|
 |*create_party* ( +
-auth_tok: `String[1]`, +
 a_version: `PARTY[1]` +
 ): `UUID`
 a|Create a new Party.
 
 h|
 |*create_party_relationship* ( +
-auth_tok: `String[1]`, +
 a_version: `PARTY_RELATIONSHIP[1]` +
 ): `UUID`
 a|Create a new Party Relationship.

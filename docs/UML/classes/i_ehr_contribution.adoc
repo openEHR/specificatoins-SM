@@ -14,7 +14,6 @@ h|*Functions*
 
 h|
 |*has_contribution* ( +
-auth_tok: `String[1]`, +
 an_ehr_id: `UUID[1]`, +
 a_contrib_id: `UUID[1]` +
 ) +
@@ -26,7 +25,6 @@ a|Return True if the Contribution with `_a_contrib_id_` in EHR with id `_an_ehr_
 
 h|
 |*commit_contribution* ( +
-auth_tok: `String[1]`, +
 an_ehr_id: `UUID[1]`, +
 versions: `List<UPDATE_VERSION>[1]`, +
 an_audit: `UPDATE_AUDIT[1]` +
@@ -40,7 +38,6 @@ a|Commit a Contribution containing any number of `VERSION_UPDATE` objects.
 
 h|
 |*get_contribution* ( +
-auth_tok: `String[1]`, +
 an_ehr_id: `UUID[1]`, +
 a_contrib_id: `UUID[1]` +
 ): `CONTRIBUTION` +
@@ -54,7 +51,6 @@ a|Return the Contribution with id `_a_contrib_id_` in EHR with id `_an_ehr_id_`.
 
 h|
 |*list_all_contributions* ( +
-auth_tok: `String[1]`, +
 row_offset: `Integer[0..1]`, +
 rows_to_fetch: `Integer[0..1]` +
 ): `List<UUID>`

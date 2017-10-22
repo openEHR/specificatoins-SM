@@ -14,7 +14,6 @@ h|*Functions*
 
 h|
 |*has_composition* ( +
-auth_tok: `String[1]`, +
 an_ehr_id: `UUID[1]`, +
 a_comp_id: `UUID[1]` +
 ): `Boolean` +
@@ -26,7 +25,6 @@ a|Return True if a Composition with identifier `_a_comp_id_` exists.
 
 h|
 |*update_composition* ( +
-auth_tok: `String[1]`, +
 an_ehr_id: `UUID[1]`, +
 a_comp: `UV_COMPOSITION[1]` +
 ): `UUID` +
@@ -39,7 +37,6 @@ a|Update an existing Composition with a new version.
 
 h|
 |*create_composition* ( +
-auth_tok: `String[1]`, +
 an_ehr_id: `UUID[1]`, +
 a_comp: `UV_COMPOSITION[1]` +
 ): `UUID` +
@@ -53,7 +50,6 @@ a|Create the first version of a new Composition.
 
 h|
 |*delete_composition* ( +
-auth_tok: `String[1]`, +
 an_ehr_id: `UUID[1]`, +
 a_comp_ver_uid: `UUID[1]` +
 ) +
@@ -66,7 +62,6 @@ a|Logically delete a Composition by creating a new version in which the content 
 
 h|
 |*get_composition* ( +
-auth_tok: `String[1]`, +
 an_ehr_id: `UUID[1]`, +
 a_ver_comp_uid: `UUID[1]` +
 ): `COMPOSITION` +
@@ -83,7 +78,6 @@ a|Retrieve a Composition by the uid of its version.
 
 h|
 |*get_composition_at_time* ( +
-auth_tok: `String[1]`, +
 an_ehr_id: `UUID[1]`, +
 a_ver_comp_uid: `UUID[1]`, +
 a_time: `Iso8601_date_time[1]` +
@@ -97,7 +91,6 @@ a|Retrieve the Composition version from a Versioned Composition that was the top
 
 h|
 |*get_composition_at_version* ( +
-auth_tok: `String[1]`, +
 an_ehr_id: `UUID[1]`, +
 a_comp_ver_uid: `UUID[1]` +
 ): `COMPOSITION`
@@ -109,7 +102,6 @@ a|Get a particular version of a Composition.
 
 h|
 |*get_versioned_composition* ( +
-auth_tok: `String[1]`, +
 an_ehr_id: `UUID[1]`, +
 a_comp_ver_uid: `UUID[1]` +
 ): `VERSIONED_COMPOSITION` +

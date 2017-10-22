@@ -14,7 +14,6 @@ h|*Functions*
 
 h|
 |*export_ehrs* ( +
-auth_tok: `String[1]`, +
 file_sys_loc: `String[1]`, +
 logical_fmt: `EXPORT_FORMAT[0..1]`, +
 comp_fmt: `COMPRESSION_FORMAT[0..1]`, +
@@ -24,7 +23,6 @@ a|Export all EHRs to a file-system location in a specified format.
 
 h|
 |*load_ehrs* ( +
-auth_tok: `String[1]`, +
 file_sys_loc: `String[1]` +
 )
 a|Populate EHR repository from export archive on file system. Repository need not be empty, but import EHRs with duplicate EHR ids will fail.
