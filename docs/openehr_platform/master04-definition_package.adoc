@@ -2,11 +2,11 @@
 
 == Overview
 
-The `sm.platform.definition` package shown below defines service interface to the definitions component in the logical platform architecture.
+The `platform_interface.definition` package shown below defines service interface to the definitions component in the logical platform architecture.
 
 [.text-center]
-.`sm.platform.definition` package
-image::{uml_export_dir}/diagrams/SM-platform.definition.svg[id=sm_platform_definition_if, align="center"]
+.`sm.openehr_platform.platform_interface.definition` package
+image::{uml_export_dir}/diagrams/SM-platform_interface.definition.svg[id=sm_platform_interface_definition, align="center"]
 
 The interfaces provided in this service are designed to enable any model-like or reference artefacts, other than terminology, to be stored for use by the rest of the system. This includes archetypes, templates, queries, and query sets.
 

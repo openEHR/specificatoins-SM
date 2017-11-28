@@ -2,11 +2,11 @@
 
 == Overview
 
-The `sm.platform.query` package shown below defines service interface to the `QUERY_SERVICE` component in the logical platform architecture.
+The `platform_interface.query` package shown below defines service interface to the `QUERY_SERVICE` component in the logical platform architecture.
 
 [.text-center]
-.`sm.platform.query` package
-image::{uml_export_dir}/diagrams/SM-platform.query.svg[id=sm_platform_query_if, align="center"]
+.`sm.openehr_platform.platform_interface.query` package
+image::{uml_export_dir}/diagrams/SM-platform_interface.query.svg[id=platform_interface_query, align="center"]
 
 The model of querying here is based on the notion of being able to execute either queries previously stored in the `DEFINITION` service, or else ad hoc queries. For stored queries, no assumption is made as to whether the query language is AQL (the openEHR default) or something else, only that there are stored queries that can be executed in a standard way.
 

@@ -7,8 +7,8 @@ In order to specify concrete service interfaces (i.e. APIs) to openEHR platform 
 The following figure illustrates the assumed components of an abstract openEHR Platform.
 
 [.text-center]
-.SM Platform Model
-image::{uml_export_dir}/diagrams/SM-platform_model.svg[id=platform_model, align="center"]
+.sm.openehr_platform.platform_definition Package
+image::{uml_export_dir}/diagrams/SM-platform_definition.svg[id=platform_definition, align="center"]
 
 Each component has one or more associated Interfaces, i.e. abstract service definitions which define an abstract _transactional interface_ to the service provided by the component. Each interface consists of a number of _calls_, and each call is defined in an abstract way.
 
@@ -122,5 +122,5 @@ The above illustrates just one pattern of calling in a notional server. Another 
 The openEHR Platform Service Model package structure is illustrated below.
 
 [.text-center]
-.SM package overview
+.sm.openehr_platform Package Overview
 image::{uml_export_dir}/diagrams/SM-platform-packages.svg[id=platform_packages, align="center"]

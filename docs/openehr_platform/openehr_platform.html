@@ -340,11 +340,11 @@
 <div class="paragraph">
 <p>The following figure illustrates the assumed components of an abstract openEHR Platform.</p>
 </div>
-<div id="platform_model" class="imageblock text-center" style="text-align: center">
+<div id="platform_definition" class="imageblock text-center" style="text-align: center">
 <div class="content">
-<img src="../UML/diagrams/SM-platform_model.svg" alt="SM platform model">
+<img src="../UML/diagrams/SM-platform_definition.svg" alt="SM platform definition">
 </div>
-<div class="title">Figure 1. SM Platform Model</div>
+<div class="title">Figure 1. sm.openehr_platform.platform_definition Package</div>
 </div>
 <div class="paragraph">
 <p>Each component has one or more associated Interfaces, i.e. abstract service definitions which define an abstract <em>transactional interface</em> to the service provided by the component. Each interface consists of a number of <em>calls</em>, and each call is defined in an abstract way.</p>
@@ -524,7 +524,7 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 <div class="content">
 <img src="../UML/diagrams/SM-platform-packages.svg" alt="SM platform packages">
 </div>
-<div class="title">Figure 2. SM package overview</div>
+<div class="title">Figure 2. sm.openehr_platform Package Overview</div>
 </div>
 </div>
 </div>
@@ -535,13 +535,13 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 <div class="sect2">
 <h3 id="_overview_2"><a class="anchor" href="#_overview_2"></a>3.1. Overview</h3>
 <div class="paragraph">
-<p>The <code>sm.platform.common</code> package shown below defines common elements of the platform srevice model.</p>
+<p>The <code>platform_interface.common</code> package shown below defines common elements of the platform srevice model.</p>
 </div>
-<div id="sm_platform_common" class="imageblock text-center" style="text-align: center">
+<div id="sm_platform_interface_common" class="imageblock text-center" style="text-align: center">
 <div class="content">
-<img src="../UML/diagrams/SM-platform.common.svg" alt="SM platform.common">
+<img src="../UML/diagrams/SM-platform_interface.common.svg" alt="SM platform interface.common">
 </div>
-<div class="title">Figure 3. <code>sm.platform.common</code> package</div>
+<div class="title">Figure 3. <code>sm.openehr_platform.platform_interface.common</code> package</div>
 </div>
 </div>
 <div class="sect2">
@@ -829,13 +829,13 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 <div class="sect2">
 <h3 id="_overview_3"><a class="anchor" href="#_overview_3"></a>4.1. Overview</h3>
 <div class="paragraph">
-<p>The <code>sm.platform.definition</code> package shown below defines service interface to the definitions component in the logical platform architecture.</p>
+<p>The <code>platform_interface.definition</code> package shown below defines service interface to the definitions component in the logical platform architecture.</p>
 </div>
-<div id="sm_platform_definition_if" class="imageblock text-center" style="text-align: center">
+<div id="sm_platform_interface_definition" class="imageblock text-center" style="text-align: center">
 <div class="content">
-<img src="../UML/diagrams/SM-platform.definition.svg" alt="SM platform.definition">
+<img src="../UML/diagrams/SM-platform_interface.definition.svg" alt="SM platform interface.definition">
 </div>
-<div class="title">Figure 4. <code>sm.platform.definition</code> package</div>
+<div class="title">Figure 4. <code>sm.openehr_platform.platform_interface.definition</code> package</div>
 </div>
 <div class="paragraph">
 <p>The interfaces provided in this service are designed to enable any model-like or reference artefacts, other than terminology, to be stored for use by the rest of the system. This includes archetypes, templates, queries, and query sets.</p>
@@ -1551,13 +1551,13 @@ a_query_id: <code>UUID[1]</code><br>
 <div class="sect2">
 <h3 id="_overview_4"><a class="anchor" href="#_overview_4"></a>5.1. Overview</h3>
 <div class="paragraph">
-<p>The <code>sm.platform.ehr</code> package shown below defines service interface to the <code>EHR</code> component in the logical platform architecture.</p>
+<p>The <code>platform_interface.ehr</code> package shown below defines service interface to the <code>EHR</code> component in the logical platform architecture.</p>
 </div>
-<div id="sm_platform_ehr_if" class="imageblock text-center" style="text-align: center">
+<div id="sm_platform_interface_ehr" class="imageblock text-center" style="text-align: center">
 <div class="content">
-<img src="../UML/diagrams/SM-platform.ehr.svg" alt="SM platform.ehr">
+<img src="../UML/diagrams/SM-platform_interface.ehr.svg" alt="SM platform interface.ehr">
 </div>
-<div class="title">Figure 5. <code>sm.platform.ehr</code> package</div>
+<div class="title">Figure 5. <code>sm.openehr_platform.platform_interface.ehr</code> package</div>
 </div>
 </div>
 <div class="sect2">
@@ -1641,10 +1641,9 @@ a_subject_id: <code>PARTY_REF[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_ehr</strong> (<br>
-an_ehr_status: <code>EHR_STATUS[0..1]</code>,<br>
-auth_tok: <code>UUID[1]</code><br>
+an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
 ): <code>UUID</code><br>
-<strong><em>Post_has_ehr</em></strong>: <code>has_ehr (auth_tok, Result)</code></p></td>
+<strong><em>Post_has_ehr</em></strong>: <code>has_ehr (Result)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Create a new EHR with a system-generated identifier and return the id.</p>
 </div>
@@ -1658,7 +1657,7 @@ auth_tok: <code>UUID[1]</code><br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
 ): <code>UUID</code><br>
-<strong><em>Pre_no_duplicate</em></strong>: <code>not has_ehr (auth_tok, an_ehr_id)</code></p></td>
+<strong><em>Pre_no_duplicate</em></strong>: <code>not has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Create a new EHR with a provided EHR id; return the id as a safety check.</p>
 </div>
@@ -1720,7 +1719,7 @@ an_ehr_id: <code>UUID[1]</code>,<br>
 a_subject_id: <code>PARTY_REF[1]</code>,<br>
 an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
 ): <code>UUID</code><br>
-<strong><em>Pre_no_duplicate</em></strong>: <code>not has_ehr (auth_tok, an_ehr_id)</code></p></td>
+<strong><em>Pre_no_duplicate</em></strong>: <code>not has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Create a new EHR with EHR id and provided subject id. Return the EHR id as a safety check.</p>
 </div>
@@ -1762,7 +1761,7 @@ an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_ehr</strong> (<br>
 an_ehr_id: <code>UUID[1]</code><br>
 ): <code>EHR_SUMMARY</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Retrieve a summarised form of the EHR root object and <code>EHR_STATUS</code>.</p>
 </div>
@@ -1987,7 +1986,7 @@ time_range: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_ehr_status</strong> (<br>
 an_ehr_id: <code>UUID[1]</code><br>
 ): <code>EHR_STATUS</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Get the current version of the <code>EHR_STATUS</code> object for an EHR.</p>
 </div>
@@ -2005,7 +2004,7 @@ an_ehr_id: <code>UUID[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>set_ehr_queryable</strong> (<br>
 an_ehr_id: <code>UUID[1]</code><br>
 )<br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Set the EHR <code><em>is_queryable</em></code> flag to true; this ensures it is included by the query engine.</p>
 </div>
@@ -2023,7 +2022,7 @@ an_ehr_id: <code>UUID[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>set_ehr_modifiable</strong> (<br>
 an_ehr_id: <code>UUID[1]</code><br>
 )<br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Set the EHR <code><em>is_modifable</em></code> flag to true; this ensures it is treated as active and updatable.</p>
 </div>
@@ -2041,7 +2040,7 @@ an_ehr_id: <code>UUID[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>clear_ehr_queryable</strong> (<br>
 an_ehr_id: <code>UUID[1]</code><br>
 )<br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Clear the EHR <code><em>is_queryable</em></code> flag; this ensures it is ignored by the query engine.</p>
 </div>
@@ -2059,7 +2058,7 @@ an_ehr_id: <code>UUID[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>clear_ehr_modifiable</strong> (<br>
 an_ehr_id: <code>UUID[1]</code><br>
 )<br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Clear the EHR <code><em>is_modifiable</em></code> flag; this ensures it is treated as active.</p>
 </div>
@@ -2078,7 +2077,7 @@ an_ehr_id: <code>UUID[1]</code><br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_details: <code>ITEM_TREE[1]</code><br>
 )<br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Update other_details part of <code>EHR_STATUS</code> with new content.</p>
 </div>
@@ -2096,7 +2095,7 @@ a_details: <code>ITEM_TREE[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_versioned_ehr_status</strong> (<br>
 an_ehr_id: <code>UUID[1]</code><br>
 ): <code>VERSIONED_EHR_STATUS</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Get the <code>VERSIONED_EHR_STATUS</code> object from the EHR with id <code><em>ehr_id</em></code>.</p>
 </div>
@@ -2160,7 +2159,7 @@ a_dir_struct: <code>UV_FOLDER[1]</code><br>
 ehr_id: <code>UUID[1]</code>,<br>
 a_path: <code>String[1]</code><br>
 ): <code>Boolean</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>True if path <code><em>a_path</em></code> exists in directory. The <code><em>a_path</em></code> argument consists of slash-separated values of the name attribute of Folders in the directory.</p>
 </div>
@@ -2179,7 +2178,7 @@ a_path: <code>String[1]</code><br>
 ehr_id: <code>UUID[1]</code>,<br>
 a_dir_struct: <code>UV_FOLDER[1]</code><br>
 )<br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Create or update a directory from a complete structure. Preceding version must be supplied and correct if EHR directory already exists.</p>
 </div>
@@ -2210,7 +2209,7 @@ a_dir_struct: <code>UV_FOLDER[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_directory</strong> (<br>
 ehr_id: <code>UUID[1]</code><br>
 )<br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Logically delete the directory by creating a new version in which the contents are removed.</p>
 </div>
@@ -2228,7 +2227,7 @@ ehr_id: <code>UUID[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_directory</strong> (<br>
 ehr_id: <code>UUID[1]</code><br>
 ): <code>FOLDER</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Get current version of EHR Directory structure, if it exists, else Void.</p>
 </div>
@@ -2247,7 +2246,7 @@ ehr_id: <code>UUID[1]</code><br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_time: <code>Iso8601_date_time[1]</code><br>
 ): <code>FOLDER</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Get the version of the Directory extant at time <code><em>a_time</em></code>.</p>
 </div>
@@ -2288,7 +2287,7 @@ a_dir_ver_uid: <code>UUID[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_versioned_directory</strong> (<br>
 an_ehr_id: <code>UUID[1]</code><br>
 ): <code>VERSIONED_FOLDER</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Get the <code>VERSIONED_FOLDER</code> Directory object for the EHR with ehr_id.</p>
 </div>
@@ -2334,7 +2333,7 @@ an_ehr_id: <code>UUID[1]</code><br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_comp_id: <code>UUID[1]</code><br>
 ): <code>Boolean</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Return True if a Composition with identifier <code><em>a_comp_id</em></code> exists.</p>
 </div>
@@ -2353,7 +2352,7 @@ a_comp_id: <code>UUID[1]</code><br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_comp: <code>UV_COMPOSITION[1]</code><br>
 ): <code>UUID</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Update an existing Composition with a new version.</p>
 </div>
@@ -2375,8 +2374,8 @@ a_comp: <code>UV_COMPOSITION[1]</code><br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_comp: <code>UV_COMPOSITION[1]</code><br>
 ): <code>UUID</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code><br>
-<strong><em>Post_has_composition</em></strong>: <code>has_composition (auth_tok, Result)</code></p></td>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
+<strong><em>Post_has_composition</em></strong>: <code>has_composition (Result)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Create the first version of a new Composition.</p>
 </div>
@@ -2398,7 +2397,7 @@ a_comp: <code>UV_COMPOSITION[1]</code><br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_comp_ver_uid: <code>UUID[1]</code><br>
 )<br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Logically delete a Composition by creating a new version in which the content is removed and the lifecycle state is set to <code>523&#124;deleted&#124;</code>. The <code><em>a_comp_id</em></code> argument identifies the current top Composition Version.</p>
 </div>
@@ -2420,7 +2419,7 @@ a_comp_ver_uid: <code>UUID[1]</code><br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_ver_comp_uid: <code>UUID[1]</code><br>
 ): <code>COMPOSITION</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Retrieve a Composition by the uid of its version.</p>
 </div>
@@ -2456,7 +2455,7 @@ an_ehr_id: <code>UUID[1]</code>,<br>
 a_ver_comp_uid: <code>UUID[1]</code>,<br>
 a_time: <code>Iso8601_date_time[1]</code><br>
 ): <code>COMPOSITION</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Retrieve the Composition version from a Versioned Composition that was the top version at time a_time.</p>
 </div>
@@ -2501,7 +2500,7 @@ a_comp_ver_uid: <code>UUID[1]</code><br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_comp_ver_uid: <code>UUID[1]</code><br>
 ): <code>VERSIONED_COMPOSITION</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Retrieve the <code>VERSIONED_OBJECT</code> of a Composition by uid.</p>
 </div>
@@ -2550,7 +2549,7 @@ a_comp_ver_uid: <code>UUID[1]</code><br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_contrib_id: <code>UUID[1]</code><br>
 )<br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Return True if the Contribution with <code><em>a_contrib_id</em></code> in EHR with id <code><em>an_ehr_id</em></code> exists.</p>
 </div>
@@ -2570,8 +2569,8 @@ an_ehr_id: <code>UUID[1]</code>,<br>
 versions: <code>List&lt;UPDATE_VERSION&gt;[1]</code>,<br>
 an_audit: <code>UPDATE_AUDIT[1]</code><br>
 ): <code>UUID</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code><br>
-<strong><em>Post_has_contribution</em></strong>: <code>has_contribution (auth_tok, a_contrib_id)</code></p></td>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
+<strong><em>Post_has_contribution</em></strong>: <code>has_contribution (a_contrib_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Commit a Contribution containing any number of <code>VERSION_UPDATE</code> objects.</p>
 </div>
@@ -2590,8 +2589,8 @@ an_audit: <code>UPDATE_AUDIT[1]</code><br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_contrib_id: <code>UUID[1]</code><br>
 ): <code>CONTRIBUTION</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code><br>
-<strong><em>Pre_has_contribution</em></strong>: <code>has_contribution (auth_tok, a_contrib_id)</code></p></td>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
+<strong><em>Pre_has_contribution</em></strong>: <code>has_contribution (a_contrib_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Return the Contribution with id <code><em>a_contrib_id</em></code> in EHR with id <code><em>an_ehr_id</em></code>.</p>
 </div>
@@ -2698,13 +2697,13 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <div class="sect2">
 <h3 id="_overview_5"><a class="anchor" href="#_overview_5"></a>6.1. Overview</h3>
 <div class="paragraph">
-<p>The <code>sm.platform.demographic</code> package shown below defines service interface to the <code>DEMOGRAPHIC_SERVICE</code> component in the logical platform architecture.</p>
+<p>The <code>platform_interface.demographic</code> package shown below defines service interface to the <code>DEMOGRAPHIC_SERVICE</code> component in the logical platform architecture.</p>
 </div>
-<div id="sm_platform_demographic_if" class="imageblock text-center" style="text-align: center">
+<div id="platform_interface_demographic" class="imageblock text-center" style="text-align: center">
 <div class="content">
-<img src="../UML/diagrams/SM-platform.demographic.svg" alt="SM platform.demographic">
+<img src="../UML/diagrams/SM-platform_interface.demographic.svg" alt="SM platform interface.demographic">
 </div>
-<div class="title">Figure 6. <code>sm.platform.demographic</code> package</div>
+<div class="title">Figure 6. <code>sm.openehr_platform.platform_interface.demographic</code> package</div>
 </div>
 </div>
 <div class="sect2">
@@ -2929,13 +2928,13 @@ a_versioned_party_id: <code>UUID[1]</code><br>
 <div class="sect2">
 <h3 id="_overview_6"><a class="anchor" href="#_overview_6"></a>7.1. Overview</h3>
 <div class="paragraph">
-<p>The <code>sm.platform.query</code> package shown below defines service interface to the <code>QUERY_SERVICE</code> component in the logical platform architecture.</p>
+<p>The <code>platform_interface.query</code> package shown below defines service interface to the <code>QUERY_SERVICE</code> component in the logical platform architecture.</p>
 </div>
-<div id="sm_platform_query_if" class="imageblock text-center" style="text-align: center">
+<div id="platform_interface_query" class="imageblock text-center" style="text-align: center">
 <div class="content">
-<img src="../UML/diagrams/SM-platform.query.svg" alt="SM platform.query">
+<img src="../UML/diagrams/SM-platform_interface.query.svg" alt="SM platform interface.query">
 </div>
-<div class="title">Figure 7. <code>sm.platform.query</code> package</div>
+<div class="title">Figure 7. <code>sm.openehr_platform.platform_interface.query</code> package</div>
 </div>
 <div class="paragraph">
 <p>The model of querying here is based on the notion of being able to execute either queries previously stored in the <code>DEFINITION</code> service, or else ad hoc queries. For stored queries, no assumption is made as to whether the query language is AQL (the openEHR default) or something else, only that there are stored queries that can be executed in a standard way.</p>
@@ -3327,13 +3326,13 @@ ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 <div class="sect2">
 <h3 id="_overview_7"><a class="anchor" href="#_overview_7"></a>8.1. Overview</h3>
 <div class="paragraph">
-<p>The <code>sm.platform.admin</code> package shown below defines service interface to the <code>ADMIN</code> component in the logical platform architecture.</p>
+<p>The <code>platform_interface.admin</code> package shown below defines service interface to the <code>ADMIN</code> component in the logical platform architecture.</p>
 </div>
-<div id="sm_platform_admin_if" class="imageblock text-center" style="text-align: center">
+<div id="platform_interface_admin" class="imageblock text-center" style="text-align: center">
 <div class="content">
-<img src="../UML/diagrams/SM-platform.admin.svg" alt="SM platform.admin">
+<img src="../UML/diagrams/SM-platform_interface.admin.svg" alt="SM platform interface.admin">
 </div>
-<div class="title">Figure 8. <code>sm.platform.admin</code> package</div>
+<div class="title">Figure 8. <code>sm.openehr_platform.platform_interface.admin</code> package</div>
 </div>
 </div>
 <div class="sect2">
@@ -3403,7 +3402,7 @@ time_interval: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>physical_ehr_delete</strong> (<br>
 an_ehr_id: <code>UUID[1]</code><br>
 )<br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (auth_tok, an_ehr_id)</code></p></td>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Physical deletion of specified EHR.</p>
 </div></div></td>

@@ -16,7 +16,7 @@ h|
 |*get_ehr_status* ( +
 an_ehr_id: `UUID[1]` +
 ): `EHR_STATUS` +
-*_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
+*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
 a|Get the current version of the `EHR_STATUS` object for an EHR.
 
 .Errors
@@ -26,7 +26,7 @@ h|
 |*set_ehr_queryable* ( +
 an_ehr_id: `UUID[1]` +
 ) +
-*_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
+*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
 a|Set the EHR `_is_queryable_` flag to true; this ensures it is included by the query engine.
 
 .Errors
@@ -36,7 +36,7 @@ h|
 |*set_ehr_modifiable* ( +
 an_ehr_id: `UUID[1]` +
 ) +
-*_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
+*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
 a|Set the EHR `_is_modifable_` flag to true; this ensures it is treated as active and updatable.
 
 .Errors
@@ -46,7 +46,7 @@ h|
 |*clear_ehr_queryable* ( +
 an_ehr_id: `UUID[1]` +
 ) +
-*_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
+*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
 a|Clear the EHR `_is_queryable_` flag; this ensures it is ignored by the query engine.
 
 .Errors
@@ -56,7 +56,7 @@ h|
 |*clear_ehr_modifiable* ( +
 an_ehr_id: `UUID[1]` +
 ) +
-*_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
+*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
 a|Clear the EHR `_is_modifiable_` flag; this ensures it is treated as active.
 
 .Errors
@@ -67,7 +67,7 @@ h|
 an_ehr_id: `UUID[1]`, +
 a_details: `ITEM_TREE[1]` +
 ) +
-*_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
+*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
 a|Update other_details part of `EHR_STATUS` with new content.
 
 .Errors
@@ -77,7 +77,7 @@ h|
 |*get_versioned_ehr_status* ( +
 an_ehr_id: `UUID[1]` +
 ): `VERSIONED_EHR_STATUS` +
-*_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
+*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
 a|Get the `VERSIONED_EHR_STATUS` object from the EHR with id `_ehr_id_`.
 
 .Errors

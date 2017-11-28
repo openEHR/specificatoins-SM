@@ -17,7 +17,7 @@ h|
 an_ehr_id: `UUID[1]`, +
 a_comp_id: `UUID[1]` +
 ): `Boolean` +
-*_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
+*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
 a|Return True if a Composition with identifier `_a_comp_id_` exists.
 
 .Errors
@@ -28,7 +28,7 @@ h|
 an_ehr_id: `UUID[1]`, +
 a_comp: `UV_COMPOSITION[1]` +
 ): `UUID` +
-*_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
+*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
 a|Update an existing Composition with a new version.
 
 .Errors
@@ -40,8 +40,8 @@ h|
 an_ehr_id: `UUID[1]`, +
 a_comp: `UV_COMPOSITION[1]` +
 ): `UUID` +
-*_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)` +
-*_Post_has_composition_*: `has_composition (auth_tok, Result)`
+*_Pre_has_ehr_*: `has_ehr (an_ehr_id)` +
+*_Post_has_composition_*: `has_composition (Result)`
 a|Create the first version of a new Composition.
 
 .Errors
@@ -53,7 +53,7 @@ h|
 an_ehr_id: `UUID[1]`, +
 a_comp_ver_uid: `UUID[1]` +
 ) +
-*_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
+*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
 a|Logically delete a Composition by creating a new version in which the content is removed and the lifecycle state is set to `523&#124;deleted&#124;`. The `_a_comp_id_` argument identifies the current top Composition Version.
 
 .Errors
@@ -65,7 +65,7 @@ h|
 an_ehr_id: `UUID[1]`, +
 a_ver_comp_uid: `UUID[1]` +
 ): `COMPOSITION` +
-*_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
+*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
 a|Retrieve a Composition by the uid of its version.
 
 .Errors
@@ -82,7 +82,7 @@ an_ehr_id: `UUID[1]`, +
 a_ver_comp_uid: `UUID[1]`, +
 a_time: `Iso8601_date_time[1]` +
 ): `COMPOSITION` +
-*_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
+*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
 a|Retrieve the Composition version from a Versioned Composition that was the top version at time a_time.
 
 .Errors
@@ -105,7 +105,7 @@ h|
 an_ehr_id: `UUID[1]`, +
 a_comp_ver_uid: `UUID[1]` +
 ): `VERSIONED_COMPOSITION` +
-*_Pre_has_ehr_*: `has_ehr (auth_tok, an_ehr_id)`
+*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
 a|Retrieve the `VERSIONED_OBJECT` of a Composition by uid.
 
 .Errors
