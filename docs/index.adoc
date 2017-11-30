@@ -17,7 +17,7 @@
 :jira-roadmap: https://openehr.atlassian.net/projects/SPECSM?selectedItem=com.atlassian.jira.jira-projects-plugin:release-page
 :jira-hist-issues: https://openehr.atlassian.net/issues/?filter=10720
 
-image::http://www.openehr.org/releases/BASE/latest/resources/images/openehr_logo_large.png["openEHR logo",align="center"]
+image::/releases/BASE/latest/resources/images/openehr_logo_large.png["openEHR logo",align="center"]
 
 = Service Model (SM) - {sm_release}
 
@@ -42,7 +42,7 @@ endif::[]
 |===
 |Specification |Description |Wiki
 
-|http://www.openehr.org/releases/SM/{sm_release}/openehr_platform.html[openEHR Platform Service Model]
+|link:/releases/SM/{sm_release}/openehr_platform.html[openEHR Platform Service Model]
 |Definition of the openEHR coarse-grained interface EHR service interface.
 |
 
@@ -57,7 +57,7 @@ endif::[]
 |https://openehr.github.io/specifications-ITS[REST API]
 |ITS component - Apiary format REST API specification based on the platform SM.
 
-|http://www.openehr.org/releases/SM/{sm_release}/UML/openEHR_UML-SM.mdzip[source files / XMI]
+|link:/releases/SM/{sm_release}/UML/openEHR_UML-SM.mdzip[source files / XMI]
 |UML file for MagicDraw 18.5. Contains UML 2.5 standard XMI file.
 
 |===
