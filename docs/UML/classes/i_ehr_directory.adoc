@@ -16,8 +16,15 @@ h|
 |*create_directory* ( +
 ehr_id: `UUID[1]`, +
 a_dir_struct: `UV_FOLDER[1]` +
-)
-a|
+) +
+*_Pre_no_directory_*: `not has_directory (ehr_id)`
+a|Create a directory in the EHR, based on the provided structure.
+
+h|
+|*has_directory* ( +
+ehr_id: `UUID[1]` +
+): `Boolean`
+a|True if the EHR has a directory structure.
 
 h|
 |*has_path* ( +
@@ -35,7 +42,8 @@ h|
 ehr_id: `UUID[1]`, +
 a_dir_struct: `UV_FOLDER[1]` +
 ) +
-*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
+*_Pre_has_ehr_*: `has_ehr (an_ehr_id)` +
+*_Pre_has_directory_*: `has_directory(ehr_id)`
 a|Create or update a directory from a complete structure. Preceding version must be supplied and correct if EHR directory already exists.
 
 .Errors
@@ -49,7 +57,8 @@ h|
 |*delete_directory* ( +
 ehr_id: `UUID[1]` +
 ) +
-*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
+*_Pre_has_ehr_*: `has_ehr (an_ehr_id)` +
+*_Pre_has_directory_*: `has_directory(ehr_id)`
 a|Logically delete the directory by creating a new version in which the contents are removed.
 
 .Errors

@@ -2,7 +2,7 @@
 
 == Overview
 
-The `platform_interface.common` package shown below defines common elements of the platform srevice model.
+The `platform_interface.common` package shown below defines common elements of the platform service model.
 
 [.text-center]
 .`sm.openehr_platform.platform_interface.common` package

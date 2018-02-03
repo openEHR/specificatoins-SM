@@ -46,10 +46,6 @@ rows_to_fetch: `Integer[0..1]` +
 ): `List<ARCHETYPE_HRID>`
 a|List all AOM2 artefacts known in the service.
 
-.Parameters +
-[horizontal]
-`_row_offset_`:: Optional parameter specifying offset in query response rows to return, used for large result sets. A zero or negative value means offset of zero.
-
 h|
 |*list_all_archetypes* ( +
 row_offset: `Integer[0..1]`, +
@@ -81,10 +77,6 @@ a|List all artefacts whose identifiers match a regex pattern.
 
 .Errors
 * `invalid_id_pattern`
-
-.Parameters +
-[horizontal]
-`_row_offset_`:: Optional parameter specifying offset in query response rows to return, used for large result sets. A zero or negative value means offset of zero.
 
 h|
 |*delete_artefact* ( +

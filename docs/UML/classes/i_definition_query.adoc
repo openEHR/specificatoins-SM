@@ -14,18 +14,33 @@ h|*Functions*
 
 h|
 |*has_query* ( +
-a_query_id: `UUID[1]` +
+a_query_name: `String[1]` +
 ): `Boolean`
 a|Return True if the query identified by `_a_query_id_` is registered.
+
+.Parameters +
+[horizontal]
+`_a_query_name_`:: Qualified name of query.
+
+h|
+|*is_valid_query* ( +
+a_query_text: `String[1]`, +
+a_formalism: `String[1]` +
+): `Boolean`
+a|Return True if the provided query text is a valid instance of the formalism.
 
 h|
 |*register_query* ( +
 a_query_text: `String[1]`, +
+a_formalism: `String[1]`, +
 a_query_name: `String[0..1]` +
-): `QUERY_DESCRIPTOR`
-a|Register a query under an optional name. If no name is provided, one is created in the service. Return a Query descriptor containing the query name and unique identifier.
+): `QUERY_DESCRIPTOR` +
+*_Pre_valid_query_*: `is_valid_query(a_query_text)`
+a|Register a query under a qualified name. If no name is provided, one is created in the service. Return a Query descriptor containing the query name and unique identifier.
 
-TODO: validate query text?
+.Parameters +
+[horizontal]
+`_a_formalism_`:: Case-insensitive name of the formalism of the query text. Values include "AQL" (and "aql").
 
 h|
 |*register_query_set* ( +
@@ -41,10 +56,6 @@ row_offset: `Integer[0..1]`, +
 rows_to_fetch: `Integer[0..1]` +
 ): `List<QUERY_DESCRIPTOR>`
 a|List all registered queries.
-
-.Parameters +
-[horizontal]
-`_rows_to_fetch_`:: Optional parameter specifying number of query response rows to fetch, used for large result sets. A zero or negative value means 'all'.
 
 h|
 |*list_matching_queries* ( +
@@ -64,13 +75,12 @@ a|List all registered queries matching an identifier pattern (regex) and an arte
 
 `_artefact_id_pattern_`:: PERL regular expression on archetype / template identifiers.
 
-`_row_offset_`:: Optional parameter specifying offset in query response rows to return, used for large result sets. A zero or negative value means offset of zero.
-
-`_rows_to_fetch_`:: Optional parameter specifying number of query response rows to fetch, used for large result sets. A zero or negative value means 'all'.
-
 h|
 |*delete_query* ( +
-a_query_id: `UUID[1]` +
-)
-a|
+a_query_name: `String[1]` +
+) +
+*_Pre_has_query_*: `has_query(a_query_id)`
+a|.Parameters +
+[horizontal]
+`_a_query_name_`:: Qualified query name.
 |===

@@ -2,13 +2,28 @@
 
 == Overview
 
-The `platform_interface.definition` package shown below defines service interface to the definitions component in the logical platform architecture.
+The `platform_interface.definitions` package shown below defines service interface to the `definitions` component in the logical platform architecture.
 
 [.text-center]
-.`sm.openehr_platform.platform_interface.definition` package
-image::{uml_export_dir}/diagrams/SM-platform_interface.definition.svg[id=sm_platform_interface_definition, align="center"]
+.`sm.openehr_platform.platform_interface.definitions` package
+image::{uml_export_dir}/diagrams/SM-platform_interface.definitions.svg[id=sm_platform_interface_definitions, align="center"]
 
 The interfaces provided in this service are designed to enable any model-like or reference artefacts, other than terminology, to be stored for use by the rest of the system. This includes archetypes, templates, queries, and query sets.
+
+== Registered Queries
+
+Queries may be registered in the system for later execution. They are identified by 'qualified names', i.e. String names that may include a namespace and optionally a formalism type. The following schemes may be used:
+
+* `<namespace>::<query-name>`
+* `<namespace>::<formalism>::<query-name>`
+
+Examples:
+
+* `"ehr::all_influenza_vacc_candidates"`      -- a query for candidates for influenza vaccination
+* `"demographic::inpatients_rns"`             -- a demographic query for current in-patients of RNS hospital
+* `"task_planning::aql::chemotherapy_plans"`  -- an AQL query for chemotherapy plans
+
+If no namespace is supplied, the namespace `"misc"` is assumed.
 
 == Class Definitions
 

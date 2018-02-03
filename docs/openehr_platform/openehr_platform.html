@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.4">
+<meta name="generator" content="Asciidoctor 1.5.6.1">
 <meta name="description" content="openEHR Platform Abstract Service Model">
 <meta name="keywords" content="openehr, service, API">
 <title>openEHR Platform Abstract Service Model</title>
-<link rel="stylesheet" href="/releases/BASE/latest/resources/css/openehr.css">
-<link rel="stylesheet" href="/releases/BASE/latest/resources/css/pygments-default.css">
+<link rel="stylesheet" href="https://www.openehr.org/releases/BASE/latest/resources/css/openehr.css">
+<link rel="stylesheet" href="https://www.openehr.org/releases/BASE/latest/resources/css/pygments-default.css">
 </head>
 <body class="book toc2 toc-left">
 <div id="header">
@@ -37,7 +37,12 @@
 <li><a href="#_openehr_platform_model">2.1. openEHR Platform Model</a></li>
 <li><a href="#_interface_calls">2.2. Interface Calls</a></li>
 <li><a href="#_anatomy_of_an_abstract_call_specification">2.3. Anatomy of an Abstract Call Specification</a></li>
-<li><a href="#_functional_style">2.4. Functional Style</a></li>
+<li><a href="#_global_conventions">2.4. Global Conventions</a>
+<ul class="sectlevel3">
+<li><a href="#_functional_style">2.4.1. Functional Style</a></li>
+<li><a href="#_list_handling">2.4.2. List-handling</a></li>
+</ul>
+</li>
 <li><a href="#_package_structure">2.5. Package Structure</a></li>
 </ul>
 </li>
@@ -58,13 +63,14 @@
 <li><a href="#_definition_package">4. Definition Package</a>
 <ul class="sectlevel2">
 <li><a href="#_overview_3">4.1. Overview</a></li>
-<li><a href="#_class_definitions_2">4.2. Class Definitions</a>
+<li><a href="#_registered_queries">4.2. Registered Queries</a></li>
+<li><a href="#_class_definitions_2">4.3. Class Definitions</a>
 <ul class="sectlevel3">
-<li><a href="#_i_definition_adl2_interface">4.2.1. I_DEFINITION_ADL2 Interface</a></li>
-<li><a href="#_i_definition_adl14_interface">4.2.2. I_DEFINITION_ADL14 Interface</a></li>
-<li><a href="#_i_definition_query_interface">4.2.3. I_DEFINITION_QUERY Interface</a></li>
-<li><a href="#_definition_call_statuses_enumeration">4.2.4. DEFINITION_CALL_STATUSES Enumeration</a></li>
-<li><a href="#_query_descriptor_class">4.2.5. QUERY_DESCRIPTOR Class</a></li>
+<li><a href="#_i_definition_adl2_interface">4.3.1. I_DEFINITION_ADL2 Interface</a></li>
+<li><a href="#_i_definition_adl14_interface">4.3.2. I_DEFINITION_ADL14 Interface</a></li>
+<li><a href="#_i_definition_query_interface">4.3.3. I_DEFINITION_QUERY Interface</a></li>
+<li><a href="#_definition_call_statuses_enumeration">4.3.4. DEFINITION_CALL_STATUSES Enumeration</a></li>
+<li><a href="#_query_descriptor_class">4.3.5. QUERY_DESCRIPTOR Class</a></li>
 </ul>
 </li>
 </ul>
@@ -180,7 +186,7 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-center valign-top" colspan="2">&#169; 2017 - 2017 The openEHR Foundation</th>
+<th class="tableblock halign-center valign-top" colspan="2">&#169; 2017 - 2018 The openEHR Foundation</th>
 </tr>
 </thead>
 <tbody>
@@ -223,11 +229,18 @@
 <th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>R E L E A S E&#160;&#160;&#160;&#160;&#160;1.0.0</strong></p></th>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>0.9.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>0.9.3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Improve documentation text;<br>
+ Add section on call conventions; improve query register calls based on REST API 0.9.0.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>03 Feb 2018</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.9.2</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Improve documentation text;<br>
  remove <code><em>auth_tok</em></code> argument from calls.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>22 Oct 2017</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">22 Oct 2017</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0.9.1</p></td>
@@ -359,7 +372,7 @@
 <p>Regardless of the internal organisation of real product architectures, agreement across a community of producers and users of products that claim to <em>conform</em> to a published platform specification, must by definition be based on something formally statable and testable. As noted above, this is described here in the form of logical components which have logical interfaces, each consisting of a set of calls, of which the latter constitute the finest level of specification.</p>
 </div>
 <div class="paragraph">
-<p>A logical interface call is understood here in the standard computer science manner, i.e. as a routine with a formal, typed signature. Good practice usually dictates that such routines should take the form of either pure <em>functions</em>, or pure <em>procedures</em>, but not bothl side-effect producing functions should generally be avoided. In other words, interface calls are either <em>queries</em> that return something but do not change state, or <em>commands</em> that cause a change, but don&#8217;t compute or return anything. The separation is sometimes known as <em>command / query separation</em>.</p>
+<p>A logical interface call is understood here in the standard computer science manner, i.e. as a routine with a formal, typed signature. Good practice usually dictates that such routines should take the form of either pure <em>functions</em>, or pure <em>procedures</em>, but not both: side-effect producing functions should generally be avoided. In other words, interface calls are either <em>queries</em> that return something but do not change state, or <em>commands</em> that cause a change, but don&#8217;t compute or return anything. The separation is sometimes known as <em>command / query separation</em>.</p>
 </div>
 <div class="paragraph">
 <p>The signatures of query and procedure thus take the following syntactic forms:</p>
@@ -374,13 +387,13 @@
 </div>
 </div>
 <div class="paragraph">
-<p>One of the key assumptions of this specification (and indeed formal standardisation in general) is that although real implementations of a platform may have differently structured components and different naming of functions, arguments etc, that there is a <em>formal equivalence</em> between calls specified in a published standard and those in the implementation. Thus, it must be the case that even if three calls in an implementation are required to achieve the effect of a single call in this specification, that the semantics described here prior and after the call(s) are the same in both cases. If this is not true, it implies that the implementation is doing something different than what is specified.</p>
+<p>One of the key assumptions of this specification (and indeed formal standardisation in general) is that although real implementations of a platform may have differently structured components and different naming of functions, arguments etc, that there is a <em>formal equivalence</em> between calls specified in a published standard and those in the implementation. Thus, it must be the case that even if three calls in an implementation are required to achieve the effect of a single call in this specification, that the semantics described here prior and after the call(s) are the same in both cases. If this is not true, it implies that the implementation is introducing unspecified semantics.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_anatomy_of_an_abstract_call_specification"><a class="anchor" href="#_anatomy_of_an_abstract_call_specification"></a>2.3. Anatomy of an Abstract Call Specification</h3>
 <div class="paragraph">
-<p>A fuller specification of any function or procedure includes its semantic effects, stated in terms of pre-conditions, post-conditions and exception cases, along with  documentation. This is exactly as found in any standard library in most programming languages, and indeed, standardised meta-data keywords and labelling have evolved in most programming documentation systems to support exactly this kind of specification, even where the language doesn&#8217;t directly support some of its features, such as pro- or post-conditions.</p>
+<p>A fuller specification of any function or procedure includes its semantic effects, stated in terms of pre-conditions, post-conditions and exception cases, along with  documentation. This is exactly as found in any standard library in most programming languages, and indeed, standardised meta-data keywords and labelling have evolved in most programming documentation systems to support exactly this kind of specification, even where the language doesn&#8217;t directly support some of its features, such as pre- or post-conditions.</p>
 </div>
 <div class="paragraph">
 <p>This specification uses the same form of specification, which can be illustrated as follows:</p>
@@ -399,39 +412,41 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Arguments</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a_uuid</code>: <code>UUID</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A UUID.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>an_id</code>: <code>UUID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A UUID that will be used as the EHR&#8217;s <code><em>ehr_id</em></code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Pre-conditions</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Valid_id: <code>not has_ehr (an_id)</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No EHR with <code><em>ehr_id</em> = <em>an_id</em></code> currently exists.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Post-conditions</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Ehr_created: <code>has_ehr (an_id)</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An EHR with <code><em>ehr_id</em> = <em>an_id</em></code> has been created.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock"><em>Exceptions</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Ehr_already_exists</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EHR with &lt;an_id&gt; already exists.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EHR with <code><em>an_id</em></code> already exists.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Auth_error</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Caller not authorised to make this call.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Caller authorisation failure.</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The above kind of specification can in general be easily mapped to any concrete API technology. In each case, how the arguments are expressed, details of serialisation (for textual technologies like SOAP and REST), error handling, etc, will be different. Google protocol buffers for example uses an OMG IDL-like approach to specification, i.e. structured type definitions. REST on the other hand is a web-based type of API normally mapped onto http verbs, URIs and http error codes.</p>
+<p>The above kind of specification can in general be easily mapped to any concrete API technology. In each case, how the arguments are expressed, details of serialisation (for textual technologies like SOAP and REST), error handling, etc, will be different. Google protocol buffers for example uses an OMG IDL-like approach to specification, i.e. structured type definitions. REST on the other hand is a web-based type of API normally mapped onto HTTP verbs, URIs and HTTP error codes.</p>
 </div>
 <div class="paragraph">
 <p>The intent of the current specification is thus to express the abstract element of each interface call, so that both back-end semantics can be correctly designed, and API definitions can be correctly written.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_functional_style"><a class="anchor" href="#_functional_style"></a>2.4. Functional Style</h3>
+<h3 id="_global_conventions"><a class="anchor" href="#_global_conventions"></a>2.4. Global Conventions</h3>
+<div class="sect3">
+<h4 id="_functional_style"><a class="anchor" href="#_functional_style"></a>2.4.1. Functional Style</h4>
 <div class="paragraph">
 <p>Various ways of expressing service interface functions to underlying resources are possible, with choices available in various dimensions:</p>
 </div>
@@ -439,9 +454,6 @@
 <ul>
 <li>
 <p>stateless / mostly stateless / stateless;</p>
-</li>
-<li>
-<p>use of pre- and post-conditions and exception-handling style;</p>
 </li>
 <li>
 <p>approach to access control and authorisation;</p>
@@ -489,7 +501,6 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
         <span class="tok-n">call_status</span> <span class="tok-o">=</span> <span class="tok-n">i_ehr_service</span><span class="tok-o">.</span><span class="tok-na">last_call_status</span><span class="tok-o">();</span>
     <span class="tok-k">else</span>
         <span class="tok-n">result</span> <span class="tok-o">=</span> <span class="tok-n">test_result</span><span class="tok-o">;</span>
-
 <span class="tok-o">}</span>
 <span class="tok-k">catch</span> <span class="tok-o">(</span><span class="tok-n">PreConditionException</span> <span class="tok-n">e</span><span class="tok-o">)</span> <span class="tok-o">{</span>
     <span class="tok-c1">// deal with pre-condition violations</span>
@@ -512,13 +523,32 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 <p>Apart from error-handling, the interfaces are stateless in the sense that any single call constitutes a self-standing transaction on the back-end service, i.e. a transaction that when executed on the service will leave it in a consistent state.</p>
 </div>
 <div class="paragraph">
-<p>The above illustrates just one pattern of calling in a notional server. Another common style is to include results as 'out' parameters, and to use the return value to return call status. Either style can be used, and can be trivially mapped from one to the other. No such code is intended to implemented directly; the above is merely a way of helping to explain the semantics within context of the interface calls documented in this specification.</p>
+<p>The above illustrates just one pattern of calling in a notional server. Another common style is to include results as 'out' parameters, and to use the return value to return call status. Either style can be used, and can be trivially mapped from one to the other. No such code is intended to implemented directly; the above is merely a way of explaining the semantics within context of the interface calls documented in this specification.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_list_handling"><a class="anchor" href="#_list_handling"></a>2.4.2. List-handling</h4>
+<div class="paragraph">
+<p>Calls that result in a container potentially containing unlimited numbers of results can be managed in a typical 'DB cursor' fashion, i.e. by setting the following parameters:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>row_offset</code></dt>
+<dd>
+<p>Optional parameter specifying offset in query response rows to return, used for large result sets. A zero or negative value means offset of zero.</p>
+</dd>
+<dt class="hdlist1"><code>rows_to_fetch</code></dt>
+<dd>
+<p>Optional parameter specifying number of query response rows to fetch, used for large result sets. A zero or negative value means 'all'.</p>
+</dd>
+</dl>
+</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_package_structure"><a class="anchor" href="#_package_structure"></a>2.5. Package Structure</h3>
 <div class="paragraph">
-<p>The openEHR Platform Service Model package structure is illustrated below.</p>
+<p>The openEHR Platform Service Model package structure is illustrated below. It consists of two outer packages, <code>platform_definition</code> and <code>platform_interface</code>. The former contains the service components, while the latter contains the interfaces attached to each service component.</p>
 </div>
 <div id="platform_packages" class="imageblock text-center" style="text-align: center">
 <div class="content">
@@ -535,7 +565,7 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 <div class="sect2">
 <h3 id="_overview_2"><a class="anchor" href="#_overview_2"></a>3.1. Overview</h3>
 <div class="paragraph">
-<p>The <code>platform_interface.common</code> package shown below defines common elements of the platform srevice model.</p>
+<p>The <code>platform_interface.common</code> package shown below defines common elements of the platform service model.</p>
 </div>
 <div id="sm_platform_interface_common" class="imageblock text-center" style="text-align: center">
 <div class="content">
@@ -829,22 +859,57 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 <div class="sect2">
 <h3 id="_overview_3"><a class="anchor" href="#_overview_3"></a>4.1. Overview</h3>
 <div class="paragraph">
-<p>The <code>platform_interface.definition</code> package shown below defines service interface to the definitions component in the logical platform architecture.</p>
+<p>The <code>platform_interface.definitions</code> package shown below defines service interface to the <code>definitions</code> component in the logical platform architecture.</p>
 </div>
-<div id="sm_platform_interface_definition" class="imageblock text-center" style="text-align: center">
+<div id="sm_platform_interface_definitions" class="imageblock text-center" style="text-align: center">
 <div class="content">
-<img src="../UML/diagrams/SM-platform_interface.definition.svg" alt="SM platform interface.definition">
+<img src="../UML/diagrams/SM-platform_interface.definitions.svg" alt="SM platform interface.definitions">
 </div>
-<div class="title">Figure 4. <code>sm.openehr_platform.platform_interface.definition</code> package</div>
+<div class="title">Figure 4. <code>sm.openehr_platform.platform_interface.definitions</code> package</div>
 </div>
 <div class="paragraph">
 <p>The interfaces provided in this service are designed to enable any model-like or reference artefacts, other than terminology, to be stored for use by the rest of the system. This includes archetypes, templates, queries, and query sets.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_class_definitions_2"><a class="anchor" href="#_class_definitions_2"></a>4.2. Class Definitions</h3>
+<h3 id="_registered_queries"><a class="anchor" href="#_registered_queries"></a>4.2. Registered Queries</h3>
+<div class="paragraph">
+<p>Queries may be registered in the system for later execution. They are identified by 'qualified names', i.e. String names that may include a namespace and optionally a formalism type. The following schemes may be used:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>&lt;namespace&gt;::&lt;query-name&gt;</code></p>
+</li>
+<li>
+<p><code>&lt;namespace&gt;::&lt;formalism&gt;::&lt;query-name&gt;</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>"ehr::all_influenza_vacc_candidates"</code>     &#8201;&#8212;&#8201;a query for candidates for influenza vaccination</p>
+</li>
+<li>
+<p><code>"demographic::inpatients_rns"</code>            &#8201;&#8212;&#8201;a demographic query for current in-patients of RNS hospital</p>
+</li>
+<li>
+<p><code>"task_planning::aql::chemotherapy_plans"</code> &#8201;&#8212;&#8201;an AQL query for chemotherapy plans</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If no namespace is supplied, the namespace <code>"misc"</code> is assumed.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_class_definitions_2"><a class="anchor" href="#_class_definitions_2"></a>4.3. Class Definitions</h3>
 <div class="sect3">
-<h4 id="_i_definition_adl2_interface"><a class="anchor" href="#_i_definition_adl2_interface"></a>4.2.1. I_DEFINITION_ADL2 Interface</h4>
+<h4 id="_i_definition_adl2_interface"><a class="anchor" href="#_i_definition_adl2_interface"></a>4.3.1. I_DEFINITION_ADL2 Interface</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -922,19 +987,6 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 ): <code>List&lt;ARCHETYPE_HRID&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>List all AOM2 artefacts known in the service.</p>
-</div>
-<div class="hdlist">
-<div class="title">Parameters<br></div>
-<table>
-<tr>
-<td class="hdlist1">
-<code><em>row_offset</em></code>
-</td>
-<td class="hdlist2">
-<p>Optional parameter specifying offset in query response rows to return, used for large result sets. A zero or negative value means offset of zero.</p>
-</td>
-</tr>
-</table>
 </div></div></td>
 </tr>
 <tr>
@@ -984,19 +1036,6 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <p><code>invalid_id_pattern</code></p>
 </li>
 </ul>
-</div>
-<div class="hdlist">
-<div class="title">Parameters<br></div>
-<table>
-<tr>
-<td class="hdlist1">
-<code><em>row_offset</em></code>
-</td>
-<td class="hdlist2">
-<p>Optional parameter specifying offset in query response rows to return, used for large result sets. A zero or negative value means offset of zero.</p>
-</td>
-</tr>
-</table>
 </div></div></td>
 </tr>
 <tr>
@@ -1020,7 +1059,7 @@ an_id: <code>ARCHETYPE_HRID[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_i_definition_adl14_interface"><a class="anchor" href="#_i_definition_adl14_interface"></a>4.2.2. I_DEFINITION_ADL14 Interface</h4>
+<h4 id="_i_definition_adl14_interface"><a class="anchor" href="#_i_definition_adl14_interface"></a>4.3.2. I_DEFINITION_ADL14 Interface</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -1094,27 +1133,6 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 ): <code>List&lt;ARCHETYPE_ID&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>List all ADL 1.4 archetypes known in the service.</p>
-</div>
-<div class="hdlist">
-<div class="title">Parameters<br></div>
-<table>
-<tr>
-<td class="hdlist1">
-<code><em>row_offset</em></code>
-</td>
-<td class="hdlist2">
-<p>Optional parameter specifying offset in query response rows to return, used for large result sets. A zero or negative value means offset of zero.</p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-<code><em>rows_to_fetch</em></code>
-</td>
-<td class="hdlist2">
-<p>Optional parameter specifying number of query response rows to fetch, used for large result sets. A zero or negative value means 'all'.</p>
-</td>
-</tr>
-</table>
 </div></div></td>
 </tr>
 <tr>
@@ -1134,27 +1152,6 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <p><code>invalid_id_pattern</code></p>
 </li>
 </ul>
-</div>
-<div class="hdlist">
-<div class="title">Parameters<br></div>
-<table>
-<tr>
-<td class="hdlist1">
-<code><em>row_offset</em></code>
-</td>
-<td class="hdlist2">
-<p>Optional parameter specifying offset in query response rows to return, used for large result sets. A zero or negative value means offset of zero.</p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-<code><em>rows_to_fetch</em></code>
-</td>
-<td class="hdlist2">
-<p>Optional parameter specifying number of query response rows to fetch, used for large result sets. A zero or negative value means 'all'.</p>
-</td>
-</tr>
-</table>
 </div></div></td>
 </tr>
 <tr>
@@ -1208,27 +1205,6 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 ): <code>List&lt;UUID&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>List all AD 1.4 OPTs known in the service.</p>
-</div>
-<div class="hdlist">
-<div class="title">Parameters<br></div>
-<table>
-<tr>
-<td class="hdlist1">
-<code><em>row_offset</em></code>
-</td>
-<td class="hdlist2">
-<p>Optional parameter specifying offset in query response rows to return, used for large result sets. A zero or negative value means offset of zero.</p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-<code><em>rows_to_fetch</em></code>
-</td>
-<td class="hdlist2">
-<p>Optional parameter specifying number of query response rows to fetch, used for large result sets. A zero or negative value means 'all'.</p>
-</td>
-</tr>
-</table>
 </div></div></td>
 </tr>
 <tr>
@@ -1248,34 +1224,13 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <p><code>invalid_id_pattern</code></p>
 </li>
 </ul>
-</div>
-<div class="hdlist">
-<div class="title">Parameters<br></div>
-<table>
-<tr>
-<td class="hdlist1">
-<code><em>row_offset</em></code>
-</td>
-<td class="hdlist2">
-<p>Optional parameter specifying offset in query response rows to return, used for large result sets. A zero or negative value means offset of zero.</p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-<code><em>rows_to_fetch</em></code>
-</td>
-<td class="hdlist2">
-<p>Optional parameter specifying number of query response rows to fetch, used for large result sets. A zero or negative value means 'all'.</p>
-</td>
-</tr>
-</table>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_i_definition_query_interface"><a class="anchor" href="#_i_definition_query_interface"></a>4.2.3. I_DEFINITION_QUERY Interface</h4>
+<h4 id="_i_definition_query_interface"><a class="anchor" href="#_i_definition_query_interface"></a>4.3.3. I_DEFINITION_QUERY Interface</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -1301,23 +1256,58 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_query</strong> (<br>
-a_query_id: <code>UUID[1]</code><br>
+a_query_name: <code>String[1]</code><br>
 ): <code>Boolean</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Return True if the query identified by <code><em>a_query_id</em></code> is registered.</p>
+</div>
+<div class="hdlist">
+<div class="title">Parameters<br></div>
+<table>
+<tr>
+<td class="hdlist1">
+<code><em>a_query_name</em></code>
+</td>
+<td class="hdlist2">
+<p>Qualified name of query.</p>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_valid_query</strong> (<br>
+a_query_text: <code>String[1]</code>,<br>
+a_formalism: <code>String[1]</code><br>
+): <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Return True if the provided query text is a valid instance of the formalism.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>register_query</strong> (<br>
 a_query_text: <code>String[1]</code>,<br>
+a_formalism: <code>String[1]</code>,<br>
 a_query_name: <code>String[0..1]</code><br>
-): <code>QUERY_DESCRIPTOR</code></p></td>
+): <code>QUERY_DESCRIPTOR</code><br>
+<strong><em>Pre_valid_query</em></strong>: <code>is_valid_query(a_query_text)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Register a query under an optional name. If no name is provided, one is created in the service. Return a Query descriptor containing the query name and unique identifier.</p>
+<p>Register a query under a qualified name. If no name is provided, one is created in the service. Return a Query descriptor containing the query name and unique identifier.</p>
 </div>
-<div class="paragraph">
-<p>TODO: validate query text?</p>
+<div class="hdlist">
+<div class="title">Parameters<br></div>
+<table>
+<tr>
+<td class="hdlist1">
+<code><em>a_formalism</em></code>
+</td>
+<td class="hdlist2">
+<p>Case-insensitive name of the formalism of the query text. Values include "AQL" (and "aql").</p>
+</td>
+</tr>
+</table>
 </div></div></td>
 </tr>
 <tr>
@@ -1340,19 +1330,6 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 ): <code>List&lt;QUERY_DESCRIPTOR&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>List all registered queries.</p>
-</div>
-<div class="hdlist">
-<div class="title">Parameters<br></div>
-<table>
-<tr>
-<td class="hdlist1">
-<code><em>rows_to_fetch</em></code>
-</td>
-<td class="hdlist2">
-<p>Optional parameter specifying number of query response rows to fetch, used for large result sets. A zero or negative value means 'all'.</p>
-</td>
-</tr>
-</table>
 </div></div></td>
 </tr>
 <tr>
@@ -1393,37 +1370,34 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <p>PERL regular expression on archetype / template identifiers.</p>
 </td>
 </tr>
-<tr>
-<td class="hdlist1">
-<code><em>row_offset</em></code>
-</td>
-<td class="hdlist2">
-<p>Optional parameter specifying offset in query response rows to return, used for large result sets. A zero or negative value means offset of zero.</p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-<code><em>rows_to_fetch</em></code>
-</td>
-<td class="hdlist2">
-<p>Optional parameter specifying number of query response rows to fetch, used for large result sets. A zero or negative value means 'all'.</p>
-</td>
-</tr>
 </table>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_query</strong> (<br>
-a_query_id: <code>UUID[1]</code><br>
-)</p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+a_query_name: <code>String[1]</code><br>
+)<br>
+<strong><em>Pre_has_query</em></strong>: <code>has_query(a_query_id)</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="hdlist">
+<div class="title">Parameters<br></div>
+<table>
+<tr>
+<td class="hdlist1">
+<code><em>a_query_name</em></code>
+</td>
+<td class="hdlist2">
+<p>Qualified query name.</p>
+</td>
+</tr>
+</table>
+</div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_definition_call_statuses_enumeration"><a class="anchor" href="#_definition_call_statuses_enumeration"></a>4.2.4. DEFINITION_CALL_STATUSES Enumeration</h4>
+<h4 id="_definition_call_statuses_enumeration"><a class="anchor" href="#_definition_call_statuses_enumeration"></a>4.3.4. DEFINITION_CALL_STATUSES Enumeration</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -1492,7 +1466,7 @@ a_query_id: <code>UUID[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_query_descriptor_class"><a class="anchor" href="#_query_descriptor_class"></a>4.2.5. QUERY_DESCRIPTOR Class</h4>
+<h4 id="_query_descriptor_class"><a class="anchor" href="#_query_descriptor_class"></a>4.3.5. QUERY_DESCRIPTOR Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -1522,14 +1496,17 @@ a_query_id: <code>UUID[1]</code><br>
 <p>Unique query identifier associated with this query.</p>
 </div>
 <div class="paragraph">
-<p>TODO: only by this service?</p>
+<p>TBD: needed, or just rely on qualified names?</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>query_name</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>qualified_query_name</strong>: <code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Unique name of query.</p>
+<p>Unique qualified name of query. Qualified names follow patterns such as <code>&lt;namespace&gt;::&lt;query_name&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>e.g. "ehr::all_over_50_women".</p>
 </div></div></td>
 </tr>
 <tr>
@@ -2150,8 +2127,20 @@ a_ehr_status_ver_uid: <code>UUID[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_directory</strong> (<br>
 ehr_id: <code>UUID[1]</code>,<br>
 a_dir_struct: <code>UV_FOLDER[1]</code><br>
-)</p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+)<br>
+<strong><em>Pre_no_directory</em></strong>: <code>not has_directory (ehr_id)</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Create a directory in the EHR, based on the provided structure.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_directory</strong> (<br>
+ehr_id: <code>UUID[1]</code><br>
+): <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>True if the EHR has a directory structure.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
@@ -2178,7 +2167,8 @@ a_path: <code>String[1]</code><br>
 ehr_id: <code>UUID[1]</code>,<br>
 a_dir_struct: <code>UV_FOLDER[1]</code><br>
 )<br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
+<strong><em>Pre_has_directory</em></strong>: <code>has_directory(ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Create or update a directory from a complete structure. Preceding version must be supplied and correct if EHR directory already exists.</p>
 </div>
@@ -2209,7 +2199,8 @@ a_dir_struct: <code>UV_FOLDER[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_directory</strong> (<br>
 ehr_id: <code>UUID[1]</code><br>
 )<br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
+<strong><em>Pre_has_directory</em></strong>: <code>has_directory(ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Logically delete the directory by creating a new version in which the contents are removed.</p>
 </div>

@@ -16,11 +16,13 @@ h|*1..1*
 |*query_id*: `UUID`
 a|Unique query identifier associated with this query.
 
-TODO: only by this service?
+TBD: needed, or just rely on qualified names?
 
 h|*0..1*
-|*query_name*: `String`
-a|Unique name of query.
+|*qualified_query_name*: `String`
+a|Unique qualified name of query. Qualified names follow patterns such as `<namespace>::<query_name>`
+
+e.g. "ehr::all_over_50_women".
 
 h|*1..1*
 |*registration_time*: `Iso8601_date_time`

@@ -43,12 +43,6 @@ rows_to_fetch: `Integer[0..1]` +
 ): `List<ARCHETYPE_ID>`
 a|List all ADL 1.4 archetypes known in the service.
 
-.Parameters +
-[horizontal]
-`_row_offset_`:: Optional parameter specifying offset in query response rows to return, used for large result sets. A zero or negative value means offset of zero.
-
-`_rows_to_fetch_`:: Optional parameter specifying number of query response rows to fetch, used for large result sets. A zero or negative value means 'all'.
-
 h|
 |*list_matching_archetypes* ( +
 id_pattern: `String[1]`, +
@@ -59,12 +53,6 @@ a|List all archetypes whose identifiers match a regex pattern.
 
 .Errors
 * `invalid_id_pattern`
-
-.Parameters +
-[horizontal]
-`_row_offset_`:: Optional parameter specifying offset in query response rows to return, used for large result sets. A zero or negative value means offset of zero.
-
-`_rows_to_fetch_`:: Optional parameter specifying number of query response rows to fetch, used for large result sets. A zero or negative value means 'all'.
 
 h|
 |*has_opt* ( +
@@ -97,12 +85,6 @@ rows_to_fetch: `Integer[0..1]` +
 ): `List<UUID>`
 a|List all AD 1.4 OPTs known in the service.
 
-.Parameters +
-[horizontal]
-`_row_offset_`:: Optional parameter specifying offset in query response rows to return, used for large result sets. A zero or negative value means offset of zero.
-
-`_rows_to_fetch_`:: Optional parameter specifying number of query response rows to fetch, used for large result sets. A zero or negative value means 'all'.
-
 h|
 |*list_matching_opts* ( +
 id_pattern: `String[1]`, +
@@ -113,10 +95,4 @@ a|List all OPTs whose identifiers match a regex pattern.
 
 .Errors
 * `invalid_id_pattern`
-
-.Parameters +
-[horizontal]
-`_row_offset_`:: Optional parameter specifying offset in query response rows to return, used for large result sets. A zero or negative value means offset of zero.
-
-`_rows_to_fetch_`:: Optional parameter specifying number of query response rows to fetch, used for large result sets. A zero or negative value means 'all'.
 |===
