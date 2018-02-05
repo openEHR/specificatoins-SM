@@ -1,0 +1,26 @@
+=== RESOURCE_STATUS_TYPE Enumeration
+
+[cols="^1,3,5"]
+|===
+h|*Enumeration*
+2+^h|*RESOURCE_STATUS_TYPE*
+
+h|*Description*
+2+a|Enumeration of status
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|
+|Duplicate
+a|
+
+h|
+|Primary
+a|
+
+h|
+|Supplementary
+a|
+|===

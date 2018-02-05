@@ -14,24 +14,32 @@ h|*Functions*
 
 h|
 |*list_contributions* ( +
+a_service: `PLATFORM_SERVICE[1]`, +
 time_interval: `Interval<Iso8601_date_time>[0..1]` +
 ): `List<UUID>`
 a|Obtain a list of ids of all Contributions in EHR system; an optional time range may be supplied.
 
+.Parameters +
+[horizontal]
+`_a_service_`:: Name of a versioned content service (enumeration value).
+
 h|
 |*contribution_count* ( +
+a_service: `PLATFORM_SERVICE[1]`, +
 time_interval: `Interval<Iso8601_date_time>[0..1]` +
 ): `Integer`
 a|Obtain the count of all Contributions made on EHR system; an optional time range may be supplied.
 
 h|
 |*versioned_composition_count* ( +
+a_service: `PLATFORM_SERVICE[1]`, +
 time_interval: `Interval<Iso8601_date_time>[0..1]` +
 ): `Integer`
 a|Obtain the count of all Versioned Compositions on EHR system; an optional time range may be supplied.
 
 h|
 |*composition_version_count* ( +
+a_service: `PLATFORM_SERVICE[1]`, +
 time_interval: `Interval<Iso8601_date_time>[0..1]` +
 ): `Integer`
 a|Obtain the count of all Composition Versions on EHR system; an optional time range may be supplied.

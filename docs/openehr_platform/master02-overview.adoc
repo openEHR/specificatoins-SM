@@ -2,7 +2,7 @@
 
 == openEHR Platform Model
 
-In order to specify concrete service interfaces (i.e. APIs) to openEHR platform product components, a _formal, abstract definition_ of the platform interfaces is useful, so as to be able to state the interface call semantics independent of any particular technology. This approach clarifies the distinction between required semantics and the details contingent in any concrete technology, such as SOAP/WSDL, REST, RPC, Protocol Buffers, etc, each of which has its own characteristics and rules. 
+In order to specify concrete service interfaces (i.e. APIs) to openEHR platform product components, a _formal, abstract definition_ of the platform interfaces is useful, so as to be able to state the interface call semantics independent of any particular technology. This approach clarifies the distinction between required semantics and the details contingent in any concrete technology, such as SOAP/WSDL, REST, RPC, Protocol Buffers, on so on, each of which has its own characteristics and rules. 
 
 The following figure illustrates the assumed components of an abstract openEHR Platform.
 
@@ -12,7 +12,26 @@ image::{uml_export_dir}/diagrams/SM-platform_definition.svg[id=platform_definiti
 
 Each component has one or more associated Interfaces, i.e. abstract service definitions which define an abstract _transactional interface_ to the service provided by the component. Each interface consists of a number of _calls_, and each call is defined in an abstract way.
 
-This view does not attempt to define or specify any real product architecture as produced by a platform developer, but instead, to standardise the _naming_ of components and semantics of their logical interfaces so that platform procurers and users can speak of, for example, the 'Admin service' or the 'EHR service' within tender documents, without ambiguity. The abstract service architecture described here provides platform implementers a standard reference point for mapping agreed functionality (such as requested in a tender or other solicitation) into their own architectures, which may be organised quite differently. 
+This view does not attempt to define a real product architecture as would be developed by a platform implementor, but instead, to standardise the _naming_ of components and the semantics of their logical interfaces so that platform procurers and users can unambiguously refer to the 'Admin service' or the 'EHR service' within tender documents. The abstract service architecture described here provides platform implementers a standard reference point for mapping agreed functionality (such as requested in a tender or other solicitation) into their own architectures, which may be organised quite differently.
+
+The services are as follows.
+
+[cols="1,4", options="header"]
+|===
+|Service        |Description
+
+|Admin          |Service providing administrative facilities on all services in the installed environment, such as back-up.
+|Definitions    |Service enabling upload and querying of definition artefacts, including archetypes, templates and queries.
+|EHR            |Versioned persistence service for EHRs.
+|Demographic    |Versioned persistence service for demographic data.
+|EHR Index      |EHR id / demographic subject cross-reference service.
+|Query          |Service providing AQL query retrieval for EHR, demographics and other content services.
+|Terminology    |Service providing access to terminology, including intentional value sets.
+|Message        |Message import and export service, supporting multiple message formats as we as EHR Extracts and documents.
+|System Log     |IHE ATNA-compliant system log.
+                                                            
+|===
+
 
 == Interface Calls
 

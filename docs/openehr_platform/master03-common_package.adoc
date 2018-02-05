@@ -2,7 +2,11 @@
 
 == Overview
 
-The `platform_interface.common` package shown below defines common elements of the platform service model.
+The `platform_interface.common` package shown below defines common elements of the platform service model. The key elements are:
+
+* `I_STATUS` / `CALL_STATUS`: a representation of the status result of any call execution;
+* `UPDATE_VERSION`: an information structure suitable for committing data to a versioned store based on the openEHR versioning (change control) specification;
+* `PLATFORM_SERVICE`: an enumeration of the available services, used in various interfaces.
 
 [.text-center]
 .`sm.openehr_platform.platform_interface.common` package
@@ -14,7 +18,7 @@ include::{uml_export_dir}/classes/i_status.adoc[]
 
 include::{uml_export_dir}/classes/call_status.adoc[]
 
-include::{uml_export_dir}/classes/call_statuses.adoc[]
+include::{uml_export_dir}/classes/call_status_type.adoc[]
 
 include::{uml_export_dir}/classes/update_version.adoc[]
 

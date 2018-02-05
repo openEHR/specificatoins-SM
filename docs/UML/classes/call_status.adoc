@@ -13,7 +13,7 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*code*: `CALL_STATUSES`
+|*code*: `CALL_STATUS_TYPE`
 a|Call status code for last call.
 
 h|*1..1*
