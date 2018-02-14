@@ -41,6 +41,7 @@
 <ul class="sectlevel3">
 <li><a href="#_functional_style">2.4.1. Functional Style</a></li>
 <li><a href="#_list_handling">2.4.2. List-handling</a></li>
+<li><a href="#_global_naming_conventions">2.4.3. Global Naming Conventions</a></li>
 </ul>
 </li>
 <li><a href="#_package_structure">2.5. Package Structure</a></li>
@@ -63,14 +64,15 @@
 <li><a href="#_definition_package">4. Definition Package</a>
 <ul class="sectlevel2">
 <li><a href="#_overview_3">4.1. Overview</a></li>
-<li><a href="#_registered_queries">4.2. Registered Queries</a></li>
-<li><a href="#_class_definitions_2">4.3. Class Definitions</a>
+<li><a href="#_archetypes_and_templates">4.2. Archetypes and Templates</a></li>
+<li><a href="#_registered_queries">4.3. Registered Queries</a></li>
+<li><a href="#_class_definitions_2">4.4. Class Definitions</a>
 <ul class="sectlevel3">
-<li><a href="#_i_definition_adl2_interface">4.3.1. I_DEFINITION_ADL2 Interface</a></li>
-<li><a href="#_i_definition_adl14_interface">4.3.2. I_DEFINITION_ADL14 Interface</a></li>
-<li><a href="#_i_definition_query_interface">4.3.3. I_DEFINITION_QUERY Interface</a></li>
-<li><a href="#_definition_call_statuses_enumeration">4.3.4. DEFINITION_CALL_STATUSES Enumeration</a></li>
-<li><a href="#_query_descriptor_class">4.3.5. QUERY_DESCRIPTOR Class</a></li>
+<li><a href="#_i_definition_adl2_interface">4.4.1. I_DEFINITION_ADL2 Interface</a></li>
+<li><a href="#_i_definition_adl14_interface">4.4.2. I_DEFINITION_ADL14 Interface</a></li>
+<li><a href="#_i_definition_query_interface">4.4.3. I_DEFINITION_QUERY Interface</a></li>
+<li><a href="#_definition_call_statuses_enumeration">4.4.4. DEFINITION_CALL_STATUSES Enumeration</a></li>
+<li><a href="#_query_descriptor_class">4.4.5. QUERY_DESCRIPTOR Class</a></li>
 </ul>
 </li>
 </ul>
@@ -247,7 +249,7 @@
  Add section on call conventions; improve query register calls based on REST API 0.9.0.<br>
  Add EHR Index section.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>05 Feb 2018</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>14 Feb 2018</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0.9.2</p></td>
@@ -362,10 +364,10 @@
 <div class="sect2">
 <h3 id="_openehr_platform_model"><a class="anchor" href="#_openehr_platform_model"></a>2.1. openEHR Platform Model</h3>
 <div class="paragraph">
-<p>In order to specify concrete service interfaces (i.e. APIs) to openEHR platform product components, a <em>formal, abstract definition</em> of the platform interfaces is useful, so as to be able to state the interface call semantics independent of any particular technology. This approach clarifies the distinction between required semantics and the details contingent in any concrete technology, such as SOAP/WSDL, REST, RPC, Protocol Buffers, on so on, each of which has its own characteristics and rules.</p>
+<p>In order to specify concrete service interfaces (i.e. APIs) to openEHR platform product components, a formal, abstract definition of the platform interfaces is useful, so as to be able to state the formal interface call semantics independent of any particular implementation technology. This approach clarifies the distinction between required semantics and the details contingent in any concrete technology, such as SOAP/WSDL, REST, RPC, Protocol Buffers, on so on, each of which has its own characteristics and rules.</p>
 </div>
 <div class="paragraph">
-<p>The following figure illustrates the assumed components of an abstract openEHR Platform.</p>
+<p>The following figure illustrates the assumed components of the abstract openEHR Platform.</p>
 </div>
 <div id="platform_definition" class="imageblock text-center" style="text-align: center">
 <div class="content">
@@ -374,10 +376,10 @@
 <div class="title">Figure 1. sm.openehr_platform.platform_definition Package</div>
 </div>
 <div class="paragraph">
-<p>Each component has one or more associated Interfaces, i.e. abstract service definitions which define an abstract <em>transactional interface</em> to the service provided by the component. Each interface consists of a number of <em>calls</em>, and each call is defined in an abstract way.</p>
+<p>Each component has one or more associated interfaces, i.e. abstract service definitions which define an abstract <em>transactional interface</em> to the service represented by the component. Each interface consists of a number of <em>calls</em>, and each call is defined in an abstract way.</p>
 </div>
 <div class="paragraph">
-<p>This view does not attempt to define a real product architecture as would be developed by a platform implementor, but instead, to standardise the <em>naming</em> of components and the semantics of their logical interfaces so that platform procurers and users can unambiguously refer to the 'Admin service' or the 'EHR service' within tender documents. The abstract service architecture described here provides platform implementers a standard reference point for mapping agreed functionality (such as requested in a tender or other solicitation) into their own architectures, which may be organised quite differently.</p>
+<p>This view does not attempt to define a real product architecture as would be developed by an openEHR platform implementor, but it does establish a <em>formal equivalent</em> of any such architecture. Practically, this entails standardised <em>naming</em> of components and the semantics of their logical interfaces so that platform procurers and users can unambiguously refer to the 'Admin service' or the 'EHR service' within technical or commercial documents. The abstract service architecture described here provides platform implementers a standard reference definition for mapping agreed functionality (such as requested in a tender or other solicitation) into their own architectures, which may be organised quite differently.</p>
 </div>
 <div class="paragraph">
 <p>The services are as follows.</p>
@@ -439,10 +441,10 @@
 <p>Regardless of the internal organisation of real product architectures, agreement across a community of producers and users of products that claim to <em>conform</em> to a published platform specification, must by definition be based on something formally statable and testable. As noted above, this is described here in the form of logical components which have logical interfaces, each consisting of a set of calls, of which the latter constitute the finest level of specification.</p>
 </div>
 <div class="paragraph">
-<p>A logical interface call is understood here in the standard computer science manner, i.e. as a routine with a formal, typed signature. Good practice usually dictates that such routines should take the form of either pure <em>functions</em>, or pure <em>procedures</em>, but not both: side-effect producing functions should generally be avoided. In other words, interface calls are either <em>queries</em> that return something but do not change state, or <em>commands</em> that cause a change, but don&#8217;t compute or return anything. The separation is sometimes known as <em>command / query separation</em>.</p>
+<p>A logical interface call is understood here in the standard computer science manner, i.e. as a callable routine with a formal, typed signature. Good practice usually dictates that such routines should take the form of either pure <em>functions</em>, or pure <em>procedures</em>, but not both: side-effect producing functions should generally be avoided. In other words, interface calls are either <em>queries</em> that return something but do not change state, or <em>commands</em> that cause a change, but don&#8217;t compute or return anything. The separation is sometimes known as <em>command / query separation</em>.</p>
 </div>
 <div class="paragraph">
-<p>The signatures of query and procedure thus take the following syntactic forms:</p>
+<p>The signatures of query and procedure calls thus take the following syntactic forms:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -460,7 +462,7 @@
 <div class="sect2">
 <h3 id="_anatomy_of_an_abstract_call_specification"><a class="anchor" href="#_anatomy_of_an_abstract_call_specification"></a>2.3. Anatomy of an Abstract Call Specification</h3>
 <div class="paragraph">
-<p>A fuller specification of any function or procedure includes its semantic effects, stated in terms of pre-conditions, post-conditions and exception cases, along with  documentation. This is exactly as found in any standard library in most programming languages, and indeed, standardised meta-data keywords and labelling have evolved in most programming documentation systems to support exactly this kind of specification, even where the language doesn&#8217;t directly support some of its features, such as pre- or post-conditions.</p>
+<p>A fuller specification of any function or procedure includes its semantics, stated in terms of pre-conditions, post-conditions and exceptions, along with  documentation ofthe same. This is exactly as found in any standard library in most programming languages, and indeed, standardised meta-data keywords and labelling have evolved in most programming documentation systems to support exactly this kind of specification, even where the language doesn&#8217;t directly support some of its features, such as pre- or post-conditions.</p>
 </div>
 <div class="paragraph">
 <p>This specification uses the same form of specification, which can be illustrated as follows:</p>
@@ -504,10 +506,10 @@
 </tbody>
 </table>
 <div class="paragraph">
-<p>The above kind of specification can in general be easily mapped to any concrete API technology. In each case, how the arguments are expressed, details of serialisation (for textual technologies like SOAP and REST), error handling, etc, will be different. Google protocol buffers for example uses an OMG IDL-like approach to specification, i.e. structured type definitions. REST on the other hand is a web-based type of API normally mapped onto HTTP verbs, URIs and HTTP error codes.</p>
+<p>The above kind of specification can in general be easily mapped to any concrete API technology. In each case, how the arguments are expressed, details of serialisation (for text-based technologies like SOAP and REST), error handling, etc, will be different. Google protocol buffers for example uses an OMG IDL-like approach to specification, i.e. structured type definitions. REST on the other hand is a web-based type of API normally mapped onto HTTP verbs, URIs and HTTP error codes.</p>
 </div>
 <div class="paragraph">
-<p>The intent of the current specification is thus to express the abstract element of each interface call, so that both back-end semantics can be correctly designed, and API definitions can be correctly written.</p>
+<p>The intent of the current specification is thus to express the abstract element of each interface call, so that both back-end semantics can be correctly designed, and API definitions can be correctly written and tested.</p>
 </div>
 </div>
 <div class="sect2">
@@ -554,7 +556,7 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 <p>Authentication and authorisation is assumed to have been dealt with before any particular call has been made by a combination of standard authentication technologies (e.g. OAuth, RFC 7235) and role-based access control.</p>
 </div>
 <div class="paragraph">
-<p>Failures are dealt with by calling a standard function <code>last_call_failed()</code> and if <code>True</code>, calling <code>last_call_status()</code> which returns a structured error object. This enables the recording of errors (such as authorisation failure), pre-condition exceptions (generally relating to argument vaidity) and server exceptions (equivalent to post-condition or invariant exceptions). This leads to the following notional call sequence for any given call defined in this specification.</p>
+<p>Failures are dealt with by calling a standard function <code>last_call_failed()</code> and if <code>True</code>, calling <code>last_call_status()</code> which returns a structured error object. This enables the recording of errors (such as authorisation failure), pre-condition exceptions (generally relating to argument vaidity) and server exceptions (equivalent to post-condition or invariant exceptions). This leads to the following typical call sequence for calls defined in this specification.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -590,13 +592,13 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 <p>Apart from error-handling, the interfaces are stateless in the sense that any single call constitutes a self-standing transaction on the back-end service, i.e. a transaction that when executed on the service will leave it in a consistent state.</p>
 </div>
 <div class="paragraph">
-<p>The above illustrates just one pattern of calling in a notional server. Another common style is to include results as 'out' parameters, and to use the return value to return call status. Either style can be used, and can be trivially mapped from one to the other. No such code is intended to implemented directly; the above is merely a way of explaining the semantics within context of the interface calls documented in this specification.</p>
+<p>The above illustrates just one pattern of calling in a server. Another common style is to include results as 'out' parameters, and to use the return value to return call status. Either style can be used, and can be trivially mapped from one to the other. No such code is intended to implemented directly; the above is merely a way of explaining the semantics within context of the interface calls documented in this specification.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_list_handling"><a class="anchor" href="#_list_handling"></a>2.4.2. List-handling</h4>
 <div class="paragraph">
-<p>Calls that result in a container potentially containing unlimited numbers of results can be managed in a typical 'DB cursor' fashion, i.e. by setting the following parameters:</p>
+<p>Calls that result in a container result potentially containing unlimited numbers of elements can be managed in a typical 'DB cursor' fashion, i.e. by setting the following parameters:</p>
 </div>
 <div class="dlist">
 <dl>
@@ -610,6 +612,53 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 </dd>
 </dl>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_global_naming_conventions"><a class="anchor" href="#_global_naming_conventions"></a>2.4.3. Global Naming Conventions</h4>
+<div class="paragraph">
+<p>The following naming conventions are used for naming parameters throughout this specification, where they apply.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Term</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><em>ehr_id</em></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The value for an EHR identifier, stored under <code>EHR.<em>ehr_id.value</em></code>, usually an UUID or GUID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><em>versioned_object_uid</em></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The value of a <code>VERSIONED_OBJECT</code> unique identifier, i.e. <code>VERSIONED_OBJECT.<em>uid.value</em></code>,<br>
+                            e.g. <code>8849182c-82ad-4088-a07f-48ead4180515</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><em>version_uid</em></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The value of a <code>VERSION</code> unique identifier, i.e. <code>VERSION.<em>uid.value</em></code>,<br>
+                             e.g. <code>8849182c-82ad-4088-a07f-48ead4180515::example.domain.com::2</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><em>preceding_version_uid</em></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The value of a previous <code>VERSION</code> unique identifier,<br>
+                             e.g. <code>8849182c-82ad-4088-a07f-48ead4180515::example.domain.com::1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><em>object_id</em></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A placeholder for either <code><em>versioned_object_uid</em></code> or <code><em>version_uid</em></code> identifier</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><em>time</em></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A date-time in ISO8601 format (e.g. <code>2015-01-20T19:30:22.765+01:00</code>)</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -952,7 +1001,19 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_registered_queries"><a class="anchor" href="#_registered_queries"></a>4.2. Registered Queries</h3>
+<h3 id="_archetypes_and_templates"><a class="anchor" href="#_archetypes_and_templates"></a>4.2. Archetypes and Templates</h3>
+<div class="paragraph">
+<p>The <code>I_DEFINITION_ADL14</code> and <code>I_DEFINITION_ADL2</code> interfaces are provided to enable upload, updating and removal of archetypes and templates based on the <a href="/releases/AM/latest/docs/index">ADL 1.4 and ADL 2 standards</a> respectively, for use in an operational system.</p>
+</div>
+<div class="paragraph">
+<p>In the ADL2 case, archetypes and 'templates' are all instances of archetypes, formally speaking, which means that both source artefacts and Operational Templates (OPTs) can be uploaded. All such artefacts are identified in the same way, via an Archetype human-readable identifier (<code>ARCHETYPE_HRID</code>) and a UUID.</p>
+</div>
+<div class="paragraph">
+<p>For ADL 1.4, 'templates' are distinct artefacts, and the service enables the upload of source archetypes and ADL 1.4 - based OPTs, which are XML artefacts. In ADL 1.4, archetypes are identified with the older <code>ARCHETYPE_ID</code>, while OPTs are identified with UUIDs.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_registered_queries"><a class="anchor" href="#_registered_queries"></a>4.3. Registered Queries</h3>
 <div class="paragraph">
 <p>Queries may be registered in the system for later execution. They are identified by 'qualified names', i.e. String names that may include a namespace and optionally a formalism type. The following schemes may be used:</p>
 </div>
@@ -987,9 +1048,9 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_class_definitions_2"><a class="anchor" href="#_class_definitions_2"></a>4.3. Class Definitions</h3>
+<h3 id="_class_definitions_2"><a class="anchor" href="#_class_definitions_2"></a>4.4. Class Definitions</h3>
 <div class="sect3">
-<h4 id="_i_definition_adl2_interface"><a class="anchor" href="#_i_definition_adl2_interface"></a>4.3.1. I_DEFINITION_ADL2 Interface</h4>
+<h4 id="_i_definition_adl2_interface"><a class="anchor" href="#_i_definition_adl2_interface"></a>4.4.1. I_DEFINITION_ADL2 Interface</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -1024,8 +1085,9 @@ an_id: <code>ARCHETYPE_HRID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>upload_artefact</strong> (<br>
-arch: <code>AUTHORED_ARCHETYPE[1]</code><br>
-)</p></td>
+an_arch: <code>AUTHORED_ARCHETYPE[1]</code><br>
+)<br>
+<strong><em>Post_has_artefact</em></strong>: <code>has_artefact (an_arch.identifier)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Upload an ADL2 artefact, i.e. archetype, template or operational_template. If an artefact with the same physical identifier and namespace exists, replace it.</p>
 </div>
@@ -1139,7 +1201,7 @@ an_id: <code>ARCHETYPE_HRID[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_i_definition_adl14_interface"><a class="anchor" href="#_i_definition_adl14_interface"></a>4.3.2. I_DEFINITION_ADL14 Interface</h4>
+<h4 id="_i_definition_adl14_interface"><a class="anchor" href="#_i_definition_adl14_interface"></a>4.4.2. I_DEFINITION_ADL14 Interface</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -1174,8 +1236,9 @@ an_id: <code>ARCHETYPE_ID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>upload_archetype</strong> (<br>
-arch: <code>ARCHETYPE[1]</code><br>
-)</p></td>
+an_arch: <code>ARCHETYPE[1]</code><br>
+)<br>
+<strong><em>Post_has_archetype</em></strong>: <code>has_archetype (an_arch.identifier)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Upload a valid ADL 1.4 archetype. If an archetype with the same id already exists, replace it. The archetype must be valid to succeed.</p>
 </div>
@@ -1230,6 +1293,25 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <ul>
 <li>
 <p><code>invalid_id_pattern</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_archetype</strong> (<br>
+an_id: <code>ARCHETYPE_ID[1]</code><br>
+)<br>
+<strong><em>Pre_artefact_exists</em></strong>: <code>has_artefact (an_id)</code><br>
+<strong><em>Post_archetype_removed</em></strong>: <code>not has_archetype (an_id)</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Delete a previously uploaded archetype.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>invalid_archetype</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -1306,11 +1388,30 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 </ul>
 </div></div></td>
 </tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_opt</strong> (<br>
+an_id: <code>UUID[1]</code><br>
+)<br>
+<strong><em>Pre_has_opt</em></strong>: <code>has_opt (an_id)</code><br>
+<strong><em>Post_opt_removed</em></strong>: <code>not has_opt (an_id)</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Delete a previously uploaded ADL 1.4. OPT.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>invalid_template</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_i_definition_query_interface"><a class="anchor" href="#_i_definition_query_interface"></a>4.3.3. I_DEFINITION_QUERY Interface</h4>
+<h4 id="_i_definition_query_interface"><a class="anchor" href="#_i_definition_query_interface"></a>4.4.3. I_DEFINITION_QUERY Interface</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -1339,7 +1440,7 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 a_query_name: <code>String[1]</code><br>
 ): <code>Boolean</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Return True if the query identified by <code><em>a_query_id</em></code> is registered.</p>
+<p>Return True if the query identified by <code><em>a_query_name</em></code> is registered.</p>
 </div>
 <div class="hdlist">
 <div class="title">Parameters<br></div>
@@ -1458,8 +1559,20 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_query</strong> (<br>
 a_query_name: <code>String[1]</code><br>
 )<br>
-<strong><em>Pre_has_query</em></strong>: <code>has_query(a_query_id)</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="hdlist">
+<strong><em>Pre_has_query</em></strong>: <code>has_query(a_query_name)</code><br>
+<strong><em>Post_query_deleted</em></strong>: <code>not has_query (a_query_name)</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Delete query with name <code><em>a_query_name</em></code>.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>invalid_query</code></p>
+</li>
+</ul>
+</div>
+<div class="hdlist">
 <div class="title">Parameters<br></div>
 <table>
 <tr>
@@ -1477,7 +1590,7 @@ a_query_name: <code>String[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_definition_call_statuses_enumeration"><a class="anchor" href="#_definition_call_statuses_enumeration"></a>4.3.4. DEFINITION_CALL_STATUSES Enumeration</h4>
+<h4 id="_definition_call_statuses_enumeration"><a class="anchor" href="#_definition_call_statuses_enumeration"></a>4.4.4. DEFINITION_CALL_STATUSES Enumeration</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -1546,7 +1659,7 @@ a_query_name: <code>String[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_query_descriptor_class"><a class="anchor" href="#_query_descriptor_class"></a>4.3.5. QUERY_DESCRIPTOR Class</h4>
+<h4 id="_query_descriptor_class"><a class="anchor" href="#_query_descriptor_class"></a>4.4.5. QUERY_DESCRIPTOR Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -1714,6 +1827,7 @@ an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
 ): <code>UUID</code><br>
+<strong><em>Post_has_ehr</em></strong>: <code>has_ehr (Result)</code><br>
 <strong><em>Pre_no_duplicate</em></strong>: <code>not has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Create a new EHR with a provided EHR id; return the id as a safety check.</p>
@@ -1725,7 +1839,7 @@ an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p><code>ehr_does_not_exist</code></p>
+<p><code>ehr_create_fail_duplicate_id</code></p>
 </li>
 </ul>
 </div>
@@ -1787,7 +1901,7 @@ an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p><code>ehr_does_not_exist</code></p>
+<p><code>ehr_create_fail_duplicate_id</code></p>
 </li>
 </ul>
 </div>
@@ -1868,7 +1982,9 @@ a_subject_id: <code>PARTY_REF[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>i_ehr</strong> (): <code>I_EHR</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>i_ehr</strong> (<br>
+ehr_id: <code>UUID[1]</code><br>
+): <code>I_EHR</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Provide access to an <code>I_EHR</code> interface instance for access to the parts of an EHR.</p>
 </div></div></td>
@@ -2061,7 +2177,8 @@ an_ehr_id: <code>UUID[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>set_ehr_queryable</strong> (<br>
 an_ehr_id: <code>UUID[1]</code><br>
 )<br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
+<strong><em>Post_is_queryable_set</em></strong>: <code>get_ehr_status(an_ehr_id).is_queryable</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Set the EHR <code><em>is_queryable</em></code> flag to true; this ensures it is included by the query engine.</p>
 </div>
@@ -2079,7 +2196,8 @@ an_ehr_id: <code>UUID[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>set_ehr_modifiable</strong> (<br>
 an_ehr_id: <code>UUID[1]</code><br>
 )<br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
+<strong><em>Post_is_modifiable_set</em></strong>: <code>get_ehr_status(an_ehr_id).is_modifiable</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Set the EHR <code><em>is_modifable</em></code> flag to true; this ensures it is treated as active and updatable.</p>
 </div>
@@ -2097,7 +2215,8 @@ an_ehr_id: <code>UUID[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>clear_ehr_queryable</strong> (<br>
 an_ehr_id: <code>UUID[1]</code><br>
 )<br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
+<strong><em>Post_is_queryable_cleared</em></strong>: <code>not get_ehr_status(an_ehr_id).is_queryable</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Clear the EHR <code><em>is_queryable</em></code> flag; this ensures it is ignored by the query engine.</p>
 </div>
@@ -2115,9 +2234,69 @@ an_ehr_id: <code>UUID[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>clear_ehr_modifiable</strong> (<br>
 an_ehr_id: <code>UUID[1]</code><br>
 )<br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
+<strong><em>Post_is_modifiable_cleared</em></strong>: <code>not get_ehr_status(an_ehr_id).is_modifiable</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Clear the EHR <code><em>is_modifiable</em></code> flag; this ensures it is treated as active.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>ehr_does_not_exist</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_ehr_status_at_time</strong> (<br>
+a_time: <code>Iso8601_date_time[0..1]</code><br>
+): <code>EHR_STATUS</code><br>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Get the version of the EHR Status extant at time <code><em>a_time</em></code>. If no time supplied, get the latest.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>ehr_does_not_exist</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_ehr_status_at_version</strong> (<br>
+an_ehr_id: <code>UUID[1]</code>,<br>
+a_version_uid: <code>UUID[1]</code><br>
+): <code>EHR_STATUS</code><br>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Get a particular version of an EHR Status object.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_ehr_status_version</strong> (<br>
+an_ehr_id: <code>UUID[1]</code>,<br>
+a_version_uid: <code>UUID[1]</code><br>
+): <code>Boolean</code><br>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>True if <code><em>an_ehr_status_ver_uid</em></code> is one of the versions of this versioned EHR Status object.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_versioned_ehr_status</strong> (<br>
+an_ehr_id: <code>UUID[1]</code><br>
+): <code>VERSIONED_EHR_STATUS</code><br>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
+<strong><em>Pre_has_ehr_status_version</em></strong>: <code>has_ehr_status_version (an_ehr_id, a_version_uid)</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Get the <code>VERSIONED_EHR_STATUS</code> object from the EHR with id <code><em>ehr_id</em></code>.</p>
 </div>
 <div class="ulist">
 <div class="title">Errors</div>
@@ -2145,34 +2324,6 @@ a_details: <code>ITEM_TREE[1]</code><br>
 <p><code>ehr_does_not_exist</code></p>
 </li>
 </ul>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_versioned_ehr_status</strong> (<br>
-an_ehr_id: <code>UUID[1]</code><br>
-): <code>VERSIONED_EHR_STATUS</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Get the <code>VERSIONED_EHR_STATUS</code> object from the EHR with id <code><em>ehr_id</em></code>.</p>
-</div>
-<div class="ulist">
-<div class="title">Errors</div>
-<ul>
-<li>
-<p><code>ehr_does_not_exist</code></p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_ehr_status_at_version</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-a_ehr_status_ver_uid: <code>UUID[1]</code><br>
-): <code>EHR_STATUS</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Get a particular version of an EHR Status object.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2217,7 +2368,8 @@ a_dir_struct: <code>UV_FOLDER[1]</code><br>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_directory</strong> (<br>
 ehr_id: <code>UUID[1]</code><br>
-): <code>Boolean</code></p></td>
+): <code>Boolean</code><br>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>True if the EHR has a directory structure.</p>
 </div></div></td>
@@ -2315,11 +2467,11 @@ ehr_id: <code>UUID[1]</code><br>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_directory_at_time</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
-a_time: <code>Iso8601_date_time[1]</code><br>
+a_time: <code>Iso8601_date_time[0..1]</code><br>
 ): <code>FOLDER</code><br>
 <strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Get the version of the Directory extant at time <code><em>a_time</em></code>.</p>
+<p>Get the version of the Directory extant at time <code><em>a_time</em></code>. If no time supplied, get the latest.</p>
 </div>
 <div class="ulist">
 <div class="title">Errors</div>
@@ -2345,9 +2497,17 @@ a_time: <code>Iso8601_date_time[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_directory_version</strong> (<br>
+an_ehr_id: <code>UUID[1]</code>,<br>
+a_version_uid: <code>UUID[1]</code><br>
+): <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_directory_at_version</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
-a_dir_ver_uid: <code>UUID[1]</code><br>
+a_version_uid: <code>UUID[1]</code><br>
 ): <code>FOLDER</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Get a particular version of the EHR Directory.</p>
@@ -2402,11 +2562,11 @@ an_ehr_id: <code>UUID[1]</code><br>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_composition</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
-a_comp_id: <code>UUID[1]</code><br>
+a_version_uid: <code>UUID[1]</code><br>
 ): <code>Boolean</code><br>
 <strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Return True if a Composition with identifier <code><em>a_comp_id</em></code> exists.</p>
+<p>Return True if a Composition version with identifier <code><em>a_version_uid</em></code> exists.</p>
 </div>
 <div class="ulist">
 <div class="title">Errors</div>
@@ -2466,11 +2626,11 @@ a_comp: <code>UV_COMPOSITION[1]</code><br>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_composition</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
-a_comp_ver_uid: <code>UUID[1]</code><br>
+a_version_uid: <code>UUID[1]</code><br>
 )<br>
 <strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Logically delete a Composition by creating a new version in which the content is removed and the lifecycle state is set to <code>523&#124;deleted&#124;</code>. The <code><em>a_comp_id</em></code> argument identifies the current top Composition Version.</p>
+<p>Logically delete a Composition by creating a new version in which the content is removed and the lifecycle state is set to <code>523&#124;deleted&#124;</code>. The <code><em>a_version_uid</em></code> argument identifies the current top Composition Version.</p>
 </div>
 <div class="ulist">
 <div class="title">Errors</div>
@@ -2488,11 +2648,12 @@ a_comp_ver_uid: <code>UUID[1]</code><br>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_composition</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
-a_ver_comp_uid: <code>UUID[1]</code><br>
+a_versioned_object_uid: <code>UUID[1]</code><br>
 ): <code>COMPOSITION</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
+<strong><em>Pre_has_composition</em></strong>: <code>has_composition (an_ehr_id, a_version_uid)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Retrieve a Composition by the uid of its version.</p>
+<p>Retrieve the latest version of a Composition.</p>
 </div>
 <div class="ulist">
 <div class="title">Errors</div>
@@ -2510,7 +2671,7 @@ a_ver_comp_uid: <code>UUID[1]</code><br>
 <table>
 <tr>
 <td class="hdlist1">
-<code><em>a_ver_comp_uid</em></code>
+<code><em>a_versioned_object_uid</em></code>
 </td>
 <td class="hdlist2">
 <p>Uid of the <code>VERSIONED_COMPOSITION</code>.</p>
@@ -2523,12 +2684,12 @@ a_ver_comp_uid: <code>UUID[1]</code><br>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_composition_at_time</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
-a_ver_comp_uid: <code>UUID[1]</code>,<br>
-a_time: <code>Iso8601_date_time[1]</code><br>
+a_versioned_object_uid: <code>UUID[1]</code>,<br>
+a_time: <code>Iso8601_date_time[0..1]</code><br>
 ): <code>COMPOSITION</code><br>
 <strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Retrieve the Composition version from a Versioned Composition that was the top version at time a_time.</p>
+<p>Retrieve the Composition version extant at a given time, from a Versioned Composition. If no time supplied, get the latest.</p>
 </div>
 <div class="ulist">
 <div class="title">Errors</div>
@@ -2546,8 +2707,9 @@ a_time: <code>Iso8601_date_time[1]</code><br>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_composition_at_version</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
-a_comp_ver_uid: <code>UUID[1]</code><br>
-): <code>COMPOSITION</code></p></td>
+a_version_uid: <code>UUID[1]</code><br>
+): <code>COMPOSITION</code><br>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Get a particular version of a Composition.</p>
 </div>
@@ -2556,7 +2718,7 @@ a_comp_ver_uid: <code>UUID[1]</code><br>
 <table>
 <tr>
 <td class="hdlist1">
-<code><em>a_comp_ver_uid</em></code>
+<code><em>a_version_uid</em></code>
 </td>
 <td class="hdlist2">
 <p>Uid of a <code>VERSION</code> in a <code>VERSIONED_COMPOSITION</code>.</p>
@@ -2569,7 +2731,7 @@ a_comp_ver_uid: <code>UUID[1]</code><br>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_versioned_composition</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
-a_comp_ver_uid: <code>UUID[1]</code><br>
+a_versioned_object_uid: <code>UUID[1]</code><br>
 ): <code>VERSIONED_COMPOSITION</code><br>
 <strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -2586,6 +2748,14 @@ a_comp_ver_uid: <code>UUID[1]</code><br>
 </li>
 </ul>
 </div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_composition_version</strong> (<br>
+an_ehr_id: <code>UUID[1]</code>,<br>
+a_version_uid: <code>UUID[1]</code><br>
+): <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
 </tr>
 </tbody>
 </table>
@@ -2821,6 +2991,24 @@ a_version: <code>PARTY_RELATIONSHIP[1]</code><br>
 <p>Create a new Party Relationship.</p>
 </div></div></td>
 </tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>i_party</strong> (<br>
+a_versioned_party_id<br>
+): <code>I_PARTY</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Create an I_PARTY interface.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>i_party_relationship</strong> (<br>
+a_versioned_party_rel_id<br>
+): <code>I_PARTY_RELATIONSHIP</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Create an I_PARTY_RELATIONSHIP interface.</p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -2854,14 +3042,24 @@ a_version: <code>PARTY_RELATIONSHIP[1]</code><br>
 a_versioned_party_id: <code>UUID[1]</code><br>
 ): <code>Boolean</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Return True if Party exists in service.</p>
+<p>Return True if Party exists.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_party_version_id</strong> (<br>
+a_party_version_id: <code>UUID[1]</code><br>
+): <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>True if a particular version of a Party exists.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_party</strong> (<br>
 a_versioned_party_id: <code>UUID[1]</code><br>
-): <code>PARTY</code></p></td>
+): <code>PARTY</code><br>
+<strong><em>Pre_has_party</em></strong>: <code>has_party (a_versioned_party_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Get the current Version of a Party.</p>
 </div></div></td>
@@ -2870,7 +3068,8 @@ a_versioned_party_id: <code>UUID[1]</code><br>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_party_at_version</strong> (<br>
 a_party_version_id: <code>UUID[1]</code><br>
-): <code>PARTY</code></p></td>
+): <code>PARTY</code><br>
+<strong><em>Pre_has_party_version</em></strong>: <code>has_party_version (a_party_version_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Get a particular Party Version.</p>
 </div></div></td>
@@ -2890,7 +3089,8 @@ a_time: <code>Iso8601_date_time[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>update_party</strong> (<br>
 a_versioned_party_id: <code>UUID[1]</code>,<br>
 a_version: <code>PARTY[1]</code><br>
-): <code>UUID</code></p></td>
+): <code>UUID</code><br>
+<strong><em>Pre_has_party</em></strong>: <code>has_party (a_versioned_party_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Update a Party with a new Version.</p>
 </div></div></td>
@@ -2899,7 +3099,9 @@ a_version: <code>PARTY[1]</code><br>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_party</strong> (<br>
 a_versioned_party_id: <code>UUID[1]</code><br>
-)</p></td>
+)<br>
+<strong><em>Post_party_deleted</em></strong>: <code>not has_party (a_versioned_party_id)</code><br>
+<strong><em>Pre_has_party</em></strong>: <code>has_party (a_versioned_party_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Delete an existing Party.</p>
 </div></div></td>
@@ -2934,7 +3136,7 @@ a_versioned_party_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_party_relationship</strong> (<br>
-a_versioned_party_id: <code>UUID[1]</code><br>
+a_versioned_party_rel_id: <code>UUID[1]</code><br>
 ): <code>Boolean</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Return True if Party relationship exists in service.</p>
@@ -2943,7 +3145,7 @@ a_versioned_party_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_party_relationship</strong> (<br>
-a_versioned_party_id: <code>UUID[1]</code><br>
+a_versioned_party_rel_id: <code>UUID[1]</code><br>
 ): <code>PARTY_RELATIONSHIP</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Get the current Version of a Party relationship.</p>
@@ -2952,7 +3154,7 @@ a_versioned_party_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_party_relationship_at_version</strong> (<br>
-a_party_version_id: <code>UUID[1]</code><br>
+a_party_rel_version_id: <code>UUID[1]</code><br>
 ): <code>PARTY_RELATIONSHIP</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Get a particular Party relationship Version.</p>
@@ -2961,7 +3163,7 @@ a_party_version_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_party_relationship_at_time</strong> (<br>
-a_versioned_party_id: <code>UUID[1]</code>,<br>
+a_versioned_party_rel_id: <code>UUID[1]</code>,<br>
 a_time: <code>Iso8601_date_time[1]</code><br>
 ): <code>PARTY_RELATIONSHIP</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -2971,9 +3173,10 @@ a_time: <code>Iso8601_date_time[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>update_party_relationship</strong> (<br>
-a_versioned_party_id: <code>UUID[1]</code>,<br>
+a_versioned_party_rel_id: <code>UUID[1]</code>,<br>
 a_version: <code>PARTY_RELATIONSHIP[1]</code><br>
-): <code>UUID</code></p></td>
+): <code>UUID</code><br>
+<strong><em>Pre_has_relationship</em></strong>: <code>has_party_relationship (a_versioned_party_rel_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Update a Party relationship with a new Version.</p>
 </div></div></td>
@@ -2981,8 +3184,10 @@ a_version: <code>PARTY_RELATIONSHIP[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_party_relationship</strong> (<br>
-a_versioned_party_id: <code>UUID[1]</code><br>
-)</p></td>
+a_versioned_party_rel_id: <code>UUID[1]</code><br>
+)<br>
+<strong><em>Pre_has_relationship</em></strong>: <code>has_party_relationship (a_versioned_party_rel_id)</code><br>
+<strong><em>Post_relationship_deleted</em></strong>: <code>not has_party_relationship (a_versioned_party_rel_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Delete an existing Party relationship.</p>
 </div></div></td>
@@ -3247,7 +3452,7 @@ a_loc_desc: <code>LOCATION_DESC[0..1]</code><br>
 <p>If either type of query executes successfully, the response is a <code>RESULT_SET</code>, which consists of meta-data, a column definition structure and a set of rows (instances of <code>RESULT_SET_ROW</code>). In order to handle large result sets efficiently and gracefully within applications, the parameters <code><em>row_offset</em></code> and <code><em>rows_to_fetch</em></code> can be provided to control the result size.</p>
 </div>
 <div class="paragraph">
-<p>A stored queries is identified by the identifier associated with it when registered in the <code>DEFINITION</code> service, which is ofthe form:</p>
+<p>A stored query is identified by the identifier associated with it when registered in the <code>DEFINITION</code> service, which is ofthe form:</p>
 </div>
 <div class="listingblock">
 <div class="content">

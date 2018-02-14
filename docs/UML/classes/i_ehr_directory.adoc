@@ -23,7 +23,8 @@ a|Create a directory in the EHR, based on the provided structure.
 h|
 |*has_directory* ( +
 ehr_id: `UUID[1]` +
-): `Boolean`
+): `Boolean` +
+*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
 a|True if the EHR has a directory structure.
 
 h|
@@ -77,10 +78,10 @@ a|Get current version of EHR Directory structure, if it exists, else Void.
 h|
 |*get_directory_at_time* ( +
 an_ehr_id: `UUID[1]`, +
-a_time: `Iso8601_date_time[1]` +
+a_time: `Iso8601_date_time[0..1]` +
 ): `FOLDER` +
 *_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
-a|Get the version of the Directory extant at time `_a_time_`.
+a|Get the version of the Directory extant at time `_a_time_`. If no time supplied, get the latest.
 
 .Errors
 * `ehr_does_not_exist`
@@ -90,9 +91,16 @@ a|Get the version of the Directory extant at time `_a_time_`.
 `_a_time_`:: Time specifying the extant top version of the Directory.
 
 h|
+|*has_directory_version* ( +
+an_ehr_id: `UUID[1]`, +
+a_version_uid: `UUID[1]` +
+): `Boolean`
+a|
+
+h|
 |*get_directory_at_version* ( +
 an_ehr_id: `UUID[1]`, +
-a_dir_ver_uid: `UUID[1]` +
+a_version_uid: `UUID[1]` +
 ): `FOLDER`
 a|Get a particular version of the EHR Directory.
 

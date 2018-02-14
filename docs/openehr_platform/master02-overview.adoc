@@ -2,17 +2,17 @@
 
 == openEHR Platform Model
 
-In order to specify concrete service interfaces (i.e. APIs) to openEHR platform product components, a _formal, abstract definition_ of the platform interfaces is useful, so as to be able to state the interface call semantics independent of any particular technology. This approach clarifies the distinction between required semantics and the details contingent in any concrete technology, such as SOAP/WSDL, REST, RPC, Protocol Buffers, on so on, each of which has its own characteristics and rules. 
+In order to specify concrete service interfaces (i.e. APIs) to openEHR platform product components, a formal, abstract definition of the platform interfaces is useful, so as to be able to state the formal interface call semantics independent of any particular implementation technology. This approach clarifies the distinction between required semantics and the details contingent in any concrete technology, such as SOAP/WSDL, REST, RPC, Protocol Buffers, on so on, each of which has its own characteristics and rules. 
 
-The following figure illustrates the assumed components of an abstract openEHR Platform.
+The following figure illustrates the assumed components of the abstract openEHR Platform.
 
 [.text-center]
 .sm.openehr_platform.platform_definition Package
 image::{uml_export_dir}/diagrams/SM-platform_definition.svg[id=platform_definition, align="center"]
 
-Each component has one or more associated Interfaces, i.e. abstract service definitions which define an abstract _transactional interface_ to the service provided by the component. Each interface consists of a number of _calls_, and each call is defined in an abstract way.
+Each component has one or more associated interfaces, i.e. abstract service definitions which define an abstract _transactional interface_ to the service represented by the component. Each interface consists of a number of _calls_, and each call is defined in an abstract way.
 
-This view does not attempt to define a real product architecture as would be developed by a platform implementor, but instead, to standardise the _naming_ of components and the semantics of their logical interfaces so that platform procurers and users can unambiguously refer to the 'Admin service' or the 'EHR service' within tender documents. The abstract service architecture described here provides platform implementers a standard reference point for mapping agreed functionality (such as requested in a tender or other solicitation) into their own architectures, which may be organised quite differently.
+This view does not attempt to define a real product architecture as would be developed by an openEHR platform implementor, but it does establish a _formal equivalent_ of any such architecture. Practically, this entails standardised _naming_ of components and the semantics of their logical interfaces so that platform procurers and users can unambiguously refer to the 'Admin service' or the 'EHR service' within technical or commercial documents. The abstract service architecture described here provides platform implementers a standard reference definition for mapping agreed functionality (such as requested in a tender or other solicitation) into their own architectures, which may be organised quite differently.
 
 The services are as follows.
 
@@ -37,9 +37,9 @@ The services are as follows.
 
 Regardless of the internal organisation of real product architectures, agreement across a community of producers and users of products that claim to _conform_ to a published platform specification, must by definition be based on something formally statable and testable. As noted above, this is described here in the form of logical components which have logical interfaces, each consisting of a set of calls, of which the latter constitute the finest level of specification.
 
-A logical interface call is understood here in the standard computer science manner, i.e. as a routine with a formal, typed signature. Good practice usually dictates that such routines should take the form of either pure _functions_, or pure _procedures_, but not both: side-effect producing functions should generally be avoided. In other words, interface calls are either _queries_ that return something but do not change state, or _commands_ that cause a change, but don't compute or return anything. The separation is sometimes known as _command / query separation_.
+A logical interface call is understood here in the standard computer science manner, i.e. as a callable routine with a formal, typed signature. Good practice usually dictates that such routines should take the form of either pure _functions_, or pure _procedures_, but not both: side-effect producing functions should generally be avoided. In other words, interface calls are either _queries_ that return something but do not change state, or _commands_ that cause a change, but don't compute or return anything. The separation is sometimes known as _command / query separation_.
 
-The signatures of query and procedure thus take the following syntactic forms:
+The signatures of query and procedure calls thus take the following syntactic forms:
 
 ----
     func: T                                 -- function with no arguments
@@ -53,7 +53,7 @@ One of the key assumptions of this specification (and indeed formal standardisat
 
 == Anatomy of an Abstract Call Specification
 
-A fuller specification of any function or procedure includes its semantic effects, stated in terms of pre-conditions, post-conditions and exception cases, along with  documentation. This is exactly as found in any standard library in most programming languages, and indeed, standardised meta-data keywords and labelling have evolved in most programming documentation systems to support exactly this kind of specification, even where the language doesn't directly support some of its features, such as pre- or post-conditions.
+A fuller specification of any function or procedure includes its semantics, stated in terms of pre-conditions, post-conditions and exceptions, along with  documentation ofthe same. This is exactly as found in any standard library in most programming languages, and indeed, standardised meta-data keywords and labelling have evolved in most programming documentation systems to support exactly this kind of specification, even where the language doesn't directly support some of its features, such as pre- or post-conditions.
 
 This specification uses the same form of specification, which can be illustrated as follows:
 
@@ -68,9 +68,9 @@ This specification uses the same form of specification, which can be illustrated
                                                             
 |===
 
-The above kind of specification can in general be easily mapped to any concrete API technology. In each case, how the arguments are expressed, details of serialisation (for textual technologies like SOAP and REST), error handling, etc, will be different. Google protocol buffers for example uses an OMG IDL-like approach to specification, i.e. structured type definitions. REST on the other hand is a web-based type of API normally mapped onto HTTP verbs, URIs and HTTP error codes.
+The above kind of specification can in general be easily mapped to any concrete API technology. In each case, how the arguments are expressed, details of serialisation (for text-based technologies like SOAP and REST), error handling, etc, will be different. Google protocol buffers for example uses an OMG IDL-like approach to specification, i.e. structured type definitions. REST on the other hand is a web-based type of API normally mapped onto HTTP verbs, URIs and HTTP error codes.
 
-The intent of the current specification is thus to express the abstract element of each interface call, so that both back-end semantics can be correctly designed, and API definitions can be correctly written.
+The intent of the current specification is thus to express the abstract element of each interface call, so that both back-end semantics can be correctly designed, and API definitions can be correctly written and tested.
 
 == Global Conventions
 
@@ -100,7 +100,7 @@ interface I_EHR_SERVICE : I_STATUS {
 
 Authentication and authorisation is assumed to have been dealt with before any particular call has been made by a combination of standard authentication technologies (e.g. OAuth, RFC 7235) and role-based access control.
 
-Failures are dealt with by calling a standard function `last_call_failed()` and if `True`, calling `last_call_status()` which returns a structured error object. This enables the recording of errors (such as authorisation failure), pre-condition exceptions (generally relating to argument vaidity) and server exceptions (equivalent to post-condition or invariant exceptions). This leads to the following notional call sequence for any given call defined in this specification.
+Failures are dealt with by calling a standard function `last_call_failed()` and if `True`, calling `last_call_status()` which returns a structured error object. This enables the recording of errors (such as authorisation failure), pre-condition exceptions (generally relating to argument vaidity) and server exceptions (equivalent to post-condition or invariant exceptions). This leads to the following typical call sequence for calls defined in this specification.
 
 [source,java]
 ----
@@ -134,14 +134,33 @@ catch (Exception e) {
 
 Apart from error-handling, the interfaces are stateless in the sense that any single call constitutes a self-standing transaction on the back-end service, i.e. a transaction that when executed on the service will leave it in a consistent state.
 
-The above illustrates just one pattern of calling in a notional server. Another common style is to include results as 'out' parameters, and to use the return value to return call status. Either style can be used, and can be trivially mapped from one to the other. No such code is intended to implemented directly; the above is merely a way of explaining the semantics within context of the interface calls documented in this specification.
+The above illustrates just one pattern of calling in a server. Another common style is to include results as 'out' parameters, and to use the return value to return call status. Either style can be used, and can be trivially mapped from one to the other. No such code is intended to implemented directly; the above is merely a way of explaining the semantics within context of the interface calls documented in this specification.
 
 === List-handling
 
-Calls that result in a container potentially containing unlimited numbers of results can be managed in a typical 'DB cursor' fashion, i.e. by setting the following parameters:
+Calls that result in a container result potentially containing unlimited numbers of elements can be managed in a typical 'DB cursor' fashion, i.e. by setting the following parameters:
 
 `row_offset`:: Optional parameter specifying offset in query response rows to return, used for large result sets. A zero or negative value means offset of zero.
 `rows_to_fetch`:: Optional parameter specifying number of query response rows to fetch, used for large result sets. A zero or negative value means 'all'.
+
+=== Global Naming Conventions
+
+The following naming conventions are used for naming parameters throughout this specification, where they apply.
+
+[cols="1,4", options="header"]
+|===
+|Term                       |Description
+
+|`_ehr_id_`	                |The value for an EHR identifier, stored under `EHR._ehr_id.value_`, usually an UUID or GUID
+|`_versioned_object_uid_`	|The value of a `VERSIONED_OBJECT` unique identifier, i.e. `VERSIONED_OBJECT._uid.value_`, +
+                            e.g. `8849182c-82ad-4088-a07f-48ead4180515`
+|`_version_uid_`	        |The value of a `VERSION` unique identifier, i.e. `VERSION._uid.value_`, +
+                             e.g. `8849182c-82ad-4088-a07f-48ead4180515::example.domain.com::2`
+|`_preceding_version_uid_`	|The value of a previous `VERSION` unique identifier, +
+                             e.g. `8849182c-82ad-4088-a07f-48ead4180515::example.domain.com::1`
+|`_object_id_`	            |A placeholder for either `_versioned_object_uid_` or `_version_uid_` identifier
+|`_time_`	                |A date-time in ISO8601 format (e.g. `2015-01-20T19:30:22.765+01:00`)
+|===
 
 == Package Structure
 

@@ -20,8 +20,9 @@ a|Return True if AOM2 artefact with id `_an_id_` exists in the service.
 
 h|
 |*upload_artefact* ( +
-arch: `AUTHORED_ARCHETYPE[1]` +
-)
+an_arch: `AUTHORED_ARCHETYPE[1]` +
+) +
+*_Post_has_artefact_*: `has_artefact (an_arch.identifier)`
 a|Upload an ADL2 artefact, i.e. archetype, template or operational_template. If an artefact with the same physical identifier and namespace exists, replace it.
 
 The artefact must validate.

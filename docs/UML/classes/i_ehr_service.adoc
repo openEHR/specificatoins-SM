@@ -49,13 +49,14 @@ h|
 an_ehr_id: `UUID[1]`, +
 an_ehr_status: `EHR_STATUS[0..1]` +
 ): `UUID` +
+*_Post_has_ehr_*: `has_ehr (Result)` +
 *_Pre_no_duplicate_*: `not has_ehr (an_ehr_id)`
 a|Create a new EHR with a provided EHR id; return the id as a safety check.
 
 If the `_an_ehr_status_` parameter is provided, it is created as the EHR's `EHR_STATUS`, otherwise a default `EHR_STATUS` is created, in which `_is_modifiable_` and `_is_queryable_` are both True.
 
 .Errors
-* `ehr_does_not_exist`
+* `ehr_create_fail_duplicate_id`
 
 .Parameters +
 [horizontal]
@@ -86,7 +87,7 @@ a|Create a new EHR with EHR id and provided subject id. Return the EHR id as a s
 If the `_an_ehr_status_` parameter is provided, it is created as the EHR's `EHR_STATUS`, otherwise a default `EHR_STATUS` is created, in which `_is_modifiable_` and `_is_queryable_` are both True.
 
 .Errors
-* `ehr_does_not_exist`
+* `ehr_create_fail_duplicate_id`
 
 .Parameters +
 [horizontal]
@@ -119,6 +120,8 @@ a|Retrieve EHR or EHRs that have `_ehr_status.subject_id_` = supplied subject id
 `_a_subject_id_`:: Subject identifier.
 
 h|
-|*i_ehr* (): `I_EHR`
+|*i_ehr* ( +
+ehr_id: `UUID[1]` +
+): `I_EHR`
 a|Provide access to an `I_EHR` interface instance for access to the parts of an EHR.
 |===

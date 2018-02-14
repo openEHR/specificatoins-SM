@@ -10,6 +10,14 @@ image::{uml_export_dir}/diagrams/SM-platform_interface.definitions.svg[id=sm_pla
 
 The interfaces provided in this service are designed to enable any model-like or reference artefacts, other than terminology, to be stored for use by the rest of the system. This includes archetypes, templates, queries, and query sets.
 
+== Archetypes and Templates
+
+The `I_DEFINITION_ADL14` and `I_DEFINITION_ADL2` interfaces are provided to enable upload, updating and removal of archetypes and templates based on the {openehr_am}[ADL 1.4 and ADL 2 standards] respectively, for use in an operational system. 
+
+In the ADL2 case, archetypes and 'templates' are all instances of archetypes, formally speaking, which means that both source artefacts and Operational Templates (OPTs) can be uploaded. All such artefacts are identified in the same way, via an Archetype human-readable identifier (`ARCHETYPE_HRID`) and a UUID.
+
+For ADL 1.4, 'templates' are distinct artefacts, and the service enables the upload of source archetypes and ADL 1.4 - based OPTs, which are XML artefacts. In ADL 1.4, archetypes are identified with the older `ARCHETYPE_ID`, while OPTs are identified with UUIDs.
+
 == Registered Queries
 
 Queries may be registered in the system for later execution. They are identified by 'qualified names', i.e. String names that may include a namespace and optionally a formalism type. The following schemes may be used:

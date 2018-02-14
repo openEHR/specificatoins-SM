@@ -14,7 +14,7 @@ For both kinds of queries, parameters must be provided for open parameters in th
 
 If either type of query executes successfully, the response is a `RESULT_SET`, which consists of meta-data, a column definition structure and a set of rows (instances of `RESULT_SET_ROW`). In order to handle large result sets efficiently and gracefully within applications, the parameters `_row_offset_` and `_rows_to_fetch_` can be provided to control the result size.
 
-A stored queries is identified by the identifier associated with it when registered in the `DEFINITION` service, which is ofthe form:
+A stored query is identified by the identifier associated with it when registered in the `DEFINITION` service, which is ofthe form:
 
 ----
     reverse-domain-name '::' semantic-id [ '/' version ]

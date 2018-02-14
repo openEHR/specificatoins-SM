@@ -26,7 +26,8 @@ h|
 |*set_ehr_queryable* ( +
 an_ehr_id: `UUID[1]` +
 ) +
-*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
+*_Pre_has_ehr_*: `has_ehr (an_ehr_id)` +
+*_Post_is_queryable_set_*: `get_ehr_status(an_ehr_id).is_queryable`
 a|Set the EHR `_is_queryable_` flag to true; this ensures it is included by the query engine.
 
 .Errors
@@ -36,7 +37,8 @@ h|
 |*set_ehr_modifiable* ( +
 an_ehr_id: `UUID[1]` +
 ) +
-*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
+*_Pre_has_ehr_*: `has_ehr (an_ehr_id)` +
+*_Post_is_modifiable_set_*: `get_ehr_status(an_ehr_id).is_modifiable`
 a|Set the EHR `_is_modifable_` flag to true; this ensures it is treated as active and updatable.
 
 .Errors
@@ -46,7 +48,8 @@ h|
 |*clear_ehr_queryable* ( +
 an_ehr_id: `UUID[1]` +
 ) +
-*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
+*_Pre_has_ehr_*: `has_ehr (an_ehr_id)` +
+*_Post_is_queryable_cleared_*: `not get_ehr_status(an_ehr_id).is_queryable`
 a|Clear the EHR `_is_queryable_` flag; this ensures it is ignored by the query engine.
 
 .Errors
@@ -56,8 +59,46 @@ h|
 |*clear_ehr_modifiable* ( +
 an_ehr_id: `UUID[1]` +
 ) +
-*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
+*_Pre_has_ehr_*: `has_ehr (an_ehr_id)` +
+*_Post_is_modifiable_cleared_*: `not get_ehr_status(an_ehr_id).is_modifiable`
 a|Clear the EHR `_is_modifiable_` flag; this ensures it is treated as active.
+
+.Errors
+* `ehr_does_not_exist`
+
+h|
+|*get_ehr_status_at_time* ( +
+a_time: `Iso8601_date_time[0..1]` +
+): `EHR_STATUS` +
+*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
+a|Get the version of the EHR Status extant at time `_a_time_`. If no time supplied, get the latest.
+
+.Errors
+* `ehr_does_not_exist`
+
+h|
+|*get_ehr_status_at_version* ( +
+an_ehr_id: `UUID[1]`, +
+a_version_uid: `UUID[1]` +
+): `EHR_STATUS` +
+*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
+a|Get a particular version of an EHR Status object.
+
+h|
+|*has_ehr_status_version* ( +
+an_ehr_id: `UUID[1]`, +
+a_version_uid: `UUID[1]` +
+): `Boolean` +
+*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
+a|True if `_an_ehr_status_ver_uid_` is one of the versions of this versioned EHR Status object.
+
+h|
+|*get_versioned_ehr_status* ( +
+an_ehr_id: `UUID[1]` +
+): `VERSIONED_EHR_STATUS` +
+*_Pre_has_ehr_*: `has_ehr (an_ehr_id)` +
+*_Pre_has_ehr_status_version_*: `has_ehr_status_version (an_ehr_id, a_version_uid)`
+a|Get the `VERSIONED_EHR_STATUS` object from the EHR with id `_ehr_id_`.
 
 .Errors
 * `ehr_does_not_exist`
@@ -72,21 +113,4 @@ a|Update other_details part of `EHR_STATUS` with new content.
 
 .Errors
 * `ehr_does_not_exist`
-
-h|
-|*get_versioned_ehr_status* ( +
-an_ehr_id: `UUID[1]` +
-): `VERSIONED_EHR_STATUS` +
-*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
-a|Get the `VERSIONED_EHR_STATUS` object from the EHR with id `_ehr_id_`.
-
-.Errors
-* `ehr_does_not_exist`
-
-h|
-|*get_ehr_status_at_version* ( +
-an_ehr_id: `UUID[1]`, +
-a_ehr_status_ver_uid: `UUID[1]` +
-): `EHR_STATUS`
-a|Get a particular version of an EHR Status object.
 |===

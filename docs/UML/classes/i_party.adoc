@@ -16,18 +16,26 @@ h|
 |*has_party* ( +
 a_versioned_party_id: `UUID[1]` +
 ): `Boolean`
-a|Return True if Party exists in service.
+a|Return True if Party exists.
+
+h|
+|*has_party_version_id* ( +
+a_party_version_id: `UUID[1]` +
+): `Boolean`
+a|True if a particular version of a Party exists.
 
 h|
 |*get_party* ( +
 a_versioned_party_id: `UUID[1]` +
-): `PARTY`
+): `PARTY` +
+*_Pre_has_party_*: `has_party (a_versioned_party_id)`
 a|Get the current Version of a Party.
 
 h|
 |*get_party_at_version* ( +
 a_party_version_id: `UUID[1]` +
-): `PARTY`
+): `PARTY` +
+*_Pre_has_party_version_*: `has_party_version (a_party_version_id)`
 a|Get a particular Party Version.
 
 h|
@@ -41,12 +49,15 @@ h|
 |*update_party* ( +
 a_versioned_party_id: `UUID[1]`, +
 a_version: `PARTY[1]` +
-): `UUID`
+): `UUID` +
+*_Pre_has_party_*: `has_party (a_versioned_party_id)`
 a|Update a Party with a new Version.
 
 h|
 |*delete_party* ( +
 a_versioned_party_id: `UUID[1]` +
-)
+) +
+*_Post_party_deleted_*: `not has_party (a_versioned_party_id)` +
+*_Pre_has_party_*: `has_party (a_versioned_party_id)`
 a|Delete an existing Party.
 |===

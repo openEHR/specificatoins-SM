@@ -14,39 +14,42 @@ h|*Functions*
 
 h|
 |*has_party_relationship* ( +
-a_versioned_party_id: `UUID[1]` +
+a_versioned_party_rel_id: `UUID[1]` +
 ): `Boolean`
 a|Return True if Party relationship exists in service.
 
 h|
 |*get_party_relationship* ( +
-a_versioned_party_id: `UUID[1]` +
+a_versioned_party_rel_id: `UUID[1]` +
 ): `PARTY_RELATIONSHIP`
 a|Get the current Version of a Party relationship.
 
 h|
 |*get_party_relationship_at_version* ( +
-a_party_version_id: `UUID[1]` +
+a_party_rel_version_id: `UUID[1]` +
 ): `PARTY_RELATIONSHIP`
 a|Get a particular Party relationship Version.
 
 h|
 |*get_party_relationship_at_time* ( +
-a_versioned_party_id: `UUID[1]`, +
+a_versioned_party_rel_id: `UUID[1]`, +
 a_time: `Iso8601_date_time[1]` +
 ): `PARTY_RELATIONSHIP`
 a|Get the Version of a Party relationship current at `_a_time_`.
 
 h|
 |*update_party_relationship* ( +
-a_versioned_party_id: `UUID[1]`, +
+a_versioned_party_rel_id: `UUID[1]`, +
 a_version: `PARTY_RELATIONSHIP[1]` +
-): `UUID`
+): `UUID` +
+*_Pre_has_relationship_*: `has_party_relationship (a_versioned_party_rel_id)`
 a|Update a Party relationship with a new Version.
 
 h|
 |*delete_party_relationship* ( +
-a_versioned_party_id: `UUID[1]` +
-)
+a_versioned_party_rel_id: `UUID[1]` +
+) +
+*_Pre_has_relationship_*: `has_party_relationship (a_versioned_party_rel_id)` +
+*_Post_relationship_deleted_*: `not has_party_relationship (a_versioned_party_rel_id)`
 a|Delete an existing Party relationship.
 |===
