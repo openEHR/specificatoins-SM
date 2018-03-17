@@ -4,13 +4,13 @@
 
 In order to specify concrete service interfaces (i.e. APIs) to openEHR platform product components, a formal, abstract definition of the platform interfaces is useful, so as to be able to state the formal interface call semantics independent of any particular implementation technology. This approach clarifies the distinction between required semantics and the details contingent in any concrete technology, such as SOAP/WSDL, REST, RPC, Protocol Buffers, on so on, each of which has its own characteristics and rules. 
 
-The following figure illustrates the assumed components of the abstract openEHR Platform.
+The following figure illustrates the assumed components of the abstract openEHR Platform, along with their interfaces.
 
 [.text-center]
 .sm.openehr_platform.platform_definition Package
 image::{uml_export_dir}/diagrams/SM-platform_definition.svg[id=platform_definition, align="center"]
 
-Each component has one or more associated interfaces, i.e. abstract service definitions which define an abstract _transactional interface_ to the service represented by the component. Each interface consists of a number of _calls_, and each call is defined in an abstract way.
+Each component has one or more associated interfaces, i.e. abstract service definitions which define a _transactional interface_ to the service represented by the component. Each interface consists of a number of _calls_, and each call is defined in an abstract way, i.e. independent of the representations and expressions required by a concrete protocol.
 
 This view does not attempt to define a real product architecture as would be developed by an openEHR platform implementor, but it does establish a _formal equivalent_ of any such architecture. Practically, this entails standardised _naming_ of components and the semantics of their logical interfaces so that platform procurers and users can unambiguously refer to the 'Admin service' or the 'EHR service' within technical or commercial documents. The abstract service architecture described here provides platform implementers a standard reference definition for mapping agreed functionality (such as requested in a tender or other solicitation) into their own architectures, which may be organised quite differently.
 
@@ -49,11 +49,11 @@ The signatures of query and procedure calls thus take the following syntactic fo
     proc(arg1: X, arg2: Y)                  -- procedure with arguments
 ----
 
-One of the key assumptions of this specification (and indeed formal standardisation in general) is that although real implementations of a platform may have differently structured components and different naming of functions, arguments etc, that there is a _formal equivalence_ between calls specified in a published standard and those in the implementation. Thus, it must be the case that even if three calls in an implementation are required to achieve the effect of a single call in this specification, that the semantics described here prior and after the call(s) are the same in both cases. If this is not true, it implies that the implementation is introducing unspecified semantics.
+One of the key assumptions of this specification (and indeed formal standardisation in general) is that although real implementations of a platform may have differently structured components and different naming of functions, arguments etc, that there is a _formal equivalence_ between calls specified in a published standard and those in the implementation. Thus, it must be the case that even if three calls in an implementation are required to achieve the effect of a single call in this specification, that the conditions described here prior and after the call(s) are the same in both cases, and also that the three calls taken together are transactionally protected. If this is not true, it implies that the implementation is introducing unspecified semantics.
 
 == Anatomy of an Abstract Call Specification
 
-A fuller specification of any function or procedure includes its semantics, stated in terms of pre-conditions, post-conditions and exceptions, along with  documentation ofthe same. This is exactly as found in any standard library in most programming languages, and indeed, standardised meta-data keywords and labelling have evolved in most programming documentation systems to support exactly this kind of specification, even where the language doesn't directly support some of its features, such as pre- or post-conditions.
+A fuller specification of any function or procedure includes its semantics, stated in terms of pre-conditions, post-conditions and exceptions, along with  documentation of the same. This is exactly as found in any standard library in most programming languages, and indeed, standardised meta-data keywords and labelling have evolved in most programming documentation systems to support exactly this kind of specification, even where the language doesn't directly support some of its features, such as pre- or post-conditions.
 
 This specification uses the same form of specification, which can be illustrated as follows:
 

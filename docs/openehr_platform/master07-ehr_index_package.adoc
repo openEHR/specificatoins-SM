@@ -25,6 +25,6 @@ include::{uml_export_dir}/classes/i_ehr_index.adoc[]
 
 include::{uml_export_dir}/classes/resource_status.adoc[]
 
-include::{uml_export_dir}/classes/resource_status_type.adoc[]
+include::{uml_export_dir}/classes/resource_instance_type.adoc[]
 
 include::{uml_export_dir}/classes/location_desc.adoc[]

@@ -17,6 +17,7 @@ h|
 ehr_id: `UUID[1]`, +
 a_dir_struct: `UV_FOLDER[1]` +
 ) +
+*_Pre_has_ehr_*: `has_ehr (an_ehr_id)` +
 *_Pre_no_directory_*: `not has_directory (ehr_id)`
 a|Create a directory in the EHR, based on the provided structure.
 
@@ -35,6 +36,9 @@ a_path: `String[1]` +
 *_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
 a|True if path `_a_path_` exists in directory. The `_a_path_` argument consists of slash-separated values of the name attribute of Folders in the directory.
 
+
+
+
 .Errors
 * `ehr_does_not_exist`
 
@@ -47,12 +51,13 @@ a_dir_struct: `UV_FOLDER[1]` +
 *_Pre_has_directory_*: `has_directory(ehr_id)`
 a|Create or update a directory from a complete structure. Preceding version must be supplied and correct if EHR directory already exists.
 
-.Errors
-* `ehr_does_not_exist`
 
 .Parameters +
 [horizontal]
 `_a_dir_struct_`:: Directory structure with which to replace current structure.
+
+.Errors
+* `ehr_does_not_exist`
 
 h|
 |*delete_directory* ( +
@@ -61,6 +66,9 @@ ehr_id: `UUID[1]` +
 *_Pre_has_ehr_*: `has_ehr (an_ehr_id)` +
 *_Pre_has_directory_*: `has_directory(ehr_id)`
 a|Logically delete the directory by creating a new version in which the contents are removed.
+
+
+
 
 .Errors
 * `ehr_does_not_exist`
@@ -72,6 +80,9 @@ ehr_id: `UUID[1]` +
 *_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
 a|Get current version of EHR Directory structure, if it exists, else Void.
 
+
+
+
 .Errors
 * ehr_does_not_exist
 
@@ -82,9 +93,7 @@ a_time: `Iso8601_date_time[0..1]` +
 ): `FOLDER` +
 *_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
 a|Get the version of the Directory extant at time `_a_time_`. If no time supplied, get the latest.
-
-.Errors
-* `ehr_does_not_exist`
+c
 
 .Parameters +
 [horizontal]
@@ -95,7 +104,13 @@ h|
 an_ehr_id: `UUID[1]`, +
 a_version_uid: `UUID[1]` +
 ): `Boolean`
-a|
+a|True if the directory has a version with specified id.
+
+
+
+
+.Errors
+* `ehr_does_not_exist`
 
 h|
 |*get_directory_at_version* ( +
@@ -104,12 +119,21 @@ a_version_uid: `UUID[1]` +
 ): `FOLDER`
 a|Get a particular version of the EHR Directory.
 
+
+
+
+.Errors
+* `version_does_not_exist`
+
 h|
 |*get_versioned_directory* ( +
 an_ehr_id: `UUID[1]` +
 ): `VERSIONED_FOLDER` +
 *_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
 a|Get the `VERSIONED_FOLDER` Directory object for the EHR with ehr_id.
+
+
+
 
 .Errors
 * `ehr_does_not_exist`

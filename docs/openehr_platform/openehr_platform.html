@@ -336,7 +336,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>The <a href="https://github.com/openEHR/specifications-ITS/">openEHR REST APIs</a>.</p>
+<p>The <a href="https://github.com/openEHR/specifications-ITS/docs">openEHR REST APIs</a>.</p>
 </li>
 </ul>
 </div>
@@ -367,7 +367,7 @@
 <p>In order to specify concrete service interfaces (i.e. APIs) to openEHR platform product components, a formal, abstract definition of the platform interfaces is useful, so as to be able to state the formal interface call semantics independent of any particular implementation technology. This approach clarifies the distinction between required semantics and the details contingent in any concrete technology, such as SOAP/WSDL, REST, RPC, Protocol Buffers, on so on, each of which has its own characteristics and rules.</p>
 </div>
 <div class="paragraph">
-<p>The following figure illustrates the assumed components of the abstract openEHR Platform.</p>
+<p>The following figure illustrates the assumed components of the abstract openEHR Platform, along with their interfaces.</p>
 </div>
 <div id="platform_definition" class="imageblock text-center" style="text-align: center">
 <div class="content">
@@ -376,7 +376,7 @@
 <div class="title">Figure 1. sm.openehr_platform.platform_definition Package</div>
 </div>
 <div class="paragraph">
-<p>Each component has one or more associated interfaces, i.e. abstract service definitions which define an abstract <em>transactional interface</em> to the service represented by the component. Each interface consists of a number of <em>calls</em>, and each call is defined in an abstract way.</p>
+<p>Each component has one or more associated interfaces, i.e. abstract service definitions which define a <em>transactional interface</em> to the service represented by the component. Each interface consists of a number of <em>calls</em>, and each call is defined in an abstract way, i.e. independent of the representations and expressions required by a concrete protocol.</p>
 </div>
 <div class="paragraph">
 <p>This view does not attempt to define a real product architecture as would be developed by an openEHR platform implementor, but it does establish a <em>formal equivalent</em> of any such architecture. Practically, this entails standardised <em>naming</em> of components and the semantics of their logical interfaces so that platform procurers and users can unambiguously refer to the 'Admin service' or the 'EHR service' within technical or commercial documents. The abstract service architecture described here provides platform implementers a standard reference definition for mapping agreed functionality (such as requested in a tender or other solicitation) into their own architectures, which may be organised quite differently.</p>
@@ -456,13 +456,13 @@
 </div>
 </div>
 <div class="paragraph">
-<p>One of the key assumptions of this specification (and indeed formal standardisation in general) is that although real implementations of a platform may have differently structured components and different naming of functions, arguments etc, that there is a <em>formal equivalence</em> between calls specified in a published standard and those in the implementation. Thus, it must be the case that even if three calls in an implementation are required to achieve the effect of a single call in this specification, that the semantics described here prior and after the call(s) are the same in both cases. If this is not true, it implies that the implementation is introducing unspecified semantics.</p>
+<p>One of the key assumptions of this specification (and indeed formal standardisation in general) is that although real implementations of a platform may have differently structured components and different naming of functions, arguments etc, that there is a <em>formal equivalence</em> between calls specified in a published standard and those in the implementation. Thus, it must be the case that even if three calls in an implementation are required to achieve the effect of a single call in this specification, that the conditions described here prior and after the call(s) are the same in both cases, and also that the three calls taken together are transactionally protected. If this is not true, it implies that the implementation is introducing unspecified semantics.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_anatomy_of_an_abstract_call_specification"><a class="anchor" href="#_anatomy_of_an_abstract_call_specification"></a>2.3. Anatomy of an Abstract Call Specification</h3>
 <div class="paragraph">
-<p>A fuller specification of any function or procedure includes its semantics, stated in terms of pre-conditions, post-conditions and exceptions, along with  documentation ofthe same. This is exactly as found in any standard library in most programming languages, and indeed, standardised meta-data keywords and labelling have evolved in most programming documentation systems to support exactly this kind of specification, even where the language doesn&#8217;t directly support some of its features, such as pre- or post-conditions.</p>
+<p>A fuller specification of any function or procedure includes its semantics, stated in terms of pre-conditions, post-conditions and exceptions, along with  documentation of the same. This is exactly as found in any standard library in most programming languages, and indeed, standardised meta-data keywords and labelling have evolved in most programming documentation systems to support exactly this kind of specification, even where the language doesn&#8217;t directly support some of its features, such as pre- or post-conditions.</p>
 </div>
 <div class="paragraph">
 <p>This specification uses the same form of specification, which can be illustrated as follows:</p>
@@ -851,6 +851,13 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 <td class="tableblock halign-left valign-top"><p class="tableblock">precondition_violation</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Precondition violation occurred.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">version_does_not_exist</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>A referenced version of a Versioned Object does not exist.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1524,14 +1531,6 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>List all registered queries matching an identifier pattern (regex) and an artefact identifier pattern (regex) for artefacts referenced in the query. Either pattern may be the regex for 'match any'.</p>
 </div>
-<div class="ulist">
-<div class="title">Errors</div>
-<ul>
-<li>
-<p><code>invalid_id_pattern</code></p>
-</li>
-</ul>
-</div>
 <div class="hdlist">
 <div class="title">Parameters<br></div>
 <table>
@@ -1552,6 +1551,14 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 </td>
 </tr>
 </table>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>invalid_id_pattern</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 <tr>
@@ -1563,14 +1570,6 @@ a_query_name: <code>String[1]</code><br>
 <strong><em>Post_query_deleted</em></strong>: <code>not has_query (a_query_name)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Delete query with name <code><em>a_query_name</em></code>.</p>
-</div>
-<div class="ulist">
-<div class="title">Errors</div>
-<ul>
-<li>
-<p><code>invalid_query</code></p>
-</li>
-</ul>
 </div>
 <div class="hdlist">
 <div class="title">Parameters<br></div>
@@ -1584,6 +1583,14 @@ a_query_name: <code>String[1]</code><br>
 </td>
 </tr>
 </table>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>invalid_query</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 </tbody>
@@ -1786,14 +1793,6 @@ a_subject_id: <code>PARTY_REF[1]</code><br>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Returns True if there are EHR(s) for <code><em>a_subject_id</em></code>.</p>
 </div>
-<div class="ulist">
-<div class="title">Errors</div>
-<ul>
-<li>
-<p><code>ehr_does_not_exist</code></p>
-</li>
-</ul>
-</div>
 <div class="hdlist">
 <div class="title">Parameters<br></div>
 <table>
@@ -1806,6 +1805,14 @@ a_subject_id: <code>PARTY_REF[1]</code><br>
 </td>
 </tr>
 </table>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>ehr_does_not_exist</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 <tr>
@@ -1835,14 +1842,6 @@ an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
 <div class="paragraph">
 <p>If the <code><em>an_ehr_status</em></code> parameter is provided, it is created as the EHR&#8217;s <code>EHR_STATUS</code>, otherwise a default <code>EHR_STATUS</code> is created, in which <code><em>is_modifiable</em></code> and <code><em>is_queryable</em></code> are both True.</p>
 </div>
-<div class="ulist">
-<div class="title">Errors</div>
-<ul>
-<li>
-<p><code>ehr_create_fail_duplicate_id</code></p>
-</li>
-</ul>
-</div>
 <div class="hdlist">
 <div class="title">Parameters<br></div>
 <table>
@@ -1855,6 +1854,14 @@ an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
 </td>
 </tr>
 </table>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>ehr_create_fail_duplicate_id</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 <tr>
@@ -1897,14 +1904,6 @@ an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
 <div class="paragraph">
 <p>If the <code><em>an_ehr_status</em></code> parameter is provided, it is created as the EHR&#8217;s <code>EHR_STATUS</code>, otherwise a default <code>EHR_STATUS</code> is created, in which <code><em>is_modifiable</em></code> and <code><em>is_queryable</em></code> are both True.</p>
 </div>
-<div class="ulist">
-<div class="title">Errors</div>
-<ul>
-<li>
-<p><code>ehr_create_fail_duplicate_id</code></p>
-</li>
-</ul>
-</div>
 <div class="hdlist">
 <div class="title">Parameters<br></div>
 <table>
@@ -1925,6 +1924,14 @@ an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
 </td>
 </tr>
 </table>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>ehr_create_fail_duplicate_id</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 <tr>
@@ -1935,14 +1942,6 @@ an_ehr_id: <code>UUID[1]</code><br>
 <strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Retrieve a summarised form of the EHR root object and <code>EHR_STATUS</code>.</p>
-</div>
-<div class="ulist">
-<div class="title">Errors</div>
-<ul>
-<li>
-<p><code>ehr_does_not_exist</code></p>
-</li>
-</ul>
 </div>
 <div class="hdlist">
 <div class="title">Parameters<br></div>
@@ -1956,6 +1955,14 @@ an_ehr_id: <code>UUID[1]</code><br>
 </td>
 </tr>
 </table>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>ehr_does_not_exist</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 <tr>
@@ -2058,14 +2065,6 @@ time_range: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Obtain a list of identifiers of Contributions in EHR.</p>
 </div>
-<div class="ulist">
-<div class="title">Errors</div>
-<ul>
-<li>
-<p><code>ehr_does_not_exist</code></p>
-</li>
-</ul>
-</div>
 <div class="hdlist">
 <div class="title">Parameters<br></div>
 <table>
@@ -2086,6 +2085,14 @@ time_range: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
 </td>
 </tr>
 </table>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>ehr_does_not_exist</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 <tr>
@@ -2096,14 +2103,6 @@ time_range: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
 ): <code>Integer</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Obtain a count of Contributions in EHR.</p>
-</div>
-<div class="ulist">
-<div class="title">Errors</div>
-<ul>
-<li>
-<p><code>ehr_does_not_exist</code></p>
-</li>
-</ul>
 </div>
 <div class="hdlist">
 <div class="title">Parameters<br></div>
@@ -2125,6 +2124,14 @@ time_range: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
 </td>
 </tr>
 </table>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>ehr_does_not_exist</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 </tbody>
@@ -2359,6 +2366,7 @@ a_details: <code>ITEM_TREE[1]</code><br>
 ehr_id: <code>UUID[1]</code>,<br>
 a_dir_struct: <code>UV_FOLDER[1]</code><br>
 )<br>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
 <strong><em>Pre_no_directory</em></strong>: <code>not has_directory (ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Create a directory in the EHR, based on the provided structure.</p>
@@ -2404,14 +2412,6 @@ a_dir_struct: <code>UV_FOLDER[1]</code><br>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Create or update a directory from a complete structure. Preceding version must be supplied and correct if EHR directory already exists.</p>
 </div>
-<div class="ulist">
-<div class="title">Errors</div>
-<ul>
-<li>
-<p><code>ehr_does_not_exist</code></p>
-</li>
-</ul>
-</div>
 <div class="hdlist">
 <div class="title">Parameters<br></div>
 <table>
@@ -2424,6 +2424,14 @@ a_dir_struct: <code>UV_FOLDER[1]</code><br>
 </td>
 </tr>
 </table>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>ehr_does_not_exist</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 <tr>
@@ -2471,15 +2479,8 @@ a_time: <code>Iso8601_date_time[0..1]</code><br>
 ): <code>FOLDER</code><br>
 <strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Get the version of the Directory extant at time <code><em>a_time</em></code>. If no time supplied, get the latest.</p>
-</div>
-<div class="ulist">
-<div class="title">Errors</div>
-<ul>
-<li>
-<p><code>ehr_does_not_exist</code></p>
-</li>
-</ul>
+<p>Get the version of the Directory extant at time <code><em>a_time</em></code>. If no time supplied, get the latest.
+c</p>
 </div>
 <div class="hdlist">
 <div class="title">Parameters<br></div>
@@ -2501,7 +2502,17 @@ a_time: <code>Iso8601_date_time[0..1]</code><br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_version_uid: <code>UUID[1]</code><br>
 ): <code>Boolean</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>True if the directory has a version with specified id.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>ehr_does_not_exist</code></p>
+</li>
+</ul>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
@@ -2511,6 +2522,14 @@ a_version_uid: <code>UUID[1]</code><br>
 ): <code>FOLDER</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Get a particular version of the EHR Directory.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>version_does_not_exist</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 <tr>
@@ -2655,17 +2674,6 @@ a_versioned_object_uid: <code>UUID[1]</code><br>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Retrieve the latest version of a Composition.</p>
 </div>
-<div class="ulist">
-<div class="title">Errors</div>
-<ul>
-<li>
-<p>ehr_does_not_exist</p>
-</li>
-<li>
-<p>composition_does_not_exist</p>
-</li>
-</ul>
-</div>
 <div class="hdlist">
 <div class="title">Parameters<br></div>
 <table>
@@ -2678,6 +2686,17 @@ a_versioned_object_uid: <code>UUID[1]</code><br>
 </td>
 </tr>
 </table>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p>ehr_does_not_exist</p>
+</li>
+<li>
+<p>composition_does_not_exist</p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 <tr>
@@ -2850,11 +2869,20 @@ a_contrib_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_all_contributions</strong> (<br>
+an_ehr_id: <code>UUID[1]</code>,<br>
 row_offset: <code>Integer[0..1]</code>,<br>
 rows_to_fetch: <code>Integer[0..1]</code><br>
 ): <code>List&lt;UUID&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>List all available Contributions.</p>
+<p>List all available Contributions for this EHR.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p>ehr_does_not_exist</p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 </tbody>

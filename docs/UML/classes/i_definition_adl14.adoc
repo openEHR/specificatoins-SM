@@ -25,6 +25,9 @@ an_arch: `ARCHETYPE[1]` +
 *_Post_has_archetype_*: `has_archetype (an_arch.identifier)`
 a|Upload a valid ADL 1.4 archetype. If an archetype with the same id already exists, replace it. The archetype must be valid to succeed.
 
+
+
+
 .Errors
 * `invalid_archetype`
 
@@ -33,6 +36,9 @@ h|
 an_id: `ARCHETYPE_ID[1]` +
 ): `ARCHETYPE`
 a|Get the ADL 1.4 archetype with id an_id.
+
+
+
 
 .Errors
 * `artefact_does_not_exist`
@@ -52,6 +58,9 @@ rows_to_fetch: `Integer[0..1]` +
 ): `List<ARCHETYPE_ID>`
 a|List all archetypes whose identifiers match a regex pattern.
 
+
+
+
 .Errors
 * `invalid_id_pattern`
 
@@ -62,6 +71,9 @@ an_id: `ARCHETYPE_ID[1]` +
 *_Pre_artefact_exists_*: `has_artefact (an_id)` +
 *_Post_archetype_removed_*: `not has_archetype (an_id)`
 a|Delete a previously uploaded archetype.
+
+
+
 
 .Errors
 * `invalid_archetype`
@@ -87,6 +99,9 @@ an_id: `UUID[1]` +
 ): `ARCHETYPE`
 a|Get the ADL 1.4 OPT with id an_id.
 
+
+
+
 .Errors
 * `artefact_does_not_exist`
 
@@ -105,6 +120,9 @@ rows_to_fetch: `Integer[0..1]` +
 ): `List<ARCHETYPE_ID>`
 a|List all OPTs whose identifiers match a regex pattern.
 
+
+
+
 .Errors
 * `invalid_id_pattern`
 
@@ -115,6 +133,9 @@ an_id: `UUID[1]` +
 *_Pre_has_opt_*: `has_opt (an_id)` +
 *_Post_opt_removed_*: `not has_opt (an_id)`
 a|Delete a previously uploaded ADL 1.4. OPT.
+
+
+
 
 .Errors
 * `invalid_template`

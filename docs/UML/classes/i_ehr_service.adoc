@@ -28,12 +28,13 @@ a_subject_id: `PARTY_REF[1]` +
 ): `Boolean`
 a|Returns True if there are EHR(s) for `_a_subject_id_`.
 
-.Errors
-* `ehr_does_not_exist`
 
 .Parameters +
 [horizontal]
 `_a_subject_id_`:: Subject identifier.
+
+.Errors
+* `ehr_does_not_exist`
 
 h|
 |*create_ehr* ( +
@@ -55,12 +56,13 @@ a|Create a new EHR with a provided EHR id; return the id as a safety check.
 
 If the `_an_ehr_status_` parameter is provided, it is created as the EHR's `EHR_STATUS`, otherwise a default `EHR_STATUS` is created, in which `_is_modifiable_` and `_is_queryable_` are both True.
 
-.Errors
-* `ehr_create_fail_duplicate_id`
 
 .Parameters +
 [horizontal]
 `_an_ehr_id_`:: EHR identifier (a UUID).
+
+.Errors
+* `ehr_create_fail_duplicate_id`
 
 h|
 |*create_ehr_for_subject* ( +
@@ -86,14 +88,15 @@ a|Create a new EHR with EHR id and provided subject id. Return the EHR id as a s
 
 If the `_an_ehr_status_` parameter is provided, it is created as the EHR's `EHR_STATUS`, otherwise a default `EHR_STATUS` is created, in which `_is_modifiable_` and `_is_queryable_` are both True.
 
-.Errors
-* `ehr_create_fail_duplicate_id`
 
 .Parameters +
 [horizontal]
 `_an_ehr_id_`:: EHR identifier (a UUID).
 
 `_a_subject_id_`:: Subject identifier.
+
+.Errors
+* `ehr_create_fail_duplicate_id`
 
 h|
 |*get_ehr* ( +
@@ -102,12 +105,13 @@ an_ehr_id: `UUID[1]` +
 *_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
 a|Retrieve a summarised form of the EHR root object and `EHR_STATUS`.
 
-.Errors
-* `ehr_does_not_exist`
 
 .Parameters +
 [horizontal]
 `_an_ehr_id_`:: EHR identifier (a UUID).
+
+.Errors
+* `ehr_does_not_exist`
 
 h|
 |*get_ehrs_for_subject* ( +

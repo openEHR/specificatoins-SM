@@ -27,6 +27,9 @@ a|Upload an ADL2 artefact, i.e. archetype, template or operational_template. If 
 
 The artefact must validate.
 
+
+
+
 .Errors
 * `invalid artefact` (+ specific messages)
 
@@ -36,6 +39,9 @@ an_id: `ARCHETYPE_HRID[1]` +
 ): `AUTHORED_ARCHETYPE` +
 *_Pre_artefact_exists_*: `has_artefact (an_id)`
 a|Get the AOM2 artefact with id `_an_id_`.
+
+
+
 
 .Errors
 * `artefact_does_not_exist`
@@ -76,6 +82,9 @@ rows_to_fetch: `Integer[0..1]` +
 ): `List<ARCHETYPE_HRID>`
 a|List all artefacts whose identifiers match a regex pattern.
 
+
+
+
 .Errors
 * `invalid_id_pattern`
 
@@ -84,6 +93,9 @@ h|
 an_id: `ARCHETYPE_HRID[1]` +
 )
 a|Delete the AOM2 artefact with id `_an_id_`.
+
+
+
 
 .Errors
 * `artefact_does_not_exist`

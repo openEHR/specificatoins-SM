@@ -19,6 +19,9 @@ an_ehr_id: `UUID[1]` +
 *_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
 a|Get the current version of the `EHR_STATUS` object for an EHR.
 
+
+
+
 .Errors
 * `ehr_does_not_exist`
 
@@ -29,6 +32,9 @@ an_ehr_id: `UUID[1]` +
 *_Pre_has_ehr_*: `has_ehr (an_ehr_id)` +
 *_Post_is_queryable_set_*: `get_ehr_status(an_ehr_id).is_queryable`
 a|Set the EHR `_is_queryable_` flag to true; this ensures it is included by the query engine.
+
+
+
 
 .Errors
 * `ehr_does_not_exist`
@@ -41,6 +47,9 @@ an_ehr_id: `UUID[1]` +
 *_Post_is_modifiable_set_*: `get_ehr_status(an_ehr_id).is_modifiable`
 a|Set the EHR `_is_modifable_` flag to true; this ensures it is treated as active and updatable.
 
+
+
+
 .Errors
 * `ehr_does_not_exist`
 
@@ -51,6 +60,9 @@ an_ehr_id: `UUID[1]` +
 *_Pre_has_ehr_*: `has_ehr (an_ehr_id)` +
 *_Post_is_queryable_cleared_*: `not get_ehr_status(an_ehr_id).is_queryable`
 a|Clear the EHR `_is_queryable_` flag; this ensures it is ignored by the query engine.
+
+
+
 
 .Errors
 * `ehr_does_not_exist`
@@ -63,6 +75,9 @@ an_ehr_id: `UUID[1]` +
 *_Post_is_modifiable_cleared_*: `not get_ehr_status(an_ehr_id).is_modifiable`
 a|Clear the EHR `_is_modifiable_` flag; this ensures it is treated as active.
 
+
+
+
 .Errors
 * `ehr_does_not_exist`
 
@@ -72,6 +87,9 @@ a_time: `Iso8601_date_time[0..1]` +
 ): `EHR_STATUS` +
 *_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
 a|Get the version of the EHR Status extant at time `_a_time_`. If no time supplied, get the latest.
+
+
+
 
 .Errors
 * `ehr_does_not_exist`
@@ -100,6 +118,9 @@ an_ehr_id: `UUID[1]` +
 *_Pre_has_ehr_status_version_*: `has_ehr_status_version (an_ehr_id, a_version_uid)`
 a|Get the `VERSIONED_EHR_STATUS` object from the EHR with id `_ehr_id_`.
 
+
+
+
 .Errors
 * `ehr_does_not_exist`
 
@@ -110,6 +131,9 @@ a_details: `ITEM_TREE[1]` +
 ) +
 *_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
 a|Update other_details part of `EHR_STATUS` with new content.
+
+
+
 
 .Errors
 * `ehr_does_not_exist`

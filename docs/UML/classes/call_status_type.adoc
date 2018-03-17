@@ -25,6 +25,10 @@ h|
 a|Precondition violation occurred.
 
 h|
+|version_does_not_exist
+a|A referenced version of a Versioned Object does not exist.
+
+h|
 |exception
 a|Exception other than precondition violation occurred.
 |===

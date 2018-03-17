@@ -66,14 +66,15 @@ rows_to_fetch: `Integer[0..1]` +
 ): `List<QUERY_DESCRIPTOR>`
 a|List all registered queries matching an identifier pattern (regex) and an artefact identifier pattern (regex) for artefacts referenced in the query. Either pattern may be the regex for 'match any'.
 
-.Errors
-* `invalid_id_pattern`
 
 .Parameters +
 [horizontal]
 `_id_pattern_`:: PERL regular expression on query identifier.
 
 `_artefact_id_pattern_`:: PERL regular expression on archetype / template identifiers.
+
+.Errors
+* `invalid_id_pattern`
 
 h|
 |*delete_query* ( +
@@ -83,10 +84,11 @@ a_query_name: `String[1]` +
 *_Post_query_deleted_*: `not has_query (a_query_name)`
 a|Delete query with name `_a_query_name_`.
 
-.Errors
-* `invalid_query`
 
 .Parameters +
 [horizontal]
 `_a_query_name_`:: Qualified query name.
+
+.Errors
+* `invalid_query`
 |===

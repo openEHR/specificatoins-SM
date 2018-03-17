@@ -39,8 +39,4 @@ a|
 h|
 |composition_already_exists
 a|
-
-h|
-|versioned_composition_does_not_exist
-a|
 |===
