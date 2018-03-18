@@ -24,7 +24,23 @@ a|Return True if the Contribution with `_a_contrib_id_` in EHR with id `_an_ehr_
 
 
 .Errors
-* ehr_does_not_exist
+* `ehr_id_does_not_exist`
+
+h|
+|*get_contribution* ( +
+an_ehr_id: `UUID[1]`, +
+a_contrib_id: `UUID[1]` +
+): `CONTRIBUTION` +
+*_Pre_has_ehr_*: `has_ehr (an_ehr_id)` +
+*_Pre_has_contribution_*: `has_contribution (a_contrib_id)`
+a|Return the Contribution with id `_a_contrib_id_` in EHR with id `_an_ehr_id_`.
+
+
+
+
+.Errors
+* `ehr_id_does_not_exist`
+* `contribution_does_not_exist`
 
 h|
 |*commit_contribution* ( +
@@ -40,23 +56,7 @@ a|Commit a Contribution containing any number of `VERSION_UPDATE` objects.
 
 
 .Errors
-* ehr_does_not_exist
-
-h|
-|*get_contribution* ( +
-an_ehr_id: `UUID[1]`, +
-a_contrib_id: `UUID[1]` +
-): `CONTRIBUTION` +
-*_Pre_has_ehr_*: `has_ehr (an_ehr_id)` +
-*_Pre_has_contribution_*: `has_contribution (a_contrib_id)`
-a|Return the Contribution with id `_a_contrib_id_` in EHR with id `_an_ehr_id_`.
-
-
-
-
-.Errors
-* ehr_does_not_exist
-* contribution_does_not_exist
+* `ehr_id_does_not_exist`
 
 h|
 |*list_all_contributions* ( +
@@ -70,5 +70,5 @@ a|List all available Contributions for this EHR.
 
 
 .Errors
-* ehr_does_not_exist
+* `ehr_id_does_not_exist`
 |===

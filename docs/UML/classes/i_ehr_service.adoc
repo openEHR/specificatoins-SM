@@ -6,7 +6,7 @@ h|*Interface*
 2+^h|*I_EHR_SERVICE*
 
 h|*Description*
-2+a|Primary interface to EHR_SERVICE persistent repository.
+2+a|Primary interface to `EHR_SERVICE` persistent repository.
 
 h|*Functions*
 ^h|*Signature*
@@ -73,9 +73,13 @@ a|Create a new EHR with `EHR_STATUS._subject_` set to point to `_subject_id_`, a
 
 If the `_an_ehr_status_` parameter is provided, it is created as the EHR's `EHR_STATUS`, otherwise a default `EHR_STATUS` is created, in which `_is_modifiable_` and `_is_queryable_` are both True.
 
+
 .Parameters +
 [horizontal]
 `_a_subject_id_`:: Subject identifier.
+
+.Errors
+* `ehr_for_subject_already_exists`
 
 h|
 |*create_ehr_for_subject_with_id* ( +
@@ -111,7 +115,7 @@ a|Retrieve a summarised form of the EHR root object and `EHR_STATUS`.
 `_an_ehr_id_`:: EHR identifier (a UUID).
 
 .Errors
-* `ehr_does_not_exist`
+* `ehr_id_does_not_exist`
 
 h|
 |*get_ehrs_for_subject* ( +
@@ -119,13 +123,23 @@ a_subject_id: `PARTY_REF[1]` +
 ): `List<EHR_SUMMARY>`
 a|Retrieve EHR or EHRs that have `_ehr_status.subject_id_` = supplied subject id.
 
+
 .Parameters +
 [horizontal]
 `_a_subject_id_`:: Subject identifier.
+
+.Errors
+* `esubject_id_does_not_exist`
 
 h|
 |*i_ehr* ( +
 ehr_id: `UUID[1]` +
 ): `I_EHR`
 a|Provide access to an `I_EHR` interface instance for access to the parts of an EHR.
+
+
+
+
+.Errors
+* `ehr_id_does_not_exist`
 |===

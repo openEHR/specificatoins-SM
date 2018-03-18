@@ -51,9 +51,21 @@ an_ehr_id: `UUID[1]` +
 *_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
 a|Physical deletion of specified EHR.
 
+
+
+
+.Errors
+* `ehr_id_does_not_exist`
+
 h|
 |*physical_party_delete* ( +
-a_party: `PARTY_REF[1]` +
+a_party_id: `UUID[1]` +
 )
 a|Physical delete of specified Party, along with related Party relationships.
+
+
+
+
+.Errors
+* `party_id_does_not_exist`
 |===

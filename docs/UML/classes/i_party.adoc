@@ -31,12 +31,11 @@ a_versioned_party_id: `UUID[1]` +
 *_Pre_has_party_*: `has_party (a_versioned_party_id)`
 a|Get the current Version of a Party.
 
-h|
-|*get_party_at_version* ( +
-a_party_version_id: `UUID[1]` +
-): `PARTY` +
-*_Pre_has_party_version_*: `has_party_version (a_party_version_id)`
-a|Get a particular Party Version.
+
+
+
+.Errors
+* `versioned_object_does_not_exist`
 
 h|
 |*get_party_at_time* ( +
@@ -45,13 +44,26 @@ a_time: `Iso8601_date_time[1]` +
 ): `PARTY`
 a|Get the Version of a Party current at `_a_time_`.
 
+
+
+
+.Errors
+* `versioned_object_does_not_exist`
+
 h|
 |*update_party* ( +
 a_versioned_party_id: `UUID[1]`, +
-a_version: `PARTY[1]` +
+a_version: `UV_PARTY[1]` +
 ): `UUID` +
 *_Pre_has_party_*: `has_party (a_versioned_party_id)`
 a|Update a Party with a new Version.
+
+
+
+
+.Errors
+* `versioned_object_does_not_exist`
+* `object_version_does_not_exist`
 
 h|
 |*delete_party* ( +
@@ -60,4 +72,23 @@ a_versioned_party_id: `UUID[1]` +
 *_Post_party_deleted_*: `not has_party (a_versioned_party_id)` +
 *_Pre_has_party_*: `has_party (a_versioned_party_id)`
 a|Delete an existing Party.
+
+
+
+
+.Errors
+* `versioned_object_does_not_exist`
+
+h|
+|*get_party_at_version* ( +
+a_party_version_id: `UUID[1]` +
+): `PARTY` +
+*_Pre_has_party_version_*: `has_party_version (a_party_version_id)`
+a|Get a particular Party Version.
+
+
+
+
+.Errors
+* `object_version_does_not_exist`
 |===

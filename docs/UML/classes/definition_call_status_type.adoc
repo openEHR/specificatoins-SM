@@ -1,9 +1,9 @@
-=== DEFINITION_CALL_STATUSES Enumeration
+=== DEFINITION_CALL_STATUS_TYPE Enumeration
 
 [cols="^1,3,5"]
 |===
 h|*Enumeration*
-2+^h|*DEFINITION_CALL_STATUSES*
+2+^h|*DEFINITION_CALL_STATUS_TYPE*
 
 h|*Description*
 2+a|Enumeration representing call statuses for `DEFINITION` service interface calls.

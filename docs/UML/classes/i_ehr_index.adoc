@@ -6,7 +6,7 @@ h|*Interface*
 2+^h|*I_EHR_INDEX*
 
 h|*Description*
-2+a|Interface object for the EHR_INDEX service.
+2+a|Interface object for the `EHR_INDEX` service.
 
 h|*Functions*
 ^h|*Signature*
@@ -15,32 +15,65 @@ h|*Functions*
 h|
 |*add_ehr_subject* ( +
 an_ehr_id: `UUID[1]`, +
-a _subject_id: `OBJECT_REF[1]`, +
+a_subject_id: `OBJECT_REF[1]`, +
 a_status: `RESOURCE_STATUS[0..1]`, +
 a_loc_desc: `LOCATION_DESC[0..1]` +
 )
 a|Add a subject identifier for the EHR with `_an_ehr_id_`, with an optional resource status and location descriptor.
 
 h|
-|*remove_ehr_subject* ( +
-an_ehr_id: `UUID[1]`, +
-a _subject_id: `OBJECT_REF[1]` +
-)
-a|Remove the subject identifier association with the EHR with `_an_ehr_id_` (it might remain associated with other EHRs however).
-
-h|
 |*update_ehr_subject_status* ( +
 an_ehr_id: `UUID[1]`, +
-a _subject_id: `OBJECT_REF[1]`, +
-a_status: `RESOURCE_STATUS[0..1]` +
+a_subject_id: `OBJECT_REF[1]`, +
+a_status: `RESOURCE_STATUS[1]` +
 )
 a|Update subject resource status for the association of the EHR with `_an_ehr_id_` and subject `_a_subject_id_`.
+
+
+
+
+.Errors
+* `subject_id_does_not_exist`
+* `ehr_id_does_not_exist`
 
 h|
 |*update_ehr_subject_loc_desc* ( +
 an_ehr_id: `UUID[1]`, +
-a _subject_id: `OBJECT_REF[1]`, +
+a_subject_id: `OBJECT_REF[1]`, +
 a_loc_desc: `LOCATION_DESC[0..1]` +
 )
 a|Update location descriptor for the association of the EHR with `_an_ehr_id_` and subject `_a_subject_id_`.
+
+
+
+
+.Errors
+* `subject_id_does_not_exist`
+* `ehr_id_does_not_exist`
+
+h|
+|*remove_ehr_subject* ( +
+an_ehr_id: `UUID[1]`, +
+a_subject_id: `OBJECT_REF[1]` +
+)
+a|Remove the subject identifier association with the EHR with `_an_ehr_id_` (it might remain associated with other EHRs however).
+
+
+
+
+.Errors
+* `subject_id_does_not_exist`
+* `ehr_id_does_not_exist`
+
+h|
+|*remove_subject* ( +
+a_subject_id: `OBJECT_REF[1]` +
+)
+a|Remove all entries for a subject.
+
+
+
+
+.Errors
+* `subject_id_does_not_exist`
 |===

@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*DUMP_LOAD_FAIL_REPORT*
 
 h|*Description*
-2+a|Dump or Load fail report for a single entity, e.g. EHR, PARTY etc .
+2+a|Dump or Load fail report for a single entity, e.g. `EHR`, `PARTY` etc .
 
 h|*Attributes*
 ^h|*Signature*

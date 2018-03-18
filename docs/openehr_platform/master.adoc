@@ -70,7 +70,8 @@ include::master05-ehr_package.adoc[leveloffset=+1]
 include::master06-demographic_package.adoc[leveloffset=+1]
 include::master07-ehr_index_package.adoc[leveloffset=+1]
 include::master08-query_package.adoc[leveloffset=+1]
-include::master09-admin_package.adoc[leveloffset=+1]
+include::master09-message_package.adoc[leveloffset=+1]
+include::master10-admin_package.adoc[leveloffset=+1]
 
 
 //

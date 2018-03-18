@@ -25,10 +25,30 @@ h|
 a|Precondition violation occurred.
 
 h|
-|version_does_not_exist
-a|A referenced version of a Versioned Object does not exist.
+|object_version_does_not_exist
+a|Referenced Object version of a Versioned Object does not exist.
+
+h|
+|versioned_object_does_not_exist
+a|No Versioned Object with referenced identifier found.
 
 h|
 |exception
 a|Exception other than precondition violation occurred.
+
+h|
+|ehr_id_does_not_exist
+a|Ehr provided id not found.
+
+h|
+|party_id_does_not_exist
+a|Party with provided id not found.
+
+h|
+|file_not_writable
+a|File system locator cannot be written to.
+
+h|
+|version_mismatch
+a|
 |===

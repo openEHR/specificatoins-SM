@@ -1,0 +1,25 @@
+=== I_TDD_SERVICE Interface
+
+[cols="^1,3,5"]
+|===
+h|*Interface*
+2+^h|*I_TDD_SERVICE*
+
+h|*Description*
+2+a|Template Data Document (TDD) service.
+
+h|*Functions*
+^h|*Signature*
+^h|*Meaning*
+
+h|
+|*import_tdd* ( +
+an_ehr_id: `UUID[1]`, +
+tdd: `String[1]` +
+)
+a|Import a TDD.
+
+h|
+|*import_tdds*
+a|Bulk import numerous TDDs.
+|===

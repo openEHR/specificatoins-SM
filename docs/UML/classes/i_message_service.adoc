@@ -6,6 +6,6 @@ h|*Interface*
 2+^h|*I_MESSAGE_SERVICE*
 
 h|*Description*
-2+a|
+2+a|Generic message service.
 
 |===

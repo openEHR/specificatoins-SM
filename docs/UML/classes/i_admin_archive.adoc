@@ -18,9 +18,21 @@ ehr_ids: `List<UUID>[0..1]` +
 )
 a|Move selected EHRs to archival storage.
 
+
+
+
+.Errors
+* `ehr_id_does_not_exist`
+
 h|
 |*archive_parties* ( +
-ehr_ids: `List<UUID>[0..1]` +
+party_ids: `List<UUID>[0..1]` +
 )
 a|Move selected Parties and relationships to archival storage.
+
+
+
+
+.Errors
+* `party_id_does_not_exist`
 |===

@@ -3,7 +3,7 @@
 [cols="^1,3,5"]
 |===
 h|*Class*
-2+^h|*UPDATE_VERSION*
+2+^h|*_UPDATE_VERSION (abstract)_*
 
 h|*Description*
 2+a|An object representing an update to an existing `VERSION`, that can be provided by a client to the platform. The back-end will construct a full `VERSION` object from this and server-side generated data items.

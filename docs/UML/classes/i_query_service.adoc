@@ -21,7 +21,6 @@ ehr_ids: `List<UUID>[0..1]` +
 ): `RESULT_SET`
 a|Execute a query stored in the definition service, using its qualified query name. Return a Result set.
 
-Errors
 
 .Parameters +
 [horizontal]
@@ -33,6 +32,9 @@ Errors
 
 `_ehr_ids_`:: Specific set of EHRs on which to execute the query. If none supplied, a full population query will be performed on all EHRs whose status has the `_is_queryable_` flag set to `True`.
 
+.Errors
+* `ehr_id_does_not_exist`
+
 h|
 |*execute_ad_hoc_query* ( +
 exec_spec: `ADHOC_QUERY_EXECUTE_SPEC[1]`, +
@@ -40,7 +42,10 @@ row_offset: `Integer[0..1]`, +
 rows_to_fetch: `Integer[0..1]`, +
 ehr_ids: `List<UUID>[0..1]` +
 ): `RESULT_SET`
-a|.Parameters +
+a|Execute an ad hoc query, supplying the query text.
+
+
+.Parameters +
 [horizontal]
 `_exec_spec_`:: Execution specification: query text to execute, with provided parameters.
 
@@ -49,4 +54,7 @@ a|.Parameters +
 `_rows_to_fetch_`:: Optional parameter specifying number of query response rows to fetch, used for large result sets. A zero or negative value means 'all'.
 
 `_ehr_ids_`:: Specific set of EHRs on which to execute the query. If none supplied, a full population query will be performed on all EHRs whose status has the `_is_queryable_` flag set to `True`.
+
+.Errors
+* `ehr_id_does_not_exist`
 |===

@@ -41,7 +41,7 @@ include::{uml_export_dir}/classes/i_definition_adl14.adoc[]
 
 include::{uml_export_dir}/classes/i_definition_query.adoc[]
 
-include::{uml_export_dir}/classes/definition_call_statuses.adoc[]
+include::{uml_export_dir}/classes/definition_call_status_type.adoc[]
 
 include::{uml_export_dir}/classes/query_descriptor.adoc[]
 

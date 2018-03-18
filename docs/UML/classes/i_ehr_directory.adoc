@@ -13,15 +13,6 @@ h|*Functions*
 ^h|*Meaning*
 
 h|
-|*create_directory* ( +
-ehr_id: `UUID[1]`, +
-a_dir_struct: `UV_FOLDER[1]` +
-) +
-*_Pre_has_ehr_*: `has_ehr (an_ehr_id)` +
-*_Pre_no_directory_*: `not has_directory (ehr_id)`
-a|Create a directory in the EHR, based on the provided structure.
-
-h|
 |*has_directory* ( +
 ehr_id: `UUID[1]` +
 ): `Boolean` +
@@ -40,7 +31,51 @@ a|True if path `_a_path_` exists in directory. The `_a_path_` argument consists 
 
 
 .Errors
-* `ehr_does_not_exist`
+* `ehr_id_does_not_exist`
+
+h|
+|*create_directory* ( +
+ehr_id: `UUID[1]`, +
+a_dir_struct: `UV_FOLDER[1]` +
+) +
+*_Pre_has_ehr_*: `has_ehr (an_ehr_id)` +
+*_Pre_no_directory_*: `not has_directory (ehr_id)`
+a|Create a directory in the EHR, based on the provided structure.
+
+
+
+
+.Errors
+* `ehr_id_does_not_exist`
+
+h|
+|*get_directory* ( +
+ehr_id: `UUID[1]` +
+): `FOLDER` +
+*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
+a|Get current version of EHR Directory structure, if it exists, else Void.
+
+
+
+
+.Errors
+* `ehr_id_does_not_exist`
+
+h|
+|*get_directory_at_time* ( +
+an_ehr_id: `UUID[1]`, +
+a_time: `Iso8601_date_time[0..1]` +
+): `FOLDER` +
+*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
+a|Get the version of the Directory extant at time `_a_time_`. If no time supplied, get the latest.
+
+
+.Parameters +
+[horizontal]
+`_a_time_`:: Time specifying the extant top version of the Directory.
+
+.Errors
+* `ehr_id_does_not_exist`
 
 h|
 |*update_directory* ( +
@@ -57,7 +92,7 @@ a|Create or update a directory from a complete structure. Preceding version must
 `_a_dir_struct_`:: Directory structure with which to replace current structure.
 
 .Errors
-* `ehr_does_not_exist`
+* `ehr_id_does_not_exist`
 
 h|
 |*delete_directory* ( +
@@ -71,33 +106,7 @@ a|Logically delete the directory by creating a new version in which the contents
 
 
 .Errors
-* `ehr_does_not_exist`
-
-h|
-|*get_directory* ( +
-ehr_id: `UUID[1]` +
-): `FOLDER` +
-*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
-a|Get current version of EHR Directory structure, if it exists, else Void.
-
-
-
-
-.Errors
-* ehr_does_not_exist
-
-h|
-|*get_directory_at_time* ( +
-an_ehr_id: `UUID[1]`, +
-a_time: `Iso8601_date_time[0..1]` +
-): `FOLDER` +
-*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
-a|Get the version of the Directory extant at time `_a_time_`. If no time supplied, get the latest.
-c
-
-.Parameters +
-[horizontal]
-`_a_time_`:: Time specifying the extant top version of the Directory.
+* `ehr_id_does_not_exist`
 
 h|
 |*has_directory_version* ( +
@@ -110,7 +119,7 @@ a|True if the directory has a version with specified id.
 
 
 .Errors
-* `ehr_does_not_exist`
+* `ehr_id_does_not_exist`
 
 h|
 |*get_directory_at_version* ( +
@@ -130,11 +139,11 @@ h|
 an_ehr_id: `UUID[1]` +
 ): `VERSIONED_FOLDER` +
 *_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
-a|Get the `VERSIONED_FOLDER` Directory object for the EHR with ehr_id.
+a|Get the `VERSIONED_FOLDER` Directory object for the EHR with `_ehr_id_`.
 
 
 
 
 .Errors
-* `ehr_does_not_exist`
+* `ehr_id_does_not_exist`
 |===

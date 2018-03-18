@@ -17,13 +17,27 @@ h|
 file_sys_loc: `String[1]`, +
 logical_fmt: `EXPORT_FORMAT[0..1]`, +
 comp_fmt: `COMPRESSION_FORMAT[0..1]`, +
-enc_format[0..1] +
+enc_format: `ENCODING_FORMAT[0..1]` +
 )
 a|Export all EHRs to a file-system location in a specified format.
+
+
+.Parameters +
+[horizontal]
+`_file_sys_loc_`:: File system location to write archive to.
+
+.Errors
+* `file_not_writable`
 
 h|
 |*load_ehrs* ( +
 file_sys_loc: `String[1]` +
 )
 a|Populate EHR repository from export archive on file system. Repository need not be empty, but import EHRs with duplicate EHR ids will fail.
+
+
+
+
+.Errors
+* `file_not_writable`
 |===

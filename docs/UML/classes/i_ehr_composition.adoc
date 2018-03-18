@@ -24,53 +24,7 @@ a|Return True if a Composition version with identifier `_a_version_uid_` exists.
 
 
 .Errors
-* ehr_does_not_exist
-
-h|
-|*update_composition* ( +
-an_ehr_id: `UUID[1]`, +
-a_comp: `UV_COMPOSITION[1]` +
-): `UUID` +
-*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
-a|Update an existing Composition with a new version.
-
-
-
-
-.Errors
-* ehr_does_not_exist
-* composition_does_not_exist
-
-h|
-|*create_composition* ( +
-an_ehr_id: `UUID[1]`, +
-a_comp: `UV_COMPOSITION[1]` +
-): `UUID` +
-*_Pre_has_ehr_*: `has_ehr (an_ehr_id)` +
-*_Post_has_composition_*: `has_composition (Result)`
-a|Create the first version of a new Composition.
-
-
-
-
-.Errors
-* ehr_does_not_exist
-* composition_already_exists
-
-h|
-|*delete_composition* ( +
-an_ehr_id: `UUID[1]`, +
-a_version_uid: `UUID[1]` +
-) +
-*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
-a|Logically delete a Composition by creating a new version in which the content is removed and the lifecycle state is set to `523&#124;deleted&#124;`. The `_a_version_uid_` argument identifies the current top Composition Version.
-
-
-
-
-.Errors
-* ehr_does_not_exist
-* composition_does_not_exist
+* `ehr_id_does_not_exist`
 
 h|
 |*get_composition* ( +
@@ -87,8 +41,8 @@ a|Retrieve the latest version of a Composition.
 `_a_versioned_object_uid_`:: Uid of the `VERSIONED_COMPOSITION`.
 
 .Errors
-* ehr_does_not_exist
-* composition_does_not_exist
+* `ehr_id_does_not_exist`
+* `composition_does_not_exist`
 
 h|
 |*get_composition_at_time* ( +
@@ -103,8 +57,54 @@ a|Retrieve the Composition version extant at a given time, from a Versioned Comp
 
 
 .Errors
-* ehr_does_not_exist
-* composition_does_not_exist
+* `ehr_id_does_not_exist`
+* `composition_does_not_exist`
+
+h|
+|*create_composition* ( +
+an_ehr_id: `UUID[1]`, +
+a_comp: `UV_COMPOSITION[1]` +
+): `UUID` +
+*_Pre_has_ehr_*: `has_ehr (an_ehr_id)` +
+*_Post_has_composition_*: `has_composition (an_ehr_id, Result)`
+a|Create the first version of a new Composition.
+
+
+
+
+.Errors
+* `ehr_id_does_not_exist`
+* `composition_already_exists`
+
+h|
+|*update_composition* ( +
+an_ehr_id: `UUID[1]`, +
+a_comp: `UV_COMPOSITION[1]` +
+): `UUID` +
+*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
+a|Update an existing Composition with a new version.
+
+
+
+
+.Errors
+* `ehr_id_does_not_exist`
+* `composition_does_not_exist`
+
+h|
+|*delete_composition* ( +
+an_ehr_id: `UUID[1]`, +
+a_version_uid: `UUID[1]` +
+) +
+*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
+a|Logically delete a Composition by creating a new version in which the content is removed and the lifecycle state is set to `523&#124;deleted&#124;`. The `_a_version_uid_` argument identifies the current top Composition Version.
+
+
+
+
+.Errors
+* `ehr_id_does_not_exist`
+* `composition_does_not_exist`
 
 h|
 |*get_composition_at_version* ( +
@@ -112,11 +112,16 @@ an_ehr_id: `UUID[1]`, +
 a_version_uid: `UUID[1]` +
 ): `COMPOSITION` +
 *_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
-a|Get a particular version of a Composition.
+a|Get a particular VERSION of a Composition by version id.
+
 
 .Parameters +
 [horizontal]
 `_a_version_uid_`:: Uid of a `VERSION` in a `VERSIONED_COMPOSITION`.
+
+.Errors
+* `ehr_does_not_exist`
+* `object_version_does_not_exist`
 
 h|
 |*get_versioned_composition* ( +
@@ -130,13 +135,6 @@ a|Retrieve the `VERSIONED_OBJECT` of a Composition by uid.
 
 
 .Errors
-* ehr_does_not_exist
-* versioned_composition_does_not_exist
-
-h|
-|*has_composition_version* ( +
-an_ehr_id: `UUID[1]`, +
-a_version_uid: `UUID[1]` +
-): `Boolean`
-a|
+* `ehr_id_does_not_exist`
+* `versioned_composition_does_not_exist`
 |===

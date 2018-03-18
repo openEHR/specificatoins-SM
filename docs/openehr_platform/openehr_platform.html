@@ -71,7 +71,7 @@
 <li><a href="#_i_definition_adl2_interface">4.4.1. I_DEFINITION_ADL2 Interface</a></li>
 <li><a href="#_i_definition_adl14_interface">4.4.2. I_DEFINITION_ADL14 Interface</a></li>
 <li><a href="#_i_definition_query_interface">4.4.3. I_DEFINITION_QUERY Interface</a></li>
-<li><a href="#_definition_call_statuses_enumeration">4.4.4. DEFINITION_CALL_STATUSES Enumeration</a></li>
+<li><a href="#_definition_call_status_type_enumeration">4.4.4. DEFINITION_CALL_STATUS_TYPE Enumeration</a></li>
 <li><a href="#_query_descriptor_class">4.4.5. QUERY_DESCRIPTOR Class</a></li>
 </ul>
 </li>
@@ -112,7 +112,7 @@
 <ul class="sectlevel3">
 <li><a href="#_i_ehr_index_interface">7.2.1. I_EHR_INDEX Interface</a></li>
 <li><a href="#_resource_status_class">7.2.2. RESOURCE_STATUS Class</a></li>
-<li><a href="#_resource_status_type_enumeration">7.2.3. RESOURCE_STATUS_TYPE Enumeration</a></li>
+<li><a href="#_resource_instance_type_enumeration">7.2.3. RESOURCE_INSTANCE_TYPE Enumeration</a></li>
 <li><a href="#_location_desc_class">7.2.4. LOCATION_DESC Class</a></li>
 </ul>
 </li>
@@ -133,16 +133,28 @@
 </li>
 </ul>
 </li>
-<li><a href="#_admin_package">9. Admin Package</a>
+<li><a href="#_message_package">9. Message Package</a>
 <ul class="sectlevel2">
 <li><a href="#_overview_8">9.1. Overview</a></li>
 <li><a href="#_class_definitions_7">9.2. Class Definitions</a>
 <ul class="sectlevel3">
-<li><a href="#_i_admin_service_interface">9.2.1. I_ADMIN_SERVICE Interface</a></li>
-<li><a href="#_i_admin_archive_interface">9.2.2. I_ADMIN_ARCHIVE Interface</a></li>
-<li><a href="#_i_admin_dump_load_interface">9.2.3. I_ADMIN_DUMP_LOAD Interface</a></li>
-<li><a href="#_dump_load_fail_report_class">9.2.4. DUMP_LOAD_FAIL_REPORT Class</a></li>
-<li><a href="#_export_spec_class">9.2.5. EXPORT_SPEC Class</a></li>
+<li><a href="#_i_message_service_interface">9.2.1. I_MESSAGE_SERVICE Interface</a></li>
+<li><a href="#_i_ehr_extract_service_interface">9.2.2. I_EHR_EXTRACT_SERVICE Interface</a></li>
+<li><a href="#_i_tdd_service_interface">9.2.3. I_TDD_SERVICE Interface</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_admin_package">10. Admin Package</a>
+<ul class="sectlevel2">
+<li><a href="#_overview_9">10.1. Overview</a></li>
+<li><a href="#_class_definitions_8">10.2. Class Definitions</a>
+<ul class="sectlevel3">
+<li><a href="#_i_admin_service_interface">10.2.1. I_ADMIN_SERVICE Interface</a></li>
+<li><a href="#_i_admin_archive_interface">10.2.2. I_ADMIN_ARCHIVE Interface</a></li>
+<li><a href="#_i_admin_dump_load_interface">10.2.3. I_ADMIN_DUMP_LOAD Interface</a></li>
+<li><a href="#_dump_load_fail_report_class">10.2.4. DUMP_LOAD_FAIL_REPORT Class</a></li>
+<li><a href="#_export_spec_class">10.2.5. EXPORT_SPEC Class</a></li>
 </ul>
 </li>
 </ul>
@@ -244,12 +256,19 @@
 <th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>R E L E A S E&#160;&#160;&#160;&#160;&#160;1.0.0</strong></p></th>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>0.9.3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>0.9.4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Improve documentation text;<br>
+ Reverse order of Parameter and Errors sections in operations text.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>17 Mar 2018</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.9.3</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Improve documentation text;<br>
  Add section on call conventions; improve query register calls based on REST API 0.9.0.<br>
  Add EHR Index section.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>14 Feb 2018</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">14 Feb 2018</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0.9.2</p></td>
@@ -855,9 +874,16 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock">version_does_not_exist</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">object_version_does_not_exist</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>A referenced version of a Versioned Object does not exist.</p>
+<p>Referenced Object version of a Versioned Object does not exist.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">versioned_object_does_not_exist</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>No Versioned Object with referenced identifier found.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -866,6 +892,32 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Exception other than precondition violation occurred.</p>
 </div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ehr_id_does_not_exist</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Ehr provided id not found.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">party_id_does_not_exist</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Party with provided id not found.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">file_not_writable</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>File system locator cannot be written to.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">version_mismatch</p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
 </tr>
 </tbody>
 </table>
@@ -881,7 +933,7 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>UPDATE_VERSION</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>UPDATE_VERSION (abstract)</em></strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
@@ -1329,7 +1381,7 @@ an_id: <code>ARCHETYPE_ID[1]</code><br>
 an_id: <code>UUID[1]</code><br>
 ): <code>Boolean</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Return True if ADL 1.4 OPT with id an_id exists in the service.</p>
+<p>Return True if ADL 1.4 OPT with id <code><em>an_id</em></code> exists in the service.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1597,7 +1649,7 @@ a_query_name: <code>String[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_definition_call_statuses_enumeration"><a class="anchor" href="#_definition_call_statuses_enumeration"></a>4.4.4. DEFINITION_CALL_STATUSES Enumeration</h4>
+<h4 id="_definition_call_status_type_enumeration"><a class="anchor" href="#_definition_call_status_type_enumeration"></a>4.4.4. DEFINITION_CALL_STATUS_TYPE Enumeration</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -1607,7 +1659,7 @@ a_query_name: <code>String[1]</code><br>
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Enumeration</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DEFINITION_CALL_STATUSES</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DEFINITION_CALL_STATUS_TYPE</strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
@@ -1755,7 +1807,7 @@ a_query_name: <code>String[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
-<p>Primary interface to EHR_SERVICE persistent repository.</p>
+<p>Primary interface to <code>EHR_SERVICE</code> persistent repository.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1888,6 +1940,14 @@ an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
 </td>
 </tr>
 </table>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>ehr_for_subject_already_exists</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 <tr>
@@ -1960,7 +2020,7 @@ an_ehr_id: <code>UUID[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p><code>ehr_does_not_exist</code></p>
+<p><code>ehr_id_does_not_exist</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -1985,6 +2045,14 @@ a_subject_id: <code>PARTY_REF[1]</code><br>
 </td>
 </tr>
 </table>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>esubject_id_does_not_exist</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 <tr>
@@ -1994,6 +2062,14 @@ ehr_id: <code>UUID[1]</code><br>
 ): <code>I_EHR</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Provide access to an <code>I_EHR</code> interface instance for access to the parts of an EHR.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>ehr_id_does_not_exist</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 </tbody>
@@ -2163,6 +2239,25 @@ time_range: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_ehr_status_version</strong> (<br>
+an_ehr_id: <code>UUID[1]</code>,<br>
+a_version_uid: <code>UUID[1]</code><br>
+): <code>Boolean</code><br>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>True if <code><em>an_ehr_status_ver_uid</em></code> is one of the versions of this versioned EHR Status object.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>ehr_id_does_not_exist</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_ehr_status</strong> (<br>
 an_ehr_id: <code>UUID[1]</code><br>
 ): <code>EHR_STATUS</code><br>
@@ -2174,7 +2269,25 @@ an_ehr_id: <code>UUID[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p><code>ehr_does_not_exist</code></p>
+<p><code>ehr_id_does_not_exist</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_ehr_status_at_time</strong> (<br>
+a_time: <code>Iso8601_date_time[0..1]</code><br>
+): <code>EHR_STATUS</code><br>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Get the version of the EHR Status extant at time <code><em>a_time</em></code>. If no time supplied, get the latest.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>ehr_id_does_not_exist</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -2193,7 +2306,7 @@ an_ehr_id: <code>UUID[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p><code>ehr_does_not_exist</code></p>
+<p><code>ehr_id_does_not_exist</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -2212,7 +2325,7 @@ an_ehr_id: <code>UUID[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p><code>ehr_does_not_exist</code></p>
+<p><code>ehr_id_does_not_exist</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -2231,7 +2344,7 @@ an_ehr_id: <code>UUID[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p><code>ehr_does_not_exist</code></p>
+<p><code>ehr_id_does_not_exist</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -2250,66 +2363,7 @@ an_ehr_id: <code>UUID[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p><code>ehr_does_not_exist</code></p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_ehr_status_at_time</strong> (<br>
-a_time: <code>Iso8601_date_time[0..1]</code><br>
-): <code>EHR_STATUS</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Get the version of the EHR Status extant at time <code><em>a_time</em></code>. If no time supplied, get the latest.</p>
-</div>
-<div class="ulist">
-<div class="title">Errors</div>
-<ul>
-<li>
-<p><code>ehr_does_not_exist</code></p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_ehr_status_at_version</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-a_version_uid: <code>UUID[1]</code><br>
-): <code>EHR_STATUS</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Get a particular version of an EHR Status object.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_ehr_status_version</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-a_version_uid: <code>UUID[1]</code><br>
-): <code>Boolean</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>True if <code><em>an_ehr_status_ver_uid</em></code> is one of the versions of this versioned EHR Status object.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_versioned_ehr_status</strong> (<br>
-an_ehr_id: <code>UUID[1]</code><br>
-): <code>VERSIONED_EHR_STATUS</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
-<strong><em>Pre_has_ehr_status_version</em></strong>: <code>has_ehr_status_version (an_ehr_id, a_version_uid)</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Get the <code>VERSIONED_EHR_STATUS</code> object from the EHR with id <code><em>ehr_id</em></code>.</p>
-</div>
-<div class="ulist">
-<div class="title">Errors</div>
-<ul>
-<li>
-<p><code>ehr_does_not_exist</code></p>
+<p><code>ehr_id_does_not_exist</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -2328,7 +2382,45 @@ a_details: <code>ITEM_TREE[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p><code>ehr_does_not_exist</code></p>
+<p><code>ehr_id_does_not_exist</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_ehr_status_at_version</strong> (<br>
+an_ehr_id: <code>UUID[1]</code>,<br>
+a_version_uid: <code>UUID[1]</code><br>
+): <code>EHR_STATUS</code><br>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Get a particular version of an EHR Status object.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>ehr_id_does_not_exist</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_versioned_ehr_status</strong> (<br>
+an_ehr_id: <code>UUID[1]</code><br>
+): <code>VERSIONED_EHR_STATUS</code><br>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
+<strong><em>Pre_has_ehr_status_version</em></strong>: <code>has_ehr_status_version (an_ehr_id, a_version_uid)</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Get the <code>VERSIONED_EHR_STATUS</code> object from the EHR with id <code><em>ehr_id</em></code>.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>ehr_id_does_not_exist</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -2362,18 +2454,6 @@ a_details: <code>ITEM_TREE[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_directory</strong> (<br>
-ehr_id: <code>UUID[1]</code>,<br>
-a_dir_struct: <code>UV_FOLDER[1]</code><br>
-)<br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
-<strong><em>Pre_no_directory</em></strong>: <code>not has_directory (ehr_id)</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Create a directory in the EHR, based on the provided structure.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_directory</strong> (<br>
 ehr_id: <code>UUID[1]</code><br>
 ): <code>Boolean</code><br>
@@ -2396,7 +2476,77 @@ a_path: <code>String[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p><code>ehr_does_not_exist</code></p>
+<p><code>ehr_id_does_not_exist</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_directory</strong> (<br>
+ehr_id: <code>UUID[1]</code>,<br>
+a_dir_struct: <code>UV_FOLDER[1]</code><br>
+)<br>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
+<strong><em>Pre_no_directory</em></strong>: <code>not has_directory (ehr_id)</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Create a directory in the EHR, based on the provided structure.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>ehr_id_does_not_exist</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_directory</strong> (<br>
+ehr_id: <code>UUID[1]</code><br>
+): <code>FOLDER</code><br>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Get current version of EHR Directory structure, if it exists, else Void.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>ehr_id_does_not_exist</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_directory_at_time</strong> (<br>
+an_ehr_id: <code>UUID[1]</code>,<br>
+a_time: <code>Iso8601_date_time[0..1]</code><br>
+): <code>FOLDER</code><br>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Get the version of the Directory extant at time <code><em>a_time</em></code>. If no time supplied, get the latest.</p>
+</div>
+<div class="hdlist">
+<div class="title">Parameters<br></div>
+<table>
+<tr>
+<td class="hdlist1">
+<code><em>a_time</em></code>
+</td>
+<td class="hdlist2">
+<p>Time specifying the extant top version of the Directory.</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>ehr_id_does_not_exist</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -2429,7 +2579,7 @@ a_dir_struct: <code>UV_FOLDER[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p><code>ehr_does_not_exist</code></p>
+<p><code>ehr_id_does_not_exist</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -2448,52 +2598,9 @@ ehr_id: <code>UUID[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p><code>ehr_does_not_exist</code></p>
+<p><code>ehr_id_does_not_exist</code></p>
 </li>
 </ul>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_directory</strong> (<br>
-ehr_id: <code>UUID[1]</code><br>
-): <code>FOLDER</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Get current version of EHR Directory structure, if it exists, else Void.</p>
-</div>
-<div class="ulist">
-<div class="title">Errors</div>
-<ul>
-<li>
-<p>ehr_does_not_exist</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_directory_at_time</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-a_time: <code>Iso8601_date_time[0..1]</code><br>
-): <code>FOLDER</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Get the version of the Directory extant at time <code><em>a_time</em></code>. If no time supplied, get the latest.
-c</p>
-</div>
-<div class="hdlist">
-<div class="title">Parameters<br></div>
-<table>
-<tr>
-<td class="hdlist1">
-<code><em>a_time</em></code>
-</td>
-<td class="hdlist2">
-<p>Time specifying the extant top version of the Directory.</p>
-</td>
-</tr>
-</table>
 </div></div></td>
 </tr>
 <tr>
@@ -2509,7 +2616,7 @@ a_version_uid: <code>UUID[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p><code>ehr_does_not_exist</code></p>
+<p><code>ehr_id_does_not_exist</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -2539,13 +2646,13 @@ an_ehr_id: <code>UUID[1]</code><br>
 ): <code>VERSIONED_FOLDER</code><br>
 <strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Get the <code>VERSIONED_FOLDER</code> Directory object for the EHR with ehr_id.</p>
+<p>Get the <code>VERSIONED_FOLDER</code> Directory object for the EHR with <code><em>ehr_id</em></code>.</p>
 </div>
 <div class="ulist">
 <div class="title">Errors</div>
 <ul>
 <li>
-<p><code>ehr_does_not_exist</code></p>
+<p><code>ehr_id_does_not_exist</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -2591,74 +2698,7 @@ a_version_uid: <code>UUID[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>ehr_does_not_exist</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>update_composition</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-a_comp: <code>UV_COMPOSITION[1]</code><br>
-): <code>UUID</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Update an existing Composition with a new version.</p>
-</div>
-<div class="ulist">
-<div class="title">Errors</div>
-<ul>
-<li>
-<p>ehr_does_not_exist</p>
-</li>
-<li>
-<p>composition_does_not_exist</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_composition</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-a_comp: <code>UV_COMPOSITION[1]</code><br>
-): <code>UUID</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
-<strong><em>Post_has_composition</em></strong>: <code>has_composition (Result)</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Create the first version of a new Composition.</p>
-</div>
-<div class="ulist">
-<div class="title">Errors</div>
-<ul>
-<li>
-<p>ehr_does_not_exist</p>
-</li>
-<li>
-<p>composition_already_exists</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_composition</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-a_version_uid: <code>UUID[1]</code><br>
-)<br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Logically delete a Composition by creating a new version in which the content is removed and the lifecycle state is set to <code>523&#124;deleted&#124;</code>. The <code><em>a_version_uid</em></code> argument identifies the current top Composition Version.</p>
-</div>
-<div class="ulist">
-<div class="title">Errors</div>
-<ul>
-<li>
-<p>ehr_does_not_exist</p>
-</li>
-<li>
-<p>composition_does_not_exist</p>
+<p><code>ehr_id_does_not_exist</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -2691,10 +2731,10 @@ a_versioned_object_uid: <code>UUID[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>ehr_does_not_exist</p>
+<p><code>ehr_id_does_not_exist</code></p>
 </li>
 <li>
-<p>composition_does_not_exist</p>
+<p><code>composition_does_not_exist</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -2714,10 +2754,77 @@ a_time: <code>Iso8601_date_time[0..1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>ehr_does_not_exist</p>
+<p><code>ehr_id_does_not_exist</code></p>
 </li>
 <li>
-<p>composition_does_not_exist</p>
+<p><code>composition_does_not_exist</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_composition</strong> (<br>
+an_ehr_id: <code>UUID[1]</code>,<br>
+a_comp: <code>UV_COMPOSITION[1]</code><br>
+): <code>UUID</code><br>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
+<strong><em>Post_has_composition</em></strong>: <code>has_composition (an_ehr_id, Result)</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Create the first version of a new Composition.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>ehr_id_does_not_exist</code></p>
+</li>
+<li>
+<p><code>composition_already_exists</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>update_composition</strong> (<br>
+an_ehr_id: <code>UUID[1]</code>,<br>
+a_comp: <code>UV_COMPOSITION[1]</code><br>
+): <code>UUID</code><br>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Update an existing Composition with a new version.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>ehr_id_does_not_exist</code></p>
+</li>
+<li>
+<p><code>composition_does_not_exist</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_composition</strong> (<br>
+an_ehr_id: <code>UUID[1]</code>,<br>
+a_version_uid: <code>UUID[1]</code><br>
+)<br>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Logically delete a Composition by creating a new version in which the content is removed and the lifecycle state is set to <code>523&#124;deleted&#124;</code>. The <code><em>a_version_uid</em></code> argument identifies the current top Composition Version.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>ehr_id_does_not_exist</code></p>
+</li>
+<li>
+<p><code>composition_does_not_exist</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -2730,7 +2837,7 @@ a_version_uid: <code>UUID[1]</code><br>
 ): <code>COMPOSITION</code><br>
 <strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Get a particular version of a Composition.</p>
+<p>Get a particular VERSION of a Composition by version id.</p>
 </div>
 <div class="hdlist">
 <div class="title">Parameters<br></div>
@@ -2744,6 +2851,17 @@ a_version_uid: <code>UUID[1]</code><br>
 </td>
 </tr>
 </table>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>ehr_does_not_exist</code></p>
+</li>
+<li>
+<p><code>object_version_does_not_exist</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 <tr>
@@ -2760,21 +2878,13 @@ a_versioned_object_uid: <code>UUID[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>ehr_does_not_exist</p>
+<p><code>ehr_id_does_not_exist</code></p>
 </li>
 <li>
-<p>versioned_composition_does_not_exist</p>
+<p><code>versioned_composition_does_not_exist</code></p>
 </li>
 </ul>
 </div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_composition_version</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-a_version_uid: <code>UUID[1]</code><br>
-): <code>Boolean</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
 </tr>
 </tbody>
 </table>
@@ -2817,7 +2927,30 @@ a_contrib_id: <code>UUID[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>ehr_does_not_exist</p>
+<p><code>ehr_id_does_not_exist</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_contribution</strong> (<br>
+an_ehr_id: <code>UUID[1]</code>,<br>
+a_contrib_id: <code>UUID[1]</code><br>
+): <code>CONTRIBUTION</code><br>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
+<strong><em>Pre_has_contribution</em></strong>: <code>has_contribution (a_contrib_id)</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Return the Contribution with id <code><em>a_contrib_id</em></code> in EHR with id <code><em>an_ehr_id</em></code>.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>ehr_id_does_not_exist</code></p>
+</li>
+<li>
+<p><code>contribution_does_not_exist</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -2838,30 +2971,7 @@ an_audit: <code>UPDATE_AUDIT[1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>ehr_does_not_exist</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_contribution</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-a_contrib_id: <code>UUID[1]</code><br>
-): <code>CONTRIBUTION</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
-<strong><em>Pre_has_contribution</em></strong>: <code>has_contribution (a_contrib_id)</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Return the Contribution with id <code><em>a_contrib_id</em></code> in EHR with id <code><em>an_ehr_id</em></code>.</p>
-</div>
-<div class="ulist">
-<div class="title">Errors</div>
-<ul>
-<li>
-<p>ehr_does_not_exist</p>
-</li>
-<li>
-<p>contribution_does_not_exist</p>
+<p><code>ehr_id_does_not_exist</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -2880,7 +2990,7 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <div class="title">Errors</div>
 <ul>
 <li>
-<p>ehr_does_not_exist</p>
+<p><code>ehr_id_does_not_exist</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -3004,7 +3114,7 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_party</strong> (<br>
-a_version: <code>PARTY[1]</code><br>
+a_version: <code>UV_PARTY[1]</code><br>
 ): <code>UUID</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Create a new Party.</p>
@@ -3013,7 +3123,7 @@ a_version: <code>PARTY[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_party_relationship</strong> (<br>
-a_version: <code>PARTY_RELATIONSHIP[1]</code><br>
+a_version: <code>UV_PARTY_RELATIONSHIP[1]</code><br>
 ): <code>UUID</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Create a new Party Relationship.</p>
@@ -3025,7 +3135,15 @@ a_version: <code>PARTY_RELATIONSHIP[1]</code><br>
 a_versioned_party_id<br>
 ): <code>I_PARTY</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Create an I_PARTY interface.</p>
+<p>Create an <code>I_PARTY</code> interface.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>versioned_object_does_not_exist</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 <tr>
@@ -3034,7 +3152,15 @@ a_versioned_party_id<br>
 a_versioned_party_rel_id<br>
 ): <code>I_PARTY_RELATIONSHIP</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Create an I_PARTY_RELATIONSHIP interface.</p>
+<p>Create an <code>I_PARTY_RELATIONSHIP</code> interface.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>versioned_object_does_not_exist</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 </tbody>
@@ -3090,16 +3216,14 @@ a_versioned_party_id: <code>UUID[1]</code><br>
 <strong><em>Pre_has_party</em></strong>: <code>has_party (a_versioned_party_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Get the current Version of a Party.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_party_at_version</strong> (<br>
-a_party_version_id: <code>UUID[1]</code><br>
-): <code>PARTY</code><br>
-<strong><em>Pre_has_party_version</em></strong>: <code>has_party_version (a_party_version_id)</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Get a particular Party Version.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>versioned_object_does_not_exist</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 <tr>
@@ -3110,17 +3234,36 @@ a_time: <code>Iso8601_date_time[1]</code><br>
 ): <code>PARTY</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Get the Version of a Party current at <code><em>a_time</em></code>.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>versioned_object_does_not_exist</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>update_party</strong> (<br>
 a_versioned_party_id: <code>UUID[1]</code>,<br>
-a_version: <code>PARTY[1]</code><br>
+a_version: <code>UV_PARTY[1]</code><br>
 ): <code>UUID</code><br>
 <strong><em>Pre_has_party</em></strong>: <code>has_party (a_versioned_party_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Update a Party with a new Version.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>versioned_object_does_not_exist</code></p>
+</li>
+<li>
+<p><code>object_version_does_not_exist</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 <tr>
@@ -3132,6 +3275,32 @@ a_versioned_party_id: <code>UUID[1]</code><br>
 <strong><em>Pre_has_party</em></strong>: <code>has_party (a_versioned_party_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Delete an existing Party.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>versioned_object_does_not_exist</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_party_at_version</strong> (<br>
+a_party_version_id: <code>UUID[1]</code><br>
+): <code>PARTY</code><br>
+<strong><em>Pre_has_party_version</em></strong>: <code>has_party_version (a_party_version_id)</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Get a particular Party Version.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>object_version_does_not_exist</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 </tbody>
@@ -3177,15 +3346,14 @@ a_versioned_party_rel_id: <code>UUID[1]</code><br>
 ): <code>PARTY_RELATIONSHIP</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Get the current Version of a Party relationship.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_party_relationship_at_version</strong> (<br>
-a_party_rel_version_id: <code>UUID[1]</code><br>
-): <code>PARTY_RELATIONSHIP</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Get a particular Party relationship Version.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>versioned_object_does_not_exist</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 <tr>
@@ -3196,17 +3364,36 @@ a_time: <code>Iso8601_date_time[1]</code><br>
 ): <code>PARTY_RELATIONSHIP</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Get the Version of a Party relationship current at <code><em>a_time</em></code>.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>versioned_object_does_not_exist</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>update_party_relationship</strong> (<br>
 a_versioned_party_rel_id: <code>UUID[1]</code>,<br>
-a_version: <code>PARTY_RELATIONSHIP[1]</code><br>
+a_version: <code>UV_PARTY_RELATIONSHIP[1]</code><br>
 ): <code>UUID</code><br>
 <strong><em>Pre_has_relationship</em></strong>: <code>has_party_relationship (a_versioned_party_rel_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Update a Party relationship with a new Version.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>versioned_object_does_not_exist</code></p>
+</li>
+<li>
+<p><code>object_version_does_not_exist</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 <tr>
@@ -3218,6 +3405,31 @@ a_versioned_party_rel_id: <code>UUID[1]</code><br>
 <strong><em>Post_relationship_deleted</em></strong>: <code>not has_party_relationship (a_versioned_party_rel_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Delete an existing Party relationship.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>versioned_object_does_not_exist</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_party_relationship_at_version</strong> (<br>
+a_party_rel_version_id: <code>UUID[1]</code><br>
+): <code>PARTY_RELATIONSHIP</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Get a particular Party relationship Version.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>object_version_does_not_exist</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 </tbody>
@@ -3281,7 +3493,7 @@ a_versioned_party_rel_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
-<p>Interface object for the EHR_INDEX service.</p>
+<p>Interface object for the <code>EHR_INDEX</code> service.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -3293,7 +3505,7 @@ a_versioned_party_rel_id: <code>UUID[1]</code><br>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add_ehr_subject</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
-a _subject_id: <code>OBJECT_REF[1]</code>,<br>
+a_subject_id: <code>OBJECT_REF[1]</code>,<br>
 a_status: <code>RESOURCE_STATUS[0..1]</code>,<br>
 a_loc_desc: <code>LOCATION_DESC[0..1]</code><br>
 )</p></td>
@@ -3303,34 +3515,84 @@ a_loc_desc: <code>LOCATION_DESC[0..1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>remove_ehr_subject</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-a _subject_id: <code>OBJECT_REF[1]</code><br>
-)</p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Remove the subject identifier association with the EHR with <code><em>an_ehr_id</em></code> (it might remain associated with other EHRs however).</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>update_ehr_subject_status</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
-a _subject_id: <code>OBJECT_REF[1]</code>,<br>
-a_status: <code>RESOURCE_STATUS[0..1]</code><br>
+a_subject_id: <code>OBJECT_REF[1]</code>,<br>
+a_status: <code>RESOURCE_STATUS[1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Update subject resource status for the association of the EHR with <code><em>an_ehr_id</em></code> and subject <code><em>a_subject_id</em></code>.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>subject_id_does_not_exist</code></p>
+</li>
+<li>
+<p><code>ehr_id_does_not_exist</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>update_ehr_subject_loc_desc</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
-a _subject_id: <code>OBJECT_REF[1]</code>,<br>
+a_subject_id: <code>OBJECT_REF[1]</code>,<br>
 a_loc_desc: <code>LOCATION_DESC[0..1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Update location descriptor for the association of the EHR with <code><em>an_ehr_id</em></code> and subject <code><em>a_subject_id</em></code>.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>subject_id_does_not_exist</code></p>
+</li>
+<li>
+<p><code>ehr_id_does_not_exist</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>remove_ehr_subject</strong> (<br>
+an_ehr_id: <code>UUID[1]</code>,<br>
+a_subject_id: <code>OBJECT_REF[1]</code><br>
+)</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Remove the subject identifier association with the EHR with <code><em>an_ehr_id</em></code> (it might remain associated with other EHRs however).</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>subject_id_does_not_exist</code></p>
+</li>
+<li>
+<p><code>ehr_id_does_not_exist</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>remove_subject</strong> (<br>
+a_subject_id: <code>OBJECT_REF[1]</code><br>
+)</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Remove all entries for a subject.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>subject_id_does_not_exist</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 </tbody>
@@ -3362,8 +3624,10 @@ a_loc_desc: <code>LOCATION_DESC[0..1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>status_type</strong>: <code>RESOURCE_STATUS_TYPE</code></p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>instance_type</strong>: <code>RESOURCE_INSTANCE_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Type of resource instance.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
@@ -3390,7 +3654,7 @@ a_loc_desc: <code>LOCATION_DESC[0..1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_resource_status_type_enumeration"><a class="anchor" href="#_resource_status_type_enumeration"></a>7.2.3. RESOURCE_STATUS_TYPE Enumeration</h4>
+<h4 id="_resource_instance_type_enumeration"><a class="anchor" href="#_resource_instance_type_enumeration"></a>7.2.3. RESOURCE_INSTANCE_TYPE Enumeration</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -3400,12 +3664,12 @@ a_loc_desc: <code>LOCATION_DESC[0..1]</code><br>
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Enumeration</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>RESOURCE_STATUS_TYPE</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>RESOURCE_INSTANCE_TYPE</strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
-<p>Enumeration of status</p>
+<p>Enumeration of resource instance types.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -3415,13 +3679,17 @@ a_loc_desc: <code>LOCATION_DESC[0..1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Duplicate</p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Primary</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Primary instance of the resource.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Primary</p></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Duplicate</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>A duplicate instance of the resource.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
@@ -3528,9 +3796,6 @@ ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Execute a query stored in the definition service, using its qualified query name. Return a Result set.</p>
 </div>
-<div class="paragraph">
-<p>Errors</p>
-</div>
 <div class="hdlist">
 <div class="title">Parameters<br></div>
 <table>
@@ -3567,6 +3832,14 @@ ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 </td>
 </tr>
 </table>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>ehr_id_does_not_exist</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 <tr>
@@ -3577,7 +3850,10 @@ row_offset: <code>Integer[0..1]</code>,<br>
 rows_to_fetch: <code>Integer[0..1]</code>,<br>
 ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 ): <code>RESULT_SET</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="hdlist">
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Execute an ad hoc query, supplying the query text.</p>
+</div>
+<div class="hdlist">
 <div class="title">Parameters<br></div>
 <table>
 <tr>
@@ -3613,6 +3889,14 @@ ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 </td>
 </tr>
 </table>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>ehr_id_does_not_exist</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 </tbody>
@@ -3855,10 +4139,161 @@ ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_admin_package"><a class="anchor" href="#_admin_package"></a>9. Admin Package</h2>
+<h2 id="_message_package"><a class="anchor" href="#_message_package"></a>9. Message Package</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_overview_8"><a class="anchor" href="#_overview_8"></a>9.1. Overview</h3>
+<div class="paragraph">
+<p>The <code>platform_interface.message</code> package shown below defines service interface to the <code>MESSAGE</code> component in the logical platform architecture.</p>
+</div>
+<div id="platform_interface_message" class="imageblock text-center" style="text-align: center">
+<div class="content">
+<img src="../UML/diagrams/SM-platform_interface.message.svg" alt="SM platform interface.message">
+</div>
+<div class="title">Figure 9. <code>sm.openehr_platform.platform_interface.message</code> package</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_class_definitions_7"><a class="anchor" href="#_class_definitions_7"></a>9.2. Class Definitions</h3>
+<div class="sect3">
+<h4 id="_i_message_service_interface"><a class="anchor" href="#_i_message_service_interface"></a>9.2.1. I_MESSAGE_SERVICE Interface</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Interface</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>I_MESSAGE_SERVICE</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>Generic message service.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_i_ehr_extract_service_interface"><a class="anchor" href="#_i_ehr_extract_service_interface"></a>9.2.2. I_EHR_EXTRACT_SERVICE Interface</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Interface</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>I_EHR_EXTRACT_SERVICE</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>EHR Extract service; provides interface for importing and exporting <code>EHR_EXTRACTs</code> as defined by the openEHR EHR Extract specification.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>export_ehrs</strong> (<br>
+an_ehr_id: <code>UUID[1]</code><br>
+): <code>List&lt;EXTRACT&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Export whole EHR for one or more subjects.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>export_ehr_extracts</strong> (<br>
+extract_spec: <code>EXTRACT_SPEC[1]</code><br>
+): <code>List&lt;EXTRACT&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Export an extract for one or more EHRs.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>import_ehr</strong> (<br>
+an_ehr_id: <code>UUID[0..1]</code>,<br>
+an_extract: <code>EXTRACT[1]</code><br>
+)</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Import a whole EHR, optionally providing a fixed EHR identifier, which, usually to match the identifier of EHR(s) for the same patient in other EHR services.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>import_ehr_extract</strong> (<br>
+an_ehr_id: <code>UUID[1]</code>,<br>
+an_extract: <code>EXTRACT[1]</code><br>
+)</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Import an EHR Extract into an existing EHR.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_i_tdd_service_interface"><a class="anchor" href="#_i_tdd_service_interface"></a>9.2.3. I_TDD_SERVICE Interface</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Interface</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>I_TDD_SERVICE</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>Template Data Document (TDD) service.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>import_tdd</strong> (<br>
+an_ehr_id: <code>UUID[1]</code>,<br>
+tdd: <code>String[1]</code><br>
+)</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Import a TDD.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>import_tdds</strong></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Bulk import numerous TDDs.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_admin_package"><a class="anchor" href="#_admin_package"></a>10. Admin Package</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_overview_9"><a class="anchor" href="#_overview_9"></a>10.1. Overview</h3>
 <div class="paragraph">
 <p>The <code>platform_interface.admin</code> package shown below defines service interface to the <code>ADMIN</code> component in the logical platform architecture.</p>
 </div>
@@ -3866,13 +4301,13 @@ ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 <div class="content">
 <img src="../UML/diagrams/SM-platform_interface.admin.svg" alt="SM platform interface.admin">
 </div>
-<div class="title">Figure 9. <code>sm.openehr_platform.platform_interface.admin</code> package</div>
+<div class="title">Figure 10. <code>sm.openehr_platform.platform_interface.admin</code> package</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_class_definitions_7"><a class="anchor" href="#_class_definitions_7"></a>9.2. Class Definitions</h3>
+<h3 id="_class_definitions_8"><a class="anchor" href="#_class_definitions_8"></a>10.2. Class Definitions</h3>
 <div class="sect3">
-<h4 id="_i_admin_service_interface"><a class="anchor" href="#_i_admin_service_interface"></a>9.2.1. I_ADMIN_SERVICE Interface</h4>
+<h4 id="_i_admin_service_interface"><a class="anchor" href="#_i_admin_service_interface"></a>10.2.1. I_ADMIN_SERVICE Interface</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -3956,22 +4391,38 @@ an_ehr_id: <code>UUID[1]</code><br>
 <strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Physical deletion of specified EHR.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>ehr_id_does_not_exist</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>physical_party_delete</strong> (<br>
-a_party: <code>PARTY_REF[1]</code><br>
+a_party_id: <code>UUID[1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Physical delete of specified Party, along with related Party relationships.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>party_id_does_not_exist</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_i_admin_archive_interface"><a class="anchor" href="#_i_admin_archive_interface"></a>9.2.2. I_ADMIN_ARCHIVE Interface</h4>
+<h4 id="_i_admin_archive_interface"><a class="anchor" href="#_i_admin_archive_interface"></a>10.2.2. I_ADMIN_ARCHIVE Interface</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4001,22 +4452,38 @@ ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Move selected EHRs to archival storage.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>ehr_id_does_not_exist</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>archive_parties</strong> (<br>
-ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
+party_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Move selected Parties and relationships to archival storage.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>party_id_does_not_exist</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_i_admin_dump_load_interface"><a class="anchor" href="#_i_admin_dump_load_interface"></a>9.2.3. I_ADMIN_DUMP_LOAD Interface</h4>
+<h4 id="_i_admin_dump_load_interface"><a class="anchor" href="#_i_admin_dump_load_interface"></a>10.2.3. I_ADMIN_DUMP_LOAD Interface</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4045,10 +4512,31 @@ ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 file_sys_loc: <code>String[1]</code>,<br>
 logical_fmt: <code>EXPORT_FORMAT[0..1]</code>,<br>
 comp_fmt: <code>COMPRESSION_FORMAT[0..1]</code>,<br>
-enc_format[0..1]<br>
+enc_format: <code>ENCODING_FORMAT[0..1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Export all EHRs to a file-system location in a specified format.</p>
+</div>
+<div class="hdlist">
+<div class="title">Parameters<br></div>
+<table>
+<tr>
+<td class="hdlist1">
+<code><em>file_sys_loc</em></code>
+</td>
+<td class="hdlist2">
+<p>File system location to write archive to.</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>file_not_writable</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 <tr>
@@ -4058,13 +4546,21 @@ file_sys_loc: <code>String[1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Populate EHR repository from export archive on file system. Repository need not be empty, but import EHRs with duplicate EHR ids will fail.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>file_not_writable</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_dump_load_fail_report_class"><a class="anchor" href="#_dump_load_fail_report_class"></a>9.2.4. DUMP_LOAD_FAIL_REPORT Class</h4>
+<h4 id="_dump_load_fail_report_class"><a class="anchor" href="#_dump_load_fail_report_class"></a>10.2.4. DUMP_LOAD_FAIL_REPORT Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4079,7 +4575,7 @@ file_sys_loc: <code>String[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
-<p>Dump or Load fail report for a single entity, e.g. EHR, PARTY etc .</p>
+<p>Dump or Load fail report for a single entity, e.g. <code>EHR</code>, <code>PARTY</code> etc .</p>
 </div></div></td>
 </tr>
 <tr>
@@ -4119,7 +4615,7 @@ file_sys_loc: <code>String[1]</code><br>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_export_spec_class"><a class="anchor" href="#_export_spec_class"></a>9.2.5. EXPORT_SPEC Class</h4>
+<h4 id="_export_spec_class"><a class="anchor" href="#_export_spec_class"></a>10.2.5. EXPORT_SPEC Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4179,7 +4675,7 @@ file_sys_loc: <code>String[1]</code><br>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-02-05 16:41:35 GMT
+Last updated 2018-03-17 18:44:45 GMT
 </div>
 </div>
 </body>

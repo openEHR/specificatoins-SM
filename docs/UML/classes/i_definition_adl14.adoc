@@ -82,7 +82,7 @@ h|
 |*has_opt* ( +
 an_id: `UUID[1]` +
 ): `Boolean`
-a|Return True if ADL 1.4 OPT with id an_id exists in the service.
+a|Return True if ADL 1.4 OPT with id `_an_id_` exists in the service.
 
 h|
 |*upload_opt* ( +

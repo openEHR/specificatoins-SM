@@ -13,8 +13,8 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*status_type*: `RESOURCE_STATUS_TYPE`
-a|
+|*instance_type*: `RESOURCE_INSTANCE_TYPE`
+a|Type of resource instance.
 
 h|*0..1*
 |*start_valid_time*: 
