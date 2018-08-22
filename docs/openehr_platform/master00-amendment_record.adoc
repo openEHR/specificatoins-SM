@@ -10,7 +10,7 @@
 |Improve documentation text; +
  Reverse order of Parameter and Errors sections in operations text.
 |T Beale 
-|[[latest_issue_date]]17 Mar 2018
+|[[latest_issue_date]]22 Aug 2018
 
 |0.9.3
 |Improve documentation text; +
