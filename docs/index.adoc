@@ -13,11 +13,16 @@
 :keywords: reference model, openehr
 :description: openEHR Reference Model
 :sectanchors:
-:sm_release: latest
 :jira-roadmap: https://openehr.atlassian.net/projects/SPECSM?selectedItem=com.atlassian.jira.jira-projects-plugin:release-page
 :jira-hist-issues: https://openehr.atlassian.net/issues/?filter=10720
 
-image::/releases/BASE/latest/resources/images/openehr_logo_large.png["openEHR logo",align="center"]
+include::{ref_dir}/docs/boilerplate/global_vars.adoc[]
+
+//
+// ============================================ Asciidoc PREAMBLE =============================================
+//
+
+image::{openehr_logo}["openEHR logo",align="center"]
 
 = Service Model (SM) - {sm_release}
 
