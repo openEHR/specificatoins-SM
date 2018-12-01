@@ -45,6 +45,8 @@ a|Create a new EHR with a system-generated identifier and return the id.
 
 If the `_an_ehr_status_` parameter is provided, it is created as the EHR's `EHR_STATUS`, otherwise a default `EHR_STATUS` is created, in which `_is_modifiable_` and `_is_queryable_` are both True.
 
+A default `_subject_` will be generating containing a `PARTY_SELF` object.
+
 h|
 |*create_ehr_with_id* ( +
 an_ehr_id: `UUID[1]`, +
@@ -63,6 +65,8 @@ If the `_an_ehr_status_` parameter is provided, it is created as the EHR's `EHR_
 
 .Errors
 * `ehr_create_fail_duplicate_id`
+
+A default `_subject_` will be generating containing a `PARTY_SELF` object.
 
 h|
 |*create_ehr_for_subject* ( +

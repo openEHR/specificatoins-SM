@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*_UPDATE_VERSION (abstract)_*
 
 h|*Description*
-2+a|An object representing an update to an existing `VERSION`, that can be provided by a client to the platform. The back-end will construct a full `VERSION` object from this and server-side generated data items.
+2+a|An object representing an update to an existing `VERSION` within a `VERSIONED_OBJECT`, that can be provided by a client to the platform. The back-end will construct a full `VERSION<T>` object from this and server-side generated data items. If this represents the first version, it will also construct a new `VERSIONED_OBJECT` first.
 
 h|*Attributes*
 ^h|*Signature*
@@ -14,7 +14,7 @@ h|*Attributes*
 
 h|*0..1*
 |*preceding_version_uid*: `OBJECT_VERSION_ID`
-a|Stored version of inheritance precursor.
+a|Current version in service for which this version is an update (i.e. the version that is preceding relative to this version update).
 
 h|*1..1*
 |*lifecycle_state*: `Terminology_code`

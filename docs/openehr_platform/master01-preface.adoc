@@ -2,7 +2,7 @@
 
 == Purpose
 
-This document specifies core components of the openEHR platform a formal, abstract form, for use in developing concrete service API definitions such as SOAP, REST, Google protocol buffers and other interface technologies.
+This document specifies core components of the openEHR platform in a formal, abstract form, for use in developing concrete service API definitions such as SOAP, REST, Google protocol buffers and other interface technologies.
 
 The intended audience includes:
 
@@ -21,10 +21,17 @@ Related documents include:
 
 == Status
 
-This specification is in the {spec_status} state. The development version of this document can be found at {openehr_sm_openehr_platform}[{openehr_domain}/releases/SM/latest/openehr_platform.html].
+This specification is in the {spec_status} state. The development version of this document can be found at {openehr_sm_openehr_platform}[{openehr_sm_openehr_platform}].
 
 Known omissions or questions are indicated in the text with a 'to be determined' paragraph, as follows:
 [.tbd]
 *TBD*: (example To Be Determined paragraph)
 
-Users are encouraged to comment on and/or advise on these paragraphs as well as the main content.  Feedback should be provided either on the {openehr_technical_list}[technical mailing list], or on the {openehr_jira_prs_sm}[specifications issue tracker].
+== Feedback
+
+Feedback may be provided on the {openehr_technical_list}[technical mailing list].
+
+Issues may be raised on the {openehr_jira_prs_sm}[specifications Problem Report tracker].
+
+To see changes made due to previously reported issues, see the {openehr_jira_crs_sm}[{component} component Change Request tracker].
+
