@@ -4,11 +4,11 @@
 
 In order to specify concrete service interfaces (i.e. APIs) to openEHR platform product components, a formal, abstract definition of the platform interfaces is useful, so as to be able to state the formal interface call semantics independent of any particular implementation technology. This approach clarifies the distinction between required semantics and the details contingent in any concrete technology, such as SOAP/WSDL, REST, and so on, each of which has its own characteristics and rules. 
 
-It is assumed that native APIs are network-accessible via one or more communications protocols, each with an appropriate _protocol adapter_. Such protocols include the text-based, such as {soap_protocol}[SOAP/WSDL] and {rest_ws}[REST], as well as the many binary protocols, including {google_protobuf}[Google Protocol Buffers], {apache_thrift}[Apache Thrift], {apache_kafka}[Kafka], {zeroc_ice}[ZeroC ICE], and {ampq}[Advanced Message Queueing Protocol (AMPQ)]. The focus of this specification is the nominal 'native API' that is reached by any of these methods, as shown below.
+It is assumed that native APIs are network-accessible via one or more communications protocols, each with an appropriate _protocol adapter_. Such protocols include the text-based, such as {soap_protocol}[SOAP/WSDL^] and {rest_ws}[REST^], as well as the many binary protocols, including {google_protobuf}[Google Protocol Buffers^], {apache_thrift}[Apache Thrift^], {apache_kafka}[Kafka^], {zeroc_ice}[ZeroC ICE^], and {ampq}[Advanced Message Queueing Protocol (AMPQ)^]. The focus of this specification is the nominal 'native API' that is reached by any of these methods, as shown below.
 
 [.text-center]
 .Assumed Architecture
-image::diagrams/assumed_model.svg[id=assumed_model, align="center"]
+image::{diagrams_uri}/assumed_model.svg[id=assumed_model, align="center"]
 
 == openEHR Platform Model
 
@@ -16,7 +16,7 @@ The following figure illustrates the components of the abstract openEHR Platform
 
 [.text-center]
 .sm.openehr_platform.platform_definition Package
-image::{uml_export_dir}/diagrams/SM-platform_definition.svg[id=platform_definition, align="center"]
+image::{uml_diagrams_uri}/SM-platform_definition.svg[id=platform_definition, align="center"]
 
 Each component has one or more associated interfaces, i.e. abstract service definitions which define a _transactional interface_ to the service represented by the component. Each interface consists of a number of _calls_, and each call is defined in an abstract way, i.e. independent of the representations and expressions required by a concrete protocol.
 
@@ -176,4 +176,4 @@ The openEHR Platform Service Model package structure is illustrated below. It co
 
 [.text-center]
 .sm.openehr_platform Package Overview
-image::{uml_export_dir}/diagrams/SM-platform-packages.svg[id=platform_packages, align="center"]
+image::{uml_diagrams_uri}/SM-platform-packages.svg[id=platform_packages, align="center"]

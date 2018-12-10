@@ -10,11 +10,9 @@
 // HTML-only attributes
 //
 :linkcss:
-:keywords: reference model, openehr
-:description: openEHR Reference Model
+:keywords: servce model, openehr
+:description: openEHR Service Model
 :sectanchors:
-:jira-roadmap: https://openehr.atlassian.net/projects/SPECSM?selectedItem=com.atlassian.jira.jira-projects-plugin:release-page
-:jira-hist-issues: https://openehr.atlassian.net/issues/?filter=10720
 
 include::{ref_dir}/docs/boilerplate/global_vars.adoc[]
 
@@ -30,17 +28,16 @@ image::openehr_block_diagram.svg["openEHR components",align="center",width="60%"
 
 // Use the following version for 'latest'
 ifeval::["{sm_release}" == "latest"]
-:jira-issues: https://openehr.atlassian.net/projects/SPECSM/issues/?filter=allopenissues
 [.title-para]
-{jira-roadmap}[Roadmap] | {jira-issues}[Current Issues] | {jira-hist-issues}[Change History]
+{component_prs}[Open Issues^] | {component_roadmap}[Roadmap^] | {component_history}[Previous Releases^] 
 endif::[]
 
 // Use the following version for a release
 ifeval::["{sm_release}" != "latest"]
-:jira-pr-release: https://openehr.atlassian.net/projects/SPECPR/versions/10060
-:jira-cr-release: https://openehr.atlassian.net/projects/SPECSM/versions/10860
+:sm_prs_fixed: {component_prs_fixed}{sm_release}/issues
+:sm_crs_done: {component_crs_done}{sm_release}/changes
 [.title-para]
-{jira-pr-release}[Problems Fixed] | {jira-cr-release}[Changes Implemented] | {jira-roadmap}[Roadmap] | {jira-hist-issues}[Change History]
+{sm_prs_fixed}[Issues Fixed^] | {sm_crs_done}[Changes Implemented^] | {component_roadmap}[Roadmap^] | {component_history}[Change History^]
 endif::[]
 
 == Specifications
@@ -61,7 +58,7 @@ endif::[]
 |===
 |Resource |Description
 
-|https://openehr.github.io/specifications-ITS[REST API]
+|link:/releases/ITS/latest/docs/indexITS[REST API]
 |ITS component - Apiary format REST API specification based on the platform SM.
 
 |link:/releases/SM/{sm_release}/UML/openEHR_UML-SM.mdzip[source files / XMI]

@@ -32,7 +32,7 @@
 |18 Oct 2017
 
 |0.9.0
-|{openehr_jira}/SPECSM-1[SPECSM-1]: Initial writing.
+|{spec_tickets}/SPECSM-1[SPECSM-1^]: Initial writing.
 |openEHR SEC 
 |15 Sep 2017
 
