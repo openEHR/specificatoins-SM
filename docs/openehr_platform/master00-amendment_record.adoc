@@ -4,7 +4,7 @@
 |===
 |Issue|Details|Raiser|Completed
 
-4+^h|*R E L E A S E{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}1.0.0*
+4+^h|*SM Release 1.0.0*
 
 |[[latest_issue]]0.9.4
 |Improve documentation text; +
