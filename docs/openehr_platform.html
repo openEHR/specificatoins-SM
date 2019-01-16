@@ -218,7 +218,7 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-center valign-top" colspan="2">&#169; 2017 - 2018 The openEHR Foundation</th>
+<th class="tableblock halign-center valign-top" colspan="2">&#169; 2017 - 2019 The openEHR Foundation</th>
 </tr>
 </thead>
 <tbody>
@@ -261,11 +261,17 @@
 <th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>SM Release 1.0.0</strong></p></th>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>0.9.4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>0.9.5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add <code>I_DEFINITIONS_CHECKER</code> and <code>DEFINITIONS_CHECKER_STATUS</code> to support definitions validity pre-conditions.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>16 Jan 2019</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.9.4</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Improve documentation text;<br>
  Reverse order of Parameter and Errors sections in operations text.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>22 Aug 2018</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">22 Aug 2018</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0.9.3</p></td>
@@ -360,7 +366,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>The <a href="https://github.com/openEHR/specifications-ITS/docs" target="_blank" rel="noopener">openEHR REST APIs</a>.</p>
+<p>The <a href="https://github.com/openEHR/specifications-ITS" target="_blank" rel="noopener">openEHR REST APIs</a>.</p>
 </li>
 </ul>
 </div>
@@ -2547,6 +2553,7 @@ ehr_id: <code>UUID[1]</code>,<br>
 a_dir_struct: <code>UV_FOLDER[1]</code><br>
 )<br>
 <strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
+<strong><em>Pre_definitions_valid</em></strong>: <code>definitions_valid (a_dir_struct)</code><br>
 <strong><em>Pre_no_directory</em></strong>: <code>not has_directory (ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Create a directory in the EHR, based on the provided structure.</p>
@@ -2556,6 +2563,9 @@ a_dir_struct: <code>UV_FOLDER[1]</code><br>
 <ul>
 <li>
 <p><code>ehr_id_does_not_exist</code></p>
+</li>
+<li>
+<p><code>definition_unknown</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -2617,6 +2627,7 @@ ehr_id: <code>UUID[1]</code>,<br>
 a_dir_struct: <code>UV_FOLDER[1]</code><br>
 )<br>
 <strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
+<strong><em>Pre_definitions_valid</em></strong>: <code>definitions_valid (a_dir_struct)</code><br>
 <strong><em>Pre_has_directory</em></strong>: <code>has_directory(ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Create or update a directory from a complete structure. Preceding version must be supplied and correct if EHR directory already exists.</p>
@@ -2639,6 +2650,9 @@ a_dir_struct: <code>UV_FOLDER[1]</code><br>
 <ul>
 <li>
 <p><code>ehr_id_does_not_exist</code></p>
+</li>
+<li>
+<p><code>definition_unknown</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -2828,7 +2842,8 @@ an_ehr_id: <code>UUID[1]</code>,<br>
 a_comp: <code>UV_COMPOSITION[1]</code><br>
 ): <code>UUID</code><br>
 <strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
-<strong><em>Post_has_composition</em></strong>: <code>has_composition (an_ehr_id, Result)</code></p></td>
+<strong><em>Post_has_composition</em></strong>: <code>has_composition (an_ehr_id, Result)</code><br>
+<strong><em>Pre_composition_definitions_valid</em></strong>: <code>definitions_valid (a_comp)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Create the first version of a new Composition.</p>
 </div>
@@ -2841,6 +2856,9 @@ a_comp: <code>UV_COMPOSITION[1]</code><br>
 <li>
 <p><code>composition_already_exists</code></p>
 </li>
+<li>
+<p><code>definition_unknown</code></p>
+</li>
 </ul>
 </div></div></td>
 </tr>
@@ -2850,7 +2868,8 @@ a_comp: <code>UV_COMPOSITION[1]</code><br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_comp: <code>UV_COMPOSITION[1]</code><br>
 ): <code>UUID</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
+<strong><em>Pre_composition_definitions_valid</em></strong>: <code>definitions_valid (a_comp)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Update an existing Composition with a new version.</p>
 </div>
@@ -2862,6 +2881,9 @@ a_comp: <code>UV_COMPOSITION[1]</code><br>
 </li>
 <li>
 <p><code>composition_does_not_exist</code></p>
+</li>
+<li>
+<p><code>definition_unknown</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -3174,9 +3196,18 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_party</strong> (<br>
 a_version: <code>UV_PARTY[1]</code><br>
-): <code>UUID</code></p></td>
+): <code>UUID</code><br>
+<strong><em>Pre_party_definitions_valid</em></strong>: <code>definitions_valid (a_version)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Create a new Party.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>definition_unknown</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 <tr>
@@ -3186,6 +3217,14 @@ a_version: <code>UV_PARTY_RELATIONSHIP[1]</code><br>
 ): <code>UUID</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Create a new Party Relationship.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>definition_unknown</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 <tr>
@@ -3309,6 +3348,7 @@ a_time: <code>Iso8601_date_time[1]</code><br>
 a_versioned_party_id: <code>UUID[1]</code>,<br>
 a_version: <code>UV_PARTY[1]</code><br>
 ): <code>UUID</code><br>
+<strong><em>Pre_party_definitions_valid</em></strong>: <code>definitions_valid (a_version)</code><br>
 <strong><em>Pre_has_party</em></strong>: <code>has_party (a_versioned_party_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Update a Party with a new Version.</p>
@@ -3321,6 +3361,9 @@ a_version: <code>UV_PARTY[1]</code><br>
 </li>
 <li>
 <p><code>object_version_does_not_exist</code></p>
+</li>
+<li>
+<p><code>definition_unknown</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -3439,6 +3482,7 @@ a_time: <code>Iso8601_date_time[1]</code><br>
 a_versioned_party_rel_id: <code>UUID[1]</code>,<br>
 a_version: <code>UV_PARTY_RELATIONSHIP[1]</code><br>
 ): <code>UUID</code><br>
+<strong><em>Pre_party_definitions_valid</em></strong>: <code>definitions_valid (a_version)</code><br>
 <strong><em>Pre_has_relationship</em></strong>: <code>has_party_relationship (a_versioned_party_rel_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Update a Party relationship with a new Version.</p>
@@ -3451,6 +3495,9 @@ a_version: <code>UV_PARTY_RELATIONSHIP[1]</code><br>
 </li>
 <li>
 <p><code>object_version_does_not_exist</code></p>
+</li>
+<li>
+<p><code>definition_unknown</code></p>
 </li>
 </ul>
 </div></div></td>

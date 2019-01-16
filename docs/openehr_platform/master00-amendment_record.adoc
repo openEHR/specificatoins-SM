@@ -6,11 +6,16 @@
 
 4+^h|*SM Release 1.0.0*
 
-|[[latest_issue]]0.9.4
+|[[latest_issue]]0.9.5
+|Add `I_DEFINITIONS_CHECKER` and `DEFINITIONS_CHECKER_STATUS` to support definitions validity pre-conditions.
+|T Beale 
+|[[latest_issue_date]]16 Jan 2019
+
+|0.9.4
 |Improve documentation text; +
  Reverse order of Parameter and Errors sections in operations text.
 |T Beale 
-|[[latest_issue_date]]22 Aug 2018
+|22 Aug 2018
 
 |0.9.3
 |Improve documentation text; +

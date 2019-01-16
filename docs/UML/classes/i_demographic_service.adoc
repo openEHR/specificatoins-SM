@@ -15,14 +15,27 @@ h|*Functions*
 h|
 |*create_party* ( +
 a_version: `UV_PARTY[1]` +
-): `UUID`
+): `UUID` +
+*_Pre_party_definitions_valid_*: `definitions_valid (a_version)`
 a|Create a new Party.
+
+
+
+
+.Errors
+* `definition_unknown`
 
 h|
 |*create_party_relationship* ( +
 a_version: `UV_PARTY_RELATIONSHIP[1]` +
 ): `UUID`
 a|Create a new Party Relationship.
+
+
+
+
+.Errors
+* `definition_unknown`
 
 h|
 |*i_party* ( +
