@@ -19,6 +19,12 @@ an_id: `ARCHETYPE_ID[1]` +
 a|Return True if an ADL 1.4 archetype with id an_id exists in the service.
 
 h|
+|*valid_archetype* ( +
+an_arch: `ARCHETYPE[1]` +
+): `Boolean`
+a|Test validity of archetype `_an_arch_`.
+
+h|
 |*upload_archetype* ( +
 an_arch: `ARCHETYPE[1]` +
 ) +
@@ -44,17 +50,17 @@ a|Get the ADL 1.4 archetype with id an_id.
 * `artefact_does_not_exist`
 
 h|
-|*list_all_archetypes* ( +
-row_offset: `Integer[0..1]`, +
-rows_to_fetch: `Integer[0..1]` +
+|*list_archetypes* ( +
+item_offset: `Integer[0..1]`, +
+items_to_fetch: `Integer[0..1]` +
 ): `List<ARCHETYPE_ID>`
 a|List all ADL 1.4 archetypes known in the service.
 
 h|
 |*list_matching_archetypes* ( +
 id_pattern: `String[1]`, +
-row_offset: `Integer[0..1]`, +
-rows_to_fetch: `Integer[0..1]` +
+item_offset: `Integer[0..1]`, +
+items_to_fetch: `Integer[0..1]` +
 ): `List<ARCHETYPE_ID>`
 a|List all archetypes whose identifiers match a regex pattern.
 
@@ -80,14 +86,21 @@ a|Delete a previously uploaded archetype.
 
 h|
 |*has_opt* ( +
-an_id: `UUID[1]` +
+an_opt_id: `UUID[1]` +
 ): `Boolean`
-a|Return True if ADL 1.4 OPT with id `_an_id_` exists in the service.
+a|Return True if ADL 1.4 OPT with id `_an_opt_id_` exists in the service.
+
+h|
+|*valid_opt* ( +
+an_opt: `ARCHETYPE[1]` +
+): `Boolean`
+a|Test validity of OPT `_an_opt_`.
 
 h|
 |*upload_opt* ( +
-arch: `ARCHETYPE[1]` +
-)
+an_opt: `ARCHETYPE[1]` +
+) +
+*_Pre_valid_*: `valid_opt(an_opt)`
 a|Upload an ADL 1.4 Operational Template (OPT).
 
 .Errors:
@@ -95,9 +108,9 @@ a|Upload an ADL 1.4 Operational Template (OPT).
 
 h|
 |*get_opt* ( +
-an_id: `UUID[1]` +
+an_opt_id: `UUID[1]` +
 ): `ARCHETYPE`
-a|Get the ADL 1.4 OPT with id an_id.
+a|Get the ADL 1.4 OPT with id `_an_opt_id_`.
 
 
 
@@ -106,17 +119,17 @@ a|Get the ADL 1.4 OPT with id an_id.
 * `artefact_does_not_exist`
 
 h|
-|*list_all_opts* ( +
-row_offset: `Integer[0..1]`, +
-rows_to_fetch: `Integer[0..1]` +
+|*list_opts* ( +
+item_offset: `Integer[0..1]`, +
+items_to_fetch: `Integer[0..1]` +
 ): `List<UUID>`
 a|List all AD 1.4 OPTs known in the service.
 
 h|
 |*list_matching_opts* ( +
 id_pattern: `String[1]`, +
-row_offset: `Integer[0..1]`, +
-rows_to_fetch: `Integer[0..1]` +
+item_offset: `Integer[0..1]`, +
+items_to_fetch: `Integer[0..1]` +
 ): `List<ARCHETYPE_ID>`
 a|List all OPTs whose identifiers match a regex pattern.
 
@@ -139,4 +152,12 @@ a|Delete a previously uploaded ADL 1.4. OPT.
 
 .Errors
 * `invalid_template`
+
+h|
+|*archetypes_count* (): `Integer`
+a|Return total archetypes count.
+
+h|
+|*opts_count* (): `Integer`
+a|Return total OPTs count.
 |===

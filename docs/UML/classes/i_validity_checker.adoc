@@ -1,9 +1,9 @@
-=== I_DEFINITIONS_CHECKER Interface
+=== I_VALIDITY_CHECKER Interface
 
 [cols="^1,3,5"]
 |===
 h|*Interface*
-2+^h|*I_DEFINITIONS_CHECKER*
+2+^h|*I_VALIDITY_CHECKER*
 
 h|*Description*
 2+a|Utility functions for checking validity of use of definitions within data.
@@ -17,4 +17,10 @@ h|
 a_content: `LOCATABLE[1]` +
 ): `Boolean`
 a|Return `True` if the definition identifiers (i.e. archetype and template identifiers) are known in the local `definitions` service.
+
+h|
+|*content_valid* ( +
+a_content: `LOCATABLE[1]` +
+): `Boolean`
+a|Return `True` if the content structure is a valid instance of the relevant RM classes.
 |===

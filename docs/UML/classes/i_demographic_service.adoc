@@ -16,26 +16,32 @@ h|
 |*create_party* ( +
 a_version: `UV_PARTY[1]` +
 ): `UUID` +
-*_Pre_party_definitions_valid_*: `definitions_valid (a_version)`
-a|Create a new Party.
+*_Pre_party_definitions_valid_*: `definitions_valid (a_version)` +
+*_Pre_content_valid_*: `valid_content (a_version)`
+a|Create the first version of a new `PARTY` object. Causes server-side creation of a new `VERSIONED_OBJECT`, `ORIGINAL_VERSION` and new `CONTRIBUTION`.
+
 
 
 
 
 .Errors
 * `definition_unknown`
+* `content_invalid`
 
 h|
 |*create_party_relationship* ( +
 a_version: `UV_PARTY_RELATIONSHIP[1]` +
-): `UUID`
-a|Create a new Party Relationship.
+): `UUID` +
+*_Pre_content_valid_*: `valid_content (a_version)`
+a|Create the first version of a new `PARTY_RELATIONSHIP`. Causes server-side creation of a new `VERSIONED_OBJECT`, `ORIGINAL_VERSION` and new `CONTRIBUTION`.
+
 
 
 
 
 .Errors
 * `definition_unknown`
+* `content_invalid`
 
 h|
 |*i_party* ( +

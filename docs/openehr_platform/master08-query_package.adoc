@@ -12,7 +12,7 @@ The model of querying here is based on the notion of being able to execute eithe
 
 For both kinds of queries, parameters must be provided for open parameters in the stored query.
 
-If either type of query executes successfully, the response is a `RESULT_SET`, which consists of meta-data, a column definition structure and a set of rows (instances of `RESULT_SET_ROW`). In order to handle large result sets efficiently and gracefully within applications, the parameters `_row_offset_` and `_rows_to_fetch_` can be provided to control the result size.
+If either type of query executes successfully, the response is a `RESULT_SET`, which consists of meta-data, a column definition structure and a set of rows (instances of `RESULT_SET_ROW`). In order to handle large result sets efficiently and gracefully within applications, the parameters `_item_offset_` and `_items_to_fetch_` can be provided to control the result size.
 
 A stored query is identified by the identifier associated with it when registered in the `DEFINITION` service, which is ofthe form:
 

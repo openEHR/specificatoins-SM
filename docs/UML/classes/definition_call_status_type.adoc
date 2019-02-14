@@ -21,6 +21,10 @@ h|
 a|An invalid template was provided as a parameter.
 
 h|
+|invalid_artefact
+a|
+
+h|
 |invalid_query
 a|An invalid query was provided as a parameter.
 

@@ -41,9 +41,15 @@ include::master00-amendment_record.adoc[leveloffset=+1]
 
 == Acknowledgements
 
+=== Primary Author
+
+* Thomas Beale, Ars Semantica; openEHR Foundation Management Board.
+
 === Contributors
 
-This specification has benefited from formal and informal input from the openEHR community.
+This specification has benefited from formal and informal input from the openEHR and wider health informatics community. The openEHR Foundation would like to recognise the following people for their contributions.
+
+* Pablo Pazos, Principal, Cabloabs, Uruguay
 
 === Trademarks
 

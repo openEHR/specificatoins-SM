@@ -144,12 +144,12 @@ Apart from error-handling, the interfaces are stateless in the sense that any si
 
 The above illustrates just one pattern of calling in a server. Another common style is to include results as 'out' parameters, and to use the return value to return call status. Either style can be used, and can be trivially mapped from one to the other. No such code is intended to implemented directly; the above is merely a way of explaining the semantics within context of the interface calls documented in this specification.
 
-=== List-handling
+=== List Handling
 
-Calls that result in a container result potentially containing unlimited numbers of elements can be managed in a typical 'DB cursor' fashion, i.e. by setting the following parameters:
+Calls that produce a container result potentially containing unlimited numbers of elements can be managed in a typical 'DB cursor' fashion, i.e. by setting the following parameters:
 
-`row_offset`:: Optional parameter specifying offset in query response rows to return, used for large result sets. A zero or negative value means offset of zero.
-`rows_to_fetch`:: Optional parameter specifying number of query response rows to fetch, used for large result sets. A zero or negative value means 'all'.
+`item_offset`:: Optional parameter specifying offset in query result items to at which to start returning items, starting at zero. An offset of 1 means that the first item to return is the 2nd item.  Zero signifies that items starting from the first item should be returned.
+`items_to_fetch`:: Optional parameter specifying number of result items to fetch, starting from the item indicated by `item_offset`. A zero means 'all'.
 
 === Global Naming Conventions
 

@@ -50,7 +50,7 @@ an_audit: `UPDATE_AUDIT[1]` +
 ): `UUID` +
 *_Pre_has_ehr_*: `has_ehr (an_ehr_id)` +
 *_Post_has_contribution_*: `has_contribution (a_contrib_id)`
-a|Commit a Contribution containing any number of `VERSION_UPDATE` objects.
+a|Commit a `CONTRIBUTION` containing any number of `VERSION_UPDATE` objects.
 
 
 
@@ -59,16 +59,36 @@ a|Commit a Contribution containing any number of `VERSION_UPDATE` objects.
 * `ehr_id_does_not_exist`
 
 h|
-|*list_all_contributions* ( +
+|*list_contributions* ( +
 an_ehr_id: `UUID[1]`, +
-row_offset: `Integer[0..1]`, +
-rows_to_fetch: `Integer[0..1]` +
+time_range: `Interval<Iso8601_date_time>[0..1]`, +
+item_offset: `Integer[0..1]`, +
+items_to_fetch: `Integer[0..1]` +
 ): `List<UUID>`
-a|List all available Contributions for this EHR.
+a|Obtain a list of identifiers of Contributions in EHR.
 
 
-
+.Parameters +
+[horizontal]
+`_time_range_`:: Optional time range to limit Contributions to.
 
 .Errors
-* `ehr_id_does_not_exist`
+* `ehr_does_not_exist`
+
+h|
+|*contribution_count* ( +
+ehr_id: `UUID[1]`, +
+time_range: `Interval<Iso8601_date_time>[0..1]` +
+): `Integer`
+a|Obtain a count of Contributions in EHR.
+
+
+.Parameters +
+[horizontal]
+`_ehr_id_`:: EHR identifier (Guid).
+
+`_time_range_`:: Optional time range to limit Contributions count to.
+
+.Errors
+* `ehr_does_not_exist`
 |===

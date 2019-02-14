@@ -23,7 +23,7 @@ a|Return True if the query identified by `_a_query_name_` is registered.
 `_a_query_name_`:: Qualified name of query.
 
 h|
-|*is_valid_query* ( +
+|*valid_query* ( +
 a_query_text: `String[1]`, +
 a_formalism: `String[1]` +
 ): `Boolean`
@@ -51,9 +51,9 @@ a|Register a query set.
 TODO: determine details.
 
 h|
-|*list_all_queries* ( +
-row_offset: `Integer[0..1]`, +
-rows_to_fetch: `Integer[0..1]` +
+|*list_queries* ( +
+item_offset: `Integer[0..1]`, +
+items_to_fetch: `Integer[0..1]` +
 ): `List<QUERY_DESCRIPTOR>`
 a|List all registered queries.
 
@@ -61,8 +61,8 @@ h|
 |*list_matching_queries* ( +
 id_pattern: `String[1]`, +
 artefact_id_pattern: `String[1]`, +
-row_offset: `Integer[0..1]`, +
-rows_to_fetch: `Integer[0..1]` +
+item_offset: `Integer[0..1]`, +
+items_to_fetch: `Integer[0..1]` +
 ): `List<QUERY_DESCRIPTOR>`
 a|List all registered queries matching an identifier pattern (regex) and an artefact identifier pattern (regex) for artefacts referenced in the query. Either pattern may be the regex for 'match any'.
 
@@ -91,4 +91,8 @@ a|Delete query with name `_a_query_name_`.
 
 .Errors
 * `invalid_query`
+
+h|
+|*queries_count* (): `Integer`
+a|Return total count of queries.
 |===

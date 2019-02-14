@@ -7,9 +7,20 @@
 4+^h|*SM Release 1.0.0*
 
 |[[latest_issue]]0.9.5
+|Add missing enumeration `_invalid_artefact_` to `DEFINITION_CALL_STATUS_TYPE` ({spec_tickets}/SPECPR-293[SPECPR-293^]); +; +
+ Add `_xxx_count()_` calls to `I_DEFINITION_XX` interfaces ({spec_tickets}/SPECPR-288[SPECPR-288^]); +; +
+ Rename `_row_offset_` and `_rows_to_fetch_` to `_item_offset_` and `_items_to_fetch_` ({spec_tickets}/SPECPR-292[SPECPR-292^]); +
+ Change names of `_list_all_xxx()_` functions in `definitions` interfaces to `_list_xxx()_` ({spec_tickets}/SPECPR-292[SPECPR-292^]); +
+ Added `_valid_xxx()_` calls and preconditions to `_upload_xx()_` calls in  `I_DEFINITION_XX` interfaces ({spec_tickets}/SPECPR-291[SPECPR-291^]); +
+ Remove duplicate operation `I_EHR._list_contributions()_` ({spec_tickets}/SPECPR-304[SPECPR-304^]); +
+ Improve documentation of implicit server-side Contribution and Version creation ({spec_tickets}/SPECPR-305[SPECPR-305^]).
+|P Pazos 
+|[[latest_issue_date]]14 Feb 2019
+
+|
 |Add `I_DEFINITIONS_CHECKER` and `DEFINITIONS_CHECKER_STATUS` to support definitions validity pre-conditions.
 |T Beale 
-|[[latest_issue_date]]16 Jan 2019
+|16 Jan 2019
 
 |0.9.4
 |Improve documentation text; +

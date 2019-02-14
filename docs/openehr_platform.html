@@ -21,6 +21,7 @@
 <li><a href="#_amendment_record">Amendment Record</a></li>
 <li><a href="#_acknowledgements">Acknowledgements</a>
 <ul class="sectlevel2">
+<li><a href="#_primary_author">Primary Author</a></li>
 <li><a href="#_contributors">Contributors</a></li>
 <li><a href="#_trademarks">Trademarks</a></li>
 </ul>
@@ -43,7 +44,7 @@
 <li><a href="#_global_conventions">2.5. Global Conventions</a>
 <ul class="sectlevel3">
 <li><a href="#_functional_style">2.5.1. Functional Style</a></li>
-<li><a href="#_list_handling">2.5.2. List-handling</a></li>
+<li><a href="#_list_handling">2.5.2. List Handling</a></li>
 <li><a href="#_global_naming_conventions">2.5.3. Global Naming Conventions</a></li>
 </ul>
 </li>
@@ -62,6 +63,8 @@
 <li><a href="#_call_status_type_enumeration">3.4.3. CALL_STATUS_TYPE Enumeration</a></li>
 <li><a href="#_update_version_class">3.4.4. UPDATE_VERSION Class</a></li>
 <li><a href="#_update_audit_class">3.4.5. UPDATE_AUDIT Class</a></li>
+<li><a href="#_i_validity_checker_interface">3.4.6. I_VALIDITY_CHECKER Interface</a></li>
+<li><a href="#_validity_checker_status_enumeration">3.4.7. VALIDITY_CHECKER_STATUS Enumeration</a></li>
 </ul>
 </li>
 </ul>
@@ -262,9 +265,21 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>0.9.5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add missing enumeration <code><em>invalid_artefact</em></code> to <code>DEFINITION_CALL_STATUS_TYPE</code> (<a href="https://specifications.openehr.org/tickets/SPECPR-293" target="_blank" rel="noopener">SPECPR-293</a>); +;<br>
+ Add <code><em>xxx_count()</em></code> calls to <code>I_DEFINITION_XX</code> interfaces (<a href="https://specifications.openehr.org/tickets/SPECPR-288" target="_blank" rel="noopener">SPECPR-288</a>); +;<br>
+ Rename <code><em>row_offset</em></code> and <code><em>rows_to_fetch</em></code> to <code><em>item_offset</em></code> and <code><em>items_to_fetch</em></code> (<a href="https://specifications.openehr.org/tickets/SPECPR-292" target="_blank" rel="noopener">SPECPR-292</a>);<br>
+ Change names of <code><em>list_all_xxx()</em></code> functions in <code>definitions</code> interfaces to <code><em>list_xxx()</em></code> (<a href="https://specifications.openehr.org/tickets/SPECPR-292" target="_blank" rel="noopener">SPECPR-292</a>);<br>
+ Added <code><em>valid_xxx()</em></code> calls and preconditions to <code><em>upload_xx()</em></code> calls in  <code>I_DEFINITION_XX</code> interfaces (<a href="https://specifications.openehr.org/tickets/SPECPR-291" target="_blank" rel="noopener">SPECPR-291</a>);<br>
+ Remove duplicate operation <code>I_EHR.<em>list_contributions()</em></code> (<a href="https://specifications.openehr.org/tickets/SPECPR-304" target="_blank" rel="noopener">SPECPR-304</a>);<br>
+ Improve documentation of implicit server-side Contribution and Version creation (<a href="https://specifications.openehr.org/tickets/SPECPR-305" target="_blank" rel="noopener">SPECPR-305</a>).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">P Pazos</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>14 Feb 2019</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Add <code>I_DEFINITIONS_CHECKER</code> and <code>DEFINITIONS_CHECKER_STATUS</code> to support definitions validity pre-conditions.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>16 Jan 2019</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16 Jan 2019</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0.9.4</p></td>
@@ -309,9 +324,26 @@
 <h2 id="_acknowledgements">Acknowledgements</h2>
 <div class="sectionbody">
 <div class="sect2">
+<h3 id="_primary_author">Primary Author</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Thomas Beale, Ars Semantica; openEHR Foundation Management Board.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_contributors">Contributors</h3>
 <div class="paragraph">
-<p>This specification has benefited from formal and informal input from the openEHR community.</p>
+<p>This specification has benefited from formal and informal input from the openEHR and wider health informatics community. The openEHR Foundation would like to recognise the following people for their contributions.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Pablo Pazos, Principal, Cabloabs, Uruguay</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -653,19 +685,19 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 </div>
 </div>
 <div class="sect3">
-<h4 id="_list_handling"><a class="anchor" href="#_list_handling"></a>2.5.2. List-handling</h4>
+<h4 id="_list_handling"><a class="anchor" href="#_list_handling"></a>2.5.2. List Handling</h4>
 <div class="paragraph">
-<p>Calls that result in a container result potentially containing unlimited numbers of elements can be managed in a typical 'DB cursor' fashion, i.e. by setting the following parameters:</p>
+<p>Calls that produce a container result potentially containing unlimited numbers of elements can be managed in a typical 'DB cursor' fashion, i.e. by setting the following parameters:</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1"><code>row_offset</code></dt>
+<dt class="hdlist1"><code>item_offset</code></dt>
 <dd>
-<p>Optional parameter specifying offset in query response rows to return, used for large result sets. A zero or negative value means offset of zero.</p>
+<p>Optional parameter specifying offset in query result items to at which to start returning items, starting at zero. An offset of 1 means that the first item to return is the 2nd item.  Zero signifies that items starting from the first item should be returned.</p>
 </dd>
-<dt class="hdlist1"><code>rows_to_fetch</code></dt>
+<dt class="hdlist1"><code>items_to_fetch</code></dt>
 <dd>
-<p>Optional parameter specifying number of query response rows to fetch, used for large result sets. A zero or negative value means 'all'.</p>
+<p>Optional parameter specifying number of result items to fetch, starting from the item indicated by <code>item_offset</code>. A zero means 'all'.</p>
 </dd>
 </dl>
 </div>
@@ -769,7 +801,10 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 <div class="sect2">
 <h3 id="_version_update_semantics"><a class="anchor" href="#_version_update_semantics"></a>3.3. Version Update Semantics</h3>
 <div class="paragraph">
-<p>The <code>UPDATE_VERSION&lt;T&gt;</code> structure is provided in order to enable the appropriate parts of a new version of any <code>VERSIONED_OBJECT&lt;T&gt;</code> structure to be supplied by the client, leaving out parts that are generated by the service. Thus, a partial version of <code>AUDIT_DETAILS</code> called <code>UPDATE_AUDIT</code> is used, since the <code><em>time_committed</em></code> and <code><em>system_id</em></code> attributes need to be generated on the server. <code>ATTESTATION</code> instances can be supplied in their full form.</p>
+<p>Some of the interfaces defined in this specification cause creation of update of a versioned 'top-level' openEHR object, i.e. a <code>COMPOSITION</code>, <code>PARTY</code> or similar. Such calls implicitly require the creation of a new <code>CONTRIBUTION</code> on the server side, as well as one or more new <code>ORIGINAL_VERSION</code> objects, and in creation cases, new <code>VERSIONED_OBJECTS</code>.</p>
+</div>
+<div class="paragraph">
+<p>To perform this work on the server, the <code>UPDATE_VERSION&lt;T&gt;</code> structure is provided in order to enable the appropriate meta-data to be supplied by the caller, leaving out parts that are generated by the service. Thus, a partial version of <code>AUDIT_DETAILS</code> called <code>UPDATE_AUDIT</code> is used, since the <code><em>time_committed</em></code> and <code><em>system_id</em></code> attributes need to be generated on the server. <code>ATTESTATION</code> instances can be supplied in their full form.</p>
 </div>
 <div class="paragraph">
 <p>The <code><em>preceding_version_uid</em></code> attribute must be specified, except in the case where the version update is a first version. The <code><em>lifecycle_state</em></code> must be supplied in all cases, which is a value such as <code>532|complete|</code>, <code>553|incomplete|</code>, <code>523|deleted|</code>, etc from the <a href="https://github.com/openEHR/terminology" target="_blank" rel="noopener">openEHR terminology</a>.</p>
@@ -1097,6 +1132,92 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 </tbody>
 </table>
 </div>
+<div class="sect3">
+<h4 id="_i_validity_checker_interface"><a class="anchor" href="#_i_validity_checker_interface"></a>3.4.6. I_VALIDITY_CHECKER Interface</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Interface</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>I_VALIDITY_CHECKER</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>Utility functions for checking validity of use of definitions within data.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definitions_valid</strong> (<br>
+a_content: <code>LOCATABLE[1]</code><br>
+): <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Return <code>True</code> if the definition identifiers (i.e. archetype and template identifiers) are known in the local <code>definitions</code> service.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>content_valid</strong> (<br>
+a_content: <code>LOCATABLE[1]</code><br>
+): <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Return <code>True</code> if the content structure is a valid instance of the relevant RM classes.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_validity_checker_status_enumeration"><a class="anchor" href="#_validity_checker_status_enumeration"></a>3.4.7. VALIDITY_CHECKER_STATUS Enumeration</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Enumeration</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>VALIDITY_CHECKER_STATUS</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div><div class="paragraph">
+<p>Enumeration representing <code>I_DEFINITIONS_CHECKER</code> statuses.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">definition_unknown</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>The content object contains definition identifiers not known in the local <code>definitions</code> service.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">content_invalid</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>The content object is not a valid instance of its reference model classes.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -1202,10 +1323,20 @@ an_id: <code>ARCHETYPE_HRID[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>valid_artefact</strong> (<br>
+an_artefact: <code>AUTHORED_ARCHETYPE[1]</code><br>
+): <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Test validity of artefact.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>upload_artefact</strong> (<br>
-an_arch: <code>AUTHORED_ARCHETYPE[1]</code><br>
+an_artefact: <code>AUTHORED_ARCHETYPE[1]</code><br>
 )<br>
-<strong><em>Post_has_artefact</em></strong>: <code>has_artefact (an_arch.identifier)</code></p></td>
+<strong><em>Post_has_artefact</em></strong>: <code>has_artefact (an_arch.identifier)</code><br>
+<strong><em>Pre_valid</em></strong>: <code>valid_artefact (an_arch)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Upload an ADL2 artefact, i.e. archetype, template or operational_template. If an artefact with the same physical identifier and namespace exists, replace it.</p>
 </div>
@@ -1241,9 +1372,9 @@ an_id: <code>ARCHETYPE_HRID[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_all_artefacts</strong> (<br>
-row_offset: <code>Integer[0..1]</code>,<br>
-rows_to_fetch: <code>Integer[0..1]</code><br>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_artefacts</strong> (<br>
+item_offset: <code>Integer[0..1]</code>,<br>
+items_to_fetch: <code>Integer[0..1]</code><br>
 ): <code>List&lt;ARCHETYPE_HRID&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>List all AOM2 artefacts known in the service.</p>
@@ -1251,9 +1382,9 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_all_archetypes</strong> (<br>
-row_offset: <code>Integer[0..1]</code>,<br>
-rows_to_fetch: <code>Integer[0..1]</code><br>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_archetypes</strong> (<br>
+item_offset: <code>Integer[0..1]</code>,<br>
+items_to_fetch: <code>Integer[0..1]</code><br>
 ): <code>List&lt;ARCHETYPE_HRID&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>List all archetypes, i.e. artefacts whose concrete type is <code>AUTHORED_ARCHETYPE</code>.</p>
@@ -1261,9 +1392,9 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_all_templates</strong> (<br>
-row_offset: <code>Integer[0..1]</code>,<br>
-rows_to_fetch: <code>Integer[0..1]</code><br>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_templates</strong> (<br>
+item_offset: <code>Integer[0..1]</code>,<br>
+items_to_fetch: <code>Integer[0..1]</code><br>
 ): <code>List&lt;ARCHETYPE_HRID&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>List all archetypes, i.e. artefacts whose concrete type is <code>TEMPLATE</code>.</p>
@@ -1271,9 +1402,9 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_all_opts</strong> (<br>
-row_offset: <code>Integer[0..1]</code>,<br>
-rows_to_fetch: <code>Integer[0..1]</code><br>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_opts</strong> (<br>
+item_offset: <code>Integer[0..1]</code>,<br>
+items_to_fetch: <code>Integer[0..1]</code><br>
 ): <code>List&lt;ARCHETYPE_HRID&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>List all archetypes, i.e. artefacts whose concrete type is <code>OPERATIONAL_TEMPLATE</code>.</p>
@@ -1283,8 +1414,8 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_matching_artefacts</strong> (<br>
 id_pattern: <code>String[1]</code>,<br>
-row_offset: <code>Integer[0..1]</code>,<br>
-rows_to_fetch: <code>Integer[0..1]</code><br>
+item_offset: <code>Integer[0..1]</code>,<br>
+items_to_fetch: <code>Integer[0..1]</code><br>
 ): <code>List&lt;ARCHETYPE_HRID&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>List all artefacts whose identifiers match a regex pattern.</p>
@@ -1313,6 +1444,34 @@ an_id: <code>ARCHETYPE_HRID[1]</code><br>
 <p><code>artefact_does_not_exist</code></p>
 </li>
 </ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>artefacts_count</strong> (): <code>Integer</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Return total artefacts count.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>archetypes_count</strong> (): <code>Integer</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Return total archetypes count.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>templates_count</strong> (): <code>Integer</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Return total templates count.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>opts_count</strong> (): <code>Integer</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Return total OPTs count.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1353,6 +1512,15 @@ an_id: <code>ARCHETYPE_ID[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>valid_archetype</strong> (<br>
+an_arch: <code>ARCHETYPE[1]</code><br>
+): <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Test validity of archetype <code><em>an_arch</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>upload_archetype</strong> (<br>
 an_arch: <code>ARCHETYPE[1]</code><br>
 )<br>
@@ -1388,9 +1556,9 @@ an_id: <code>ARCHETYPE_ID[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_all_archetypes</strong> (<br>
-row_offset: <code>Integer[0..1]</code>,<br>
-rows_to_fetch: <code>Integer[0..1]</code><br>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_archetypes</strong> (<br>
+item_offset: <code>Integer[0..1]</code>,<br>
+items_to_fetch: <code>Integer[0..1]</code><br>
 ): <code>List&lt;ARCHETYPE_ID&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>List all ADL 1.4 archetypes known in the service.</p>
@@ -1400,8 +1568,8 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_matching_archetypes</strong> (<br>
 id_pattern: <code>String[1]</code>,<br>
-row_offset: <code>Integer[0..1]</code>,<br>
-rows_to_fetch: <code>Integer[0..1]</code><br>
+item_offset: <code>Integer[0..1]</code>,<br>
+items_to_fetch: <code>Integer[0..1]</code><br>
 ): <code>List&lt;ARCHETYPE_ID&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>List all archetypes whose identifiers match a regex pattern.</p>
@@ -1437,17 +1605,27 @@ an_id: <code>ARCHETYPE_ID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_opt</strong> (<br>
-an_id: <code>UUID[1]</code><br>
+an_opt_id: <code>UUID[1]</code><br>
 ): <code>Boolean</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Return True if ADL 1.4 OPT with id <code><em>an_id</em></code> exists in the service.</p>
+<p>Return True if ADL 1.4 OPT with id <code><em>an_opt_id</em></code> exists in the service.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>valid_opt</strong> (<br>
+an_opt: <code>ARCHETYPE[1]</code><br>
+): <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Test validity of OPT <code><em>an_opt</em></code>.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>upload_opt</strong> (<br>
-arch: <code>ARCHETYPE[1]</code><br>
-)</p></td>
+an_opt: <code>ARCHETYPE[1]</code><br>
+)<br>
+<strong><em>Pre_valid</em></strong>: <code>valid_opt(an_opt)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Upload an ADL 1.4 Operational Template (OPT).</p>
 </div>
@@ -1463,10 +1641,10 @@ arch: <code>ARCHETYPE[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_opt</strong> (<br>
-an_id: <code>UUID[1]</code><br>
+an_opt_id: <code>UUID[1]</code><br>
 ): <code>ARCHETYPE</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Get the ADL 1.4 OPT with id an_id.</p>
+<p>Get the ADL 1.4 OPT with id <code><em>an_opt_id</em></code>.</p>
 </div>
 <div class="ulist">
 <div class="title">Errors</div>
@@ -1479,9 +1657,9 @@ an_id: <code>UUID[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_all_opts</strong> (<br>
-row_offset: <code>Integer[0..1]</code>,<br>
-rows_to_fetch: <code>Integer[0..1]</code><br>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_opts</strong> (<br>
+item_offset: <code>Integer[0..1]</code>,<br>
+items_to_fetch: <code>Integer[0..1]</code><br>
 ): <code>List&lt;UUID&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>List all AD 1.4 OPTs known in the service.</p>
@@ -1491,8 +1669,8 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_matching_opts</strong> (<br>
 id_pattern: <code>String[1]</code>,<br>
-row_offset: <code>Integer[0..1]</code>,<br>
-rows_to_fetch: <code>Integer[0..1]</code><br>
+item_offset: <code>Integer[0..1]</code>,<br>
+items_to_fetch: <code>Integer[0..1]</code><br>
 ): <code>List&lt;ARCHETYPE_ID&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>List all OPTs whose identifiers match a regex pattern.</p>
@@ -1523,6 +1701,20 @@ an_id: <code>UUID[1]</code><br>
 <p><code>invalid_template</code></p>
 </li>
 </ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>archetypes_count</strong> (): <code>Integer</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Return total archetypes count.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>opts_count</strong> (): <code>Integer</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Return total OPTs count.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1576,7 +1768,7 @@ a_query_name: <code>String[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_valid_query</strong> (<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>valid_query</strong> (<br>
 a_query_text: <code>String[1]</code>,<br>
 a_formalism: <code>String[1]</code><br>
 ): <code>Boolean</code></p></td>
@@ -1623,9 +1815,9 @@ a_query_set_name: <code>String[0..1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_all_queries</strong> (<br>
-row_offset: <code>Integer[0..1]</code>,<br>
-rows_to_fetch: <code>Integer[0..1]</code><br>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_queries</strong> (<br>
+item_offset: <code>Integer[0..1]</code>,<br>
+items_to_fetch: <code>Integer[0..1]</code><br>
 ): <code>List&lt;QUERY_DESCRIPTOR&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>List all registered queries.</p>
@@ -1636,8 +1828,8 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_matching_queries</strong> (<br>
 id_pattern: <code>String[1]</code>,<br>
 artefact_id_pattern: <code>String[1]</code>,<br>
-row_offset: <code>Integer[0..1]</code>,<br>
-rows_to_fetch: <code>Integer[0..1]</code><br>
+item_offset: <code>Integer[0..1]</code>,<br>
+items_to_fetch: <code>Integer[0..1]</code><br>
 ): <code>List&lt;QUERY_DESCRIPTOR&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>List all registered queries matching an identifier pattern (regex) and an artefact identifier pattern (regex) for artefacts referenced in the query. Either pattern may be the regex for 'match any'.</p>
@@ -1704,6 +1896,13 @@ a_query_name: <code>String[1]</code><br>
 </ul>
 </div></div></td>
 </tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>queries_count</strong> (): <code>Integer</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Return total count of queries.</p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -1744,6 +1943,11 @@ a_query_name: <code>String[1]</code><br>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>An invalid template was provided as a parameter.</p>
 </div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">invalid_artefact</p></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
@@ -2192,89 +2396,6 @@ ehr_id: <code>UUID[1]</code><br>
 <p>Access to <code>I_EHR_CONTRIBUTION</code> interface.</p>
 </div></div></td>
 </tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_contributions</strong> (<br>
-ehr_id: <code>UUID[1]</code>,<br>
-time_range: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
-): <code>List&lt;UUID&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Obtain a list of identifiers of Contributions in EHR.</p>
-</div>
-<div class="hdlist">
-<div class="title">Parameters<br></div>
-<table>
-<tr>
-<td class="hdlist1">
-<code><em>ehr_id</em></code>
-</td>
-<td class="hdlist2">
-<p>EHR identifier (UUID).</p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-<code><em>time_range</em></code>
-</td>
-<td class="hdlist2">
-<p>Optional time range to limit Contributions to.</p>
-</td>
-</tr>
-</table>
-</div>
-<div class="ulist">
-<div class="title">Errors</div>
-<ul>
-<li>
-<p><code>ehr_does_not_exist</code></p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>contribution_count</strong> (<br>
-ehr_id: <code>UUID[1]</code>,<br>
-time_range: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
-): <code>Integer</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Obtain a count of Contributions in EHR.</p>
-</div>
-<div class="hdlist">
-<div class="title">Parameters<br></div>
-<table>
-<tr>
-<td class="hdlist1">
-<code><em>ehr_id</em></code>
-</td>
-<td class="hdlist2">
-<p>EHR identifier (Guid).</p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-<code><em>time_range</em></code>
-</td>
-<td class="hdlist2">
-<p>Optional time range to limit Contributions count to.</p>
-</td>
-</tr>
-</table>
-</div>
-<div class="ulist">
-<div class="title">Errors</div>
-<ul>
-<li>
-<p><code>ehr_does_not_exist</code></p>
-</li>
-</ul>
-</div></div></td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -2554,9 +2675,10 @@ a_dir_struct: <code>UV_FOLDER[1]</code><br>
 )<br>
 <strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
 <strong><em>Pre_definitions_valid</em></strong>: <code>definitions_valid (a_dir_struct)</code><br>
-<strong><em>Pre_no_directory</em></strong>: <code>not has_directory (ehr_id)</code></p></td>
+<strong><em>Pre_no_directory</em></strong>: <code>not has_directory (ehr_id)</code><br>
+<strong><em>Pre_content_valid</em></strong>: <code>valid_content(a_dir_struct)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Create a directory in the EHR, based on the provided structure.</p>
+<p>Create a directory in the EHR, based on the provided structure.  Causes server-side creation of a new <code>VERSIONED_OBJECT</code>, <code>ORIGINAL_VERSION</code> and new <code>CONTRIBUTION</code>.</p>
 </div>
 <div class="ulist">
 <div class="title">Errors</div>
@@ -2566,6 +2688,9 @@ a_dir_struct: <code>UV_FOLDER[1]</code><br>
 </li>
 <li>
 <p><code>definition_unknown</code></p>
+</li>
+<li>
+<p><code>content_invalid</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -2628,9 +2753,10 @@ a_dir_struct: <code>UV_FOLDER[1]</code><br>
 )<br>
 <strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
 <strong><em>Pre_definitions_valid</em></strong>: <code>definitions_valid (a_dir_struct)</code><br>
+<strong><em>Pre_content_valid</em></strong>: <code>valid_content(a_dir_struct)</code><br>
 <strong><em>Pre_has_directory</em></strong>: <code>has_directory(ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Create or update a directory from a complete structure. Preceding version must be supplied and correct if EHR directory already exists.</p>
+<p>Create or update a directory from a complete structure. Preceding version must be supplied and correct if EHR directory already exists. Causes server-side creation of a new <code>ORIGINAL_VERSION</code> and a new <code>CONTRIBUTION</code>.</p>
 </div>
 <div class="hdlist">
 <div class="title">Parameters<br></div>
@@ -2653,6 +2779,9 @@ a_dir_struct: <code>UV_FOLDER[1]</code><br>
 </li>
 <li>
 <p><code>definition_unknown</code></p>
+</li>
+<li>
+<p><code>content_invalid</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -2843,9 +2972,10 @@ a_comp: <code>UV_COMPOSITION[1]</code><br>
 ): <code>UUID</code><br>
 <strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
 <strong><em>Post_has_composition</em></strong>: <code>has_composition (an_ehr_id, Result)</code><br>
-<strong><em>Pre_composition_definitions_valid</em></strong>: <code>definitions_valid (a_comp)</code></p></td>
+<strong><em>Pre_composition_definitions_valid</em></strong>: <code>definitions_valid (a_comp)</code><br>
+<strong><em>Pre_content_valid</em></strong>: <code>valid_content (a_comp)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Create the first version of a new Composition.</p>
+<p>Create the first version of a new Composition. Causes server-side creation of a new <code>VERSIONED_OBJECT</code>, <code>ORIGINAL_VERSION</code> and new <code>CONTRIBUTION</code>.</p>
 </div>
 <div class="ulist">
 <div class="title">Errors</div>
@@ -2859,6 +2989,9 @@ a_comp: <code>UV_COMPOSITION[1]</code><br>
 <li>
 <p><code>definition_unknown</code></p>
 </li>
+<li>
+<p><code>content_invalid</code></p>
+</li>
 </ul>
 </div></div></td>
 </tr>
@@ -2869,9 +3002,10 @@ an_ehr_id: <code>UUID[1]</code>,<br>
 a_comp: <code>UV_COMPOSITION[1]</code><br>
 ): <code>UUID</code><br>
 <strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
-<strong><em>Pre_composition_definitions_valid</em></strong>: <code>definitions_valid (a_comp)</code></p></td>
+<strong><em>Pre_composition_definitions_valid</em></strong>: <code>definitions_valid (a_comp)</code><br>
+<strong><em>Pre_content_valid</em></strong>: <code>valid_content (a_comp)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Update an existing Composition with a new version.</p>
+<p>Update an existing Composition, which includes server-side creation of a new <code>ORIGINAL_VERSION</code> and a new <code>CONTRIBUTION</code>.</p>
 </div>
 <div class="ulist">
 <div class="title">Errors</div>
@@ -2884,6 +3018,9 @@ a_comp: <code>UV_COMPOSITION[1]</code><br>
 </li>
 <li>
 <p><code>definition_unknown</code></p>
+</li>
+<li>
+<p><code>content_invalid</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -3046,7 +3183,7 @@ an_audit: <code>UPDATE_AUDIT[1]</code><br>
 <strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
 <strong><em>Post_has_contribution</em></strong>: <code>has_contribution (a_contrib_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Commit a Contribution containing any number of <code>VERSION_UPDATE</code> objects.</p>
+<p>Commit a <code>CONTRIBUTION</code> containing any number of <code>VERSION_UPDATE</code> objects.</p>
 </div>
 <div class="ulist">
 <div class="title">Errors</div>
@@ -3059,19 +3196,72 @@ an_audit: <code>UPDATE_AUDIT[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_all_contributions</strong> (<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_contributions</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
-row_offset: <code>Integer[0..1]</code>,<br>
-rows_to_fetch: <code>Integer[0..1]</code><br>
+time_range: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code>,<br>
+item_offset: <code>Integer[0..1]</code>,<br>
+items_to_fetch: <code>Integer[0..1]</code><br>
 ): <code>List&lt;UUID&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>List all available Contributions for this EHR.</p>
+<p>Obtain a list of identifiers of Contributions in EHR.</p>
+</div>
+<div class="hdlist">
+<div class="title">Parameters<br></div>
+<table>
+<tr>
+<td class="hdlist1">
+<code><em>time_range</em></code>
+</td>
+<td class="hdlist2">
+<p>Optional time range to limit Contributions to.</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="ulist">
 <div class="title">Errors</div>
 <ul>
 <li>
-<p><code>ehr_id_does_not_exist</code></p>
+<p><code>ehr_does_not_exist</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>contribution_count</strong> (<br>
+ehr_id: <code>UUID[1]</code>,<br>
+time_range: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
+): <code>Integer</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Obtain a count of Contributions in EHR.</p>
+</div>
+<div class="hdlist">
+<div class="title">Parameters<br></div>
+<table>
+<tr>
+<td class="hdlist1">
+<code><em>ehr_id</em></code>
+</td>
+<td class="hdlist2">
+<p>EHR identifier (Guid).</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code><em>time_range</em></code>
+</td>
+<td class="hdlist2">
+<p>Optional time range to limit Contributions count to.</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>ehr_does_not_exist</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -3197,15 +3387,19 @@ rows_to_fetch: <code>Integer[0..1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_party</strong> (<br>
 a_version: <code>UV_PARTY[1]</code><br>
 ): <code>UUID</code><br>
-<strong><em>Pre_party_definitions_valid</em></strong>: <code>definitions_valid (a_version)</code></p></td>
+<strong><em>Pre_party_definitions_valid</em></strong>: <code>definitions_valid (a_version)</code><br>
+<strong><em>Pre_content_valid</em></strong>: <code>valid_content (a_version)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Create a new Party.</p>
+<p>Create the first version of a new <code>PARTY</code> object. Causes server-side creation of a new <code>VERSIONED_OBJECT</code>, <code>ORIGINAL_VERSION</code> and new <code>CONTRIBUTION</code>.</p>
 </div>
 <div class="ulist">
 <div class="title">Errors</div>
 <ul>
 <li>
 <p><code>definition_unknown</code></p>
+</li>
+<li>
+<p><code>content_invalid</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -3214,15 +3408,19 @@ a_version: <code>UV_PARTY[1]</code><br>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_party_relationship</strong> (<br>
 a_version: <code>UV_PARTY_RELATIONSHIP[1]</code><br>
-): <code>UUID</code></p></td>
+): <code>UUID</code><br>
+<strong><em>Pre_content_valid</em></strong>: <code>valid_content (a_version)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Create a new Party Relationship.</p>
+<p>Create the first version of a new <code>PARTY_RELATIONSHIP</code>. Causes server-side creation of a new <code>VERSIONED_OBJECT</code>, <code>ORIGINAL_VERSION</code> and new <code>CONTRIBUTION</code>.</p>
 </div>
 <div class="ulist">
 <div class="title">Errors</div>
 <ul>
 <li>
 <p><code>definition_unknown</code></p>
+</li>
+<li>
+<p><code>content_invalid</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -3351,7 +3549,7 @@ a_version: <code>UV_PARTY[1]</code><br>
 <strong><em>Pre_party_definitions_valid</em></strong>: <code>definitions_valid (a_version)</code><br>
 <strong><em>Pre_has_party</em></strong>: <code>has_party (a_versioned_party_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Update a Party with a new Version.</p>
+<p>Update a <code>PARTY</code> with a new Version. Causes server-side creation of a new <code>ORIGINAL_VERSION</code> and <code>CONTRIBUTION</code>.</p>
 </div>
 <div class="ulist">
 <div class="title">Errors</div>
@@ -3364,6 +3562,9 @@ a_version: <code>UV_PARTY[1]</code><br>
 </li>
 <li>
 <p><code>definition_unknown</code></p>
+</li>
+<li>
+<p><code>content_invalid</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -3485,7 +3686,7 @@ a_version: <code>UV_PARTY_RELATIONSHIP[1]</code><br>
 <strong><em>Pre_party_definitions_valid</em></strong>: <code>definitions_valid (a_version)</code><br>
 <strong><em>Pre_has_relationship</em></strong>: <code>has_party_relationship (a_versioned_party_rel_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Update a Party relationship with a new Version.</p>
+<p>Update a <code>PARTY_RELATIONSHIP</code> with a new Version. Causes server-side creation of a new <code>ORIGINAL_VERSION</code> and <code>CONTRIBUTION</code>.</p>
 </div>
 <div class="ulist">
 <div class="title">Errors</div>
@@ -3498,6 +3699,9 @@ a_version: <code>UV_PARTY_RELATIONSHIP[1]</code><br>
 </li>
 <li>
 <p><code>definition_unknown</code></p>
+</li>
+<li>
+<p><code>content_invalid</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -3851,7 +4055,7 @@ a_subject_id: <code>OBJECT_REF[1]</code><br>
 <p>For both kinds of queries, parameters must be provided for open parameters in the stored query.</p>
 </div>
 <div class="paragraph">
-<p>If either type of query executes successfully, the response is a <code>RESULT_SET</code>, which consists of meta-data, a column definition structure and a set of rows (instances of <code>RESULT_SET_ROW</code>). In order to handle large result sets efficiently and gracefully within applications, the parameters <code><em>row_offset</em></code> and <code><em>rows_to_fetch</em></code> can be provided to control the result size.</p>
+<p>If either type of query executes successfully, the response is a <code>RESULT_SET</code>, which consists of meta-data, a column definition structure and a set of rows (instances of <code>RESULT_SET_ROW</code>). In order to handle large result sets efficiently and gracefully within applications, the parameters <code><em>item_offset</em></code> and <code><em>items_to_fetch</em></code> can be provided to control the result size.</p>
 </div>
 <div class="paragraph">
 <p>A stored query is identified by the identifier associated with it when registered in the <code>DEFINITION</code> service, which is ofthe form:</p>
@@ -4781,7 +4985,7 @@ file_sys_loc: <code>String[1]</code><br>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-12-14 10:08:35 GMT
+Last updated 2019-02-13 14:46:53 GMT
 </div>
 </div>
 </body>

@@ -27,41 +27,4 @@ a|Access to `I_EHR_COMPOSITION` interface.
 h|*1..1*
 |*contributions*: `I_EHR_CONTRIBUTION`
 a|Access to `I_EHR_CONTRIBUTION` interface.
-h|*Functions*
-^h|*Signature*
-^h|*Meaning*
-
-h|
-|*list_contributions* ( +
-ehr_id: `UUID[1]`, +
-time_range: `Interval<Iso8601_date_time>[0..1]` +
-): `List<UUID>`
-a|Obtain a list of identifiers of Contributions in EHR.
-
-
-.Parameters +
-[horizontal]
-`_ehr_id_`:: EHR identifier (UUID).
-
-`_time_range_`:: Optional time range to limit Contributions to.
-
-.Errors
-* `ehr_does_not_exist`
-
-h|
-|*contribution_count* ( +
-ehr_id: `UUID[1]`, +
-time_range: `Interval<Iso8601_date_time>[0..1]` +
-): `Integer`
-a|Obtain a count of Contributions in EHR.
-
-
-.Parameters +
-[horizontal]
-`_ehr_id_`:: EHR identifier (Guid).
-
-`_time_range_`:: Optional time range to limit Contributions count to.
-
-.Errors
-* `ehr_does_not_exist`
 |===
