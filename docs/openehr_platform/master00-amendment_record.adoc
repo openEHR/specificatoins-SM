@@ -13,9 +13,10 @@
  Change names of `_list_all_xxx()_` functions in `definitions` interfaces to `_list_xxx()_` ({spec_tickets}/SPECPR-292[SPECPR-292^]); +
  Added `_valid_xxx()_` calls and preconditions to `_upload_xx()_` calls in  `I_DEFINITION_XX` interfaces ({spec_tickets}/SPECPR-291[SPECPR-291^]); +
  Remove duplicate operation `I_EHR._list_contributions()_` ({spec_tickets}/SPECPR-304[SPECPR-304^]); +
- Improve documentation of implicit server-side Contribution and Version creation ({spec_tickets}/SPECPR-305[SPECPR-305^]).
+ Improve documentation of implicit server-side Contribution and Version creation ({spec_tickets}/SPECPR-305[SPECPR-305^]); +
+ Correct argument types of `I_EHR_COMPOSITION._get_composition_xx()_` functions; rename `_get_composition()_` to `_get_composition_latest()_`.
 |P Pazos 
-|[[latest_issue_date]]14 Feb 2019
+|[[latest_issue_date]]28 Feb 2019
 
 |
 |Add `I_DEFINITIONS_CHECKER` and `DEFINITIONS_CHECKER_STATUS` to support definitions validity pre-conditions.

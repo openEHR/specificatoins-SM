@@ -61,7 +61,7 @@
 <li><a href="#_i_status_interface">3.4.1. I_STATUS Interface</a></li>
 <li><a href="#_call_status_class">3.4.2. CALL_STATUS Class</a></li>
 <li><a href="#_call_status_type_enumeration">3.4.3. CALL_STATUS_TYPE Enumeration</a></li>
-<li><a href="#_update_version_class">3.4.4. UPDATE_VERSION Class</a></li>
+<li><a href="#_update_version_t_class">3.4.4. UPDATE_VERSION&lt;T&gt; Class</a></li>
 <li><a href="#_update_audit_class">3.4.5. UPDATE_AUDIT Class</a></li>
 <li><a href="#_i_validity_checker_interface">3.4.6. I_VALIDITY_CHECKER Interface</a></li>
 <li><a href="#_validity_checker_status_enumeration">3.4.7. VALIDITY_CHECKER_STATUS Enumeration</a></li>
@@ -271,9 +271,10 @@
  Change names of <code><em>list_all_xxx()</em></code> functions in <code>definitions</code> interfaces to <code><em>list_xxx()</em></code> (<a href="https://specifications.openehr.org/tickets/SPECPR-292" target="_blank" rel="noopener">SPECPR-292</a>);<br>
  Added <code><em>valid_xxx()</em></code> calls and preconditions to <code><em>upload_xx()</em></code> calls in  <code>I_DEFINITION_XX</code> interfaces (<a href="https://specifications.openehr.org/tickets/SPECPR-291" target="_blank" rel="noopener">SPECPR-291</a>);<br>
  Remove duplicate operation <code>I_EHR.<em>list_contributions()</em></code> (<a href="https://specifications.openehr.org/tickets/SPECPR-304" target="_blank" rel="noopener">SPECPR-304</a>);<br>
- Improve documentation of implicit server-side Contribution and Version creation (<a href="https://specifications.openehr.org/tickets/SPECPR-305" target="_blank" rel="noopener">SPECPR-305</a>).</p></td>
+ Improve documentation of implicit server-side Contribution and Version creation (<a href="https://specifications.openehr.org/tickets/SPECPR-305" target="_blank" rel="noopener">SPECPR-305</a>);<br>
+ Correct argument types of <code>I_EHR_COMPOSITION.<em>get_composition_xx()</em></code> functions; rename <code><em>get_composition()</em></code> to <code><em>get_composition_latest()</em></code>.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">P Pazos</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>14 Feb 2019</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>28 Feb 2019</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -398,7 +399,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>The <a href="https://github.com/openEHR/specifications-ITS" target="_blank" rel="noopener">openEHR REST APIs</a>.</p>
+<p>The <a href="https://github.com/openEHR/specifications-ITS-REST" target="_blank" rel="noopener">openEHR REST APIs</a>.</p>
 </li>
 </ul>
 </div>
@@ -1017,7 +1018,7 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 </table>
 </div>
 <div class="sect3">
-<h4 id="_update_version_class"><a class="anchor" href="#_update_version_class"></a>3.4.4. UPDATE_VERSION Class</h4>
+<h4 id="_update_version_t_class"><a class="anchor" href="#_update_version_t_class"></a>3.4.4. UPDATE_VERSION&lt;T&gt; Class</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -1027,7 +1028,7 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>UPDATE_VERSION (abstract)</em></strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>UPDATE_VERSION&lt;T&gt; (abstract)</em></strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
@@ -2890,7 +2891,7 @@ an_ehr_id: <code>UUID[1]</code><br>
 <th class="tableblock halign-center valign-top"></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_composition</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
-a_version_uid: <code>UUID[1]</code><br>
+a_version_uid: <code>OBJECT_VERSION_ID[1]</code><br>
 ): <code>Boolean</code><br>
 <strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -2907,7 +2908,7 @@ a_version_uid: <code>UUID[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_composition</strong> (<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_composition_latest</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_versioned_object_uid: <code>UUID[1]</code><br>
 ): <code>COMPOSITION</code><br>
@@ -2960,6 +2961,49 @@ a_time: <code>Iso8601_date_time[0..1]</code><br>
 </li>
 <li>
 <p><code>composition_does_not_exist</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_composition_at_version</strong> (<br>
+an_ehr_id: <code>UUID[1]</code>,<br>
+a_version_uid: <code>OBJECT_VERSION_ID[1]</code><br>
+): <code>COMPOSITION</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Get a particular VERSION of a Composition by version id.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>ehr_does_not_exist</code></p>
+</li>
+<li>
+<p><code>object_version_does_not_exist</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_versioned_composition</strong> (<br>
+an_ehr_id: <code>UUID[1]</code>,<br>
+a_versioned_object_uid: <code>UUID[1]</code><br>
+): <code>VERSIONED_COMPOSITION</code><br>
+<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Retrieve the <code>VERSIONED_OBJECT</code> of a Composition by uid.</p>
+</div>
+<div class="ulist">
+<div class="title">Errors</div>
+<ul>
+<li>
+<p><code>ehr_id_does_not_exist</code></p>
+</li>
+<li>
+<p><code>versioned_composition_does_not_exist</code></p>
 </li>
 </ul>
 </div></div></td>
@@ -3043,63 +3087,6 @@ a_version_uid: <code>UUID[1]</code><br>
 </li>
 <li>
 <p><code>composition_does_not_exist</code></p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_composition_at_version</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-a_version_uid: <code>UUID[1]</code><br>
-): <code>COMPOSITION</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Get a particular VERSION of a Composition by version id.</p>
-</div>
-<div class="hdlist">
-<div class="title">Parameters<br></div>
-<table>
-<tr>
-<td class="hdlist1">
-<code><em>a_version_uid</em></code>
-</td>
-<td class="hdlist2">
-<p>Uid of a <code>VERSION</code> in a <code>VERSIONED_COMPOSITION</code>.</p>
-</td>
-</tr>
-</table>
-</div>
-<div class="ulist">
-<div class="title">Errors</div>
-<ul>
-<li>
-<p><code>ehr_does_not_exist</code></p>
-</li>
-<li>
-<p><code>object_version_does_not_exist</code></p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_versioned_composition</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-a_versioned_object_uid: <code>UUID[1]</code><br>
-): <code>VERSIONED_COMPOSITION</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Retrieve the <code>VERSIONED_OBJECT</code> of a Composition by uid.</p>
-</div>
-<div class="ulist">
-<div class="title">Errors</div>
-<ul>
-<li>
-<p><code>ehr_id_does_not_exist</code></p>
-</li>
-<li>
-<p><code>versioned_composition_does_not_exist</code></p>
 </li>
 </ul>
 </div></div></td>

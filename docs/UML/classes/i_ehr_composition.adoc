@@ -15,7 +15,7 @@ h|*Functions*
 h|
 |*has_composition* ( +
 an_ehr_id: `UUID[1]`, +
-a_version_uid: `UUID[1]` +
+a_version_uid: `OBJECT_VERSION_ID[1]` +
 ): `Boolean` +
 *_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
 a|Return True if a Composition version with identifier `_a_version_uid_` exists.
@@ -27,7 +27,7 @@ a|Return True if a Composition version with identifier `_a_version_uid_` exists.
 * `ehr_id_does_not_exist`
 
 h|
-|*get_composition* ( +
+|*get_composition_latest* ( +
 an_ehr_id: `UUID[1]`, +
 a_versioned_object_uid: `UUID[1]` +
 ): `COMPOSITION` +
@@ -59,6 +59,35 @@ a|Retrieve the Composition version extant at a given time, from a Versioned Comp
 .Errors
 * `ehr_id_does_not_exist`
 * `composition_does_not_exist`
+
+h|
+|*get_composition_at_version* ( +
+an_ehr_id: `UUID[1]`, +
+a_version_uid: `OBJECT_VERSION_ID[1]` +
+): `COMPOSITION`
+a|Get a particular VERSION of a Composition by version id.
+
+
+
+
+.Errors
+* `ehr_does_not_exist`
+* `object_version_does_not_exist`
+
+h|
+|*get_versioned_composition* ( +
+an_ehr_id: `UUID[1]`, +
+a_versioned_object_uid: `UUID[1]` +
+): `VERSIONED_COMPOSITION` +
+*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
+a|Retrieve the `VERSIONED_OBJECT` of a Composition by uid.
+
+
+
+
+.Errors
+* `ehr_id_does_not_exist`
+* `versioned_composition_does_not_exist`
 
 h|
 |*create_composition* ( +
@@ -113,36 +142,4 @@ a|Logically delete a Composition by creating a new version in which the content 
 .Errors
 * `ehr_id_does_not_exist`
 * `composition_does_not_exist`
-
-h|
-|*get_composition_at_version* ( +
-an_ehr_id: `UUID[1]`, +
-a_version_uid: `UUID[1]` +
-): `COMPOSITION` +
-*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
-a|Get a particular VERSION of a Composition by version id.
-
-
-.Parameters +
-[horizontal]
-`_a_version_uid_`:: Uid of a `VERSION` in a `VERSIONED_COMPOSITION`.
-
-.Errors
-* `ehr_does_not_exist`
-* `object_version_does_not_exist`
-
-h|
-|*get_versioned_composition* ( +
-an_ehr_id: `UUID[1]`, +
-a_versioned_object_uid: `UUID[1]` +
-): `VERSIONED_COMPOSITION` +
-*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
-a|Retrieve the `VERSIONED_OBJECT` of a Composition by uid.
-
-
-
-
-.Errors
-* `ehr_id_does_not_exist`
-* `versioned_composition_does_not_exist`
 |===
