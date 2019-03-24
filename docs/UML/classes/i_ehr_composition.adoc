@@ -65,7 +65,7 @@ h|
 an_ehr_id: `UUID[1]`, +
 a_version_uid: `OBJECT_VERSION_ID[1]` +
 ): `COMPOSITION`
-a|Get a particular VERSION of a Composition by version id.
+a|Get a particular Version of a Composition by version id.
 
 
 
