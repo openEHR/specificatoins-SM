@@ -11,7 +11,7 @@
 //
 :linkcss:
 :keywords: servce model, openehr
-:description: openEHR Service Model
+:description: openEHR Service Model Component
 :sectanchors:
 
 include::{ref_dir}/docs/boilerplate/global_vars.adoc[]
@@ -24,7 +24,7 @@ image::{openehr_logo}["openEHR logo",align="center"]
 
 image::openehr_block_diagram.svg["openEHR components",align="center",width="60%"]
 
-= Service Model (SM) - {sm_release}
+= Service Model (SM) Component - {sm_release}
 
 // Use the following version for 'latest'
 ifeval::["{sm_release}" == "latest"]
@@ -50,6 +50,10 @@ endif::[]
 |Definition of the openEHR coarse-grained interface EHR service interface.
 |
 
+|link:/releases/SM/{sm_release}/simplified_im_b.html[SIM-B]
+|Simplified Information Model 'B' - simplified version of RM for use with JSON Data Templates (JDTs).
+|
+
 |===
 
 == Computable Expressions
@@ -62,7 +66,7 @@ endif::[]
 |ITS component - Apiary format REST API specification based on the platform SM.
 
 |link:/releases/SM/{sm_release}/UML/openEHR_UML-SM.mdzip[source files / XMI]
-|UML file for MagicDraw 18.5. Contains UML 2.5 standard XMI file.
+|UML file for MagicDraw 19.0. Contains UML 2.5 standard XMI file.
 
 |===
 

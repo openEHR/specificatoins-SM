@@ -1,7 +1,113 @@
 
 == Component SM
 
+=== Model org.openehr.simplified_im_b
+
+==== Package S_TYPE
+
+[.xcode]
+* link:/releases/SM/{sm_release}/S_TYPE.html#_s_type_class[S_TYPE^]
+
+==== Package base
+
+[.xcode]
+* link:/releases/SM/{sm_release}/base.html#_s_generic_id_class[S_GENERIC_ID^]
+[.xcode]
+* link:/releases/SM/{sm_release}/base.html#_s_object_id_class[S_OBJECT_ID^]
+[.xcode]
+* link:/releases/SM/{sm_release}/base.html#_s_object_ref_class[S_OBJECT_REF^]
+
+==== Package rm
+
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_action_class[S_ACTION^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_activity_class[S_ACTIVITY^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_admin_entry_class[S_ADMIN_ENTRY^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_archetyped_class[S_ARCHETYPED^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_care_entry_class[S_CARE_ENTRY^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_cluster_class[S_CLUSTER^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_code_phrase_class[S_CODE_PHRASE^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_composition_class[S_COMPOSITION^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_content_item_class[S_CONTENT_ITEM^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_data_value_class[S_DATA_VALUE^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_dv_boolean_class[S_DV_BOOLEAN^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_dv_coded_text_class[S_DV_CODED_TEXT^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_dv_count_class[S_DV_COUNT^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_dv_identifier_class[S_DV_IDENTIFIER^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_dv_ordinal_class[S_DV_ORDINAL^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_dv_parsable_class[S_DV_PARSABLE^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_dv_proportion_class[S_DV_PROPORTION^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_dv_quantity_class[S_DV_QUANTITY^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_dv_text_class[S_DV_TEXT^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_dv_text_class[S_DV_TEXT^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_element_class[S_ELEMENT^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_entry_class[S_ENTRY^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_evaluation_class[S_EVALUATION^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_event_class[S_EVENT^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_event_context_class[S_EVENT_CONTEXT^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_feeder_audit_class[S_FEEDER_AUDIT^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_feeder_audit_details_class[S_FEEDER_AUDIT_DETAILS^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_history_class[S_HISTORY^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_instruction_class[S_INSTRUCTION^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_interval_event_class[S_INTERVAL_EVENT^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_item_class[S_ITEM^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_link_class[S_LINK^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_locatable_class[S_LOCATABLE^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_observation_class[S_OBSERVATION^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_participation_class[S_PARTICIPATION^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_participation_identified_class[S_PARTICIPATION_IDENTIFIED^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_party_identified_class[S_PARTY_IDENTIFIED^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_party_proxy_class[S_PARTY_PROXY^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_point_event_class[S_POINT_EVENT^]
+[.xcode]
+* link:/releases/SM/{sm_release}/rm.html#_s_section_class[S_SECTION^]
+
 === Model org.openehr.sm
+
+==== Package app_context
+
+[.xcode]
+* link:/releases/SM/{sm_release}/app_context.html#_app_composition_class[APP_COMPOSITION^]
+[.xcode]
+* link:/releases/SM/{sm_release}/app_context.html#_app_context_class[APP_CONTEXT^]
 
 ==== Package openehr_platform
 
