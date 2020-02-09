@@ -40,6 +40,6 @@ h|*0..1*
 a|(unchanged from RM)
 
 h|*0..1*
-|*other_context*: `S_CLUSTER`
+|*other_context*: `List<S_ITEM>`
 a|Converted from `ITEM_STRUCTURE`.
 |===

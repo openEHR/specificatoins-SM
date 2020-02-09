@@ -50,7 +50,7 @@ an_audit: `UPDATE_AUDIT[1]` +
 ): `UUID` +
 *_Pre_has_ehr_*: `has_ehr (an_ehr_id)` +
 *_Post_has_contribution_*: `has_contribution (a_contrib_id)`
-a|Commit a `CONTRIBUTION` containing any number of `VERSION_UPDATE` objects.
+a|Commit a `CONTRIBUTION` containing any number of `UPDATE_VERSION` objects.
 
 
 

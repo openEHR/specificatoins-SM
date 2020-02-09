@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*APP_COMPOSITION*
 
 h|*Description*
-2+a|
+2+a|Specialised form of `COMPOSITION` that adds application context data items and defaults values to simplify structure of committed content.
 
 h|*Inherit*
 2+|`S_COMPOSITION`
@@ -17,5 +17,5 @@ h|*Attributes*
 
 h|*0..1*
 |*ctx*: `APP_CONTEXT`
-a|(unchanged from RM)
+a|Context data for this `COMPOSITION`.
 |===

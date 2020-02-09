@@ -16,6 +16,6 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*data*: `S_CLUSTER`
+|*data*: `List<S_ITEM>`
 a|Converted from `ITEM_STRUCTURE`.
 |===

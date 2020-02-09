@@ -20,10 +20,10 @@ h|*1..1*
 a|Converted from `DV_DATE_TIME`.
 
 h|*0..1*
-|*state*: `S_CLUSTER`
+|*state*: `S_ITEM`
 a|Converted from `ITEM_TREE`.
 
 h|*1..1*
-|*data*: `S_CLUSTER`
+|*data*: `S_ITEM`
 a|Converted from `ITEM_TREE`.
 |===

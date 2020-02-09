@@ -36,7 +36,7 @@ a|For multi-event series, converted from `OBSERVATION._data.period_`.
 TODO: should be called `_data_period_`.
 
 h|*0..1*
-|*history_summary*: `S_ITEM`
+|*history_summary*: `List<S_ITEM>`
 a|For multi-event series, converted from `OBSERVATION._data.summary_`.
 
 TODO: should be called `_data_summary_`.
@@ -57,7 +57,7 @@ h|*0..1*
 a|For multi-event series, converted from `OBSERVATION._state.period_`.
 
 h|*0..1*
-|*state_summary*: `S_ITEM`
+|*state_summary*: `List<S_ITEM>`
 a|For multi-event series, converted from `OBSERVATION._state.summary_`.
 
 h|*0..1*

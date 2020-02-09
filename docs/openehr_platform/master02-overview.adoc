@@ -167,7 +167,7 @@ The following naming conventions are used for naming parameters throughout this 
 |`_preceding_version_uid_`	|The value of a previous `VERSION` unique identifier, +
                              e.g. `8849182c-82ad-4088-a07f-48ead4180515::example.domain.com::1`
 |`_object_id_`	            |A placeholder for either `_versioned_object_uid_` or `_version_uid_` identifier
-|`_time_`	                |A date-time in ISO8601 format (e.g. `2015-01-20T19:30:22.765+01:00`)
+|`_time_`	                |A date-time in ISO 8601 format (e.g. `2015-01-20T19:30:22.765+01:00`)
 |===
 
 == Package Structure

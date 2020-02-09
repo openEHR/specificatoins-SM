@@ -63,7 +63,6 @@ image::{uml_diagrams_uri}/SM-simplified_im_b.rm.data_structures.svg[id=sm_simpli
 
 === Class Definitions
 
-include::{uml_export_dir}/classes/s_history.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/s_event.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/s_point_event.adoc[leveloffset=+1]
 include::{uml_export_dir}/classes/s_interval_event.adoc[leveloffset=+1]

@@ -21,6 +21,6 @@ h|*0..1*
 a|(unchanged from RM)
 
 h|*1..1*
-|*description*: `S_CLUSTER`
+|*description*: `List<S_ITEM>`
 a|Converted from `ITEM_STRUCTURE`.
 |===

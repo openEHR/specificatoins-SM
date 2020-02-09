@@ -16,6 +16,6 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*0..1*
-|*protocol*: `S_CLUSTER`
+|*protocol*: `List<S_ITEM>`
 a|Converted from `ITEM_STRUCTURE`.
 |===

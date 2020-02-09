@@ -8,6 +8,13 @@
 [.xcode]
 * link:/releases/SM/{sm_release}/S_TYPE.html#_s_type_class[S_TYPE^]
 
+==== Package app_context
+
+[.xcode]
+* link:/releases/SM/{sm_release}/app_context.html#_app_composition_class[APP_COMPOSITION^]
+[.xcode]
+* link:/releases/SM/{sm_release}/app_context.html#_app_context_class[APP_CONTEXT^]
+
 ==== Package base
 
 [.xcode]
@@ -74,8 +81,6 @@
 [.xcode]
 * link:/releases/SM/{sm_release}/rm.html#_s_feeder_audit_details_class[S_FEEDER_AUDIT_DETAILS^]
 [.xcode]
-* link:/releases/SM/{sm_release}/rm.html#_s_history_class[S_HISTORY^]
-[.xcode]
 * link:/releases/SM/{sm_release}/rm.html#_s_instruction_class[S_INSTRUCTION^]
 [.xcode]
 * link:/releases/SM/{sm_release}/rm.html#_s_interval_event_class[S_INTERVAL_EVENT^]
@@ -101,13 +106,6 @@
 * link:/releases/SM/{sm_release}/rm.html#_s_section_class[S_SECTION^]
 
 === Model org.openehr.sm
-
-==== Package app_context
-
-[.xcode]
-* link:/releases/SM/{sm_release}/app_context.html#_app_composition_class[APP_COMPOSITION^]
-[.xcode]
-* link:/releases/SM/{sm_release}/app_context.html#_app_context_class[APP_CONTEXT^]
 
 ==== Package openehr_platform
 

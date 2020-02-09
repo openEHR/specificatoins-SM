@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*APP_CONTEXT*
 
 h|*Description*
-2+a|
+2+a|Class representing application context data items that may be set for a `COMPOSITION` commit.
 
 h|*Attributes*
 ^h|*Signature*
@@ -18,7 +18,7 @@ a|ISO639-1 language code to be used for Composition language (e.g. "en", "de", â
 
 Equivalent of RM `COMPOSITION._language_`.
 
-_To RM_: match term text from vocabulary at https://github.com/openEHR/terminology/blob/master/openEHR_RM/openehr_external_terminologies.xml#L263; create `CODE_PHRASE` with `_terminology_id_ = "openEHR"`.
+_To RM_: match term text from https://github.com/openEHR/terminology/blob/master/openEHR_RM/openehr_external_terminologies.xml#L263[openEHR `languages` vocabulary^]; create `CODE_PHRASE` with `_terminology_id_ = "openEHR"`.
 
 _From RM_: `COMPOSITION._language.code_string_`.
 
@@ -28,7 +28,7 @@ a|ISO3166-1 country code to be used for composition territory (e.g. "GB", "DE", 
 
 Equivalent of RM `COMPOSITION._territory_`.
 
-_To RM_: match term text from vocabulary at https://github.com/openEHR/terminology/blob/master/openEHR_RM/openehr_external_terminologies.xml#L2; create `CODE_PHRASE` with `_terminology_id_ = "openEHR"`.
+_To RM_: match term text from https://github.com/openEHR/terminology/blob/master/openEHR_RM/openehr_external_terminologies.xml#L2[openEHR country vocabulary^]; create `CODE_PHRASE` with `_terminology_id_ = "openEHR"`.
 
 _From RM_: `COMPOSITION._territory.code_string_`.
 
