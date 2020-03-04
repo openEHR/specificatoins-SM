@@ -3,16 +3,8 @@
 //
 include::{ref_dir}/docs/boilerplate/book_style_settings.adoc[]
 
-//
-// Document-specific attributes
-//
 :copyright_year: 2019
 :spec_status: DEVELOPMENT
-
-//
-// HTML-only attributes
-//
-:linkcss:
 :keywords: SIM-B, information model, openEHR
 :description: Simplified IM 'B'
 
@@ -68,7 +60,7 @@ A significant part of the content of this specification was adapted from the Bet
 //
 // --------------------------------------------- CHAPTERS -----------------------------------------------
 //
-:sectanchors:
+
 :sectnums:
 include::master01-preface.adoc[leveloffset=+1]
 include::master02-overview.adoc[leveloffset=+1]
