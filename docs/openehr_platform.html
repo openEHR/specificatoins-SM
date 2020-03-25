@@ -263,7 +263,13 @@
 <th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>SM Release 1.0.0</strong></p></th>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>0.9.5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>0.9.6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adjust naming and definitions of elements in <code>RESULT_SET</code> classes to reflect REST API.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S Iancu</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>25 Mar 2020</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.9.5</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Add missing enumeration <code><em>invalid_artefact</em></code> to <code>DEFINITION_CALL_STATUS_TYPE</code> (<a href="https://specifications.openehr.org/tickets/SPECPR-293" target="_blank" rel="noopener">SPECPR-293</a>);<br>
  Add <code><em>xxx_count()</em></code> calls to <code>I_DEFINITION_XX</code> interfaces (<a href="https://specifications.openehr.org/tickets/SPECPR-288" target="_blank" rel="noopener">SPECPR-288</a>);<br>
  Rename <code><em>row_offset</em></code> and <code><em>rows_to_fetch</em></code> to <code><em>item_offset</em></code> and <code><em>items_to_fetch</em></code> (<a href="https://specifications.openehr.org/tickets/SPECPR-292" target="_blank" rel="noopener">SPECPR-292</a>);<br>
@@ -273,7 +279,7 @@
  Improve documentation of implicit server-side Contribution and Version creation (<a href="https://specifications.openehr.org/tickets/SPECPR-305" target="_blank" rel="noopener">SPECPR-305</a>);<br>
  Correct argument types of <code>I_EHR_COMPOSITION.<em>get_composition_xx()</em></code> functions; rename <code><em>get_composition()</em></code> to <code><em>get_composition_latest()</em></code>.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">P Pazos</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>28 Feb 2019</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">28 Feb 2019</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -444,7 +450,7 @@
 <p>In order to specify concrete service interfaces (i.e. APIs) to openEHR platform product components, a formal, abstract definition of the platform interfaces is useful, so as to be able to state the formal interface call semantics independent of any particular implementation technology. This approach clarifies the distinction between required semantics and the details contingent in any concrete technology, such as SOAP/WSDL, REST, and so on, each of which has its own characteristics and rules.</p>
 </div>
 <div class="paragraph">
-<p>It is assumed that native APIs are network-accessible via one or more communications protocols, each with an appropriate <em>protocol adapter</em>. Such protocols include the text-based, such as <a href="https://en.wikipedia.org/wiki//SOAP" target="_blank" rel="noopener">SOAP/WSDL</a> and <a href="https://en.wikipedia.org/wiki//Representational_state_transfer" target="_blank" rel="noopener">REST</a>, as well as the many binary protocols, including <a href="https://github.com/google/protobuf/wiki" target="_blank" rel="noopener">Google Protocol Buffers</a>, <a href="https://thrift.apache.org/" target="_blank" rel="noopener">Apache Thrift</a>, <a href="https://kafka.apache.org/" target="_blank" rel="noopener">Kafka</a>, <a href="https://zeroc.com/products/ice#what-is-ice" target="_blank" rel="noopener">ZeroC ICE</a>, and <a href="https://www.amqp.org/" target="_blank" rel="noopener">Advanced Message Queueing Protocol (AMPQ)</a>. The focus of this specification is the nominal 'native API' that is reached by any of these methods, as shown below.</p>
+<p>It is assumed that native APIs are network-accessible via one or more communications protocols, each with an appropriate <em>protocol adapter</em>. Such protocols include the text-based, such as <a href="https://en.wikipedia.org/wiki/SOAP" target="_blank" rel="noopener">SOAP/WSDL</a> and <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank" rel="noopener">REST</a>, as well as the many binary protocols, including <a href="https://github.com/google/protobuf/wiki" target="_blank" rel="noopener">Google Protocol Buffers</a>, <a href="https://thrift.apache.org" target="_blank" rel="noopener">Apache Thrift</a>, <a href="https://kafka.apache.org" target="_blank" rel="noopener">Kafka</a>, <a href="https://zeroc.com/products/ice#what-is-ice" target="_blank" rel="noopener">ZeroC ICE</a>, and <a href="https://www.amqp.org/" target="_blank" rel="noopener">Advanced Message Queueing Protocol (AMPQ)</a>. The focus of this specification is the nominal 'native API' that is reached by any of these methods, as shown below.</p>
 </div>
 <div id="assumed_model" class="imageblock text-center text-center">
 <div class="content">
@@ -4303,7 +4309,7 @@ ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Structured query execution result. The columns attribute contains a definition of columns, while the result data is represented by the rows attribute.</p>
+<p>Structured query execution result. The <code><em>columns</em></code> attribute contains a definition of columns, while the result data is represented by the <code><em>rows</em></code> attribute.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -4315,14 +4321,14 @@ ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>query_name</strong>: <code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Name of query if stored in Definitions service.s</p>
+<p>Name of query if stored in Definitions service.</p>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>source_aql_text</strong>: <code>String</code></p></td>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>source_query</strong>: <code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Source AQL text to be executed, once paramaters are substituted.</p>
+<p>Source query text to be executed (prior to parameter substitution).</p>
 </div></div></td>
 </tr>
 <tr>
@@ -4341,9 +4347,9 @@ ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>executed_aql</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>executed_query</strong>: <code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Executed AQL text with all parameters substituted.</p>
+<p>Executed query text with all parameters substituted.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -4388,8 +4394,8 @@ ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>aql_path</strong>: <code>String</code></p></td>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>path</strong>: <code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>RM path of data item for this column as specified in query.</p>
 </div></div></td>
@@ -4423,7 +4429,7 @@ ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>items</strong>: <code>List&lt;Any&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong>: <code>List&lt;Any&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>List of items corresponding to the columns of the owning Result set.</p>
 </div></div></td>

@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*RESULT_SET*
 
 h|*Description*
-2+a|Structured query execution result. The columns attribute contains a definition of columns, while the result data is represented by the rows attribute.
+2+a|Structured query execution result. The `_columns_` attribute contains a definition of columns, while the result data is represented by the `_rows_` attribute.
 
 h|*Attributes*
 ^h|*Signature*
@@ -14,11 +14,11 @@ h|*Attributes*
 
 h|*0..1*
 |*query_name*: `String`
-a|Name of query if stored in Definitions service.s
+a|Name of query if stored in Definitions service.
 
-h|*1..1*
-|*source_aql_text*: `String`
-a|Source AQL text to be executed, once paramaters are substituted.
+h|*0..1*
+|*source_query*: `String`
+a|Source query text to be executed (prior to parameter substitution).
 
 h|*0..1*
 |*rows*: `List<RESULT_SET_ROW>`
@@ -29,8 +29,8 @@ h|*1..1*
 a|Column definition structure.
 
 h|*0..1*
-|*executed_aql*: `String`
-a|Executed AQL text with all parameters substituted.
+|*executed_query*: `String`
+a|Executed query text with all parameters substituted.
 
 h|*1..1*
 |*creation_time*: `Iso8601_date_time`

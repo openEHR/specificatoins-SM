@@ -6,7 +6,12 @@
 
 4+^h|*SM Release 1.0.0*
 
-|[[latest_issue]]0.9.5
+|[[latest_issue]]0.9.6
+|Adjust naming and definitions of elements in `RESULT_SET` classes to reflect REST API.
+|S Iancu
+|[[latest_issue_date]]25 Mar 2020
+
+|0.9.5
 |Add missing enumeration `_invalid_artefact_` to `DEFINITION_CALL_STATUS_TYPE` ({spec_tickets}/SPECPR-293[SPECPR-293^]); +
  Add `_xxx_count()_` calls to `I_DEFINITION_XX` interfaces ({spec_tickets}/SPECPR-288[SPECPR-288^]); +
  Rename `_row_offset_` and `_rows_to_fetch_` to `_item_offset_` and `_items_to_fetch_` ({spec_tickets}/SPECPR-292[SPECPR-292^]); +
@@ -16,7 +21,7 @@
  Improve documentation of implicit server-side Contribution and Version creation ({spec_tickets}/SPECPR-305[SPECPR-305^]); +
  Correct argument types of `I_EHR_COMPOSITION._get_composition_xx()_` functions; rename `_get_composition()_` to `_get_composition_latest()_`.
 |P Pazos 
-|[[latest_issue_date]]28 Feb 2019
+|28 Feb 2019
 
 |
 |Add `I_DEFINITIONS_CHECKER` and `DEFINITIONS_CHECKER_STATUS` to support definitions validity pre-conditions.
