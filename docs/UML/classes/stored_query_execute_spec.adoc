@@ -16,11 +16,11 @@ h|*1..1*
 |*qualified_query_name*: `String`
 a|Qualified name of query, which is of the form `reverse_domain::name`.
 
+h|*0..1*
+|*version*: `String`
+a|If supplied, version of the query to execute specified as a semver.org 3-part string. If not supplied, the latest version available will be executed.
+
 h|*1..1*
 |*query_parameters*: `Hash<String, String>`
 a|Parameters to substitute in query in the form of a set of tagged String values; each tag must match a parameter name in the query.
-
-h|*0..1*
-|*query_version*: `String`
-a|If supplied, version of the query to execute specified as a semver.org 3-part string. If not supplied, the latest version available will be executed.
 |===

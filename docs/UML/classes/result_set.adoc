@@ -12,27 +12,23 @@ h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|*0..1*
-|*query_name*: `String`
-a|Name of query if stored in Definitions service.
-
-h|*0..1*
-|*source_query*: `String`
-a|Source query text to be executed (prior to parameter substitution).
-
-h|*0..1*
-|*rows*: `List<RESULT_SET_ROW>`
-a|Result row data.
-
 h|*1..1*
 |*columns*: `List<RESULT_SET_COLUMN>`
 a|Column definition structure.
 
-h|*0..1*
-|*executed_query*: `String`
-a|Executed query text with all parameters substituted.
+h|*1..1*
+|*id*: `String`
+a|Unique identifier of this result set.
 
 h|*1..1*
 |*creation_time*: `Iso8601_date_time`
 a|Time of creation of this Result set by execution engine.
+
+h|*0..1*
+|*query*: `RESULT_QUERY_DESCRIPTOR`
+a|
+
+h|*0..1*
+|*rows*: `List<Any>`
+a|Rox data.
 |===

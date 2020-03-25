@@ -13,8 +13,12 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*query_text*: `String`
+|*source*: `String`
 a|AQL text of query.
+
+h|*0..1*
+|*formalism*: `String{nbsp}={nbsp}"aql"`
+a|
 
 h|*1..1*
 |*query_parameters*: `Hash<String, String>`
