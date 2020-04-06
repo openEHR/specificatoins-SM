@@ -1132,7 +1132,7 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p><strong><em>Change_type_valid</em></strong>: <code>terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_audit_change_type, change_type.defining_code)</code></p>
+<p><em>Change_type_valid</em>: <code>terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_audit_change_type, change_type.defining_code)</code></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1341,8 +1341,9 @@ an_artefact: <code>AUTHORED_ARCHETYPE[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>upload_artefact</strong> (<br>
 an_artefact: <code>AUTHORED_ARCHETYPE[1]</code><br>
 )<br>
-<strong><em>Post_has_artefact</em></strong>: <code>has_artefact (an_arch.identifier)</code><br>
-<strong><em>Pre_valid</em></strong>: <code>valid_artefact (an_arch)</code></p></td>
+<br>
+<em>Pre_valid</em>: <code>valid_artefact (an_arch)</code><br>
+<em>Post_has_artefact</em>: <code>has_artefact (an_arch.identifier)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Upload an ADL2 artefact, i.e. archetype, template or operational_template. If an artefact with the same physical identifier and namespace exists, replace it.</p>
 </div>
@@ -1363,7 +1364,8 @@ an_artefact: <code>AUTHORED_ARCHETYPE[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_artefact</strong> (<br>
 an_id: <code>ARCHETYPE_HRID[1]</code><br>
 ): <code>AUTHORED_ARCHETYPE</code><br>
-<strong><em>Pre_artefact_exists</em></strong>: <code>has_artefact (an_id)</code></p></td>
+<br>
+<em>Pre_artefact_exists</em>: <code>has_artefact (an_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Get the AOM2 artefact with id <code><em>an_id</em></code>.</p>
 </div>
@@ -1530,7 +1532,8 @@ an_arch: <code>ARCHETYPE[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>upload_archetype</strong> (<br>
 an_arch: <code>ARCHETYPE[1]</code><br>
 )<br>
-<strong><em>Post_has_archetype</em></strong>: <code>has_archetype (an_arch.identifier)</code></p></td>
+<br>
+<em>Post_has_archetype</em>: <code>has_archetype (an_arch.identifier)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Upload a valid ADL 1.4 archetype. If an archetype with the same id already exists, replace it. The archetype must be valid to succeed.</p>
 </div>
@@ -1594,8 +1597,9 @@ items_to_fetch: <code>Integer[0..1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_archetype</strong> (<br>
 an_id: <code>ARCHETYPE_ID[1]</code><br>
 )<br>
-<strong><em>Pre_artefact_exists</em></strong>: <code>has_artefact (an_id)</code><br>
-<strong><em>Post_archetype_removed</em></strong>: <code>not has_archetype (an_id)</code></p></td>
+<br>
+<em>Pre_artefact_exists</em>: <code>has_artefact (an_id)</code><br>
+<em>Post_archetype_removed</em>: <code>not has_archetype (an_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Delete a previously uploaded archetype.</p>
 </div>
@@ -1631,7 +1635,8 @@ an_opt: <code>ARCHETYPE[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>upload_opt</strong> (<br>
 an_opt: <code>ARCHETYPE[1]</code><br>
 )<br>
-<strong><em>Pre_valid</em></strong>: <code>valid_opt(an_opt)</code></p></td>
+<br>
+<em>Pre_valid</em>: <code>valid_opt(an_opt)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Upload an ADL 1.4 Operational Template (OPT).</p>
 </div>
@@ -1695,8 +1700,9 @@ items_to_fetch: <code>Integer[0..1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_opt</strong> (<br>
 an_id: <code>UUID[1]</code><br>
 )<br>
-<strong><em>Pre_has_opt</em></strong>: <code>has_opt (an_id)</code><br>
-<strong><em>Post_opt_removed</em></strong>: <code>not has_opt (an_id)</code></p></td>
+<br>
+<em>Pre_has_opt</em>: <code>has_opt (an_id)</code><br>
+<em>Post_opt_removed</em>: <code>not has_opt (an_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Delete a previously uploaded ADL 1.4. OPT.</p>
 </div>
@@ -1789,7 +1795,8 @@ a_query_text: <code>String[1]</code>,<br>
 a_formalism: <code>String[1]</code>,<br>
 a_query_name: <code>String[0..1]</code><br>
 ): <code>QUERY_DESCRIPTOR</code><br>
-<strong><em>Pre_valid_query</em></strong>: <code>is_valid_query(a_query_text)</code></p></td>
+<br>
+<em>Pre_valid_query</em>: <code>is_valid_query(a_query_text)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Register a query under a qualified name. If no name is provided, one is created in the service. Return a Query descriptor containing the query name and unique identifier.</p>
 </div>
@@ -1875,8 +1882,9 @@ items_to_fetch: <code>Integer[0..1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_query</strong> (<br>
 a_query_name: <code>String[1]</code><br>
 )<br>
-<strong><em>Pre_has_query</em></strong>: <code>has_query(a_query_name)</code><br>
-<strong><em>Post_query_deleted</em></strong>: <code>not has_query (a_query_name)</code></p></td>
+<br>
+<em>Pre_has_query</em>: <code>has_query(a_query_name)</code><br>
+<em>Post_query_deleted</em>: <code>not has_query (a_query_name)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Delete query with name <code><em>a_query_name</em></code>.</p>
 </div>
@@ -2162,7 +2170,8 @@ a_subject_id: <code>PARTY_REF[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_ehr</strong> (<br>
 an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
 ): <code>UUID</code><br>
-<strong><em>Post_has_ehr</em></strong>: <code>has_ehr (Result)</code></p></td>
+<br>
+<em>Post_has_ehr</em>: <code>has_ehr (Result)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Create a new EHR with a system-generated identifier and return the id.</p>
 </div>
@@ -2179,8 +2188,9 @@ an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
 ): <code>UUID</code><br>
-<strong><em>Post_has_ehr</em></strong>: <code>has_ehr (Result)</code><br>
-<strong><em>Pre_no_duplicate</em></strong>: <code>not has_ehr (an_ehr_id)</code></p></td>
+<br>
+<em>Pre_no_duplicate</em>: <code>not has_ehr (an_ehr_id)</code><br>
+<em>Post_has_ehr</em>: <code>has_ehr (Result)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Create a new EHR with a provided EHR id; return the id as a safety check.</p>
 </div>
@@ -2253,7 +2263,8 @@ an_ehr_id: <code>UUID[1]</code>,<br>
 a_subject_id: <code>PARTY_REF[1]</code>,<br>
 an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
 ): <code>UUID</code><br>
-<strong><em>Pre_no_duplicate</em></strong>: <code>not has_ehr (an_ehr_id)</code></p></td>
+<br>
+<em>Pre_no_duplicate</em>: <code>not has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Create a new EHR with EHR id and provided subject id. Return the EHR id as a safety check.</p>
 </div>
@@ -2295,7 +2306,8 @@ an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_ehr</strong> (<br>
 an_ehr_id: <code>UUID[1]</code><br>
 ): <code>EHR_SUMMARY</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<br>
+<em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Retrieve a summarised form of the EHR root object and <code>EHR_STATUS</code>.</p>
 </div>
@@ -2456,7 +2468,8 @@ ehr_id: <code>UUID[1]</code><br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_version_uid: <code>UUID[1]</code><br>
 ): <code>Boolean</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<br>
+<em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>True if <code><em>an_ehr_status_ver_uid</em></code> is one of the versions of this versioned EHR Status object.</p>
 </div>
@@ -2474,7 +2487,8 @@ a_version_uid: <code>UUID[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_ehr_status</strong> (<br>
 an_ehr_id: <code>UUID[1]</code><br>
 ): <code>EHR_STATUS</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<br>
+<em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Get the current version of the <code>EHR_STATUS</code> object for an EHR.</p>
 </div>
@@ -2492,7 +2506,8 @@ an_ehr_id: <code>UUID[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_ehr_status_at_time</strong> (<br>
 a_time: <code>Iso8601_date_time[0..1]</code><br>
 ): <code>EHR_STATUS</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<br>
+<em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Get the version of the EHR Status extant at time <code><em>a_time</em></code>. If no time supplied, get the latest.</p>
 </div>
@@ -2510,8 +2525,9 @@ a_time: <code>Iso8601_date_time[0..1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>set_ehr_queryable</strong> (<br>
 an_ehr_id: <code>UUID[1]</code><br>
 )<br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
-<strong><em>Post_is_queryable_set</em></strong>: <code>get_ehr_status(an_ehr_id).is_queryable</code></p></td>
+<br>
+<em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code><br>
+<em>Post_is_queryable_set</em>: <code>get_ehr_status(an_ehr_id).is_queryable</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Set the EHR <code><em>is_queryable</em></code> flag to true; this ensures it is included by the query engine.</p>
 </div>
@@ -2529,8 +2545,9 @@ an_ehr_id: <code>UUID[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>set_ehr_modifiable</strong> (<br>
 an_ehr_id: <code>UUID[1]</code><br>
 )<br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
-<strong><em>Post_is_modifiable_set</em></strong>: <code>get_ehr_status(an_ehr_id).is_modifiable</code></p></td>
+<br>
+<em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code><br>
+<em>Post_is_modifiable_set</em>: <code>get_ehr_status(an_ehr_id).is_modifiable</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Set the EHR <code><em>is_modifable</em></code> flag to true; this ensures it is treated as active and updatable.</p>
 </div>
@@ -2548,8 +2565,9 @@ an_ehr_id: <code>UUID[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>clear_ehr_queryable</strong> (<br>
 an_ehr_id: <code>UUID[1]</code><br>
 )<br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
-<strong><em>Post_is_queryable_cleared</em></strong>: <code>not get_ehr_status(an_ehr_id).is_queryable</code></p></td>
+<br>
+<em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code><br>
+<em>Post_is_queryable_cleared</em>: <code>not get_ehr_status(an_ehr_id).is_queryable</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Clear the EHR <code><em>is_queryable</em></code> flag; this ensures it is ignored by the query engine.</p>
 </div>
@@ -2567,8 +2585,9 @@ an_ehr_id: <code>UUID[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>clear_ehr_modifiable</strong> (<br>
 an_ehr_id: <code>UUID[1]</code><br>
 )<br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
-<strong><em>Post_is_modifiable_cleared</em></strong>: <code>not get_ehr_status(an_ehr_id).is_modifiable</code></p></td>
+<br>
+<em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code><br>
+<em>Post_is_modifiable_cleared</em>: <code>not get_ehr_status(an_ehr_id).is_modifiable</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Clear the EHR <code><em>is_modifiable</em></code> flag; this ensures it is treated as active.</p>
 </div>
@@ -2587,7 +2606,8 @@ an_ehr_id: <code>UUID[1]</code><br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_details: <code>ITEM_TREE[1]</code><br>
 )<br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<br>
+<em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Update other_details part of <code>EHR_STATUS</code> with new content.</p>
 </div>
@@ -2606,7 +2626,8 @@ a_details: <code>ITEM_TREE[1]</code><br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_version_uid: <code>UUID[1]</code><br>
 ): <code>EHR_STATUS</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<br>
+<em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Get a particular version of an EHR Status object.</p>
 </div>
@@ -2624,8 +2645,9 @@ a_version_uid: <code>UUID[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_versioned_ehr_status</strong> (<br>
 an_ehr_id: <code>UUID[1]</code><br>
 ): <code>VERSIONED_EHR_STATUS</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
-<strong><em>Pre_has_ehr_status_version</em></strong>: <code>has_ehr_status_version (an_ehr_id, a_version_uid)</code></p></td>
+<br>
+<em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code><br>
+<em>Pre_has_ehr_status_version</em>: <code>has_ehr_status_version (an_ehr_id, a_version_uid)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Get the <code>VERSIONED_EHR_STATUS</code> object from the EHR with id <code><em>ehr_id</em></code>.</p>
 </div>
@@ -2670,7 +2692,8 @@ an_ehr_id: <code>UUID[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_directory</strong> (<br>
 ehr_id: <code>UUID[1]</code><br>
 ): <code>Boolean</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<br>
+<em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>True if the EHR has a directory structure.</p>
 </div></div></td>
@@ -2681,7 +2704,8 @@ ehr_id: <code>UUID[1]</code><br>
 ehr_id: <code>UUID[1]</code>,<br>
 a_path: <code>String[1]</code><br>
 ): <code>Boolean</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<br>
+<em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>True if path <code><em>a_path</em></code> exists in directory. The <code><em>a_path</em></code> argument consists of slash-separated values of the name attribute of Folders in the directory.</p>
 </div>
@@ -2700,10 +2724,11 @@ a_path: <code>String[1]</code><br>
 ehr_id: <code>UUID[1]</code>,<br>
 a_dir_struct: <code>UV_FOLDER[1]</code><br>
 )<br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
-<strong><em>Pre_definitions_valid</em></strong>: <code>definitions_valid (a_dir_struct)</code><br>
-<strong><em>Pre_no_directory</em></strong>: <code>not has_directory (ehr_id)</code><br>
-<strong><em>Pre_content_valid</em></strong>: <code>valid_content(a_dir_struct)</code></p></td>
+<br>
+<em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code><br>
+<em>Pre_definitions_valid</em>: <code>definitions_valid (a_dir_struct)</code><br>
+<em>Pre_no_directory</em>: <code>not has_directory (ehr_id)</code><br>
+<em>Pre_content_valid</em>: <code>valid_content(a_dir_struct)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Create a directory in the EHR, based on the provided structure.  Causes server-side creation of a new <code>VERSIONED_OBJECT</code>, <code>ORIGINAL_VERSION</code> and new <code>CONTRIBUTION</code>.</p>
 </div>
@@ -2727,7 +2752,8 @@ a_dir_struct: <code>UV_FOLDER[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_directory</strong> (<br>
 ehr_id: <code>UUID[1]</code><br>
 ): <code>FOLDER</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<br>
+<em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Get current version of EHR Directory structure, if it exists, else Void.</p>
 </div>
@@ -2746,7 +2772,8 @@ ehr_id: <code>UUID[1]</code><br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_time: <code>Iso8601_date_time[0..1]</code><br>
 ): <code>FOLDER</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<br>
+<em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Get the version of the Directory extant at time <code><em>a_time</em></code>. If no time supplied, get the latest.</p>
 </div>
@@ -2778,10 +2805,11 @@ a_time: <code>Iso8601_date_time[0..1]</code><br>
 ehr_id: <code>UUID[1]</code>,<br>
 a_dir_struct: <code>UV_FOLDER[1]</code><br>
 )<br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
-<strong><em>Pre_definitions_valid</em></strong>: <code>definitions_valid (a_dir_struct)</code><br>
-<strong><em>Pre_content_valid</em></strong>: <code>valid_content(a_dir_struct)</code><br>
-<strong><em>Pre_has_directory</em></strong>: <code>has_directory(ehr_id)</code></p></td>
+<br>
+<em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code><br>
+<em>Pre_definitions_valid</em>: <code>definitions_valid (a_dir_struct)</code><br>
+<em>Pre_content_valid</em>: <code>valid_content(a_dir_struct)</code><br>
+<em>Pre_has_directory</em>: <code>has_directory(ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Create or update a directory from a complete structure. Preceding version must be supplied and correct if EHR directory already exists. Causes server-side creation of a new <code>ORIGINAL_VERSION</code> and a new <code>CONTRIBUTION</code>.</p>
 </div>
@@ -2818,8 +2846,9 @@ a_dir_struct: <code>UV_FOLDER[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_directory</strong> (<br>
 ehr_id: <code>UUID[1]</code><br>
 )<br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
-<strong><em>Pre_has_directory</em></strong>: <code>has_directory(ehr_id)</code></p></td>
+<br>
+<em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code><br>
+<em>Pre_has_directory</em>: <code>has_directory(ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Logically delete the directory by creating a new version in which the contents are removed.</p>
 </div>
@@ -2873,7 +2902,8 @@ a_version_uid: <code>UUID[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_versioned_directory</strong> (<br>
 an_ehr_id: <code>UUID[1]</code><br>
 ): <code>VERSIONED_FOLDER</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<br>
+<em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Get the <code>VERSIONED_FOLDER</code> Directory object for the EHR with <code><em>ehr_id</em></code>.</p>
 </div>
@@ -2919,7 +2949,8 @@ an_ehr_id: <code>UUID[1]</code><br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_version_uid: <code>OBJECT_VERSION_ID[1]</code><br>
 ): <code>Boolean</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<br>
+<em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return True if a Composition version with identifier <code><em>a_version_uid</em></code> exists.</p>
 </div>
@@ -2938,8 +2969,9 @@ a_version_uid: <code>OBJECT_VERSION_ID[1]</code><br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_versioned_object_uid: <code>UUID[1]</code><br>
 ): <code>COMPOSITION</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
-<strong><em>Pre_has_composition</em></strong>: <code>has_composition (an_ehr_id, a_version_uid)</code></p></td>
+<br>
+<em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code><br>
+<em>Pre_has_composition</em>: <code>has_composition (an_ehr_id, a_version_uid)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Retrieve the latest version of a Composition.</p>
 </div>
@@ -2975,7 +3007,8 @@ an_ehr_id: <code>UUID[1]</code>,<br>
 a_versioned_object_uid: <code>UUID[1]</code>,<br>
 a_time: <code>Iso8601_date_time[0..1]</code><br>
 ): <code>COMPOSITION</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<br>
+<em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Retrieve the Composition version extant at a given time, from a Versioned Composition. If no time supplied, get the latest.</p>
 </div>
@@ -3018,7 +3051,8 @@ a_version_uid: <code>OBJECT_VERSION_ID[1]</code><br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_versioned_object_uid: <code>UUID[1]</code><br>
 ): <code>VERSIONED_COMPOSITION</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<br>
+<em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Retrieve the <code>VERSIONED_OBJECT</code> of a Composition by uid.</p>
 </div>
@@ -3040,10 +3074,11 @@ a_versioned_object_uid: <code>UUID[1]</code><br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_comp: <code>UV_COMPOSITION[1]</code><br>
 ): <code>UUID</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
-<strong><em>Post_has_composition</em></strong>: <code>has_composition (an_ehr_id, Result)</code><br>
-<strong><em>Pre_composition_definitions_valid</em></strong>: <code>definitions_valid (a_comp)</code><br>
-<strong><em>Pre_content_valid</em></strong>: <code>valid_content (a_comp)</code></p></td>
+<br>
+<em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code><br>
+<em>Pre_composition_definitions_valid</em>: <code>definitions_valid (a_comp)</code><br>
+<em>Pre_content_valid</em>: <code>valid_content (a_comp)</code><br>
+<em>Post_has_composition</em>: <code>has_composition (an_ehr_id, Result)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Create the first version of a new Composition. Causes server-side creation of a new <code>VERSIONED_OBJECT</code>, <code>ORIGINAL_VERSION</code> and new <code>CONTRIBUTION</code>.</p>
 </div>
@@ -3071,9 +3106,10 @@ a_comp: <code>UV_COMPOSITION[1]</code><br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_comp: <code>UV_COMPOSITION[1]</code><br>
 ): <code>UUID</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
-<strong><em>Pre_composition_definitions_valid</em></strong>: <code>definitions_valid (a_comp)</code><br>
-<strong><em>Pre_content_valid</em></strong>: <code>valid_content (a_comp)</code></p></td>
+<br>
+<em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code><br>
+<em>Pre_composition_definitions_valid</em>: <code>definitions_valid (a_comp)</code><br>
+<em>Pre_content_valid</em>: <code>valid_content (a_comp)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Update an existing Composition, which includes server-side creation of a new <code>ORIGINAL_VERSION</code> and a new <code>CONTRIBUTION</code>.</p>
 </div>
@@ -3101,7 +3137,8 @@ a_comp: <code>UV_COMPOSITION[1]</code><br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_version_uid: <code>UUID[1]</code><br>
 )<br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<br>
+<em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Logically delete a Composition by creating a new version in which the content is removed and the lifecycle state is set to <code>523&#124;deleted&#124;</code>. The <code><em>a_version_uid</em></code> argument identifies the current top Composition Version.</p>
 </div>
@@ -3150,7 +3187,8 @@ a_version_uid: <code>UUID[1]</code><br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_contrib_id: <code>UUID[1]</code><br>
 )<br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<br>
+<em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return True if the Contribution with <code><em>a_contrib_id</em></code> in EHR with id <code><em>an_ehr_id</em></code> exists.</p>
 </div>
@@ -3169,8 +3207,9 @@ a_contrib_id: <code>UUID[1]</code><br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_contrib_id: <code>UUID[1]</code><br>
 ): <code>CONTRIBUTION</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
-<strong><em>Pre_has_contribution</em></strong>: <code>has_contribution (a_contrib_id)</code></p></td>
+<br>
+<em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code><br>
+<em>Pre_has_contribution</em>: <code>has_contribution (a_contrib_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return the Contribution with id <code><em>a_contrib_id</em></code> in EHR with id <code><em>an_ehr_id</em></code>.</p>
 </div>
@@ -3193,8 +3232,9 @@ an_ehr_id: <code>UUID[1]</code>,<br>
 versions: <code>List&lt;UPDATE_VERSION&gt;[1]</code>,<br>
 an_audit: <code>UPDATE_AUDIT[1]</code><br>
 ): <code>UUID</code><br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code><br>
-<strong><em>Post_has_contribution</em></strong>: <code>has_contribution (a_contrib_id)</code></p></td>
+<br>
+<em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code><br>
+<em>Post_has_contribution</em>: <code>has_contribution (a_contrib_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Commit a <code>CONTRIBUTION</code> containing any number of <code>UPDATE_VERSION</code> objects.</p>
 </div>
@@ -3400,8 +3440,9 @@ time_range: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_party</strong> (<br>
 a_version: <code>UV_PARTY[1]</code><br>
 ): <code>UUID</code><br>
-<strong><em>Pre_party_definitions_valid</em></strong>: <code>definitions_valid (a_version)</code><br>
-<strong><em>Pre_content_valid</em></strong>: <code>valid_content (a_version)</code></p></td>
+<br>
+<em>Pre_party_definitions_valid</em>: <code>definitions_valid (a_version)</code><br>
+<em>Pre_content_valid</em>: <code>valid_content (a_version)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Create the first version of a new <code>PARTY</code> object. Causes server-side creation of a new <code>VERSIONED_OBJECT</code>, <code>ORIGINAL_VERSION</code> and new <code>CONTRIBUTION</code>.</p>
 </div>
@@ -3422,7 +3463,8 @@ a_version: <code>UV_PARTY[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_party_relationship</strong> (<br>
 a_version: <code>UV_PARTY_RELATIONSHIP[1]</code><br>
 ): <code>UUID</code><br>
-<strong><em>Pre_content_valid</em></strong>: <code>valid_content (a_version)</code></p></td>
+<br>
+<em>Pre_content_valid</em>: <code>valid_content (a_version)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Create the first version of a new <code>PARTY_RELATIONSHIP</code>. Causes server-side creation of a new <code>VERSIONED_OBJECT</code>, <code>ORIGINAL_VERSION</code> and new <code>CONTRIBUTION</code>.</p>
 </div>
@@ -3522,7 +3564,8 @@ a_party_version_id: <code>UUID[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_party</strong> (<br>
 a_versioned_party_id: <code>UUID[1]</code><br>
 ): <code>PARTY</code><br>
-<strong><em>Pre_has_party</em></strong>: <code>has_party (a_versioned_party_id)</code></p></td>
+<br>
+<em>Pre_has_party</em>: <code>has_party (a_versioned_party_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Get the current Version of a Party.</p>
 </div>
@@ -3559,8 +3602,9 @@ a_time: <code>Iso8601_date_time[1]</code><br>
 a_versioned_party_id: <code>UUID[1]</code>,<br>
 a_version: <code>UV_PARTY[1]</code><br>
 ): <code>UUID</code><br>
-<strong><em>Pre_party_definitions_valid</em></strong>: <code>definitions_valid (a_version)</code><br>
-<strong><em>Pre_has_party</em></strong>: <code>has_party (a_versioned_party_id)</code></p></td>
+<br>
+<em>Pre_party_definitions_valid</em>: <code>definitions_valid (a_version)</code><br>
+<em>Pre_has_party</em>: <code>has_party (a_versioned_party_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Update a <code>PARTY</code> with a new Version. Causes server-side creation of a new <code>ORIGINAL_VERSION</code> and <code>CONTRIBUTION</code>.</p>
 </div>
@@ -3587,8 +3631,9 @@ a_version: <code>UV_PARTY[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_party</strong> (<br>
 a_versioned_party_id: <code>UUID[1]</code><br>
 )<br>
-<strong><em>Post_party_deleted</em></strong>: <code>not has_party (a_versioned_party_id)</code><br>
-<strong><em>Pre_has_party</em></strong>: <code>has_party (a_versioned_party_id)</code></p></td>
+<br>
+<em>Pre_has_party</em>: <code>has_party (a_versioned_party_id)</code><br>
+<em>Post_party_deleted</em>: <code>not has_party (a_versioned_party_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Delete an existing Party.</p>
 </div>
@@ -3606,7 +3651,8 @@ a_versioned_party_id: <code>UUID[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_party_at_version</strong> (<br>
 a_party_version_id: <code>UUID[1]</code><br>
 ): <code>PARTY</code><br>
-<strong><em>Pre_has_party_version</em></strong>: <code>has_party_version (a_party_version_id)</code></p></td>
+<br>
+<em>Pre_has_party_version</em>: <code>has_party_version (a_party_version_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Get a particular Party Version.</p>
 </div>
@@ -3696,8 +3742,9 @@ a_time: <code>Iso8601_date_time[1]</code><br>
 a_versioned_party_rel_id: <code>UUID[1]</code>,<br>
 a_version: <code>UV_PARTY_RELATIONSHIP[1]</code><br>
 ): <code>UUID</code><br>
-<strong><em>Pre_party_definitions_valid</em></strong>: <code>definitions_valid (a_version)</code><br>
-<strong><em>Pre_has_relationship</em></strong>: <code>has_party_relationship (a_versioned_party_rel_id)</code></p></td>
+<br>
+<em>Pre_party_definitions_valid</em>: <code>definitions_valid (a_version)</code><br>
+<em>Pre_has_relationship</em>: <code>has_party_relationship (a_versioned_party_rel_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Update a <code>PARTY_RELATIONSHIP</code> with a new Version. Causes server-side creation of a new <code>ORIGINAL_VERSION</code> and <code>CONTRIBUTION</code>.</p>
 </div>
@@ -3724,8 +3771,9 @@ a_version: <code>UV_PARTY_RELATIONSHIP[1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_party_relationship</strong> (<br>
 a_versioned_party_rel_id: <code>UUID[1]</code><br>
 )<br>
-<strong><em>Pre_has_relationship</em></strong>: <code>has_party_relationship (a_versioned_party_rel_id)</code><br>
-<strong><em>Post_relationship_deleted</em></strong>: <code>not has_party_relationship (a_versioned_party_rel_id)</code></p></td>
+<br>
+<em>Pre_has_relationship</em>: <code>has_party_relationship (a_versioned_party_rel_id)</code><br>
+<em>Post_relationship_deleted</em>: <code>not has_party_relationship (a_versioned_party_rel_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Delete an existing Party relationship.</p>
 </div>
@@ -4306,7 +4354,8 @@ ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>formalism</strong>: <code>String&#160;=&#160;"aql"</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>formalism</strong>: <code>String<br>
+{default&#160;=&#160;"aql"}</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 <tr>
@@ -4336,6 +4385,9 @@ ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
 <p>Structured query execution result. The <code><em>columns</em></code> attribute contains a definition of columns, while the result data is represented by the <code><em>rows</em></code> attribute.</p>
+</div>
+<div class="paragraph">
+<p>Ideally the Result set has sufficient meta-data to be processible independently of the original query.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -4371,7 +4423,7 @@ ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>rows</strong>: <code>List&lt;Any&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>rows</strong>: <code>List&lt;RESULT_SET_ROW&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Rox data.</p>
 </div></div></td>
@@ -4412,6 +4464,22 @@ ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>archetype_id</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+check on whether needed or inside the path.
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>path</strong>: <code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>RM path of data item for this column as specified in query.</p>
@@ -4446,7 +4514,7 @@ ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong>: <code>List&lt;Any&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>values</strong>: <code>List&lt;Any&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>List of items corresponding to the columns of the owning Result set.</p>
 </div></div></td>
@@ -4707,7 +4775,8 @@ time_interval: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>physical_ehr_delete</strong> (<br>
 an_ehr_id: <code>UUID[1]</code><br>
 )<br>
-<strong><em>Pre_has_ehr</em></strong>: <code>has_ehr (an_ehr_id)</code></p></td>
+<br>
+<em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Physical deletion of specified EHR.</p>
 </div>

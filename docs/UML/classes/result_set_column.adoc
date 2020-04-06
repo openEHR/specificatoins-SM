@@ -17,6 +17,10 @@ h|*1..1*
 a|Column name for caller to use.
 
 h|*0..1*
+|*archetype_id*: `String`
+a|NOTE: check on whether needed or inside the path.
+
+h|*0..1*
 |*path*: `String`
 a|RM path of data item for this column as specified in query.
 |===

@@ -13,6 +13,6 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*0..1*
-|*value*: `List<Any>`
+|*values*: `List<Any>`
 a|List of items corresponding to the columns of the owning Result set.
 |===

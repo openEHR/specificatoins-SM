@@ -8,6 +8,8 @@ h|*Class*
 h|*Description*
 2+a|Structured query execution result. The `_columns_` attribute contains a definition of columns, while the result data is represented by the `_rows_` attribute.
 
+Ideally the Result set has sufficient meta-data to be processible independently of the original query.
+
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
@@ -29,6 +31,6 @@ h|*0..1*
 a|
 
 h|*0..1*
-|*rows*: `List<Any>`
+|*rows*: `List<RESULT_SET_ROW>`
 a|Rox data.
 |===

@@ -28,8 +28,9 @@ h|
 |*upload_artefact* ( +
 an_artefact: `AUTHORED_ARCHETYPE[1]` +
 ) +
-*_Post_has_artefact_*: `has_artefact (an_arch.identifier)` +
-*_Pre_valid_*: `valid_artefact (an_arch)`
+ +
+_Pre_valid_: `valid_artefact (an_arch)` +
+_Post_has_artefact_: `has_artefact (an_arch.identifier)`
 a|Upload an ADL2 artefact, i.e. archetype, template or operational_template. If an artefact with the same physical identifier and namespace exists, replace it.
 
 The artefact must validate.
@@ -44,7 +45,8 @@ h|
 |*get_artefact* ( +
 an_id: `ARCHETYPE_HRID[1]` +
 ): `AUTHORED_ARCHETYPE` +
-*_Pre_artefact_exists_*: `has_artefact (an_id)`
+ +
+_Pre_artefact_exists_: `has_artefact (an_id)`
 a|Get the AOM2 artefact with id `_an_id_`.
 
 

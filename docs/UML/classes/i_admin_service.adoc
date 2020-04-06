@@ -48,7 +48,8 @@ h|
 |*physical_ehr_delete* ( +
 an_ehr_id: `UUID[1]` +
 ) +
-*_Pre_has_ehr_*: `has_ehr (an_ehr_id)`
+ +
+_Pre_has_ehr_: `has_ehr (an_ehr_id)`
 a|Physical deletion of specified EHR.
 
 
