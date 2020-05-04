@@ -64,9 +64,11 @@ A significant part of the content of this specification was adapted from the Bet
 :sectnums:
 include::master01-preface.adoc[leveloffset=+1]
 include::master02-overview.adoc[leveloffset=+1]
-include::master03-simplified_im.adoc[leveloffset=+1]
-include::master04-app_context.adoc[leveloffset=+1]
-include::master05-transformation_rules.adoc[leveloffset=+1]
+include::master03-sim_base.adoc[leveloffset=+1]
+include::master04-sim_data_types.adoc[leveloffset=+1]
+include::master05-sim_structures.adoc[leveloffset=+1]
+include::master06-app_context.adoc[leveloffset=+1]
+include::master07-transformation_rules.adoc[leveloffset=+1]
 
 //
 // --------------------------------------------- REFERENCES -----------------------------------------------
