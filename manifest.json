@@ -27,7 +27,7 @@
             "keywords": "SIM-B, information model, openEHR"
         }
     ],
-    "expression": [
+    "expressions": [
         {
             "id": "REST-API",
             "dependency": {
