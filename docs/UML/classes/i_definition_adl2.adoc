@@ -12,19 +12,19 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|
+h|*1..1*
 |*has_artefact* ( +
 an_id: `ARCHETYPE_HRID[1]` +
 ): `Boolean`
 a|Return True if AOM2 artefact with id `_an_id_` exists in the service.
 
-h|
+h|*1..1*
 |*valid_artefact* ( +
 an_artefact: `AUTHORED_ARCHETYPE[1]` +
 ): `Boolean`
 a|Test validity of artefact.
 
-h|
+h|*0..1*
 |*upload_artefact* ( +
 an_artefact: `AUTHORED_ARCHETYPE[1]` +
 ) +
@@ -41,7 +41,7 @@ The artefact must validate.
 .Errors
 * `invalid artefact` (+ specific messages)
 
-h|
+h|*1..1*
 |*get_artefact* ( +
 an_id: `ARCHETYPE_HRID[1]` +
 ): `AUTHORED_ARCHETYPE` +
@@ -55,35 +55,35 @@ a|Get the AOM2 artefact with id `_an_id_`.
 .Errors
 * `artefact_does_not_exist`
 
-h|
+h|*0..1*
 |*list_artefacts* ( +
 item_offset: `Integer[0..1]`, +
 items_to_fetch: `Integer[0..1]` +
 ): `List<ARCHETYPE_HRID>`
 a|List all AOM2 artefacts known in the service.
 
-h|
+h|*0..1*
 |*list_archetypes* ( +
 item_offset: `Integer[0..1]`, +
 items_to_fetch: `Integer[0..1]` +
 ): `List<ARCHETYPE_HRID>`
 a|List all archetypes, i.e. artefacts whose concrete type is `AUTHORED_ARCHETYPE`.
 
-h|
+h|*0..1*
 |*list_templates* ( +
 item_offset: `Integer[0..1]`, +
 items_to_fetch: `Integer[0..1]` +
 ): `List<ARCHETYPE_HRID>`
 a|List all archetypes, i.e. artefacts whose concrete type is `TEMPLATE`.
 
-h|
+h|*0..1*
 |*list_opts* ( +
 item_offset: `Integer[0..1]`, +
 items_to_fetch: `Integer[0..1]` +
 ): `List<ARCHETYPE_HRID>`
 a|List all archetypes, i.e. artefacts whose concrete type is `OPERATIONAL_TEMPLATE`.
 
-h|
+h|*0..1*
 |*list_matching_artefacts* ( +
 id_pattern: `String[1]`, +
 item_offset: `Integer[0..1]`, +
@@ -97,7 +97,7 @@ a|List all artefacts whose identifiers match a regex pattern.
 .Errors
 * `invalid_id_pattern`
 
-h|
+h|*0..1*
 |*delete_artefact* ( +
 an_id: `ARCHETYPE_HRID[1]` +
 )
@@ -109,19 +109,19 @@ a|Delete the AOM2 artefact with id `_an_id_`.
 .Errors
 * `artefact_does_not_exist`
 
-h|
+h|*1..1*
 |*artefacts_count* (): `Integer`
 a|Return total artefacts count.
 
-h|
+h|*1..1*
 |*archetypes_count* (): `Integer`
 a|Return total archetypes count.
 
-h|
+h|*1..1*
 |*templates_count* (): `Integer`
 a|Return total templates count.
 
-h|
+h|*1..1*
 |*opts_count* (): `Integer`
 a|Return total OPTs count.
 |===

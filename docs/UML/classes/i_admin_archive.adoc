@@ -12,7 +12,7 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|
+h|*0..1*
 |*archive_ehrs* ( +
 ehr_ids: `List<UUID>[0..1]` +
 )
@@ -24,7 +24,7 @@ a|Move selected EHRs to archival storage.
 .Errors
 * `ehr_id_does_not_exist`
 
-h|
+h|*0..1*
 |*archive_parties* ( +
 party_ids: `List<UUID>[0..1]` +
 )

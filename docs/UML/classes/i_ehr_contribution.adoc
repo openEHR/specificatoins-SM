@@ -12,7 +12,7 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|
+h|*0..1*
 |*has_contribution* ( +
 an_ehr_id: `UUID[1]`, +
 a_contrib_id: `UUID[1]` +
@@ -27,7 +27,7 @@ a|Return True if the Contribution with `_a_contrib_id_` in EHR with id `_an_ehr_
 .Errors
 * `ehr_id_does_not_exist`
 
-h|
+h|*1..1*
 |*get_contribution* ( +
 an_ehr_id: `UUID[1]`, +
 a_contrib_id: `UUID[1]` +
@@ -44,7 +44,7 @@ a|Return the Contribution with id `_a_contrib_id_` in EHR with id `_an_ehr_id_`.
 * `ehr_id_does_not_exist`
 * `contribution_does_not_exist`
 
-h|
+h|*1..1*
 |*commit_contribution* ( +
 an_ehr_id: `UUID[1]`, +
 versions: `List<UPDATE_VERSION>[1]`, +
@@ -61,7 +61,7 @@ a|Commit a `CONTRIBUTION` containing any number of `UPDATE_VERSION` objects.
 .Errors
 * `ehr_id_does_not_exist`
 
-h|
+h|*0..1*
 |*list_contributions* ( +
 an_ehr_id: `UUID[1]`, +
 time_range: `Interval<Iso8601_date_time>[0..1]`, +
@@ -78,7 +78,7 @@ a|Obtain a list of identifiers of Contributions in EHR.
 .Errors
 * `ehr_does_not_exist`
 
-h|
+h|*1..1*
 |*contribution_count* ( +
 ehr_id: `UUID[1]`, +
 time_range: `Interval<Iso8601_date_time>[0..1]` +

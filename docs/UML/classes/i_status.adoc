@@ -12,11 +12,11 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|
+h|*1..1*
 |*last_call_failed* (): `Boolean`
 a|Return True if the last call generated an error, i.e. any result other than `CALL_STATUSES._success_`.
 
-h|
+h|*1..1*
 |*last_call_status* (): `CALL_STATUS`
 a|Class status object for last call.
 |===

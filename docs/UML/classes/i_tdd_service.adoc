@@ -12,14 +12,14 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|
+h|*0..1*
 |*import_tdd* ( +
 an_ehr_id: `UUID[1]`, +
 tdd: `String[1]` +
 )
 a|Import a TDD.
 
-h|
+h|*0..1*
 |*import_tdds*
 a|Bulk import numerous TDDs.
 |===

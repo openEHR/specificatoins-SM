@@ -12,26 +12,26 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|
+h|*0..1*
 |*export_ehrs* ( +
 an_ehr_id: `UUID[1]` +
 ): `List<EXTRACT>`
 a|Export whole EHR for one or more subjects.
 
-h|
+h|*0..1*
 |*export_ehr_extracts* ( +
 extract_spec: `EXTRACT_SPEC[1]` +
 ): `List<EXTRACT>`
 a|Export an extract for one or more EHRs.
 
-h|
+h|*0..1*
 |*import_ehr* ( +
 an_ehr_id: `UUID[0..1]`, +
 an_extract: `EXTRACT[1]` +
 )
 a|Import a whole EHR, optionally providing a fixed EHR identifier, which, usually to match the identifier of EHR(s) for the same patient in other EHR services.
 
-h|
+h|*0..1*
 |*import_ehr_extract* ( +
 an_ehr_id: `UUID[1]`, +
 an_extract: `EXTRACT[1]` +

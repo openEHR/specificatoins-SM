@@ -12,19 +12,19 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|
+h|*1..1*
 |*has_party* ( +
 a_versioned_party_id: `UUID[1]` +
 ): `Boolean`
 a|Return True if Party exists.
 
-h|
+h|*1..1*
 |*has_party_version_id* ( +
 a_party_version_id: `UUID[1]` +
 ): `Boolean`
 a|True if a particular version of a Party exists.
 
-h|
+h|*1..1*
 |*get_party* ( +
 a_versioned_party_id: `UUID[1]` +
 ): `PARTY` +
@@ -38,7 +38,7 @@ a|Get the current Version of a Party.
 .Errors
 * `versioned_object_does_not_exist`
 
-h|
+h|*1..1*
 |*get_party_at_time* ( +
 a_versioned_party_id: `UUID[1]`, +
 a_time: `Iso8601_date_time[1]` +
@@ -51,7 +51,7 @@ a|Get the Version of a Party current at `_a_time_`.
 .Errors
 * `versioned_object_does_not_exist`
 
-h|
+h|*1..1*
 |*update_party* ( +
 a_versioned_party_id: `UUID[1]`, +
 a_version: `UV_PARTY[1]` +
@@ -71,7 +71,7 @@ a|Update a `PARTY` with a new Version. Causes server-side creation of a new `ORI
 * `definition_unknown`
 * `content_invalid`
 
-h|
+h|*0..1*
 |*delete_party* ( +
 a_versioned_party_id: `UUID[1]` +
 ) +
@@ -86,7 +86,7 @@ a|Delete an existing Party.
 .Errors
 * `versioned_object_does_not_exist`
 
-h|
+h|*1..1*
 |*get_party_at_version* ( +
 a_party_version_id: `UUID[1]` +
 ): `PARTY` +

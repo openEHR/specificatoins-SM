@@ -12,7 +12,7 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|
+h|*1..1*
 |*create_party* ( +
 a_version: `UV_PARTY[1]` +
 ): `UUID` +
@@ -29,7 +29,7 @@ a|Create the first version of a new `PARTY` object. Causes server-side creation 
 * `definition_unknown`
 * `content_invalid`
 
-h|
+h|*1..1*
 |*create_party_relationship* ( +
 a_version: `UV_PARTY_RELATIONSHIP[1]` +
 ): `UUID` +
@@ -45,7 +45,7 @@ a|Create the first version of a new `PARTY_RELATIONSHIP`. Causes server-side cre
 * `definition_unknown`
 * `content_invalid`
 
-h|
+h|*1..1*
 |*i_party* ( +
 a_versioned_party_id +
 ): `I_PARTY`
@@ -57,7 +57,7 @@ a|Create an `I_PARTY` interface.
 .Errors
 * `versioned_object_does_not_exist`
 
-h|
+h|*1..1*
 |*i_party_relationship* ( +
 a_versioned_party_rel_id +
 ): `I_PARTY_RELATIONSHIP`

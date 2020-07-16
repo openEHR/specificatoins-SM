@@ -424,7 +424,7 @@
 <div class="sect2">
 <h3 id="_feedback"><a class="anchor" href="#_feedback"></a>1.4. Feedback</h3>
 <div class="paragraph">
-<p>Feedback may be provided on the <a href="https://forums.openehr.org/c/specifications" target="_blank" rel="noopener">technical mailing list</a>.</p>
+<p>Feedback may be provided on the <a href="https://discourse.openehr.org/c/specifications" target="_blank" rel="noopener">technical mailing list</a>.</p>
 </div>
 <div class="paragraph">
 <p>Issues may be raised on the <a href="https://specifications.openehr.org/components/SM/open_issues" target="_blank" rel="noopener">specifications Problem Report tracker</a>.</p>
@@ -849,14 +849,14 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>last_call_failed</strong> (): <code>Boolean</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return True if the last call generated an error, i.e. any result other than <code>CALL_STATUSES.<em>success</em></code>.</p>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>last_call_status</strong> (): <code>CALL_STATUS</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Class status object for last call.</p>
@@ -1163,7 +1163,7 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definitions_valid</strong> (<br>
 a_content: <code>LOCATABLE[1]</code><br>
 ): <code>Boolean</code></p></td>
@@ -1172,7 +1172,7 @@ a_content: <code>LOCATABLE[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>content_valid</strong> (<br>
 a_content: <code>LOCATABLE[1]</code><br>
 ): <code>Boolean</code></p></td>
@@ -1319,7 +1319,7 @@ a_content: <code>LOCATABLE[1]</code><br>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_artefact</strong> (<br>
 an_id: <code>ARCHETYPE_HRID[1]</code><br>
 ): <code>Boolean</code></p></td>
@@ -1328,7 +1328,7 @@ an_id: <code>ARCHETYPE_HRID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>valid_artefact</strong> (<br>
 an_artefact: <code>AUTHORED_ARCHETYPE[1]</code><br>
 ): <code>Boolean</code></p></td>
@@ -1337,7 +1337,7 @@ an_artefact: <code>AUTHORED_ARCHETYPE[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>upload_artefact</strong> (<br>
 an_artefact: <code>AUTHORED_ARCHETYPE[1]</code><br>
 )<br>
@@ -1360,7 +1360,7 @@ an_artefact: <code>AUTHORED_ARCHETYPE[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_artefact</strong> (<br>
 an_id: <code>ARCHETYPE_HRID[1]</code><br>
 ): <code>AUTHORED_ARCHETYPE</code><br>
@@ -1379,7 +1379,7 @@ an_id: <code>ARCHETYPE_HRID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_artefacts</strong> (<br>
 item_offset: <code>Integer[0..1]</code>,<br>
 items_to_fetch: <code>Integer[0..1]</code><br>
@@ -1389,7 +1389,7 @@ items_to_fetch: <code>Integer[0..1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_archetypes</strong> (<br>
 item_offset: <code>Integer[0..1]</code>,<br>
 items_to_fetch: <code>Integer[0..1]</code><br>
@@ -1399,7 +1399,7 @@ items_to_fetch: <code>Integer[0..1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_templates</strong> (<br>
 item_offset: <code>Integer[0..1]</code>,<br>
 items_to_fetch: <code>Integer[0..1]</code><br>
@@ -1409,7 +1409,7 @@ items_to_fetch: <code>Integer[0..1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_opts</strong> (<br>
 item_offset: <code>Integer[0..1]</code>,<br>
 items_to_fetch: <code>Integer[0..1]</code><br>
@@ -1419,7 +1419,7 @@ items_to_fetch: <code>Integer[0..1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_matching_artefacts</strong> (<br>
 id_pattern: <code>String[1]</code>,<br>
 item_offset: <code>Integer[0..1]</code>,<br>
@@ -1438,7 +1438,7 @@ items_to_fetch: <code>Integer[0..1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_artefact</strong> (<br>
 an_id: <code>ARCHETYPE_HRID[1]</code><br>
 )</p></td>
@@ -1455,28 +1455,28 @@ an_id: <code>ARCHETYPE_HRID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>artefacts_count</strong> (): <code>Integer</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return total artefacts count.</p>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>archetypes_count</strong> (): <code>Integer</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return total archetypes count.</p>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>templates_count</strong> (): <code>Integer</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return total templates count.</p>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>opts_count</strong> (): <code>Integer</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return total OPTs count.</p>
@@ -1510,7 +1510,7 @@ an_id: <code>ARCHETYPE_HRID[1]</code><br>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_archetype</strong> (<br>
 an_id: <code>ARCHETYPE_ID[1]</code><br>
 ): <code>Boolean</code></p></td>
@@ -1519,7 +1519,7 @@ an_id: <code>ARCHETYPE_ID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>valid_archetype</strong> (<br>
 an_arch: <code>ARCHETYPE[1]</code><br>
 ): <code>Boolean</code></p></td>
@@ -1528,7 +1528,7 @@ an_arch: <code>ARCHETYPE[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>upload_archetype</strong> (<br>
 an_arch: <code>ARCHETYPE[1]</code><br>
 )<br>
@@ -1547,7 +1547,7 @@ an_arch: <code>ARCHETYPE[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_archetype</strong> (<br>
 an_id: <code>ARCHETYPE_ID[1]</code><br>
 ): <code>ARCHETYPE</code></p></td>
@@ -1564,7 +1564,7 @@ an_id: <code>ARCHETYPE_ID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_archetypes</strong> (<br>
 item_offset: <code>Integer[0..1]</code>,<br>
 items_to_fetch: <code>Integer[0..1]</code><br>
@@ -1574,7 +1574,7 @@ items_to_fetch: <code>Integer[0..1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_matching_archetypes</strong> (<br>
 id_pattern: <code>String[1]</code>,<br>
 item_offset: <code>Integer[0..1]</code>,<br>
@@ -1593,7 +1593,7 @@ items_to_fetch: <code>Integer[0..1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_archetype</strong> (<br>
 an_id: <code>ARCHETYPE_ID[1]</code><br>
 )<br>
@@ -1613,7 +1613,7 @@ an_id: <code>ARCHETYPE_ID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_opt</strong> (<br>
 an_opt_id: <code>UUID[1]</code><br>
 ): <code>Boolean</code></p></td>
@@ -1622,7 +1622,7 @@ an_opt_id: <code>UUID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>valid_opt</strong> (<br>
 an_opt: <code>ARCHETYPE[1]</code><br>
 ): <code>Boolean</code></p></td>
@@ -1631,7 +1631,7 @@ an_opt: <code>ARCHETYPE[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>upload_opt</strong> (<br>
 an_opt: <code>ARCHETYPE[1]</code><br>
 )<br>
@@ -1650,7 +1650,7 @@ an_opt: <code>ARCHETYPE[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_opt</strong> (<br>
 an_opt_id: <code>UUID[1]</code><br>
 ): <code>ARCHETYPE</code></p></td>
@@ -1667,7 +1667,7 @@ an_opt_id: <code>UUID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_opts</strong> (<br>
 item_offset: <code>Integer[0..1]</code>,<br>
 items_to_fetch: <code>Integer[0..1]</code><br>
@@ -1677,7 +1677,7 @@ items_to_fetch: <code>Integer[0..1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_matching_opts</strong> (<br>
 id_pattern: <code>String[1]</code>,<br>
 item_offset: <code>Integer[0..1]</code>,<br>
@@ -1696,7 +1696,7 @@ items_to_fetch: <code>Integer[0..1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_opt</strong> (<br>
 an_id: <code>UUID[1]</code><br>
 )<br>
@@ -1716,14 +1716,14 @@ an_id: <code>UUID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>archetypes_count</strong> (): <code>Integer</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return total archetypes count.</p>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>opts_count</strong> (): <code>Integer</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return total OPTs count.</p>
@@ -1757,7 +1757,7 @@ an_id: <code>UUID[1]</code><br>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_query</strong> (<br>
 a_query_name: <code>String[1]</code><br>
 ): <code>Boolean</code></p></td>
@@ -1779,7 +1779,7 @@ a_query_name: <code>String[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>valid_query</strong> (<br>
 a_query_text: <code>String[1]</code>,<br>
 a_formalism: <code>String[1]</code><br>
@@ -1789,7 +1789,7 @@ a_formalism: <code>String[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>register_query</strong> (<br>
 a_query_text: <code>String[1]</code>,<br>
 a_formalism: <code>String[1]</code>,<br>
@@ -1815,7 +1815,7 @@ a_query_name: <code>String[0..1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>register_query_set</strong> (<br>
 a_query_set_name: <code>String[0..1]</code><br>
 ): <code>UUID</code></p></td>
@@ -1827,7 +1827,7 @@ a_query_set_name: <code>String[0..1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_queries</strong> (<br>
 item_offset: <code>Integer[0..1]</code>,<br>
 items_to_fetch: <code>Integer[0..1]</code><br>
@@ -1837,7 +1837,7 @@ items_to_fetch: <code>Integer[0..1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_matching_queries</strong> (<br>
 id_pattern: <code>String[1]</code>,<br>
 artefact_id_pattern: <code>String[1]</code>,<br>
@@ -1878,7 +1878,7 @@ items_to_fetch: <code>Integer[0..1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_query</strong> (<br>
 a_query_name: <code>String[1]</code><br>
 )<br>
@@ -1911,7 +1911,7 @@ a_query_name: <code>String[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>queries_count</strong> (): <code>Integer</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return total count of queries.</p>
@@ -2114,7 +2114,7 @@ a_query_name: <code>String[1]</code><br>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_ehr</strong> (<br>
 ehr_id: <code>UUID[1]</code><br>
 ): <code>Boolean</code></p></td>
@@ -2136,7 +2136,7 @@ ehr_id: <code>UUID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_ehr_for_subject</strong> (<br>
 a_subject_id: <code>PARTY_REF[1]</code><br>
 ): <code>Boolean</code></p></td>
@@ -2166,11 +2166,12 @@ a_subject_id: <code>PARTY_REF[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_ehr</strong> (<br>
 an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
 ): <code>UUID</code><br>
 <br>
+<em>Pre_no_subject</em>: <code>an_ehr_status.subject = Void</code><br>
 <em>Post_has_ehr</em>: <code>has_ehr (Result)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Create a new EHR with a system-generated identifier and return the id.</p>
@@ -2183,12 +2184,13 @@ an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_ehr_with_id</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
 ): <code>UUID</code><br>
 <br>
+<em>Pre_no_subject</em>: <code>an_ehr_status.subject = Void</code><br>
 <em>Pre_no_duplicate</em>: <code>not has_ehr (an_ehr_id)</code><br>
 <em>Post_has_ehr</em>: <code>has_ehr (Result)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -2223,7 +2225,7 @@ an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_ehr_for_subject</strong> (<br>
 a_subject_id: <code>PARTY_REF[1]</code>,<br>
 an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
@@ -2257,7 +2259,7 @@ an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_ehr_for_subject_with_id</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_subject_id: <code>PARTY_REF[1]</code>,<br>
@@ -2302,7 +2304,7 @@ an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_ehr</strong> (<br>
 an_ehr_id: <code>UUID[1]</code><br>
 ): <code>EHR_SUMMARY</code><br>
@@ -2334,7 +2336,7 @@ an_ehr_id: <code>UUID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_ehrs_for_subject</strong> (<br>
 a_subject_id: <code>PARTY_REF[1]</code><br>
 ): <code>List&lt;EHR_SUMMARY&gt;</code></p></td>
@@ -2364,7 +2366,7 @@ a_subject_id: <code>PARTY_REF[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>i_ehr</strong> (<br>
 ehr_id: <code>UUID[1]</code><br>
 ): <code>I_EHR</code></p></td>
@@ -2463,7 +2465,7 @@ ehr_id: <code>UUID[1]</code><br>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_ehr_status_version</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_version_uid: <code>UUID[1]</code><br>
@@ -2483,7 +2485,7 @@ a_version_uid: <code>UUID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_ehr_status</strong> (<br>
 an_ehr_id: <code>UUID[1]</code><br>
 ): <code>EHR_STATUS</code><br>
@@ -2502,7 +2504,7 @@ an_ehr_id: <code>UUID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_ehr_status_at_time</strong> (<br>
 a_time: <code>Iso8601_date_time[0..1]</code><br>
 ): <code>EHR_STATUS</code><br>
@@ -2521,7 +2523,7 @@ a_time: <code>Iso8601_date_time[0..1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>set_ehr_queryable</strong> (<br>
 an_ehr_id: <code>UUID[1]</code><br>
 )<br>
@@ -2541,7 +2543,7 @@ an_ehr_id: <code>UUID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>set_ehr_modifiable</strong> (<br>
 an_ehr_id: <code>UUID[1]</code><br>
 )<br>
@@ -2561,7 +2563,7 @@ an_ehr_id: <code>UUID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>clear_ehr_queryable</strong> (<br>
 an_ehr_id: <code>UUID[1]</code><br>
 )<br>
@@ -2581,7 +2583,7 @@ an_ehr_id: <code>UUID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>clear_ehr_modifiable</strong> (<br>
 an_ehr_id: <code>UUID[1]</code><br>
 )<br>
@@ -2601,7 +2603,7 @@ an_ehr_id: <code>UUID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>update_other_details</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_details: <code>ITEM_TREE[1]</code><br>
@@ -2621,7 +2623,7 @@ a_details: <code>ITEM_TREE[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_ehr_status_at_version</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_version_uid: <code>UUID[1]</code><br>
@@ -2641,7 +2643,7 @@ a_version_uid: <code>UUID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_versioned_ehr_status</strong> (<br>
 an_ehr_id: <code>UUID[1]</code><br>
 ): <code>VERSIONED_EHR_STATUS</code><br>
@@ -2688,7 +2690,7 @@ an_ehr_id: <code>UUID[1]</code><br>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_directory</strong> (<br>
 ehr_id: <code>UUID[1]</code><br>
 ): <code>Boolean</code><br>
@@ -2699,7 +2701,7 @@ ehr_id: <code>UUID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_path</strong> (<br>
 ehr_id: <code>UUID[1]</code>,<br>
 a_path: <code>String[1]</code><br>
@@ -2719,7 +2721,7 @@ a_path: <code>String[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_directory</strong> (<br>
 ehr_id: <code>UUID[1]</code>,<br>
 a_dir_struct: <code>UV_FOLDER[1]</code><br>
@@ -2748,7 +2750,7 @@ a_dir_struct: <code>UV_FOLDER[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_directory</strong> (<br>
 ehr_id: <code>UUID[1]</code><br>
 ): <code>FOLDER</code><br>
@@ -2767,7 +2769,7 @@ ehr_id: <code>UUID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_directory_at_time</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_time: <code>Iso8601_date_time[0..1]</code><br>
@@ -2800,7 +2802,7 @@ a_time: <code>Iso8601_date_time[0..1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>update_directory</strong> (<br>
 ehr_id: <code>UUID[1]</code>,<br>
 a_dir_struct: <code>UV_FOLDER[1]</code><br>
@@ -2842,7 +2844,7 @@ a_dir_struct: <code>UV_FOLDER[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_directory</strong> (<br>
 ehr_id: <code>UUID[1]</code><br>
 )<br>
@@ -2862,7 +2864,7 @@ ehr_id: <code>UUID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_directory_version</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_version_uid: <code>UUID[1]</code><br>
@@ -2880,7 +2882,7 @@ a_version_uid: <code>UUID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_directory_at_version</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_version_uid: <code>UUID[1]</code><br>
@@ -2898,7 +2900,7 @@ a_version_uid: <code>UUID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_versioned_directory</strong> (<br>
 an_ehr_id: <code>UUID[1]</code><br>
 ): <code>VERSIONED_FOLDER</code><br>
@@ -2944,7 +2946,7 @@ an_ehr_id: <code>UUID[1]</code><br>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_composition</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_version_uid: <code>OBJECT_VERSION_ID[1]</code><br>
@@ -2964,7 +2966,7 @@ a_version_uid: <code>OBJECT_VERSION_ID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_composition_latest</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_versioned_object_uid: <code>UUID[1]</code><br>
@@ -3001,7 +3003,7 @@ a_versioned_object_uid: <code>UUID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_composition_at_time</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_versioned_object_uid: <code>UUID[1]</code>,<br>
@@ -3025,7 +3027,7 @@ a_time: <code>Iso8601_date_time[0..1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_composition_at_version</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_version_uid: <code>OBJECT_VERSION_ID[1]</code><br>
@@ -3046,7 +3048,7 @@ a_version_uid: <code>OBJECT_VERSION_ID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_versioned_composition</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_versioned_object_uid: <code>UUID[1]</code><br>
@@ -3069,7 +3071,7 @@ a_versioned_object_uid: <code>UUID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_composition</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_comp: <code>UV_COMPOSITION[1]</code><br>
@@ -3101,7 +3103,7 @@ a_comp: <code>UV_COMPOSITION[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>update_composition</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_comp: <code>UV_COMPOSITION[1]</code><br>
@@ -3132,7 +3134,7 @@ a_comp: <code>UV_COMPOSITION[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_composition</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_version_uid: <code>UUID[1]</code><br>
@@ -3182,7 +3184,7 @@ a_version_uid: <code>UUID[1]</code><br>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_contribution</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_contrib_id: <code>UUID[1]</code><br>
@@ -3202,7 +3204,7 @@ a_contrib_id: <code>UUID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_contribution</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_contrib_id: <code>UUID[1]</code><br>
@@ -3226,7 +3228,7 @@ a_contrib_id: <code>UUID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>commit_contribution</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 versions: <code>List&lt;UPDATE_VERSION&gt;[1]</code>,<br>
@@ -3248,7 +3250,7 @@ an_audit: <code>UPDATE_AUDIT[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_contributions</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 time_range: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code>,<br>
@@ -3281,7 +3283,7 @@ items_to_fetch: <code>Integer[0..1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>contribution_count</strong> (<br>
 ehr_id: <code>UUID[1]</code>,<br>
 time_range: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
@@ -3436,7 +3438,7 @@ time_range: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_party</strong> (<br>
 a_version: <code>UV_PARTY[1]</code><br>
 ): <code>UUID</code><br>
@@ -3459,7 +3461,7 @@ a_version: <code>UV_PARTY[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_party_relationship</strong> (<br>
 a_version: <code>UV_PARTY_RELATIONSHIP[1]</code><br>
 ): <code>UUID</code><br>
@@ -3481,7 +3483,7 @@ a_version: <code>UV_PARTY_RELATIONSHIP[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>i_party</strong> (<br>
 a_versioned_party_id<br>
 ): <code>I_PARTY</code></p></td>
@@ -3498,7 +3500,7 @@ a_versioned_party_id<br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>i_party_relationship</strong> (<br>
 a_versioned_party_rel_id<br>
 ): <code>I_PARTY_RELATIONSHIP</code></p></td>
@@ -3542,7 +3544,7 @@ a_versioned_party_rel_id<br>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_party</strong> (<br>
 a_versioned_party_id: <code>UUID[1]</code><br>
 ): <code>Boolean</code></p></td>
@@ -3551,7 +3553,7 @@ a_versioned_party_id: <code>UUID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_party_version_id</strong> (<br>
 a_party_version_id: <code>UUID[1]</code><br>
 ): <code>Boolean</code></p></td>
@@ -3560,7 +3562,7 @@ a_party_version_id: <code>UUID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_party</strong> (<br>
 a_versioned_party_id: <code>UUID[1]</code><br>
 ): <code>PARTY</code><br>
@@ -3579,7 +3581,7 @@ a_versioned_party_id: <code>UUID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_party_at_time</strong> (<br>
 a_versioned_party_id: <code>UUID[1]</code>,<br>
 a_time: <code>Iso8601_date_time[1]</code><br>
@@ -3597,7 +3599,7 @@ a_time: <code>Iso8601_date_time[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>update_party</strong> (<br>
 a_versioned_party_id: <code>UUID[1]</code>,<br>
 a_version: <code>UV_PARTY[1]</code><br>
@@ -3627,7 +3629,7 @@ a_version: <code>UV_PARTY[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_party</strong> (<br>
 a_versioned_party_id: <code>UUID[1]</code><br>
 )<br>
@@ -3647,7 +3649,7 @@ a_versioned_party_id: <code>UUID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_party_at_version</strong> (<br>
 a_party_version_id: <code>UUID[1]</code><br>
 ): <code>PARTY</code><br>
@@ -3693,7 +3695,7 @@ a_party_version_id: <code>UUID[1]</code><br>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_party_relationship</strong> (<br>
 a_versioned_party_rel_id: <code>UUID[1]</code><br>
 ): <code>Boolean</code></p></td>
@@ -3702,7 +3704,7 @@ a_versioned_party_rel_id: <code>UUID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_party_relationship</strong> (<br>
 a_versioned_party_rel_id: <code>UUID[1]</code><br>
 ): <code>PARTY_RELATIONSHIP</code></p></td>
@@ -3719,7 +3721,7 @@ a_versioned_party_rel_id: <code>UUID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_party_relationship_at_time</strong> (<br>
 a_versioned_party_rel_id: <code>UUID[1]</code>,<br>
 a_time: <code>Iso8601_date_time[1]</code><br>
@@ -3737,7 +3739,7 @@ a_time: <code>Iso8601_date_time[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>update_party_relationship</strong> (<br>
 a_versioned_party_rel_id: <code>UUID[1]</code>,<br>
 a_version: <code>UV_PARTY_RELATIONSHIP[1]</code><br>
@@ -3767,7 +3769,7 @@ a_version: <code>UV_PARTY_RELATIONSHIP[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_party_relationship</strong> (<br>
 a_versioned_party_rel_id: <code>UUID[1]</code><br>
 )<br>
@@ -3787,7 +3789,7 @@ a_versioned_party_rel_id: <code>UUID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_party_relationship_at_version</strong> (<br>
 a_party_rel_version_id: <code>UUID[1]</code><br>
 ): <code>PARTY_RELATIONSHIP</code></p></td>
@@ -3873,7 +3875,7 @@ a_party_rel_version_id: <code>UUID[1]</code><br>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add_ehr_subject</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_subject_id: <code>OBJECT_REF[1]</code>,<br>
@@ -3885,7 +3887,7 @@ a_loc_desc: <code>LOCATION_DESC[0..1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>update_ehr_subject_status</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_subject_id: <code>OBJECT_REF[1]</code>,<br>
@@ -3907,7 +3909,7 @@ a_status: <code>RESOURCE_STATUS[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>update_ehr_subject_loc_desc</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_subject_id: <code>OBJECT_REF[1]</code>,<br>
@@ -3929,7 +3931,7 @@ a_loc_desc: <code>LOCATION_DESC[0..1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>remove_ehr_subject</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 a_subject_id: <code>OBJECT_REF[1]</code><br>
@@ -3950,7 +3952,7 @@ a_subject_id: <code>OBJECT_REF[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>remove_subject</strong> (<br>
 a_subject_id: <code>OBJECT_REF[1]</code><br>
 )</p></td>
@@ -4157,7 +4159,7 @@ a_subject_id: <code>OBJECT_REF[1]</code><br>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>execute_stored_query</strong> (<br>
 exec_spec: <code>STORED_QUERY_EXECUTE_SPEC[1]</code>,<br>
 row_offset: <code>Integer[0..1]</code>,<br>
@@ -4214,7 +4216,7 @@ ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>execute_ad_hoc_query</strong> (<br>
 exec_spec: <code>ADHOC_QUERY_EXECUTE_SPEC[1]</code>,<br>
 row_offset: <code>Integer[0..1]</code>,<br>
@@ -4589,7 +4591,7 @@ check on whether needed or inside the path.
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>export_ehrs</strong> (<br>
 an_ehr_id: <code>UUID[1]</code><br>
 ): <code>List&lt;EXTRACT&gt;</code></p></td>
@@ -4598,7 +4600,7 @@ an_ehr_id: <code>UUID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>export_ehr_extracts</strong> (<br>
 extract_spec: <code>EXTRACT_SPEC[1]</code><br>
 ): <code>List&lt;EXTRACT&gt;</code></p></td>
@@ -4607,7 +4609,7 @@ extract_spec: <code>EXTRACT_SPEC[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>import_ehr</strong> (<br>
 an_ehr_id: <code>UUID[0..1]</code>,<br>
 an_extract: <code>EXTRACT[1]</code><br>
@@ -4617,7 +4619,7 @@ an_extract: <code>EXTRACT[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>import_ehr_extract</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 an_extract: <code>EXTRACT[1]</code><br>
@@ -4654,7 +4656,7 @@ an_extract: <code>EXTRACT[1]</code><br>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>import_tdd</strong> (<br>
 an_ehr_id: <code>UUID[1]</code>,<br>
 tdd: <code>String[1]</code><br>
@@ -4664,7 +4666,7 @@ tdd: <code>String[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>import_tdds</strong></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Bulk import numerous TDDs.</p>
@@ -4718,7 +4720,7 @@ tdd: <code>String[1]</code><br>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_contributions</strong> (<br>
 a_service: <code>PLATFORM_SERVICE[1]</code>,<br>
 time_interval: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
@@ -4741,7 +4743,7 @@ time_interval: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>contribution_count</strong> (<br>
 a_service: <code>PLATFORM_SERVICE[1]</code>,<br>
 time_interval: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
@@ -4751,7 +4753,7 @@ time_interval: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>versioned_composition_count</strong> (<br>
 a_service: <code>PLATFORM_SERVICE[1]</code>,<br>
 time_interval: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
@@ -4761,7 +4763,7 @@ time_interval: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>composition_version_count</strong> (<br>
 a_service: <code>PLATFORM_SERVICE[1]</code>,<br>
 time_interval: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
@@ -4771,7 +4773,7 @@ time_interval: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>physical_ehr_delete</strong> (<br>
 an_ehr_id: <code>UUID[1]</code><br>
 )<br>
@@ -4790,7 +4792,7 @@ an_ehr_id: <code>UUID[1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>physical_party_delete</strong> (<br>
 a_party_id: <code>UUID[1]</code><br>
 )</p></td>
@@ -4834,7 +4836,7 @@ a_party_id: <code>UUID[1]</code><br>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>archive_ehrs</strong> (<br>
 ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 )</p></td>
@@ -4851,7 +4853,7 @@ ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>archive_parties</strong> (<br>
 party_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 )</p></td>
@@ -4895,7 +4897,7 @@ party_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>export_ehrs</strong> (<br>
 file_sys_loc: <code>String[1]</code>,<br>
 logical_fmt: <code>EXPORT_FORMAT[0..1]</code>,<br>
@@ -4928,7 +4930,7 @@ enc_format: <code>ENCODING_FORMAT[0..1]</code><br>
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>load_ehrs</strong> (<br>
 file_sys_loc: <code>String[1]</code><br>
 )</p></td>
@@ -5063,9 +5065,9 @@ file_sys_loc: <code>String[1]</code><br>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-03-04 21:02:43 UTC
+Last updated 2020-07-16 15:32:30 +0100
 </div>
 </div>
-<link rel="stylesheet" href="https://specifications.openehr.org/styles/pygments-murphy.css">
+<link rel="stylesheet" href="https://specifications.openehr.org/styles/pygments-default.css">
 </body>
 </html>

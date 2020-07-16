@@ -12,7 +12,7 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|
+h|*1..1*
 |*has_ehr_status_version* ( +
 an_ehr_id: `UUID[1]`, +
 a_version_uid: `UUID[1]` +
@@ -27,7 +27,7 @@ a|True if `_an_ehr_status_ver_uid_` is one of the versions of this versioned EHR
 .Errors
 * `ehr_id_does_not_exist`
 
-h|
+h|*1..1*
 |*get_ehr_status* ( +
 an_ehr_id: `UUID[1]` +
 ): `EHR_STATUS` +
@@ -41,7 +41,7 @@ a|Get the current version of the `EHR_STATUS` object for an EHR.
 .Errors
 * `ehr_id_does_not_exist`
 
-h|
+h|*1..1*
 |*get_ehr_status_at_time* ( +
 a_time: `Iso8601_date_time[0..1]` +
 ): `EHR_STATUS` +
@@ -55,7 +55,7 @@ a|Get the version of the EHR Status extant at time `_a_time_`. If no time suppli
 .Errors
 * `ehr_id_does_not_exist`
 
-h|
+h|*0..1*
 |*set_ehr_queryable* ( +
 an_ehr_id: `UUID[1]` +
 ) +
@@ -70,7 +70,7 @@ a|Set the EHR `_is_queryable_` flag to true; this ensures it is included by the 
 .Errors
 * `ehr_id_does_not_exist`
 
-h|
+h|*0..1*
 |*set_ehr_modifiable* ( +
 an_ehr_id: `UUID[1]` +
 ) +
@@ -85,7 +85,7 @@ a|Set the EHR `_is_modifable_` flag to true; this ensures it is treated as activ
 .Errors
 * `ehr_id_does_not_exist`
 
-h|
+h|*0..1*
 |*clear_ehr_queryable* ( +
 an_ehr_id: `UUID[1]` +
 ) +
@@ -100,7 +100,7 @@ a|Clear the EHR `_is_queryable_` flag; this ensures it is ignored by the query e
 .Errors
 * `ehr_id_does_not_exist`
 
-h|
+h|*0..1*
 |*clear_ehr_modifiable* ( +
 an_ehr_id: `UUID[1]` +
 ) +
@@ -115,7 +115,7 @@ a|Clear the EHR `_is_modifiable_` flag; this ensures it is treated as active.
 .Errors
 * `ehr_id_does_not_exist`
 
-h|
+h|*0..1*
 |*update_other_details* ( +
 an_ehr_id: `UUID[1]`, +
 a_details: `ITEM_TREE[1]` +
@@ -130,7 +130,7 @@ a|Update other_details part of `EHR_STATUS` with new content.
 .Errors
 * `ehr_id_does_not_exist`
 
-h|
+h|*1..1*
 |*get_ehr_status_at_version* ( +
 an_ehr_id: `UUID[1]`, +
 a_version_uid: `UUID[1]` +
@@ -145,7 +145,7 @@ a|Get a particular version of an EHR Status object.
 .Errors
 * `ehr_id_does_not_exist`
 
-h|
+h|*1..1*
 |*get_versioned_ehr_status* ( +
 an_ehr_id: `UUID[1]` +
 ): `VERSIONED_EHR_STATUS` +

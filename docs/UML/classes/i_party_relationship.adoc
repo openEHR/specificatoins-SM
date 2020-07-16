@@ -12,13 +12,13 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|
+h|*1..1*
 |*has_party_relationship* ( +
 a_versioned_party_rel_id: `UUID[1]` +
 ): `Boolean`
 a|Return True if Party relationship exists in service.
 
-h|
+h|*1..1*
 |*get_party_relationship* ( +
 a_versioned_party_rel_id: `UUID[1]` +
 ): `PARTY_RELATIONSHIP`
@@ -30,7 +30,7 @@ a|Get the current Version of a Party relationship.
 .Errors
 * `versioned_object_does_not_exist`
 
-h|
+h|*1..1*
 |*get_party_relationship_at_time* ( +
 a_versioned_party_rel_id: `UUID[1]`, +
 a_time: `Iso8601_date_time[1]` +
@@ -43,7 +43,7 @@ a|Get the Version of a Party relationship current at `_a_time_`.
 .Errors
 * `versioned_object_does_not_exist`
 
-h|
+h|*1..1*
 |*update_party_relationship* ( +
 a_versioned_party_rel_id: `UUID[1]`, +
 a_version: `UV_PARTY_RELATIONSHIP[1]` +
@@ -62,7 +62,7 @@ a|Update a `PARTY_RELATIONSHIP` with a new Version. Causes server-side creation 
 * `definition_unknown`
 * `content_invalid`
 
-h|
+h|*0..1*
 |*delete_party_relationship* ( +
 a_versioned_party_rel_id: `UUID[1]` +
 ) +
@@ -77,7 +77,7 @@ a|Delete an existing Party relationship.
 .Errors
 * `versioned_object_does_not_exist`
 
-h|
+h|*1..1*
 |*get_party_relationship_at_version* ( +
 a_party_rel_version_id: `UUID[1]` +
 ): `PARTY_RELATIONSHIP`

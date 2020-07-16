@@ -12,13 +12,13 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|
+h|*1..1*
 |*definitions_valid* ( +
 a_content: `LOCATABLE[1]` +
 ): `Boolean`
 a|Return `True` if the definition identifiers (i.e. archetype and template identifiers) are known in the local `definitions` service.
 
-h|
+h|*1..1*
 |*content_valid* ( +
 a_content: `LOCATABLE[1]` +
 ): `Boolean`

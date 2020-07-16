@@ -12,7 +12,7 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|
+h|*1..1*
 |*has_directory* ( +
 ehr_id: `UUID[1]` +
 ): `Boolean` +
@@ -20,7 +20,7 @@ ehr_id: `UUID[1]` +
 _Pre_has_ehr_: `has_ehr (an_ehr_id)`
 a|True if the EHR has a directory structure.
 
-h|
+h|*1..1*
 |*has_path* ( +
 ehr_id: `UUID[1]`, +
 a_path: `String[1]` +
@@ -35,7 +35,7 @@ a|True if path `_a_path_` exists in directory. The `_a_path_` argument consists 
 .Errors
 * `ehr_id_does_not_exist`
 
-h|
+h|*0..1*
 |*create_directory* ( +
 ehr_id: `UUID[1]`, +
 a_dir_struct: `UV_FOLDER[1]` +
@@ -55,7 +55,7 @@ a|Create a directory in the EHR, based on the provided structure.  Causes server
 * `definition_unknown`
 * `content_invalid`
 
-h|
+h|*0..1*
 |*get_directory* ( +
 ehr_id: `UUID[1]` +
 ): `FOLDER` +
@@ -69,7 +69,7 @@ a|Get current version of EHR Directory structure, if it exists, else Void.
 .Errors
 * `ehr_id_does_not_exist`
 
-h|
+h|*0..1*
 |*get_directory_at_time* ( +
 an_ehr_id: `UUID[1]`, +
 a_time: `Iso8601_date_time[0..1]` +
@@ -86,7 +86,7 @@ a|Get the version of the Directory extant at time `_a_time_`. If no time supplie
 .Errors
 * `ehr_id_does_not_exist`
 
-h|
+h|*0..1*
 |*update_directory* ( +
 ehr_id: `UUID[1]`, +
 a_dir_struct: `UV_FOLDER[1]` +
@@ -108,7 +108,7 @@ a|Create or update a directory from a complete structure. Preceding version must
 * `definition_unknown`
 * `content_invalid`
 
-h|
+h|*0..1*
 |*delete_directory* ( +
 ehr_id: `UUID[1]` +
 ) +
@@ -123,7 +123,7 @@ a|Logically delete the directory by creating a new version in which the contents
 .Errors
 * `ehr_id_does_not_exist`
 
-h|
+h|*1..1*
 |*has_directory_version* ( +
 an_ehr_id: `UUID[1]`, +
 a_version_uid: `UUID[1]` +
@@ -136,7 +136,7 @@ a|True if the directory has a version with specified id.
 .Errors
 * `ehr_id_does_not_exist`
 
-h|
+h|*0..1*
 |*get_directory_at_version* ( +
 an_ehr_id: `UUID[1]`, +
 a_version_uid: `UUID[1]` +
@@ -149,7 +149,7 @@ a|Get a particular version of the EHR Directory.
 .Errors
 * `version_does_not_exist`
 
-h|
+h|*0..1*
 |*get_versioned_directory* ( +
 an_ehr_id: `UUID[1]` +
 ): `VERSIONED_FOLDER` +

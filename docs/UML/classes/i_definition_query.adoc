@@ -12,7 +12,7 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|
+h|*1..1*
 |*has_query* ( +
 a_query_name: `String[1]` +
 ): `Boolean`
@@ -22,14 +22,14 @@ a|Return True if the query identified by `_a_query_name_` is registered.
 [horizontal]
 `_a_query_name_`:: Qualified name of query.
 
-h|
+h|*1..1*
 |*valid_query* ( +
 a_query_text: `String[1]`, +
 a_formalism: `String[1]` +
 ): `Boolean`
 a|Return True if the provided query text is a valid instance of the formalism.
 
-h|
+h|*1..1*
 |*register_query* ( +
 a_query_text: `String[1]`, +
 a_formalism: `String[1]`, +
@@ -43,7 +43,7 @@ a|Register a query under a qualified name. If no name is provided, one is create
 [horizontal]
 `_a_formalism_`:: Case-insensitive name of the formalism of the query text. Values include "AQL" (and "aql").
 
-h|
+h|*1..1*
 |*register_query_set* ( +
 a_query_set_name: `String[0..1]` +
 ): `UUID`
@@ -51,14 +51,14 @@ a|Register a query set.
 
 TODO: determine details.
 
-h|
+h|*0..1*
 |*list_queries* ( +
 item_offset: `Integer[0..1]`, +
 items_to_fetch: `Integer[0..1]` +
 ): `List<QUERY_DESCRIPTOR>`
 a|List all registered queries.
 
-h|
+h|*0..1*
 |*list_matching_queries* ( +
 id_pattern: `String[1]`, +
 artefact_id_pattern: `String[1]`, +
@@ -77,7 +77,7 @@ a|List all registered queries matching an identifier pattern (regex) and an arte
 .Errors
 * `invalid_id_pattern`
 
-h|
+h|*0..1*
 |*delete_query* ( +
 a_query_name: `String[1]` +
 ) +
@@ -94,7 +94,7 @@ a|Delete query with name `_a_query_name_`.
 .Errors
 * `invalid_query`
 
-h|
+h|*1..1*
 |*queries_count* (): `Integer`
 a|Return total count of queries.
 |===

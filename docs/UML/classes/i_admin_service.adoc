@@ -12,7 +12,7 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|
+h|*0..1*
 |*list_contributions* ( +
 a_service: `PLATFORM_SERVICE[1]`, +
 time_interval: `Interval<Iso8601_date_time>[0..1]` +
@@ -23,28 +23,28 @@ a|Obtain a list of ids of all Contributions in EHR system; an optional time rang
 [horizontal]
 `_a_service_`:: Name of a versioned content service (enumeration value).
 
-h|
+h|*1..1*
 |*contribution_count* ( +
 a_service: `PLATFORM_SERVICE[1]`, +
 time_interval: `Interval<Iso8601_date_time>[0..1]` +
 ): `Integer`
 a|Obtain the count of all Contributions made on EHR system; an optional time range may be supplied.
 
-h|
+h|*1..1*
 |*versioned_composition_count* ( +
 a_service: `PLATFORM_SERVICE[1]`, +
 time_interval: `Interval<Iso8601_date_time>[0..1]` +
 ): `Integer`
 a|Obtain the count of all Versioned Compositions on EHR system; an optional time range may be supplied.
 
-h|
+h|*1..1*
 |*composition_version_count* ( +
 a_service: `PLATFORM_SERVICE[1]`, +
 time_interval: `Interval<Iso8601_date_time>[0..1]` +
 ): `Integer`
 a|Obtain the count of all Composition Versions on EHR system; an optional time range may be supplied.
 
-h|
+h|*0..1*
 |*physical_ehr_delete* ( +
 an_ehr_id: `UUID[1]` +
 ) +
@@ -58,7 +58,7 @@ a|Physical deletion of specified EHR.
 .Errors
 * `ehr_id_does_not_exist`
 
-h|
+h|*0..1*
 |*physical_party_delete* ( +
 a_party_id: `UUID[1]` +
 )

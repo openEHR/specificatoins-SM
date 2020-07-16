@@ -12,7 +12,7 @@ h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|
+h|*0..1*
 |*execute_stored_query* ( +
 exec_spec: `STORED_QUERY_EXECUTE_SPEC[1]`, +
 row_offset: `Integer[0..1]`, +
@@ -35,7 +35,7 @@ a|Execute a query stored in the definition service, using its qualified query na
 .Errors
 * `ehr_id_does_not_exist`
 
-h|
+h|*0..1*
 |*execute_ad_hoc_query* ( +
 exec_spec: `ADHOC_QUERY_EXECUTE_SPEC[1]`, +
 row_offset: `Integer[0..1]`, +
