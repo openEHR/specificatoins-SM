@@ -9,58 +9,58 @@ h|*Description*
 2+a|Variant of `S_OBSERVATION` to use for single sample Observations.
 
 h|*Inherit*
-2+|`S_CARE_ENTRY`
+2+|`<<_s_care_entry_class,S_CARE_ENTRY>>`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*0..1*
-|*data*: `List<S_EVENT>`
+|*data*: `link:/releases/BASE/{sm_release}/foundation_types.html#_list_class[List^]<<<_s_event_class,S_EVENT>>>`
 a|Converted from `OBSERVATION._data.events[1]_`.
 
 h|*0..1*
-|*state*: `List<S_EVENT>`
+|*state*: `link:/releases/BASE/{sm_release}/foundation_types.html#_list_class[List^]<<<_s_event_class,S_EVENT>>>`
 a|Converted from `OBSERVATION._state.events[1]_`.
 
 h|*0..1*
-|*history_origin*: `String`
+|*history_origin*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|For multi-event series, converted from `OBSERVATION._data.origin_`.
 
 TODO: should be called `_data_origin_`.
 
 h|*0..1*
-|*history_period*: `String`
+|*history_period*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|For multi-event series, converted from `OBSERVATION._data.period_`.
 
 TODO: should be called `_data_period_`.
 
 h|*0..1*
-|*history_summary*: `List<S_ITEM>`
+|*history_summary*: `link:/releases/BASE/{sm_release}/foundation_types.html#_list_class[List^]<<<_s_item_class,S_ITEM>>>`
 a|For multi-event series, converted from `OBSERVATION._data.summary_`.
 
 TODO: should be called `_data_summary_`.
 
 h|*0..1*
-|*history_duration*: `String`
+|*history_duration*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|For multi-event series, converted from `OBSERVATION._data.duration_`.
 
 
 TODO: should be called `_data_duration_`.
 
 h|*0..1*
-|*state_origin*: `String`
+|*state_origin*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|For multi-event series, converted from `OBSERVATION._state.origin_`.
 
 h|*0..1*
-|*state_period*: `String`
+|*state_period*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|For multi-event series, converted from `OBSERVATION._state.period_`.
 
 h|*0..1*
-|*state_summary*: `List<S_ITEM>`
+|*state_summary*: `link:/releases/BASE/{sm_release}/foundation_types.html#_list_class[List^]<<<_s_item_class,S_ITEM>>>`
 a|For multi-event series, converted from `OBSERVATION._state.summary_`.
 
 h|*0..1*
-|*state_duration*: `String`
+|*state_duration*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|For multi-event series, converted from `OBSERVATION._state.duration_`.
 |===

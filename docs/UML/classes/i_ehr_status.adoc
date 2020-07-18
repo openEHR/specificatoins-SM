@@ -14,11 +14,11 @@ h|*Functions*
 
 h|*1..1*
 |*has_ehr_status_version* ( +
-an_ehr_id: `UUID[1]`, +
-a_version_uid: `UUID[1]` +
-): `Boolean` +
+an_ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]`, +
+a_version_uid: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]` +
+): `link:/releases/BASE/{sm_release}/foundation_types.html#_boolean_class[Boolean^]` +
  +
-_Pre_has_ehr_: `has_ehr (an_ehr_id)`
+__Pre_has_ehr__: `has_ehr (an_ehr_id)`
 a|True if `_an_ehr_status_ver_uid_` is one of the versions of this versioned EHR Status object.
 
 
@@ -29,10 +29,10 @@ a|True if `_an_ehr_status_ver_uid_` is one of the versions of this versioned EHR
 
 h|*1..1*
 |*get_ehr_status* ( +
-an_ehr_id: `UUID[1]` +
-): `EHR_STATUS` +
+an_ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]` +
+): `link:/releases/RM/{sm_release}/ehr.html#_ehr_status_class[EHR_STATUS^]` +
  +
-_Pre_has_ehr_: `has_ehr (an_ehr_id)`
+__Pre_has_ehr__: `has_ehr (an_ehr_id)`
 a|Get the current version of the `EHR_STATUS` object for an EHR.
 
 
@@ -43,10 +43,10 @@ a|Get the current version of the `EHR_STATUS` object for an EHR.
 
 h|*1..1*
 |*get_ehr_status_at_time* ( +
-a_time: `Iso8601_date_time[0..1]` +
-): `EHR_STATUS` +
+a_time: `link:/releases/BASE/{sm_release}/foundation_types.html#_iso8601_date_time_class[Iso8601_date_time^][0..1]` +
+): `link:/releases/RM/{sm_release}/ehr.html#_ehr_status_class[EHR_STATUS^]` +
  +
-_Pre_has_ehr_: `has_ehr (an_ehr_id)`
+__Pre_has_ehr__: `has_ehr (an_ehr_id)`
 a|Get the version of the EHR Status extant at time `_a_time_`. If no time supplied, get the latest.
 
 
@@ -57,11 +57,11 @@ a|Get the version of the EHR Status extant at time `_a_time_`. If no time suppli
 
 h|*0..1*
 |*set_ehr_queryable* ( +
-an_ehr_id: `UUID[1]` +
+an_ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]` +
 ) +
  +
-_Pre_has_ehr_: `has_ehr (an_ehr_id)` +
-_Post_is_queryable_set_: `get_ehr_status(an_ehr_id).is_queryable`
+__Pre_has_ehr__: `has_ehr (an_ehr_id)` +
+__Post_is_queryable_set__: `get_ehr_status(an_ehr_id).is_queryable`
 a|Set the EHR `_is_queryable_` flag to true; this ensures it is included by the query engine.
 
 
@@ -72,11 +72,11 @@ a|Set the EHR `_is_queryable_` flag to true; this ensures it is included by the 
 
 h|*0..1*
 |*set_ehr_modifiable* ( +
-an_ehr_id: `UUID[1]` +
+an_ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]` +
 ) +
  +
-_Pre_has_ehr_: `has_ehr (an_ehr_id)` +
-_Post_is_modifiable_set_: `get_ehr_status(an_ehr_id).is_modifiable`
+__Pre_has_ehr__: `has_ehr (an_ehr_id)` +
+__Post_is_modifiable_set__: `get_ehr_status(an_ehr_id).is_modifiable`
 a|Set the EHR `_is_modifable_` flag to true; this ensures it is treated as active and updatable.
 
 
@@ -87,11 +87,11 @@ a|Set the EHR `_is_modifable_` flag to true; this ensures it is treated as activ
 
 h|*0..1*
 |*clear_ehr_queryable* ( +
-an_ehr_id: `UUID[1]` +
+an_ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]` +
 ) +
  +
-_Pre_has_ehr_: `has_ehr (an_ehr_id)` +
-_Post_is_queryable_cleared_: `not get_ehr_status(an_ehr_id).is_queryable`
+__Pre_has_ehr__: `has_ehr (an_ehr_id)` +
+__Post_is_queryable_cleared__: `not get_ehr_status(an_ehr_id).is_queryable`
 a|Clear the EHR `_is_queryable_` flag; this ensures it is ignored by the query engine.
 
 
@@ -102,11 +102,11 @@ a|Clear the EHR `_is_queryable_` flag; this ensures it is ignored by the query e
 
 h|*0..1*
 |*clear_ehr_modifiable* ( +
-an_ehr_id: `UUID[1]` +
+an_ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]` +
 ) +
  +
-_Pre_has_ehr_: `has_ehr (an_ehr_id)` +
-_Post_is_modifiable_cleared_: `not get_ehr_status(an_ehr_id).is_modifiable`
+__Pre_has_ehr__: `has_ehr (an_ehr_id)` +
+__Post_is_modifiable_cleared__: `not get_ehr_status(an_ehr_id).is_modifiable`
 a|Clear the EHR `_is_modifiable_` flag; this ensures it is treated as active.
 
 
@@ -117,11 +117,11 @@ a|Clear the EHR `_is_modifiable_` flag; this ensures it is treated as active.
 
 h|*0..1*
 |*update_other_details* ( +
-an_ehr_id: `UUID[1]`, +
-a_details: `ITEM_TREE[1]` +
+an_ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]`, +
+a_details: `link:/releases/RM/{sm_release}/data_structures.html#_item_tree_class[ITEM_TREE^][1]` +
 ) +
  +
-_Pre_has_ehr_: `has_ehr (an_ehr_id)`
+__Pre_has_ehr__: `has_ehr (an_ehr_id)`
 a|Update other_details part of `EHR_STATUS` with new content.
 
 
@@ -132,11 +132,11 @@ a|Update other_details part of `EHR_STATUS` with new content.
 
 h|*1..1*
 |*get_ehr_status_at_version* ( +
-an_ehr_id: `UUID[1]`, +
-a_version_uid: `UUID[1]` +
-): `EHR_STATUS` +
+an_ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]`, +
+a_version_uid: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]` +
+): `link:/releases/RM/{sm_release}/ehr.html#_ehr_status_class[EHR_STATUS^]` +
  +
-_Pre_has_ehr_: `has_ehr (an_ehr_id)`
+__Pre_has_ehr__: `has_ehr (an_ehr_id)`
 a|Get a particular version of an EHR Status object.
 
 
@@ -147,11 +147,11 @@ a|Get a particular version of an EHR Status object.
 
 h|*1..1*
 |*get_versioned_ehr_status* ( +
-an_ehr_id: `UUID[1]` +
-): `VERSIONED_EHR_STATUS` +
+an_ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]` +
+): `link:/releases/RM/{sm_release}/ehr.html#_versioned_ehr_status_class[VERSIONED_EHR_STATUS^]` +
  +
-_Pre_has_ehr_: `has_ehr (an_ehr_id)` +
-_Pre_has_ehr_status_version_: `has_ehr_status_version (an_ehr_id, a_version_uid)`
+__Pre_has_ehr__: `has_ehr (an_ehr_id)` +
+__Pre_has_ehr_status_version__: `has_ehr_status_version (an_ehr_id, a_version_uid)`
 a|Get the `VERSIONED_EHR_STATUS` object from the EHR with id `_ehr_id_`.
 
 

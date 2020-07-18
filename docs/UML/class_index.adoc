@@ -65,8 +65,6 @@
 [.xcode]
 * link:/releases/SM/{sm_release}/rm.html#_s_dv_text_class[S_DV_TEXT^]
 [.xcode]
-* link:/releases/SM/{sm_release}/rm.html#_s_dv_text_class[S_DV_TEXT^]
-[.xcode]
 * link:/releases/SM/{sm_release}/rm.html#_s_element_class[S_ELEMENT^]
 [.xcode]
 * link:/releases/SM/{sm_release}/rm.html#_s_entry_class[S_ENTRY^]

@@ -13,22 +13,22 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*code*: `CALL_STATUS_TYPE`
+|*code*: `<<_call_status_type_enumeration,CALL_STATUS_TYPE>>`
 a|Call status code for last call.
 
 h|*1..1*
-|*call_name*: `String`
+|*call_name*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|Name of call that this status documents.
 
 h|*1..1*
-|*call_string*: `String`
+|*call_string*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|Full call, in stringified form, including arguments. Non-primitive objects are shown as addresses unless an exported as_string() method is available.
 
 h|*1..1*
-|*meaning*: `String`
+|*meaning*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|Meaning of the result status.
 
 h|*1..1*
-|*message*: `String`
+|*message*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|Error message text.
 |===

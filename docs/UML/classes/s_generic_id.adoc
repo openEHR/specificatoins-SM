@@ -9,13 +9,13 @@ h|*Description*
 2+a|
 
 h|*Inherit*
-2+|`S_OBJECT_ID`
+2+|`<<_s_object_id_class,S_OBJECT_ID>>`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*scheme*: `String`
+|*scheme*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|
 |===

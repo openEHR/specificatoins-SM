@@ -9,17 +9,17 @@ h|*Description*
 2+a|Simplified RM form of `DV_CODED_TEXT` RM class.
 
 h|*Inherit*
-2+|`S_DV_TEXT`
+2+|`<<_s_dv_text_class,S_DV_TEXT>>`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*code*: `String`
+|*code*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|Converted from `DV_CODED_TEXT._defining_code.code_string_`.
 
 h|*1..1*
-|*terminology*: `String`
+|*terminology*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|Converted from `DV_CODED_TEXT._defining_code.terminology_id_`.
 |===

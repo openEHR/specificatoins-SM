@@ -9,17 +9,17 @@ h|*Description*
 2+a|Simplified RM form of `CODE_PHRASE` RM class.
 
 h|*Inherit*
-2+|`S_DATA_VALUE`
+2+|`<<_s_data_value_class,S_DATA_VALUE>>`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*code*: `String`
+|*code*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|Converted from `CODE_PHRASE._code_string_`.
 
 h|*1..1*
-|*terminology*: `String`
+|*terminology*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|Converted from `CODE_PHRASE._terminology_id_`.
 |===

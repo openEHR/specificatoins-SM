@@ -9,25 +9,25 @@ h|*Description*
 2+a|Simplified RM form of `LINK` RM class.
 
 h|*Inherit*
-2+|`S_TYPE`
+2+|`link:/releases/SM/{sm_release}/S_TYPE.html#_s_type_class[S_TYPE^]`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*meaning*: `String`
+|*meaning*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|Converted from `LINK._meaning.value_`.
 
 TODO: what if original was coded?
 
 h|*1..1*
-|*type*: `String`
+|*type*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|Converted from `LINK._type.value_`.
 
 TODO: what if original was coded?
 
 h|*1..1*
-|*target*: `String`
+|*target*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|Converted from `LINK._target_`.
 |===

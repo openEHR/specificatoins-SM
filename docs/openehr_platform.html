@@ -850,14 +850,14 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>last_call_failed</strong> (): <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>last_call_failed</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return True if the last call generated an error, i.e. any result other than <code>CALL_STATUSES.<em>success</em></code>.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>last_call_status</strong> (): <code>CALL_STATUS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>last_call_status</strong> (): <code><a href="#_call_status_class">CALL_STATUS</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Class status object for last call.</p>
 </div></div></td>
@@ -891,35 +891,35 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>code</strong>: <code>CALL_STATUS_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>code</strong>: <code><a href="#_call_status_type_enumeration">CALL_STATUS_TYPE</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Call status code for last call.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>call_name</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>call_name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Name of call that this status documents.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>call_string</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>call_string</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Full call, in stringified form, including arguments. Non-primitive objects are shown as addresses unless an exported as_string() method is available.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>meaning</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>meaning</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Meaning of the result status.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>message</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>message</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Error message text.</p>
 </div></div></td>
@@ -1048,21 +1048,21 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>preceding_version_uid</strong>: <code>OBJECT_VERSION_ID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>preceding_version_uid</strong>: <code><a href="/releases/BASE/latest/base_types.html#_object_version_id_class" target="_blank" rel="noopener">OBJECT_VERSION_ID</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Current version in service for which this version is an update (i.e. the version that is preceding relative to this version update).</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>lifecycle_state</strong>: <code>Terminology_code</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>lifecycle_state</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_terminology_code_class" target="_blank" rel="noopener">Terminology_code</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Lifecycle state of the content item in this version.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>attestations</strong>: <code>List&lt;ATTESTATION&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>attestations</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/RM/latest/common.html#_attestation_class">ATTESTATION</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Set of attestations relating to this version.</p>
 </div></div></td>
@@ -1076,7 +1076,7 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>audit</strong>: <code>UPDATE_AUDIT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>audit</strong>: <code><a href="#_update_audit_class">UPDATE_AUDIT</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Audit details for this update.</p>
 </div></div></td>
@@ -1110,21 +1110,21 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>change_type</strong>: <code>Terminology_code</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>change_type</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_terminology_code_class" target="_blank" rel="noopener">Terminology_code</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Type of change. Coded using the openEHR Terminology  audit change type  group.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>description</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>description</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Reason for committal.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>committer</strong>: <code>PARTY_PROXY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>committer</strong>: <code><a href="/releases/RM/latest/common.html#_party_proxy_class" target="_blank" rel="noopener">PARTY_PROXY</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Identity and optional reference into identity management service, of user who committed the item.</p>
 </div></div></td>
@@ -1165,8 +1165,8 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definitions_valid</strong> (<br>
-a_content: <code>LOCATABLE[1]</code><br>
-): <code>Boolean</code></p></td>
+a_content: <code><a href="/releases/RM/latest/common.html#_locatable_class" target="_blank" rel="noopener">LOCATABLE</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return <code>True</code> if the definition identifiers (i.e. archetype and template identifiers) are known in the local <code>definitions</code> service.</p>
 </div></div></td>
@@ -1174,8 +1174,8 @@ a_content: <code>LOCATABLE[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>content_valid</strong> (<br>
-a_content: <code>LOCATABLE[1]</code><br>
-): <code>Boolean</code></p></td>
+a_content: <code><a href="/releases/RM/latest/common.html#_locatable_class" target="_blank" rel="noopener">LOCATABLE</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return <code>True</code> if the content structure is a valid instance of the relevant RM classes.</p>
 </div></div></td>
@@ -1321,8 +1321,8 @@ a_content: <code>LOCATABLE[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_artefact</strong> (<br>
-an_id: <code>ARCHETYPE_HRID[1]</code><br>
-): <code>Boolean</code></p></td>
+an_id: <code><a href="/releases/AM/latest/AOM2.html#_archetype_hrid_class" target="_blank" rel="noopener">ARCHETYPE_HRID</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return True if AOM2 artefact with id <code><em>an_id</em></code> exists in the service.</p>
 </div></div></td>
@@ -1330,8 +1330,8 @@ an_id: <code>ARCHETYPE_HRID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>valid_artefact</strong> (<br>
-an_artefact: <code>AUTHORED_ARCHETYPE[1]</code><br>
-): <code>Boolean</code></p></td>
+an_artefact: <code><a href="/releases/AM/latest/AOM2.html#_authored_archetype_class" target="_blank" rel="noopener">AUTHORED_ARCHETYPE</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Test validity of artefact.</p>
 </div></div></td>
@@ -1339,7 +1339,7 @@ an_artefact: <code>AUTHORED_ARCHETYPE[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>upload_artefact</strong> (<br>
-an_artefact: <code>AUTHORED_ARCHETYPE[1]</code><br>
+an_artefact: <code><a href="/releases/AM/latest/AOM2.html#_authored_archetype_class" target="_blank" rel="noopener">AUTHORED_ARCHETYPE</a>[1]</code><br>
 )<br>
 <br>
 <em>Pre_valid</em>: <code>valid_artefact (an_arch)</code><br>
@@ -1362,8 +1362,8 @@ an_artefact: <code>AUTHORED_ARCHETYPE[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_artefact</strong> (<br>
-an_id: <code>ARCHETYPE_HRID[1]</code><br>
-): <code>AUTHORED_ARCHETYPE</code><br>
+an_id: <code><a href="/releases/AM/latest/AOM2.html#_archetype_hrid_class" target="_blank" rel="noopener">ARCHETYPE_HRID</a>[1]</code><br>
+): <code><a href="/releases/AM/latest/AOM2.html#_authored_archetype_class" target="_blank" rel="noopener">AUTHORED_ARCHETYPE</a></code><br>
 <br>
 <em>Pre_artefact_exists</em>: <code>has_artefact (an_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -1381,9 +1381,9 @@ an_id: <code>ARCHETYPE_HRID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_artefacts</strong> (<br>
-item_offset: <code>Integer[0..1]</code>,<br>
-items_to_fetch: <code>Integer[0..1]</code><br>
-): <code>List&lt;ARCHETYPE_HRID&gt;</code></p></td>
+item_offset: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code>,<br>
+items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/AM/latest/AOM2.html#_archetype_hrid_class">ARCHETYPE_HRID</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>List all AOM2 artefacts known in the service.</p>
 </div></div></td>
@@ -1391,9 +1391,9 @@ items_to_fetch: <code>Integer[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_archetypes</strong> (<br>
-item_offset: <code>Integer[0..1]</code>,<br>
-items_to_fetch: <code>Integer[0..1]</code><br>
-): <code>List&lt;ARCHETYPE_HRID&gt;</code></p></td>
+item_offset: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code>,<br>
+items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/AM/latest/AOM2.html#_archetype_hrid_class">ARCHETYPE_HRID</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>List all archetypes, i.e. artefacts whose concrete type is <code>AUTHORED_ARCHETYPE</code>.</p>
 </div></div></td>
@@ -1401,9 +1401,9 @@ items_to_fetch: <code>Integer[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_templates</strong> (<br>
-item_offset: <code>Integer[0..1]</code>,<br>
-items_to_fetch: <code>Integer[0..1]</code><br>
-): <code>List&lt;ARCHETYPE_HRID&gt;</code></p></td>
+item_offset: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code>,<br>
+items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/AM/latest/AOM2.html#_archetype_hrid_class">ARCHETYPE_HRID</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>List all archetypes, i.e. artefacts whose concrete type is <code>TEMPLATE</code>.</p>
 </div></div></td>
@@ -1411,9 +1411,9 @@ items_to_fetch: <code>Integer[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_opts</strong> (<br>
-item_offset: <code>Integer[0..1]</code>,<br>
-items_to_fetch: <code>Integer[0..1]</code><br>
-): <code>List&lt;ARCHETYPE_HRID&gt;</code></p></td>
+item_offset: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code>,<br>
+items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/AM/latest/AOM2.html#_archetype_hrid_class">ARCHETYPE_HRID</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>List all archetypes, i.e. artefacts whose concrete type is <code>OPERATIONAL_TEMPLATE</code>.</p>
 </div></div></td>
@@ -1421,10 +1421,10 @@ items_to_fetch: <code>Integer[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_matching_artefacts</strong> (<br>
-id_pattern: <code>String[1]</code>,<br>
-item_offset: <code>Integer[0..1]</code>,<br>
-items_to_fetch: <code>Integer[0..1]</code><br>
-): <code>List&lt;ARCHETYPE_HRID&gt;</code></p></td>
+id_pattern: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
+item_offset: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code>,<br>
+items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/AM/latest/AOM2.html#_archetype_hrid_class">ARCHETYPE_HRID</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>List all artefacts whose identifiers match a regex pattern.</p>
 </div>
@@ -1440,7 +1440,7 @@ items_to_fetch: <code>Integer[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_artefact</strong> (<br>
-an_id: <code>ARCHETYPE_HRID[1]</code><br>
+an_id: <code><a href="/releases/AM/latest/AOM2.html#_archetype_hrid_class" target="_blank" rel="noopener">ARCHETYPE_HRID</a>[1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Delete the AOM2 artefact with id <code><em>an_id</em></code>.</p>
@@ -1456,28 +1456,28 @@ an_id: <code>ARCHETYPE_HRID[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>artefacts_count</strong> (): <code>Integer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>artefacts_count</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return total artefacts count.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>archetypes_count</strong> (): <code>Integer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>archetypes_count</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return total archetypes count.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>templates_count</strong> (): <code>Integer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>templates_count</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return total templates count.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>opts_count</strong> (): <code>Integer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>opts_count</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return total OPTs count.</p>
 </div></div></td>
@@ -1512,8 +1512,8 @@ an_id: <code>ARCHETYPE_HRID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_archetype</strong> (<br>
-an_id: <code>ARCHETYPE_ID[1]</code><br>
-): <code>Boolean</code></p></td>
+an_id: <code><a href="/releases/BASE/latest/base_types.html#_archetype_id_class" target="_blank" rel="noopener">ARCHETYPE_ID</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return True if an ADL 1.4 archetype with id an_id exists in the service.</p>
 </div></div></td>
@@ -1521,8 +1521,8 @@ an_id: <code>ARCHETYPE_ID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>valid_archetype</strong> (<br>
-an_arch: <code>ARCHETYPE[1]</code><br>
-): <code>Boolean</code></p></td>
+an_arch: <code><a href="/releases/AM/latest/AOM2.html#_archetype_class" target="_blank" rel="noopener">ARCHETYPE</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Test validity of archetype <code><em>an_arch</em></code>.</p>
 </div></div></td>
@@ -1530,7 +1530,7 @@ an_arch: <code>ARCHETYPE[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>upload_archetype</strong> (<br>
-an_arch: <code>ARCHETYPE[1]</code><br>
+an_arch: <code><a href="/releases/AM/latest/AOM2.html#_archetype_class" target="_blank" rel="noopener">ARCHETYPE</a>[1]</code><br>
 )<br>
 <br>
 <em>Post_has_archetype</em>: <code>has_archetype (an_arch.identifier)</code></p></td>
@@ -1549,8 +1549,8 @@ an_arch: <code>ARCHETYPE[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_archetype</strong> (<br>
-an_id: <code>ARCHETYPE_ID[1]</code><br>
-): <code>ARCHETYPE</code></p></td>
+an_id: <code><a href="/releases/BASE/latest/base_types.html#_archetype_id_class" target="_blank" rel="noopener">ARCHETYPE_ID</a>[1]</code><br>
+): <code><a href="/releases/AM/latest/AOM2.html#_archetype_class" target="_blank" rel="noopener">ARCHETYPE</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Get the ADL 1.4 archetype with id an_id.</p>
 </div>
@@ -1566,9 +1566,9 @@ an_id: <code>ARCHETYPE_ID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_archetypes</strong> (<br>
-item_offset: <code>Integer[0..1]</code>,<br>
-items_to_fetch: <code>Integer[0..1]</code><br>
-): <code>List&lt;ARCHETYPE_ID&gt;</code></p></td>
+item_offset: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code>,<br>
+items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/BASE/latest/base_types.html#_archetype_id_class">ARCHETYPE_ID</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>List all ADL 1.4 archetypes known in the service.</p>
 </div></div></td>
@@ -1576,10 +1576,10 @@ items_to_fetch: <code>Integer[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_matching_archetypes</strong> (<br>
-id_pattern: <code>String[1]</code>,<br>
-item_offset: <code>Integer[0..1]</code>,<br>
-items_to_fetch: <code>Integer[0..1]</code><br>
-): <code>List&lt;ARCHETYPE_ID&gt;</code></p></td>
+id_pattern: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
+item_offset: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code>,<br>
+items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/BASE/latest/base_types.html#_archetype_id_class">ARCHETYPE_ID</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>List all archetypes whose identifiers match a regex pattern.</p>
 </div>
@@ -1595,7 +1595,7 @@ items_to_fetch: <code>Integer[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_archetype</strong> (<br>
-an_id: <code>ARCHETYPE_ID[1]</code><br>
+an_id: <code><a href="/releases/BASE/latest/base_types.html#_archetype_id_class" target="_blank" rel="noopener">ARCHETYPE_ID</a>[1]</code><br>
 )<br>
 <br>
 <em>Pre_artefact_exists</em>: <code>has_artefact (an_id)</code><br>
@@ -1615,8 +1615,8 @@ an_id: <code>ARCHETYPE_ID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_opt</strong> (<br>
-an_opt_id: <code>UUID[1]</code><br>
-): <code>Boolean</code></p></td>
+an_opt_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return True if ADL 1.4 OPT with id <code><em>an_opt_id</em></code> exists in the service.</p>
 </div></div></td>
@@ -1624,8 +1624,8 @@ an_opt_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>valid_opt</strong> (<br>
-an_opt: <code>ARCHETYPE[1]</code><br>
-): <code>Boolean</code></p></td>
+an_opt: <code><a href="/releases/AM/latest/AOM2.html#_archetype_class" target="_blank" rel="noopener">ARCHETYPE</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Test validity of OPT <code><em>an_opt</em></code>.</p>
 </div></div></td>
@@ -1633,7 +1633,7 @@ an_opt: <code>ARCHETYPE[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>upload_opt</strong> (<br>
-an_opt: <code>ARCHETYPE[1]</code><br>
+an_opt: <code><a href="/releases/AM/latest/AOM2.html#_archetype_class" target="_blank" rel="noopener">ARCHETYPE</a>[1]</code><br>
 )<br>
 <br>
 <em>Pre_valid</em>: <code>valid_opt(an_opt)</code></p></td>
@@ -1652,8 +1652,8 @@ an_opt: <code>ARCHETYPE[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_opt</strong> (<br>
-an_opt_id: <code>UUID[1]</code><br>
-): <code>ARCHETYPE</code></p></td>
+an_opt_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
+): <code><a href="/releases/AM/latest/AOM2.html#_archetype_class" target="_blank" rel="noopener">ARCHETYPE</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Get the ADL 1.4 OPT with id <code><em>an_opt_id</em></code>.</p>
 </div>
@@ -1669,9 +1669,9 @@ an_opt_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_opts</strong> (<br>
-item_offset: <code>Integer[0..1]</code>,<br>
-items_to_fetch: <code>Integer[0..1]</code><br>
-): <code>List&lt;UUID&gt;</code></p></td>
+item_offset: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code>,<br>
+items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/BASE/latest/base_types.html#_uuid_class">UUID</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>List all AD 1.4 OPTs known in the service.</p>
 </div></div></td>
@@ -1679,10 +1679,10 @@ items_to_fetch: <code>Integer[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_matching_opts</strong> (<br>
-id_pattern: <code>String[1]</code>,<br>
-item_offset: <code>Integer[0..1]</code>,<br>
-items_to_fetch: <code>Integer[0..1]</code><br>
-): <code>List&lt;ARCHETYPE_ID&gt;</code></p></td>
+id_pattern: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
+item_offset: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code>,<br>
+items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/BASE/latest/base_types.html#_archetype_id_class">ARCHETYPE_ID</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>List all OPTs whose identifiers match a regex pattern.</p>
 </div>
@@ -1698,7 +1698,7 @@ items_to_fetch: <code>Integer[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_opt</strong> (<br>
-an_id: <code>UUID[1]</code><br>
+an_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
 )<br>
 <br>
 <em>Pre_has_opt</em>: <code>has_opt (an_id)</code><br>
@@ -1717,14 +1717,14 @@ an_id: <code>UUID[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>archetypes_count</strong> (): <code>Integer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>archetypes_count</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return total archetypes count.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>opts_count</strong> (): <code>Integer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>opts_count</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return total OPTs count.</p>
 </div></div></td>
@@ -1759,8 +1759,8 @@ an_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_query</strong> (<br>
-a_query_name: <code>String[1]</code><br>
-): <code>Boolean</code></p></td>
+a_query_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return True if the query identified by <code><em>a_query_name</em></code> is registered.</p>
 </div>
@@ -1781,9 +1781,9 @@ a_query_name: <code>String[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>valid_query</strong> (<br>
-a_query_text: <code>String[1]</code>,<br>
-a_formalism: <code>String[1]</code><br>
-): <code>Boolean</code></p></td>
+a_query_text: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
+a_formalism: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return True if the provided query text is a valid instance of the formalism.</p>
 </div></div></td>
@@ -1791,10 +1791,10 @@ a_formalism: <code>String[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>register_query</strong> (<br>
-a_query_text: <code>String[1]</code>,<br>
-a_formalism: <code>String[1]</code>,<br>
-a_query_name: <code>String[0..1]</code><br>
-): <code>QUERY_DESCRIPTOR</code><br>
+a_query_text: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
+a_formalism: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
+a_query_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[0..1]</code><br>
+): <code><a href="#_query_descriptor_class">QUERY_DESCRIPTOR</a></code><br>
 <br>
 <em>Pre_valid_query</em>: <code>is_valid_query(a_query_text)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -1817,8 +1817,8 @@ a_query_name: <code>String[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>register_query_set</strong> (<br>
-a_query_set_name: <code>String[0..1]</code><br>
-): <code>UUID</code></p></td>
+a_query_set_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[0..1]</code><br>
+): <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Register a query set.</p>
 </div>
@@ -1829,9 +1829,9 @@ a_query_set_name: <code>String[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_queries</strong> (<br>
-item_offset: <code>Integer[0..1]</code>,<br>
-items_to_fetch: <code>Integer[0..1]</code><br>
-): <code>List&lt;QUERY_DESCRIPTOR&gt;</code></p></td>
+item_offset: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code>,<br>
+items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_query_descriptor_class">QUERY_DESCRIPTOR</a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>List all registered queries.</p>
 </div></div></td>
@@ -1839,11 +1839,11 @@ items_to_fetch: <code>Integer[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_matching_queries</strong> (<br>
-id_pattern: <code>String[1]</code>,<br>
-artefact_id_pattern: <code>String[1]</code>,<br>
-item_offset: <code>Integer[0..1]</code>,<br>
-items_to_fetch: <code>Integer[0..1]</code><br>
-): <code>List&lt;QUERY_DESCRIPTOR&gt;</code></p></td>
+id_pattern: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
+artefact_id_pattern: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
+item_offset: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code>,<br>
+items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_query_descriptor_class">QUERY_DESCRIPTOR</a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>List all registered queries matching an identifier pattern (regex) and an artefact identifier pattern (regex) for artefacts referenced in the query. Either pattern may be the regex for 'match any'.</p>
 </div>
@@ -1880,7 +1880,7 @@ items_to_fetch: <code>Integer[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_query</strong> (<br>
-a_query_name: <code>String[1]</code><br>
+a_query_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code><br>
 )<br>
 <br>
 <em>Pre_has_query</em>: <code>has_query(a_query_name)</code><br>
@@ -1912,7 +1912,7 @@ a_query_name: <code>String[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>queries_count</strong> (): <code>Integer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>queries_count</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return total count of queries.</p>
 </div></div></td>
@@ -2020,7 +2020,7 @@ a_query_name: <code>String[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>qualified_query_name</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>qualified_query_name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Unique qualified name of query. Qualified names follow patterns such as <code>&lt;namespace&gt;::&lt;query_name&gt;</code></p>
 </div>
@@ -2030,21 +2030,21 @@ a_query_name: <code>String[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>version</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>version</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Query semver.org version number.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>registration_time</strong>: <code>Iso8601_date_time</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>registration_time</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_iso8601_date_time_class" target="_blank" rel="noopener">Iso8601_date_time</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Time query was registered in the service.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>formalism</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>formalism</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Formalism of the query, matching one of:</p>
 </div>
@@ -2061,7 +2061,7 @@ a_query_name: <code>String[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>source</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>source</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Source query text to be executed (prior to parameter substitution).</p>
 </div></div></td>
@@ -2116,8 +2116,8 @@ a_query_name: <code>String[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_ehr</strong> (<br>
-ehr_id: <code>UUID[1]</code><br>
-): <code>Boolean</code></p></td>
+ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return True if a EHR with identifier <code><em>ehr_id</em></code> exists.</p>
 </div>
@@ -2138,8 +2138,8 @@ ehr_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_ehr_for_subject</strong> (<br>
-a_subject_id: <code>PARTY_REF[1]</code><br>
-): <code>Boolean</code></p></td>
+a_subject_id: <code><a href="/releases/BASE/latest/base_types.html#_party_ref_class" target="_blank" rel="noopener">PARTY_REF</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Returns True if there are EHR(s) for <code><em>a_subject_id</em></code>.</p>
 </div>
@@ -2168,8 +2168,8 @@ a_subject_id: <code>PARTY_REF[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_ehr</strong> (<br>
-an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
-): <code>UUID</code><br>
+an_ehr_status: <code><a href="/releases/RM/latest/ehr.html#_ehr_status_class" target="_blank" rel="noopener">EHR_STATUS</a>[0..1]</code><br>
+): <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a></code><br>
 <br>
 <em>Pre_no_subject</em>: <code>an_ehr_status.subject = Void</code><br>
 <em>Post_has_ehr</em>: <code>has_ehr (Result)</code></p></td>
@@ -2186,9 +2186,9 @@ an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_ehr_with_id</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
-): <code>UUID</code><br>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code>,<br>
+an_ehr_status: <code><a href="/releases/RM/latest/ehr.html#_ehr_status_class" target="_blank" rel="noopener">EHR_STATUS</a>[0..1]</code><br>
+): <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a></code><br>
 <br>
 <em>Pre_no_subject</em>: <code>an_ehr_status.subject = Void</code><br>
 <em>Pre_no_duplicate</em>: <code>not has_ehr (an_ehr_id)</code><br>
@@ -2227,9 +2227,9 @@ an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_ehr_for_subject</strong> (<br>
-a_subject_id: <code>PARTY_REF[1]</code>,<br>
-an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
-): <code>UUID</code></p></td>
+a_subject_id: <code><a href="/releases/BASE/latest/base_types.html#_party_ref_class" target="_blank" rel="noopener">PARTY_REF</a>[1]</code>,<br>
+an_ehr_status: <code><a href="/releases/RM/latest/ehr.html#_ehr_status_class" target="_blank" rel="noopener">EHR_STATUS</a>[0..1]</code><br>
+): <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Create a new EHR with <code>EHR_STATUS.<em>subject</em></code> set to point to <code><em>subject_id</em></code>, and return its EHR id.</p>
 </div>
@@ -2261,10 +2261,10 @@ an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_ehr_for_subject_with_id</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-a_subject_id: <code>PARTY_REF[1]</code>,<br>
-an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
-): <code>UUID</code><br>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code>,<br>
+a_subject_id: <code><a href="/releases/BASE/latest/base_types.html#_party_ref_class" target="_blank" rel="noopener">PARTY_REF</a>[1]</code>,<br>
+an_ehr_status: <code><a href="/releases/RM/latest/ehr.html#_ehr_status_class" target="_blank" rel="noopener">EHR_STATUS</a>[0..1]</code><br>
+): <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a></code><br>
 <br>
 <em>Pre_no_duplicate</em>: <code>not has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -2306,8 +2306,8 @@ an_ehr_status: <code>EHR_STATUS[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_ehr</strong> (<br>
-an_ehr_id: <code>UUID[1]</code><br>
-): <code>EHR_SUMMARY</code><br>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
+): <code><a href="#_ehr_summary_class">EHR_SUMMARY</a></code><br>
 <br>
 <em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -2338,8 +2338,8 @@ an_ehr_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_ehrs_for_subject</strong> (<br>
-a_subject_id: <code>PARTY_REF[1]</code><br>
-): <code>List&lt;EHR_SUMMARY&gt;</code></p></td>
+a_subject_id: <code><a href="/releases/BASE/latest/base_types.html#_party_ref_class" target="_blank" rel="noopener">PARTY_REF</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_ehr_summary_class">EHR_SUMMARY</a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Retrieve EHR or EHRs that have <code><em>ehr_status.subject_id</em></code> = supplied subject id.</p>
 </div>
@@ -2368,8 +2368,8 @@ a_subject_id: <code>PARTY_REF[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>i_ehr</strong> (<br>
-ehr_id: <code>UUID[1]</code><br>
-): <code>I_EHR</code></p></td>
+ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
+): <code><a href="#_i_ehr_interface">I_EHR</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Provide access to an <code>I_EHR</code> interface instance for access to the parts of an EHR.</p>
 </div>
@@ -2411,28 +2411,28 @@ ehr_id: <code>UUID[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ehr_status</strong>: <code>I_EHR_STATUS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ehr_status</strong>: <code><a href="#_i_ehr_status_interface">I_EHR_STATUS</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Access to <code>I_EHR_STATUS</code> interface.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>directory</strong>: <code>I_EHR_DIRECTORY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>directory</strong>: <code><a href="#_i_ehr_directory_interface">I_EHR_DIRECTORY</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Access to <code>I_EHR_DIRECTORY</code> interface.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>compositions</strong>: <code>I_EHR_COMPOSITION</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>compositions</strong>: <code><a href="#_i_ehr_composition_interface">I_EHR_COMPOSITION</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Access to <code>I_EHR_COMPOSITION</code> interface.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>contributions</strong>: <code>I_EHR_CONTRIBUTION</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>contributions</strong>: <code><a href="#_i_ehr_contribution_interface">I_EHR_CONTRIBUTION</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Access to <code>I_EHR_CONTRIBUTION</code> interface.</p>
 </div></div></td>
@@ -2467,9 +2467,9 @@ ehr_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_ehr_status_version</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-a_version_uid: <code>UUID[1]</code><br>
-): <code>Boolean</code><br>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code>,<br>
+a_version_uid: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code><br>
 <br>
 <em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -2487,8 +2487,8 @@ a_version_uid: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_ehr_status</strong> (<br>
-an_ehr_id: <code>UUID[1]</code><br>
-): <code>EHR_STATUS</code><br>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
+): <code><a href="/releases/RM/latest/ehr.html#_ehr_status_class" target="_blank" rel="noopener">EHR_STATUS</a></code><br>
 <br>
 <em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -2506,8 +2506,8 @@ an_ehr_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_ehr_status_at_time</strong> (<br>
-a_time: <code>Iso8601_date_time[0..1]</code><br>
-): <code>EHR_STATUS</code><br>
+a_time: <code><a href="/releases/BASE/latest/foundation_types.html#_iso8601_date_time_class" target="_blank" rel="noopener">Iso8601_date_time</a>[0..1]</code><br>
+): <code><a href="/releases/RM/latest/ehr.html#_ehr_status_class" target="_blank" rel="noopener">EHR_STATUS</a></code><br>
 <br>
 <em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -2525,7 +2525,7 @@ a_time: <code>Iso8601_date_time[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>set_ehr_queryable</strong> (<br>
-an_ehr_id: <code>UUID[1]</code><br>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
 )<br>
 <br>
 <em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code><br>
@@ -2545,7 +2545,7 @@ an_ehr_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>set_ehr_modifiable</strong> (<br>
-an_ehr_id: <code>UUID[1]</code><br>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
 )<br>
 <br>
 <em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code><br>
@@ -2565,7 +2565,7 @@ an_ehr_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>clear_ehr_queryable</strong> (<br>
-an_ehr_id: <code>UUID[1]</code><br>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
 )<br>
 <br>
 <em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code><br>
@@ -2585,7 +2585,7 @@ an_ehr_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>clear_ehr_modifiable</strong> (<br>
-an_ehr_id: <code>UUID[1]</code><br>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
 )<br>
 <br>
 <em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code><br>
@@ -2605,8 +2605,8 @@ an_ehr_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>update_other_details</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-a_details: <code>ITEM_TREE[1]</code><br>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code>,<br>
+a_details: <code><a href="/releases/RM/latest/data_structures.html#_item_tree_class" target="_blank" rel="noopener">ITEM_TREE</a>[1]</code><br>
 )<br>
 <br>
 <em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code></p></td>
@@ -2625,9 +2625,9 @@ a_details: <code>ITEM_TREE[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_ehr_status_at_version</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-a_version_uid: <code>UUID[1]</code><br>
-): <code>EHR_STATUS</code><br>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code>,<br>
+a_version_uid: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
+): <code><a href="/releases/RM/latest/ehr.html#_ehr_status_class" target="_blank" rel="noopener">EHR_STATUS</a></code><br>
 <br>
 <em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -2645,8 +2645,8 @@ a_version_uid: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_versioned_ehr_status</strong> (<br>
-an_ehr_id: <code>UUID[1]</code><br>
-): <code>VERSIONED_EHR_STATUS</code><br>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
+): <code><a href="/releases/RM/latest/ehr.html#_versioned_ehr_status_class" target="_blank" rel="noopener">VERSIONED_EHR_STATUS</a></code><br>
 <br>
 <em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code><br>
 <em>Pre_has_ehr_status_version</em>: <code>has_ehr_status_version (an_ehr_id, a_version_uid)</code></p></td>
@@ -2692,8 +2692,8 @@ an_ehr_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_directory</strong> (<br>
-ehr_id: <code>UUID[1]</code><br>
-): <code>Boolean</code><br>
+ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code><br>
 <br>
 <em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -2703,9 +2703,9 @@ ehr_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_path</strong> (<br>
-ehr_id: <code>UUID[1]</code>,<br>
-a_path: <code>String[1]</code><br>
-): <code>Boolean</code><br>
+ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code>,<br>
+a_path: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code><br>
 <br>
 <em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -2723,8 +2723,8 @@ a_path: <code>String[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_directory</strong> (<br>
-ehr_id: <code>UUID[1]</code>,<br>
-a_dir_struct: <code>UV_FOLDER[1]</code><br>
+ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code>,<br>
+a_dir_struct: <code><a href="#_uv_folder_class">UV_FOLDER</a>[1]</code><br>
 )<br>
 <br>
 <em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code><br>
@@ -2752,8 +2752,8 @@ a_dir_struct: <code>UV_FOLDER[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_directory</strong> (<br>
-ehr_id: <code>UUID[1]</code><br>
-): <code>FOLDER</code><br>
+ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
+): <code><a href="/releases/RM/latest/common.html#_folder_class" target="_blank" rel="noopener">FOLDER</a></code><br>
 <br>
 <em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -2771,9 +2771,9 @@ ehr_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_directory_at_time</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-a_time: <code>Iso8601_date_time[0..1]</code><br>
-): <code>FOLDER</code><br>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code>,<br>
+a_time: <code><a href="/releases/BASE/latest/foundation_types.html#_iso8601_date_time_class" target="_blank" rel="noopener">Iso8601_date_time</a>[0..1]</code><br>
+): <code><a href="/releases/RM/latest/common.html#_folder_class" target="_blank" rel="noopener">FOLDER</a></code><br>
 <br>
 <em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -2804,8 +2804,8 @@ a_time: <code>Iso8601_date_time[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>update_directory</strong> (<br>
-ehr_id: <code>UUID[1]</code>,<br>
-a_dir_struct: <code>UV_FOLDER[1]</code><br>
+ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code>,<br>
+a_dir_struct: <code><a href="#_uv_folder_class">UV_FOLDER</a>[1]</code><br>
 )<br>
 <br>
 <em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code><br>
@@ -2846,7 +2846,7 @@ a_dir_struct: <code>UV_FOLDER[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_directory</strong> (<br>
-ehr_id: <code>UUID[1]</code><br>
+ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
 )<br>
 <br>
 <em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code><br>
@@ -2866,9 +2866,9 @@ ehr_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_directory_version</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-a_version_uid: <code>UUID[1]</code><br>
-): <code>Boolean</code></p></td>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code>,<br>
+a_version_uid: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>True if the directory has a version with specified id.</p>
 </div>
@@ -2884,9 +2884,9 @@ a_version_uid: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_directory_at_version</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-a_version_uid: <code>UUID[1]</code><br>
-): <code>FOLDER</code></p></td>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code>,<br>
+a_version_uid: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
+): <code><a href="/releases/RM/latest/common.html#_folder_class" target="_blank" rel="noopener">FOLDER</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Get a particular version of the EHR Directory.</p>
 </div>
@@ -2902,8 +2902,8 @@ a_version_uid: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_versioned_directory</strong> (<br>
-an_ehr_id: <code>UUID[1]</code><br>
-): <code>VERSIONED_FOLDER</code><br>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
+): <code><a href="/releases/RM/latest/common.html#_versioned_folder_class" target="_blank" rel="noopener">VERSIONED_FOLDER</a></code><br>
 <br>
 <em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -2948,9 +2948,9 @@ an_ehr_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_composition</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-a_version_uid: <code>OBJECT_VERSION_ID[1]</code><br>
-): <code>Boolean</code><br>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code>,<br>
+a_version_uid: <code><a href="/releases/BASE/latest/base_types.html#_object_version_id_class" target="_blank" rel="noopener">OBJECT_VERSION_ID</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code><br>
 <br>
 <em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -2968,9 +2968,9 @@ a_version_uid: <code>OBJECT_VERSION_ID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_composition_latest</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-a_versioned_object_uid: <code>UUID[1]</code><br>
-): <code>COMPOSITION</code><br>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code>,<br>
+a_versioned_object_uid: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
+): <code><a href="/releases/RM/latest/ehr.html#_composition_class" target="_blank" rel="noopener">COMPOSITION</a></code><br>
 <br>
 <em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code><br>
 <em>Pre_has_composition</em>: <code>has_composition (an_ehr_id, a_version_uid)</code></p></td>
@@ -3005,10 +3005,10 @@ a_versioned_object_uid: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_composition_at_time</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-a_versioned_object_uid: <code>UUID[1]</code>,<br>
-a_time: <code>Iso8601_date_time[0..1]</code><br>
-): <code>COMPOSITION</code><br>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code>,<br>
+a_versioned_object_uid: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code>,<br>
+a_time: <code><a href="/releases/BASE/latest/foundation_types.html#_iso8601_date_time_class" target="_blank" rel="noopener">Iso8601_date_time</a>[0..1]</code><br>
+): <code><a href="/releases/RM/latest/ehr.html#_composition_class" target="_blank" rel="noopener">COMPOSITION</a></code><br>
 <br>
 <em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -3029,9 +3029,9 @@ a_time: <code>Iso8601_date_time[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_composition_at_version</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-a_version_uid: <code>OBJECT_VERSION_ID[1]</code><br>
-): <code>COMPOSITION</code></p></td>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code>,<br>
+a_version_uid: <code><a href="/releases/BASE/latest/base_types.html#_object_version_id_class" target="_blank" rel="noopener">OBJECT_VERSION_ID</a>[1]</code><br>
+): <code><a href="/releases/RM/latest/ehr.html#_composition_class" target="_blank" rel="noopener">COMPOSITION</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Get a particular Version of a Composition by version id.</p>
 </div>
@@ -3050,9 +3050,9 @@ a_version_uid: <code>OBJECT_VERSION_ID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_versioned_composition</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-a_versioned_object_uid: <code>UUID[1]</code><br>
-): <code>VERSIONED_COMPOSITION</code><br>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code>,<br>
+a_versioned_object_uid: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
+): <code><a href="/releases/RM/latest/ehr.html#_versioned_composition_class" target="_blank" rel="noopener">VERSIONED_COMPOSITION</a></code><br>
 <br>
 <em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -3073,9 +3073,9 @@ a_versioned_object_uid: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_composition</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-a_comp: <code>UV_COMPOSITION[1]</code><br>
-): <code>UUID</code><br>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code>,<br>
+a_comp: <code><a href="#_uv_composition_class">UV_COMPOSITION</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a></code><br>
 <br>
 <em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code><br>
 <em>Pre_composition_definitions_valid</em>: <code>definitions_valid (a_comp)</code><br>
@@ -3105,9 +3105,9 @@ a_comp: <code>UV_COMPOSITION[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>update_composition</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-a_comp: <code>UV_COMPOSITION[1]</code><br>
-): <code>UUID</code><br>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code>,<br>
+a_comp: <code><a href="#_uv_composition_class">UV_COMPOSITION</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a></code><br>
 <br>
 <em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code><br>
 <em>Pre_composition_definitions_valid</em>: <code>definitions_valid (a_comp)</code><br>
@@ -3136,8 +3136,8 @@ a_comp: <code>UV_COMPOSITION[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_composition</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-a_version_uid: <code>UUID[1]</code><br>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code>,<br>
+a_version_uid: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
 )<br>
 <br>
 <em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code></p></td>
@@ -3186,8 +3186,8 @@ a_version_uid: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_contribution</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-a_contrib_id: <code>UUID[1]</code><br>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code>,<br>
+a_contrib_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
 )<br>
 <br>
 <em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code></p></td>
@@ -3206,9 +3206,9 @@ a_contrib_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_contribution</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-a_contrib_id: <code>UUID[1]</code><br>
-): <code>CONTRIBUTION</code><br>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code>,<br>
+a_contrib_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
+): <code><a href="/releases/RM/latest/common.html#_contribution_class" target="_blank" rel="noopener">CONTRIBUTION</a></code><br>
 <br>
 <em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code><br>
 <em>Pre_has_contribution</em>: <code>has_contribution (a_contrib_id)</code></p></td>
@@ -3230,10 +3230,10 @@ a_contrib_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>commit_contribution</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-versions: <code>List&lt;UPDATE_VERSION&gt;[1]</code>,<br>
-an_audit: <code>UPDATE_AUDIT[1]</code><br>
-): <code>UUID</code><br>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code>,<br>
+versions: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_update_version_class">UPDATE_VERSION</a>&gt;[1]</code>,<br>
+an_audit: <code><a href="#_update_audit_class">UPDATE_AUDIT</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a></code><br>
 <br>
 <em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code><br>
 <em>Post_has_contribution</em>: <code>has_contribution (a_contrib_id)</code></p></td>
@@ -3252,11 +3252,11 @@ an_audit: <code>UPDATE_AUDIT[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_contributions</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-time_range: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code>,<br>
-item_offset: <code>Integer[0..1]</code>,<br>
-items_to_fetch: <code>Integer[0..1]</code><br>
-): <code>List&lt;UUID&gt;</code></p></td>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code>,<br>
+time_range: <code><a href="/releases/BASE/latest/foundation_types.html#_interval_class">Interval<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_iso8601_date_time_class">Iso8601_date_time</sup></a>&gt;[0..1]</code>,<br>
+item_offset: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code>,<br>
+items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/BASE/latest/base_types.html#_uuid_class">UUID</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Obtain a list of identifiers of Contributions in EHR.</p>
 </div>
@@ -3285,9 +3285,9 @@ items_to_fetch: <code>Integer[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>contribution_count</strong> (<br>
-ehr_id: <code>UUID[1]</code>,<br>
-time_range: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
-): <code>Integer</code></p></td>
+ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code>,<br>
+time_range: <code><a href="/releases/BASE/latest/foundation_types.html#_interval_class">Interval<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_iso8601_date_time_class">Iso8601_date_time</sup></a>&gt;[0..1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Obtain a count of Contributions in EHR.</p>
 </div>
@@ -3350,42 +3350,42 @@ time_range: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ehr_id</strong>: <code>UUID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ehr_id</strong>: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>EHR identifier of this EHR.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>system_id</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>system_id</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Copy of <code>EHR.<em>system_id</em></code>.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ehr_status</strong>: <code>EHR_STATUS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ehr_status</strong>: <code><a href="/releases/RM/latest/ehr.html#_ehr_status_class" target="_blank" rel="noopener">EHR_STATUS</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Copy of <code>EHR.<em>ehr_status</em></code>.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>time_created</strong>: <code>Iso8601_date_time</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>time_created</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_iso8601_date_time_class" target="_blank" rel="noopener">Iso8601_date_time</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Copy of <code>EHR.<em>time_created</em></code>.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>contribution_count</strong>: <code>Integer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>contribution_count</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Number of Contributions in this EHR.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>composition_count</strong>: <code>Integer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>composition_count</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Number of (versioned) Compositions in this EHR.</p>
 </div></div></td>
@@ -3440,8 +3440,8 @@ time_range: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_party</strong> (<br>
-a_version: <code>UV_PARTY[1]</code><br>
-): <code>UUID</code><br>
+a_version: <code><a href="#_uv_party_class">UV_PARTY</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a></code><br>
 <br>
 <em>Pre_party_definitions_valid</em>: <code>definitions_valid (a_version)</code><br>
 <em>Pre_content_valid</em>: <code>valid_content (a_version)</code></p></td>
@@ -3463,8 +3463,8 @@ a_version: <code>UV_PARTY[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_party_relationship</strong> (<br>
-a_version: <code>UV_PARTY_RELATIONSHIP[1]</code><br>
-): <code>UUID</code><br>
+a_version: <code><a href="#_uv_party_relationship_class">UV_PARTY_RELATIONSHIP</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a></code><br>
 <br>
 <em>Pre_content_valid</em>: <code>valid_content (a_version)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -3486,7 +3486,7 @@ a_version: <code>UV_PARTY_RELATIONSHIP[1]</code><br>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>i_party</strong> (<br>
 a_versioned_party_id<br>
-): <code>I_PARTY</code></p></td>
+): <code><a href="#_i_party_interface">I_PARTY</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Create an <code>I_PARTY</code> interface.</p>
 </div>
@@ -3503,7 +3503,7 @@ a_versioned_party_id<br>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>i_party_relationship</strong> (<br>
 a_versioned_party_rel_id<br>
-): <code>I_PARTY_RELATIONSHIP</code></p></td>
+): <code><a href="#_i_party_relationship_interface">I_PARTY_RELATIONSHIP</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Create an <code>I_PARTY_RELATIONSHIP</code> interface.</p>
 </div>
@@ -3546,8 +3546,8 @@ a_versioned_party_rel_id<br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_party</strong> (<br>
-a_versioned_party_id: <code>UUID[1]</code><br>
-): <code>Boolean</code></p></td>
+a_versioned_party_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return True if Party exists.</p>
 </div></div></td>
@@ -3555,8 +3555,8 @@ a_versioned_party_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_party_version_id</strong> (<br>
-a_party_version_id: <code>UUID[1]</code><br>
-): <code>Boolean</code></p></td>
+a_party_version_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>True if a particular version of a Party exists.</p>
 </div></div></td>
@@ -3564,8 +3564,8 @@ a_party_version_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_party</strong> (<br>
-a_versioned_party_id: <code>UUID[1]</code><br>
-): <code>PARTY</code><br>
+a_versioned_party_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
+): <code><a href="/releases/RM/latest/demographic.html#_party_class" target="_blank" rel="noopener">PARTY</a></code><br>
 <br>
 <em>Pre_has_party</em>: <code>has_party (a_versioned_party_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -3583,9 +3583,9 @@ a_versioned_party_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_party_at_time</strong> (<br>
-a_versioned_party_id: <code>UUID[1]</code>,<br>
-a_time: <code>Iso8601_date_time[1]</code><br>
-): <code>PARTY</code></p></td>
+a_versioned_party_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code>,<br>
+a_time: <code><a href="/releases/BASE/latest/foundation_types.html#_iso8601_date_time_class" target="_blank" rel="noopener">Iso8601_date_time</a>[1]</code><br>
+): <code><a href="/releases/RM/latest/demographic.html#_party_class" target="_blank" rel="noopener">PARTY</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Get the Version of a Party current at <code><em>a_time</em></code>.</p>
 </div>
@@ -3601,9 +3601,9 @@ a_time: <code>Iso8601_date_time[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>update_party</strong> (<br>
-a_versioned_party_id: <code>UUID[1]</code>,<br>
-a_version: <code>UV_PARTY[1]</code><br>
-): <code>UUID</code><br>
+a_versioned_party_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code>,<br>
+a_version: <code><a href="#_uv_party_class">UV_PARTY</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a></code><br>
 <br>
 <em>Pre_party_definitions_valid</em>: <code>definitions_valid (a_version)</code><br>
 <em>Pre_has_party</em>: <code>has_party (a_versioned_party_id)</code></p></td>
@@ -3631,7 +3631,7 @@ a_version: <code>UV_PARTY[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_party</strong> (<br>
-a_versioned_party_id: <code>UUID[1]</code><br>
+a_versioned_party_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
 )<br>
 <br>
 <em>Pre_has_party</em>: <code>has_party (a_versioned_party_id)</code><br>
@@ -3651,8 +3651,8 @@ a_versioned_party_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_party_at_version</strong> (<br>
-a_party_version_id: <code>UUID[1]</code><br>
-): <code>PARTY</code><br>
+a_party_version_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
+): <code><a href="/releases/RM/latest/demographic.html#_party_class" target="_blank" rel="noopener">PARTY</a></code><br>
 <br>
 <em>Pre_has_party_version</em>: <code>has_party_version (a_party_version_id)</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -3697,8 +3697,8 @@ a_party_version_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_party_relationship</strong> (<br>
-a_versioned_party_rel_id: <code>UUID[1]</code><br>
-): <code>Boolean</code></p></td>
+a_versioned_party_rel_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return True if Party relationship exists in service.</p>
 </div></div></td>
@@ -3706,8 +3706,8 @@ a_versioned_party_rel_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_party_relationship</strong> (<br>
-a_versioned_party_rel_id: <code>UUID[1]</code><br>
-): <code>PARTY_RELATIONSHIP</code></p></td>
+a_versioned_party_rel_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
+): <code><a href="/releases/RM/latest/demographic.html#_party_relationship_class" target="_blank" rel="noopener">PARTY_RELATIONSHIP</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Get the current Version of a Party relationship.</p>
 </div>
@@ -3723,9 +3723,9 @@ a_versioned_party_rel_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_party_relationship_at_time</strong> (<br>
-a_versioned_party_rel_id: <code>UUID[1]</code>,<br>
-a_time: <code>Iso8601_date_time[1]</code><br>
-): <code>PARTY_RELATIONSHIP</code></p></td>
+a_versioned_party_rel_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code>,<br>
+a_time: <code><a href="/releases/BASE/latest/foundation_types.html#_iso8601_date_time_class" target="_blank" rel="noopener">Iso8601_date_time</a>[1]</code><br>
+): <code><a href="/releases/RM/latest/demographic.html#_party_relationship_class" target="_blank" rel="noopener">PARTY_RELATIONSHIP</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Get the Version of a Party relationship current at <code><em>a_time</em></code>.</p>
 </div>
@@ -3741,9 +3741,9 @@ a_time: <code>Iso8601_date_time[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>update_party_relationship</strong> (<br>
-a_versioned_party_rel_id: <code>UUID[1]</code>,<br>
-a_version: <code>UV_PARTY_RELATIONSHIP[1]</code><br>
-): <code>UUID</code><br>
+a_versioned_party_rel_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code>,<br>
+a_version: <code><a href="#_uv_party_relationship_class">UV_PARTY_RELATIONSHIP</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a></code><br>
 <br>
 <em>Pre_party_definitions_valid</em>: <code>definitions_valid (a_version)</code><br>
 <em>Pre_has_relationship</em>: <code>has_party_relationship (a_versioned_party_rel_id)</code></p></td>
@@ -3771,7 +3771,7 @@ a_version: <code>UV_PARTY_RELATIONSHIP[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_party_relationship</strong> (<br>
-a_versioned_party_rel_id: <code>UUID[1]</code><br>
+a_versioned_party_rel_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
 )<br>
 <br>
 <em>Pre_has_relationship</em>: <code>has_party_relationship (a_versioned_party_rel_id)</code><br>
@@ -3791,8 +3791,8 @@ a_versioned_party_rel_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_party_relationship_at_version</strong> (<br>
-a_party_rel_version_id: <code>UUID[1]</code><br>
-): <code>PARTY_RELATIONSHIP</code></p></td>
+a_party_rel_version_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
+): <code><a href="/releases/RM/latest/demographic.html#_party_relationship_class" target="_blank" rel="noopener">PARTY_RELATIONSHIP</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Get a particular Party relationship Version.</p>
 </div>
@@ -3877,10 +3877,10 @@ a_party_rel_version_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add_ehr_subject</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-a_subject_id: <code>OBJECT_REF[1]</code>,<br>
-a_status: <code>RESOURCE_STATUS[0..1]</code>,<br>
-a_loc_desc: <code>LOCATION_DESC[0..1]</code><br>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code>,<br>
+a_subject_id: <code><a href="/releases/BASE/latest/base_types.html#_object_ref_class" target="_blank" rel="noopener">OBJECT_REF</a>[1]</code>,<br>
+a_status: <code><a href="#_resource_status_class">RESOURCE_STATUS</a>[0..1]</code>,<br>
+a_loc_desc: <code><a href="#_location_desc_class">LOCATION_DESC</a>[0..1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Add a subject identifier for the EHR with <code><em>an_ehr_id</em></code>, with an optional resource status and location descriptor.</p>
@@ -3889,9 +3889,9 @@ a_loc_desc: <code>LOCATION_DESC[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>update_ehr_subject_status</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-a_subject_id: <code>OBJECT_REF[1]</code>,<br>
-a_status: <code>RESOURCE_STATUS[1]</code><br>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code>,<br>
+a_subject_id: <code><a href="/releases/BASE/latest/base_types.html#_object_ref_class" target="_blank" rel="noopener">OBJECT_REF</a>[1]</code>,<br>
+a_status: <code><a href="#_resource_status_class">RESOURCE_STATUS</a>[1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Update subject resource status for the association of the EHR with <code><em>an_ehr_id</em></code> and subject <code><em>a_subject_id</em></code>.</p>
@@ -3911,9 +3911,9 @@ a_status: <code>RESOURCE_STATUS[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>update_ehr_subject_loc_desc</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-a_subject_id: <code>OBJECT_REF[1]</code>,<br>
-a_loc_desc: <code>LOCATION_DESC[0..1]</code><br>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code>,<br>
+a_subject_id: <code><a href="/releases/BASE/latest/base_types.html#_object_ref_class" target="_blank" rel="noopener">OBJECT_REF</a>[1]</code>,<br>
+a_loc_desc: <code><a href="#_location_desc_class">LOCATION_DESC</a>[0..1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Update location descriptor for the association of the EHR with <code><em>an_ehr_id</em></code> and subject <code><em>a_subject_id</em></code>.</p>
@@ -3933,8 +3933,8 @@ a_loc_desc: <code>LOCATION_DESC[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>remove_ehr_subject</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-a_subject_id: <code>OBJECT_REF[1]</code><br>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code>,<br>
+a_subject_id: <code><a href="/releases/BASE/latest/base_types.html#_object_ref_class" target="_blank" rel="noopener">OBJECT_REF</a>[1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Remove the subject identifier association with the EHR with <code><em>an_ehr_id</em></code> (it might remain associated with other EHRs however).</p>
@@ -3954,7 +3954,7 @@ a_subject_id: <code>OBJECT_REF[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>remove_subject</strong> (<br>
-a_subject_id: <code>OBJECT_REF[1]</code><br>
+a_subject_id: <code><a href="/releases/BASE/latest/base_types.html#_object_ref_class" target="_blank" rel="noopener">OBJECT_REF</a>[1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Remove all entries for a subject.</p>
@@ -3997,28 +3997,28 @@ a_subject_id: <code>OBJECT_REF[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>instance_type</strong>: <code>RESOURCE_INSTANCE_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>instance_type</strong>: <code><a href="#_resource_instance_type_enumeration">RESOURCE_INSTANCE_TYPE</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Type of resource instance.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>start_valid_time</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>start_valid_time</strong>: <code>@@</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>First time point at which resource can be assumed to be available.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>end_valid_time</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>end_valid_time</strong>: <code>@@</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Last time point at which resource can be assumed to be available.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>notes</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>notes</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Human-readable notes on the resource.</p>
 </div></div></td>
@@ -4161,11 +4161,11 @@ a_subject_id: <code>OBJECT_REF[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>execute_stored_query</strong> (<br>
-exec_spec: <code>STORED_QUERY_EXECUTE_SPEC[1]</code>,<br>
-row_offset: <code>Integer[0..1]</code>,<br>
-rows_to_fetch: <code>Integer[0..1]</code>,<br>
-ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
-): <code>RESULT_SET</code></p></td>
+exec_spec: <code><a href="#_stored_query_execute_spec_class">STORED_QUERY_EXECUTE_SPEC</a>[1]</code>,<br>
+row_offset: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code>,<br>
+rows_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code>,<br>
+ehr_ids: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/BASE/latest/base_types.html#_uuid_class">UUID</sup></a>&gt;[0..1]</code><br>
+): <code><a href="#_result_set_class">RESULT_SET</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Execute a query stored in the definition service, using its qualified query name. Return a Result set.</p>
 </div>
@@ -4218,11 +4218,11 @@ ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>execute_ad_hoc_query</strong> (<br>
-exec_spec: <code>ADHOC_QUERY_EXECUTE_SPEC[1]</code>,<br>
-row_offset: <code>Integer[0..1]</code>,<br>
-rows_to_fetch: <code>Integer[0..1]</code>,<br>
-ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
-): <code>RESULT_SET</code></p></td>
+exec_spec: <code><a href="#_adhoc_query_execute_spec_class">ADHOC_QUERY_EXECUTE_SPEC</a>[1]</code>,<br>
+row_offset: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code>,<br>
+rows_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code>,<br>
+ehr_ids: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/BASE/latest/base_types.html#_uuid_class">UUID</sup></a>&gt;[0..1]</code><br>
+): <code><a href="#_result_set_class">RESULT_SET</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Execute an ad hoc query, supplying the query text.</p>
 </div>
@@ -4301,21 +4301,21 @@ ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>qualified_query_name</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>qualified_query_name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Qualified name of query, which is of the form <code>reverse_domain::name</code>.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>version</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>version</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>If supplied, version of the query to execute specified as a semver.org 3-part string. If not supplied, the latest version available will be executed.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>query_parameters</strong>: <code>Hash&lt;String, String&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>query_parameters</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_hash_class">Hash<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_string_class">String</sup></a>, <a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Parameters to substitute in query in the form of a set of tagged String values; each tag must match a parameter name in the query.</p>
 </div></div></td>
@@ -4349,20 +4349,20 @@ ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>source</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>source</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>AQL text of query.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>formalism</strong>: <code>String<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>formalism</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a><br>
 {default&#160;=&#160;"aql"}</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>query_parameters</strong>: <code>Hash&lt;String, String&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>query_parameters</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_hash_class">Hash<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_string_class">String</sup></a>, <a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Parameters to substitute in query in the form of a set of tagged String values; each tag must match a parameter name in the query.</p>
 </div></div></td>
@@ -4399,33 +4399,33 @@ ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>columns</strong>: <code>List&lt;RESULT_SET_COLUMN&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>columns</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_result_set_column_class">RESULT_SET_COLUMN</a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Column definition structure.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>id</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>id</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Unique identifier of this result set.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>creation_time</strong>: <code>Iso8601_date_time</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>creation_time</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_iso8601_date_time_class" target="_blank" rel="noopener">Iso8601_date_time</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Time of creation of this Result set by execution engine.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>query</strong>: <code>RESULT_QUERY_DESCRIPTOR</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>query</strong>: <code><a href="#_result_query_descriptor_class">RESULT_QUERY_DESCRIPTOR</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>rows</strong>: <code>List&lt;RESULT_SET_ROW&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>rows</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_result_set_row_class">RESULT_SET_ROW</a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Rox data.</p>
 </div></div></td>
@@ -4459,14 +4459,14 @@ ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Column name for caller to use.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>archetype_id</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>archetype_id</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="admonitionblock note">
 <table>
 <tr>
@@ -4482,7 +4482,7 @@ check on whether needed or inside the path.
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>path</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>path</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>RM path of data item for this column as specified in query.</p>
 </div></div></td>
@@ -4516,7 +4516,7 @@ check on whether needed or inside the path.
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>values</strong>: <code>List&lt;Any&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>values</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_any_class">Any</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>List of items corresponding to the columns of the owning Result set.</p>
 </div></div></td>
@@ -4593,8 +4593,8 @@ check on whether needed or inside the path.
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>export_ehrs</strong> (<br>
-an_ehr_id: <code>UUID[1]</code><br>
-): <code>List&lt;EXTRACT&gt;</code></p></td>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/RM/latest/ehr_extract.html#_extract_class">EXTRACT</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Export whole EHR for one or more subjects.</p>
 </div></div></td>
@@ -4602,8 +4602,8 @@ an_ehr_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>export_ehr_extracts</strong> (<br>
-extract_spec: <code>EXTRACT_SPEC[1]</code><br>
-): <code>List&lt;EXTRACT&gt;</code></p></td>
+extract_spec: <code><a href="/releases/RM/latest/ehr_extract.html#_extract_spec_class" target="_blank" rel="noopener">EXTRACT_SPEC</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/RM/latest/ehr_extract.html#_extract_class">EXTRACT</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Export an extract for one or more EHRs.</p>
 </div></div></td>
@@ -4611,8 +4611,8 @@ extract_spec: <code>EXTRACT_SPEC[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>import_ehr</strong> (<br>
-an_ehr_id: <code>UUID[0..1]</code>,<br>
-an_extract: <code>EXTRACT[1]</code><br>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[0..1]</code>,<br>
+an_extract: <code><a href="/releases/RM/latest/ehr_extract.html#_extract_class" target="_blank" rel="noopener">EXTRACT</a>[1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Import a whole EHR, optionally providing a fixed EHR identifier, which, usually to match the identifier of EHR(s) for the same patient in other EHR services.</p>
@@ -4621,8 +4621,8 @@ an_extract: <code>EXTRACT[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>import_ehr_extract</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-an_extract: <code>EXTRACT[1]</code><br>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code>,<br>
+an_extract: <code><a href="/releases/RM/latest/ehr_extract.html#_extract_class" target="_blank" rel="noopener">EXTRACT</a>[1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Import an EHR Extract into an existing EHR.</p>
@@ -4658,8 +4658,8 @@ an_extract: <code>EXTRACT[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>import_tdd</strong> (<br>
-an_ehr_id: <code>UUID[1]</code>,<br>
-tdd: <code>String[1]</code><br>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code>,<br>
+tdd: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Import a TDD.</p>
@@ -4722,9 +4722,9 @@ tdd: <code>String[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_contributions</strong> (<br>
-a_service: <code>PLATFORM_SERVICE[1]</code>,<br>
-time_interval: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
-): <code>List&lt;UUID&gt;</code></p></td>
+a_service: <code><a href="#_platform_service_enumeration">PLATFORM_SERVICE</a>[1]</code>,<br>
+time_interval: <code><a href="/releases/BASE/latest/foundation_types.html#_interval_class">Interval<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_iso8601_date_time_class">Iso8601_date_time</sup></a>&gt;[0..1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/BASE/latest/base_types.html#_uuid_class">UUID</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Obtain a list of ids of all Contributions in EHR system; an optional time range may be supplied.</p>
 </div>
@@ -4745,9 +4745,9 @@ time_interval: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>contribution_count</strong> (<br>
-a_service: <code>PLATFORM_SERVICE[1]</code>,<br>
-time_interval: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
-): <code>Integer</code></p></td>
+a_service: <code><a href="#_platform_service_enumeration">PLATFORM_SERVICE</a>[1]</code>,<br>
+time_interval: <code><a href="/releases/BASE/latest/foundation_types.html#_interval_class">Interval<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_iso8601_date_time_class">Iso8601_date_time</sup></a>&gt;[0..1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Obtain the count of all Contributions made on EHR system; an optional time range may be supplied.</p>
 </div></div></td>
@@ -4755,9 +4755,9 @@ time_interval: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>versioned_composition_count</strong> (<br>
-a_service: <code>PLATFORM_SERVICE[1]</code>,<br>
-time_interval: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
-): <code>Integer</code></p></td>
+a_service: <code><a href="#_platform_service_enumeration">PLATFORM_SERVICE</a>[1]</code>,<br>
+time_interval: <code><a href="/releases/BASE/latest/foundation_types.html#_interval_class">Interval<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_iso8601_date_time_class">Iso8601_date_time</sup></a>&gt;[0..1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Obtain the count of all Versioned Compositions on EHR system; an optional time range may be supplied.</p>
 </div></div></td>
@@ -4765,9 +4765,9 @@ time_interval: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>composition_version_count</strong> (<br>
-a_service: <code>PLATFORM_SERVICE[1]</code>,<br>
-time_interval: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
-): <code>Integer</code></p></td>
+a_service: <code><a href="#_platform_service_enumeration">PLATFORM_SERVICE</a>[1]</code>,<br>
+time_interval: <code><a href="/releases/BASE/latest/foundation_types.html#_interval_class">Interval<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_iso8601_date_time_class">Iso8601_date_time</sup></a>&gt;[0..1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Obtain the count of all Composition Versions on EHR system; an optional time range may be supplied.</p>
 </div></div></td>
@@ -4775,7 +4775,7 @@ time_interval: <code>Interval&lt;Iso8601_date_time&gt;[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>physical_ehr_delete</strong> (<br>
-an_ehr_id: <code>UUID[1]</code><br>
+an_ehr_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
 )<br>
 <br>
 <em>Pre_has_ehr</em>: <code>has_ehr (an_ehr_id)</code></p></td>
@@ -4794,7 +4794,7 @@ an_ehr_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>physical_party_delete</strong> (<br>
-a_party_id: <code>UUID[1]</code><br>
+a_party_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a>[1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Physical delete of specified Party, along with related Party relationships.</p>
@@ -4838,7 +4838,7 @@ a_party_id: <code>UUID[1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>archive_ehrs</strong> (<br>
-ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
+ehr_ids: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/BASE/latest/base_types.html#_uuid_class">UUID</sup></a>&gt;[0..1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Move selected EHRs to archival storage.</p>
@@ -4855,7 +4855,7 @@ ehr_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>archive_parties</strong> (<br>
-party_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
+party_ids: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/BASE/latest/base_types.html#_uuid_class">UUID</sup></a>&gt;[0..1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Move selected Parties and relationships to archival storage.</p>
@@ -4899,10 +4899,10 @@ party_ids: <code>List&lt;UUID&gt;[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>export_ehrs</strong> (<br>
-file_sys_loc: <code>String[1]</code>,<br>
-logical_fmt: <code>EXPORT_FORMAT[0..1]</code>,<br>
-comp_fmt: <code>COMPRESSION_FORMAT[0..1]</code>,<br>
-enc_format: <code>ENCODING_FORMAT[0..1]</code><br>
+file_sys_loc: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
+logical_fmt: <code><a href="#_export_format_enumeration">EXPORT_FORMAT</a>[0..1]</code>,<br>
+comp_fmt: <code><a href="#_compression_format_enumeration">COMPRESSION_FORMAT</a>[0..1]</code>,<br>
+enc_format: <code><a href="#_encoding_format_enumeration">ENCODING_FORMAT</a>[0..1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Export all EHRs to a file-system location in a specified format.</p>
@@ -4932,7 +4932,7 @@ enc_format: <code>ENCODING_FORMAT[0..1]</code><br>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>load_ehrs</strong> (<br>
-file_sys_loc: <code>String[1]</code><br>
+file_sys_loc: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Populate EHR repository from export archive on file system. Repository need not be empty, but import EHRs with duplicate EHR ids will fail.</p>
@@ -4975,28 +4975,28 @@ file_sys_loc: <code>String[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>entity_type</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>entity_type</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Type name of entity.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>entity_id</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>entity_id</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Identifier of entity.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>dump_status</strong>: <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>dump_status</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Status of entity in dump operation: <code>True</code> means successfully dumped; <code>False</code> means dump failed for this entity.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>error</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>error</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Detailed error information, if available.</p>
 </div></div></td>
@@ -5030,28 +5030,28 @@ file_sys_loc: <code>String[1]</code><br>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>logical_format</strong>: <code>EXPORT_FORMAT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>logical_format</strong>: <code><a href="#_export_format_enumeration">EXPORT_FORMAT</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Logical format to use, i.e. flavour of XML, JSON etc.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>compression_format</strong>: <code>COMPRESSION_FORMAT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>compression_format</strong>: <code><a href="#_compression_format_enumeration">COMPRESSION_FORMAT</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Compression format to use during dump.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>encoding</strong>: <code>ENCODING_FORMAT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>encoding</strong>: <code><a href="#_encoding_format_enumeration">ENCODING_FORMAT</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Encoding to use.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>segment_split_size</strong>: <code>Integer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>segment_split_size</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Size in kb of segment size on file system to split export into.</p>
 </div></div></td>
@@ -5065,7 +5065,7 @@ file_sys_loc: <code>String[1]</code><br>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-16 15:32:30 +0100
+Last updated 2020-07-16 15:55:29 +0100
 </div>
 </div>
 <link rel="stylesheet" href="https://specifications.openehr.org/styles/pygments-default.css">

@@ -15,22 +15,22 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*columns*: `List<RESULT_SET_COLUMN>`
+|*columns*: `link:/releases/BASE/{sm_release}/foundation_types.html#_list_class[List^]<<<_result_set_column_class,RESULT_SET_COLUMN>>>`
 a|Column definition structure.
 
 h|*1..1*
-|*id*: `String`
+|*id*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|Unique identifier of this result set.
 
 h|*1..1*
-|*creation_time*: `Iso8601_date_time`
+|*creation_time*: `link:/releases/BASE/{sm_release}/foundation_types.html#_iso8601_date_time_class[Iso8601_date_time^]`
 a|Time of creation of this Result set by execution engine.
 
 h|*0..1*
-|*query*: `RESULT_QUERY_DESCRIPTOR`
+|*query*: `<<_result_query_descriptor_class,RESULT_QUERY_DESCRIPTOR>>`
 a|
 
 h|*0..1*
-|*rows*: `List<RESULT_SET_ROW>`
+|*rows*: `link:/releases/BASE/{sm_release}/foundation_types.html#_list_class[List^]<<<_result_set_row_class,RESULT_SET_ROW>>>`
 a|Rox data.
 |===

@@ -3,12 +3,12 @@
 [cols="^1,3,5"]
 |===
 h|*Class*
-2+^h|*_S_CONTENT_ITEM (abstract)_*
+2+^h|*__S_CONTENT_ITEM (abstract)__*
 
 h|*Description*
 2+a|Simplified RM form of `CONTENT_ITEM` RM class.
 
 h|*Inherit*
-2+|`S_LOCATABLE`
+2+|`<<_s_locatable_class,S_LOCATABLE>>`
 
 |===

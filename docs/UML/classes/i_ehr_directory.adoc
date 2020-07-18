@@ -14,19 +14,19 @@ h|*Functions*
 
 h|*1..1*
 |*has_directory* ( +
-ehr_id: `UUID[1]` +
-): `Boolean` +
+ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]` +
+): `link:/releases/BASE/{sm_release}/foundation_types.html#_boolean_class[Boolean^]` +
  +
-_Pre_has_ehr_: `has_ehr (an_ehr_id)`
+__Pre_has_ehr__: `has_ehr (an_ehr_id)`
 a|True if the EHR has a directory structure.
 
 h|*1..1*
 |*has_path* ( +
-ehr_id: `UUID[1]`, +
-a_path: `String[1]` +
-): `Boolean` +
+ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]`, +
+a_path: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^][1]` +
+): `link:/releases/BASE/{sm_release}/foundation_types.html#_boolean_class[Boolean^]` +
  +
-_Pre_has_ehr_: `has_ehr (an_ehr_id)`
+__Pre_has_ehr__: `has_ehr (an_ehr_id)`
 a|True if path `_a_path_` exists in directory. The `_a_path_` argument consists of slash-separated values of the name attribute of Folders in the directory.
 
 
@@ -37,14 +37,14 @@ a|True if path `_a_path_` exists in directory. The `_a_path_` argument consists 
 
 h|*0..1*
 |*create_directory* ( +
-ehr_id: `UUID[1]`, +
-a_dir_struct: `UV_FOLDER[1]` +
+ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]`, +
+a_dir_struct: `<<_uv_folder_class,UV_FOLDER>>[1]` +
 ) +
  +
-_Pre_has_ehr_: `has_ehr (an_ehr_id)` +
-_Pre_definitions_valid_: `definitions_valid (a_dir_struct)` +
-_Pre_no_directory_: `not has_directory (ehr_id)` +
-_Pre_content_valid_: `valid_content(a_dir_struct)`
+__Pre_has_ehr__: `has_ehr (an_ehr_id)` +
+__Pre_definitions_valid__: `definitions_valid (a_dir_struct)` +
+__Pre_no_directory__: `not has_directory (ehr_id)` +
+__Pre_content_valid__: `valid_content(a_dir_struct)`
 a|Create a directory in the EHR, based on the provided structure.  Causes server-side creation of a new `VERSIONED_OBJECT`, `ORIGINAL_VERSION` and new `CONTRIBUTION`.
 
 
@@ -57,10 +57,10 @@ a|Create a directory in the EHR, based on the provided structure.  Causes server
 
 h|*0..1*
 |*get_directory* ( +
-ehr_id: `UUID[1]` +
-): `FOLDER` +
+ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]` +
+): `link:/releases/RM/{sm_release}/common.html#_folder_class[FOLDER^]` +
  +
-_Pre_has_ehr_: `has_ehr (an_ehr_id)`
+__Pre_has_ehr__: `has_ehr (an_ehr_id)`
 a|Get current version of EHR Directory structure, if it exists, else Void.
 
 
@@ -71,11 +71,11 @@ a|Get current version of EHR Directory structure, if it exists, else Void.
 
 h|*0..1*
 |*get_directory_at_time* ( +
-an_ehr_id: `UUID[1]`, +
-a_time: `Iso8601_date_time[0..1]` +
-): `FOLDER` +
+an_ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]`, +
+a_time: `link:/releases/BASE/{sm_release}/foundation_types.html#_iso8601_date_time_class[Iso8601_date_time^][0..1]` +
+): `link:/releases/RM/{sm_release}/common.html#_folder_class[FOLDER^]` +
  +
-_Pre_has_ehr_: `has_ehr (an_ehr_id)`
+__Pre_has_ehr__: `has_ehr (an_ehr_id)`
 a|Get the version of the Directory extant at time `_a_time_`. If no time supplied, get the latest.
 
 
@@ -88,14 +88,14 @@ a|Get the version of the Directory extant at time `_a_time_`. If no time supplie
 
 h|*0..1*
 |*update_directory* ( +
-ehr_id: `UUID[1]`, +
-a_dir_struct: `UV_FOLDER[1]` +
+ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]`, +
+a_dir_struct: `<<_uv_folder_class,UV_FOLDER>>[1]` +
 ) +
  +
-_Pre_has_ehr_: `has_ehr (an_ehr_id)` +
-_Pre_definitions_valid_: `definitions_valid (a_dir_struct)` +
-_Pre_content_valid_: `valid_content(a_dir_struct)` +
-_Pre_has_directory_: `has_directory(ehr_id)`
+__Pre_has_ehr__: `has_ehr (an_ehr_id)` +
+__Pre_definitions_valid__: `definitions_valid (a_dir_struct)` +
+__Pre_content_valid__: `valid_content(a_dir_struct)` +
+__Pre_has_directory__: `has_directory(ehr_id)`
 a|Create or update a directory from a complete structure. Preceding version must be supplied and correct if EHR directory already exists. Causes server-side creation of a new `ORIGINAL_VERSION` and a new `CONTRIBUTION`.
 
 
@@ -110,11 +110,11 @@ a|Create or update a directory from a complete structure. Preceding version must
 
 h|*0..1*
 |*delete_directory* ( +
-ehr_id: `UUID[1]` +
+ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]` +
 ) +
  +
-_Pre_has_ehr_: `has_ehr (an_ehr_id)` +
-_Pre_has_directory_: `has_directory(ehr_id)`
+__Pre_has_ehr__: `has_ehr (an_ehr_id)` +
+__Pre_has_directory__: `has_directory(ehr_id)`
 a|Logically delete the directory by creating a new version in which the contents are removed.
 
 
@@ -125,9 +125,9 @@ a|Logically delete the directory by creating a new version in which the contents
 
 h|*1..1*
 |*has_directory_version* ( +
-an_ehr_id: `UUID[1]`, +
-a_version_uid: `UUID[1]` +
-): `Boolean`
+an_ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]`, +
+a_version_uid: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]` +
+): `link:/releases/BASE/{sm_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|True if the directory has a version with specified id.
 
 
@@ -138,9 +138,9 @@ a|True if the directory has a version with specified id.
 
 h|*0..1*
 |*get_directory_at_version* ( +
-an_ehr_id: `UUID[1]`, +
-a_version_uid: `UUID[1]` +
-): `FOLDER`
+an_ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]`, +
+a_version_uid: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]` +
+): `link:/releases/RM/{sm_release}/common.html#_folder_class[FOLDER^]`
 a|Get a particular version of the EHR Directory.
 
 
@@ -151,10 +151,10 @@ a|Get a particular version of the EHR Directory.
 
 h|*0..1*
 |*get_versioned_directory* ( +
-an_ehr_id: `UUID[1]` +
-): `VERSIONED_FOLDER` +
+an_ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]` +
+): `link:/releases/RM/{sm_release}/common.html#_versioned_folder_class[VERSIONED_FOLDER^]` +
  +
-_Pre_has_ehr_: `has_ehr (an_ehr_id)`
+__Pre_has_ehr__: `has_ehr (an_ehr_id)`
 a|Get the `VERSIONED_FOLDER` Directory object for the EHR with `_ehr_id_`.
 
 

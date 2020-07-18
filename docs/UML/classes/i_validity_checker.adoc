@@ -14,13 +14,13 @@ h|*Functions*
 
 h|*1..1*
 |*definitions_valid* ( +
-a_content: `LOCATABLE[1]` +
-): `Boolean`
+a_content: `link:/releases/RM/{sm_release}/common.html#_locatable_class[LOCATABLE^][1]` +
+): `link:/releases/BASE/{sm_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|Return `True` if the definition identifiers (i.e. archetype and template identifiers) are known in the local `definitions` service.
 
 h|*1..1*
 |*content_valid* ( +
-a_content: `LOCATABLE[1]` +
-): `Boolean`
+a_content: `link:/releases/RM/{sm_release}/common.html#_locatable_class[LOCATABLE^][1]` +
+): `link:/releases/BASE/{sm_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|Return `True` if the content structure is a valid instance of the relevant RM classes.
 |===

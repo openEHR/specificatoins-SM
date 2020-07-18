@@ -13,18 +13,18 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*entity_type*: `String`
+|*entity_type*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|Type name of entity.
 
 h|*1..1*
-|*entity_id*: `String`
+|*entity_id*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|Identifier of entity.
 
 h|*1..1*
-|*dump_status*: `Boolean`
+|*dump_status*: `link:/releases/BASE/{sm_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|Status of entity in dump operation: `True` means successfully dumped; `False` means dump failed for this entity.
 
 h|*0..1*
-|*error*: `String`
+|*error*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|Detailed error information, if available.
 |===

@@ -3,7 +3,7 @@
 [cols="^1,3,5"]
 |===
 h|*Class*
-2+^h|*_S_TYPE (abstract)_*
+2+^h|*__S_TYPE (abstract)__*
 
 h|*Description*
 2+a|Interface defining routine signatures for Simplified RM classes defining how to convert to and from the corresponding RM class.
@@ -17,8 +17,8 @@ h|*Functions*
 h|*1..1 +
 (abstract)*
 |*to_rm* ( +
-rm: `BMM_MODEL[1]` +
-): `Any`
+rm: `link:/releases/LANG/{sm_release}/bmm.html#_bmm_model_class[BMM_MODEL^][1]` +
+): `link:/releases/BASE/{sm_release}/foundation_types.html#_any_class[Any^]`
 a|Abstract interface of function to convert data of concrete `S_` type to an instance of its RM counterpart.
 
 Implement in concrete descendants.
@@ -30,7 +30,7 @@ Implement in concrete descendants.
 h|*0..1 +
 (abstract)*
 |*from_rm* ( +
-a_val: `Any[1]` +
+a_val: `link:/releases/BASE/{sm_release}/foundation_types.html#_any_class[Any^][1]` +
 )
 a|Abstract procedure to create an `S_` instance from a canonical RM instance.
 

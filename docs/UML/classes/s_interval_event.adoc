@@ -9,21 +9,21 @@ h|*Description*
 2+a|Simplified RM form of `INTERVAL_EVENT` RM class.
 
 h|*Inherit*
-2+|`S_EVENT`
+2+|`<<_s_event_class,S_EVENT>>`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*width*: `String`
+|*width*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|Converted from `DV_DURATION`.
 
 h|*0..1*
-|*sample_count*: `Integer`
+|*sample_count*: `link:/releases/BASE/{sm_release}/foundation_types.html#_integer_class[Integer^]`
 a|(unchanged from RM)
 
 h|*1..1*
-|*math_function*: `String`
+|*math_function*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|Converted from `DV_CODED_TEXT`.
 |===

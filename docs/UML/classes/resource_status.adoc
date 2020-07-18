@@ -13,18 +13,18 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*instance_type*: `RESOURCE_INSTANCE_TYPE`
+|*instance_type*: `<<_resource_instance_type_enumeration,RESOURCE_INSTANCE_TYPE>>`
 a|Type of resource instance.
 
 h|*0..1*
-|*start_valid_time*: 
+|*start_valid_time*: `@@`
 a|First time point at which resource can be assumed to be available.
 
 h|*0..1*
-|*end_valid_time*: 
+|*end_valid_time*: `@@`
 a|Last time point at which resource can be assumed to be available.
 
 h|*0..1*
-|*notes*: `String`
+|*notes*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|Human-readable notes on the resource.
 |===

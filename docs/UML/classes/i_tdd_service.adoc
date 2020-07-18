@@ -14,8 +14,8 @@ h|*Functions*
 
 h|*0..1*
 |*import_tdd* ( +
-an_ehr_id: `UUID[1]`, +
-tdd: `String[1]` +
+an_ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]`, +
+tdd: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^][1]` +
 )
 a|Import a TDD.
 

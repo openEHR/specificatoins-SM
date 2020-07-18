@@ -9,13 +9,13 @@ h|*Description*
 2+a|Execution form of query descriptor, including optional copy of query executed by server.
 
 h|*Inherit*
-2+|`QUERY_DESCRIPTOR`
+2+|`<<_query_descriptor_class,QUERY_DESCRIPTOR>>`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*0..1*
-|*executed*: `String`
+|*executed*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|Executed query text with all parameters substituted.
 |===

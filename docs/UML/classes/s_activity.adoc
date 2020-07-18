@@ -13,14 +13,14 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*0..1*
-|*timing*: `String`
+|*timing*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|Converted from `DV_PARSABLE`.
 
 h|*0..1*
-|*action_archetype_id*: `String`
+|*action_archetype_id*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|(unchanged from RM)
 
 h|*1..1*
-|*description*: `List<S_ITEM>`
+|*description*: `link:/releases/BASE/{sm_release}/foundation_types.html#_list_class[List^]<<<_s_item_class,S_ITEM>>>`
 a|Converted from `ITEM_STRUCTURE`.
 |===

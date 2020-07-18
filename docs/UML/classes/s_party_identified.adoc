@@ -11,13 +11,13 @@ h|*Description*
 TODO: `PARTY_IDENTIFIED._identifiers_` not included.
 
 h|*Inherit*
-2+|`S_PARTY_PROXY`
+2+|`<<_s_party_proxy_class,S_PARTY_PROXY>>`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*name*: `String`
+|*name*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|(unchanged from RM)
 |===

@@ -9,21 +9,21 @@ h|*Description*
 2+a|Simplified RM form of `PARTY_PROXY` RM class.
 
 h|*Inherit*
-2+|`S_TYPE`
+2+|`link:/releases/SM/{sm_release}/S_TYPE.html#_s_type_class[S_TYPE^]`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*0..1*
-|*id*: `String`
+|*id*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|Equivalent of `PARTY_PROXY._external_ref.id.value_`
 
 h|*0..1*
-|*id_namespace*: `String`
+|*id_namespace*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|Equivalent of `PARTY_PROXY._external_ref.namespace_`.
 
 h|*0..1*
-|*id_scheme*: `String`
+|*id_scheme*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|Equivalent of `PARTY_PROXY._external_ref.id.scheme_`, if `_external_ref.id_` is a `GENERIC_ID`.
 |===

@@ -13,18 +13,18 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*ehr_status*: `I_EHR_STATUS`
+|*ehr_status*: `<<_i_ehr_status_interface,I_EHR_STATUS>>`
 a|Access to `I_EHR_STATUS` interface.
 
 h|*1..1*
-|*directory*: `I_EHR_DIRECTORY`
+|*directory*: `<<_i_ehr_directory_interface,I_EHR_DIRECTORY>>`
 a|Access to `I_EHR_DIRECTORY` interface.
 
 h|*1..1*
-|*compositions*: `I_EHR_COMPOSITION`
+|*compositions*: `<<_i_ehr_composition_interface,I_EHR_COMPOSITION>>`
 a|Access to `I_EHR_COMPOSITION` interface.
 
 h|*1..1*
-|*contributions*: `I_EHR_CONTRIBUTION`
+|*contributions*: `<<_i_ehr_contribution_interface,I_EHR_CONTRIBUTION>>`
 a|Access to `I_EHR_CONTRIBUTION` interface.
 |===

@@ -14,11 +14,11 @@ h|*Functions*
 
 h|*1..1*
 |*create_party* ( +
-a_version: `UV_PARTY[1]` +
-): `UUID` +
+a_version: `<<_uv_party_class,UV_PARTY>>[1]` +
+): `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^]` +
  +
-_Pre_party_definitions_valid_: `definitions_valid (a_version)` +
-_Pre_content_valid_: `valid_content (a_version)`
+__Pre_party_definitions_valid__: `definitions_valid (a_version)` +
+__Pre_content_valid__: `valid_content (a_version)`
 a|Create the first version of a new `PARTY` object. Causes server-side creation of a new `VERSIONED_OBJECT`, `ORIGINAL_VERSION` and new `CONTRIBUTION`.
 
 
@@ -31,10 +31,10 @@ a|Create the first version of a new `PARTY` object. Causes server-side creation 
 
 h|*1..1*
 |*create_party_relationship* ( +
-a_version: `UV_PARTY_RELATIONSHIP[1]` +
-): `UUID` +
+a_version: `<<_uv_party_relationship_class,UV_PARTY_RELATIONSHIP>>[1]` +
+): `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^]` +
  +
-_Pre_content_valid_: `valid_content (a_version)`
+__Pre_content_valid__: `valid_content (a_version)`
 a|Create the first version of a new `PARTY_RELATIONSHIP`. Causes server-side creation of a new `VERSIONED_OBJECT`, `ORIGINAL_VERSION` and new `CONTRIBUTION`.
 
 
@@ -48,7 +48,7 @@ a|Create the first version of a new `PARTY_RELATIONSHIP`. Causes server-side cre
 h|*1..1*
 |*i_party* ( +
 a_versioned_party_id +
-): `I_PARTY`
+): `<<_i_party_interface,I_PARTY>>`
 a|Create an `I_PARTY` interface.
 
 
@@ -60,7 +60,7 @@ a|Create an `I_PARTY` interface.
 h|*1..1*
 |*i_party_relationship* ( +
 a_versioned_party_rel_id +
-): `I_PARTY_RELATIONSHIP`
+): `<<_i_party_relationship_interface,I_PARTY_RELATIONSHIP>>`
 a|Create an `I_PARTY_RELATIONSHIP` interface.
 
 

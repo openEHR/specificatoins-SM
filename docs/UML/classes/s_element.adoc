@@ -9,17 +9,17 @@ h|*Description*
 2+a|Simplified RM form of `ELEMENT` RM class.
 
 h|*Inherit*
-2+|`S_ITEM`
+2+|`<<_s_item_class,S_ITEM>>`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*0..1*
-|*value*: `S_DATA_VALUE`
+|*value*: `<<_s_data_value_class,S_DATA_VALUE>>`
 a|Contains a converted form of original `DATA_VALUE`.
 
 h|*0..1*
-|*null_flavour*: `String`
+|*null_flavour*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|Converted from `DV_CODED_TEXT`.
 |===

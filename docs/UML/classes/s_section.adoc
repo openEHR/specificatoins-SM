@@ -9,13 +9,13 @@ h|*Description*
 2+a|Simplified RM form of `SECTION` RM class.
 
 h|*Inherit*
-2+|`S_CONTENT_ITEM`
+2+|`<<_s_content_item_class,S_CONTENT_ITEM>>`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*0..1*
-|*items*: `List<S_CONTENT_ITEM>`
+|*items*: `link:/releases/BASE/{sm_release}/foundation_types.html#_list_class[List^]<<<_s_content_item_class,S_CONTENT_ITEM>>>`
 a|(unchanged from RM)
 |===

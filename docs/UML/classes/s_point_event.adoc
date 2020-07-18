@@ -9,6 +9,6 @@ h|*Description*
 2+a|Simplified RM form of `POINT_EVENT` RM class.
 
 h|*Inherit*
-2+|`S_EVENT`
+2+|`<<_s_event_class,S_EVENT>>`
 
 |===

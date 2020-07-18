@@ -15,10 +15,10 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*system_id*: `String`
+|*system_id*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|Converted from `FEEDER_AUDIT_DETAILS._system_id_`.
 
 h|*1..1*
-|*version_id*: `String`
+|*version_id*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|Converted from `FEEDER_AUDIT_DETAILS._version_id_`.
 |===

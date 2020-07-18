@@ -9,33 +9,33 @@ h|*Description*
 2+a|Simplified RM form of `COMPOSITION` RM class.
 
 h|*Inherit*
-2+|`S_LOCATABLE`
+2+|`<<_s_locatable_class,S_LOCATABLE>>`
 
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
 h|*1..1*
-|*content*: `S_CONTENT_ITEM`
+|*content*: `<<_s_content_item_class,S_CONTENT_ITEM>>`
 a|(unchanged from RM)
 
 h|*1..1*
-|*composer*: `S_PARTY_PROXY`
+|*composer*: `<<_s_party_proxy_class,S_PARTY_PROXY>>`
 a|Converted to `S_PARTY_PROXY` or `S_PARTY_IDENTIFIED` from `PARTY_SELF`, `PARTY_IDENTIFIED` or `PARTY_RELATED`.
 
 h|*1..1*
-|*language*: `String`
+|*language*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|Converted from `DV_DATE_TIME`.
 
 h|*1..1*
-|*territory*: `String`
+|*territory*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|ISO3166-1 country code to be used for composition territory (e.g. "GB", "DE", …).
 
 h|*0..1*
-|*category*: `String`
+|*category*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|Value of Composition `_category_` in String form: "event" or "persistent".
 
 h|*0..1*
-|*context*: `S_EVENT_CONTEXT`
+|*context*: `<<_s_event_context_class,S_EVENT_CONTEXT>>`
 a|
 |===

@@ -13,18 +13,18 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*0..1*
-|*logical_format*: `EXPORT_FORMAT`
+|*logical_format*: `<<_export_format_enumeration,EXPORT_FORMAT>>`
 a|Logical format to use, i.e. flavour of XML, JSON etc.
 
 h|*0..1*
-|*compression_format*: `COMPRESSION_FORMAT`
+|*compression_format*: `<<_compression_format_enumeration,COMPRESSION_FORMAT>>`
 a|Compression format to use during dump.
 
 h|*0..1*
-|*encoding*: `ENCODING_FORMAT`
+|*encoding*: `<<_encoding_format_enumeration,ENCODING_FORMAT>>`
 a|Encoding to use.
 
 h|*1..1*
-|*segment_split_size*: `Integer`
+|*segment_split_size*: `link:/releases/BASE/{sm_release}/foundation_types.html#_integer_class[Integer^]`
 a|Size in kb of segment size on file system to split export into.
 |===

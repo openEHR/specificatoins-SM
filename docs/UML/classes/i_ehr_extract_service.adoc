@@ -14,27 +14,27 @@ h|*Functions*
 
 h|*0..1*
 |*export_ehrs* ( +
-an_ehr_id: `UUID[1]` +
-): `List<EXTRACT>`
+an_ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]` +
+): `link:/releases/BASE/{sm_release}/foundation_types.html#_list_class[List^]<link:/releases/RM/{sm_release}/ehr_extract.html#_extract_class[EXTRACT^]>`
 a|Export whole EHR for one or more subjects.
 
 h|*0..1*
 |*export_ehr_extracts* ( +
-extract_spec: `EXTRACT_SPEC[1]` +
-): `List<EXTRACT>`
+extract_spec: `link:/releases/RM/{sm_release}/ehr_extract.html#_extract_spec_class[EXTRACT_SPEC^][1]` +
+): `link:/releases/BASE/{sm_release}/foundation_types.html#_list_class[List^]<link:/releases/RM/{sm_release}/ehr_extract.html#_extract_class[EXTRACT^]>`
 a|Export an extract for one or more EHRs.
 
 h|*0..1*
 |*import_ehr* ( +
-an_ehr_id: `UUID[0..1]`, +
-an_extract: `EXTRACT[1]` +
+an_ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][0..1]`, +
+an_extract: `link:/releases/RM/{sm_release}/ehr_extract.html#_extract_class[EXTRACT^][1]` +
 )
 a|Import a whole EHR, optionally providing a fixed EHR identifier, which, usually to match the identifier of EHR(s) for the same patient in other EHR services.
 
 h|*0..1*
 |*import_ehr_extract* ( +
-an_ehr_id: `UUID[1]`, +
-an_extract: `EXTRACT[1]` +
+an_ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]`, +
+an_extract: `link:/releases/RM/{sm_release}/ehr_extract.html#_extract_class[EXTRACT^][1]` +
 )
 a|Import an EHR Extract into an existing EHR.
 |===

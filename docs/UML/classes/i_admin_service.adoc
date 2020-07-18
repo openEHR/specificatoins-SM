@@ -14,9 +14,9 @@ h|*Functions*
 
 h|*0..1*
 |*list_contributions* ( +
-a_service: `PLATFORM_SERVICE[1]`, +
-time_interval: `Interval<Iso8601_date_time>[0..1]` +
-): `List<UUID>`
+a_service: `<<_platform_service_enumeration,PLATFORM_SERVICE>>[1]`, +
+time_interval: `link:/releases/BASE/{sm_release}/foundation_types.html#_interval_class[Interval^]<link:/releases/BASE/{sm_release}/foundation_types.html#_iso8601_date_time_class[Iso8601_date_time^]>[0..1]` +
+): `link:/releases/BASE/{sm_release}/foundation_types.html#_list_class[List^]<link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^]>`
 a|Obtain a list of ids of all Contributions in EHR system; an optional time range may be supplied.
 
 .Parameters +
@@ -25,31 +25,31 @@ a|Obtain a list of ids of all Contributions in EHR system; an optional time rang
 
 h|*1..1*
 |*contribution_count* ( +
-a_service: `PLATFORM_SERVICE[1]`, +
-time_interval: `Interval<Iso8601_date_time>[0..1]` +
-): `Integer`
+a_service: `<<_platform_service_enumeration,PLATFORM_SERVICE>>[1]`, +
+time_interval: `link:/releases/BASE/{sm_release}/foundation_types.html#_interval_class[Interval^]<link:/releases/BASE/{sm_release}/foundation_types.html#_iso8601_date_time_class[Iso8601_date_time^]>[0..1]` +
+): `link:/releases/BASE/{sm_release}/foundation_types.html#_integer_class[Integer^]`
 a|Obtain the count of all Contributions made on EHR system; an optional time range may be supplied.
 
 h|*1..1*
 |*versioned_composition_count* ( +
-a_service: `PLATFORM_SERVICE[1]`, +
-time_interval: `Interval<Iso8601_date_time>[0..1]` +
-): `Integer`
+a_service: `<<_platform_service_enumeration,PLATFORM_SERVICE>>[1]`, +
+time_interval: `link:/releases/BASE/{sm_release}/foundation_types.html#_interval_class[Interval^]<link:/releases/BASE/{sm_release}/foundation_types.html#_iso8601_date_time_class[Iso8601_date_time^]>[0..1]` +
+): `link:/releases/BASE/{sm_release}/foundation_types.html#_integer_class[Integer^]`
 a|Obtain the count of all Versioned Compositions on EHR system; an optional time range may be supplied.
 
 h|*1..1*
 |*composition_version_count* ( +
-a_service: `PLATFORM_SERVICE[1]`, +
-time_interval: `Interval<Iso8601_date_time>[0..1]` +
-): `Integer`
+a_service: `<<_platform_service_enumeration,PLATFORM_SERVICE>>[1]`, +
+time_interval: `link:/releases/BASE/{sm_release}/foundation_types.html#_interval_class[Interval^]<link:/releases/BASE/{sm_release}/foundation_types.html#_iso8601_date_time_class[Iso8601_date_time^]>[0..1]` +
+): `link:/releases/BASE/{sm_release}/foundation_types.html#_integer_class[Integer^]`
 a|Obtain the count of all Composition Versions on EHR system; an optional time range may be supplied.
 
 h|*0..1*
 |*physical_ehr_delete* ( +
-an_ehr_id: `UUID[1]` +
+an_ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]` +
 ) +
  +
-_Pre_has_ehr_: `has_ehr (an_ehr_id)`
+__Pre_has_ehr__: `has_ehr (an_ehr_id)`
 a|Physical deletion of specified EHR.
 
 
@@ -60,7 +60,7 @@ a|Physical deletion of specified EHR.
 
 h|*0..1*
 |*physical_party_delete* ( +
-a_party_id: `UUID[1]` +
+a_party_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]` +
 )
 a|Physical delete of specified Party, along with related Party relationships.
 

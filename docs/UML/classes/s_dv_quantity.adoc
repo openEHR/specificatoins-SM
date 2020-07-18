@@ -11,6 +11,6 @@ h|*Description*
 TODO: define
 
 h|*Inherit*
-2+|`S_DATA_VALUE`
+2+|`<<_s_data_value_class,S_DATA_VALUE>>`
 
 |===

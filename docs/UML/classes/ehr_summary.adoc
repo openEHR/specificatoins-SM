@@ -13,26 +13,26 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*ehr_id*: `UUID`
+|*ehr_id*: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^]`
 a|EHR identifier of this EHR.
 
 h|*1..1*
-|*system_id*: `String`
+|*system_id*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
 a|Copy of `EHR._system_id_`.
 
 h|*1..1*
-|*ehr_status*: `EHR_STATUS`
+|*ehr_status*: `link:/releases/RM/{sm_release}/ehr.html#_ehr_status_class[EHR_STATUS^]`
 a|Copy of `EHR._ehr_status_`.
 
 h|*1..1*
-|*time_created*: `Iso8601_date_time`
+|*time_created*: `link:/releases/BASE/{sm_release}/foundation_types.html#_iso8601_date_time_class[Iso8601_date_time^]`
 a|Copy of `EHR._time_created_`.
 
 h|*1..1*
-|*contribution_count*: `Integer`
+|*contribution_count*: `link:/releases/BASE/{sm_release}/foundation_types.html#_integer_class[Integer^]`
 a|Number of Contributions in this EHR.
 
 h|*1..1*
-|*composition_count*: `Integer`
+|*composition_count*: `link:/releases/BASE/{sm_release}/foundation_types.html#_integer_class[Integer^]`
 a|Number of (versioned) Compositions in this EHR.
 |===
