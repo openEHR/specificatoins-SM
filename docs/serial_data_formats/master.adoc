@@ -30,17 +30,20 @@ include::master00-amendment_record.adoc[leveloffset=+1]
 
 === Primary Author
 
-* Thomas Beale, Ars Semantica; openEHR Foundation Management Board.
+* xxxx
 
 === Contributors
 
 This specification has benefited from formal and informal input from the openEHR and wider health informatics community. The openEHR Foundation would like to recognise the following people for their contributions.
 
-* Pablo Pazos, Principal, Cabloabs, Uruguay
+* xxxx
+
+A significant part of the content of this specification was adapted from the Better (Marand) 'Web Templates' specification, kindly provided by Marand d.o.o. (Slovenia) and the EtherCIS JSON flat format description.
 
 === Trademarks
 
 * 'openEHR' is a registered trademark of the openEHR Foundation
+* 'OMG' and 'UML' are registered trademarks of the Object Management Group
 
 //
 // --------------------------------------------- TOC -----------------------------------------------
@@ -54,19 +57,14 @@ This specification has benefited from formal and informal input from the openEHR
 :sectnums:
 include::master01-preface.adoc[leveloffset=+1]
 include::master02-overview.adoc[leveloffset=+1]
-include::master03-common_package.adoc[leveloffset=+1]
-include::master04-definition_package.adoc[leveloffset=+1]
-include::master05-ehr_package.adoc[leveloffset=+1]
-include::master06-demographic_package.adoc[leveloffset=+1]
-include::master07-ehr_index_package.adoc[leveloffset=+1]
-include::master08-query_package.adoc[leveloffset=+1]
-include::master09-message_package.adoc[leveloffset=+1]
-include::master10-admin_package.adoc[leveloffset=+1]
+include::master03-data_values.adoc[leveloffset=+1]
 
 
 //
 // --------------------------------------------- REFERENCES -----------------------------------------------
 //
+
+
 :sectnums!:
 //== References
 //
