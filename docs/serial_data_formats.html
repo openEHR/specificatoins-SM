@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.10">
+<meta name="description" content="openEHR Serial Data Formats">
+<meta name="keywords" content="SDF, serialization, openEHR">
+<title>openEHR Serial Data Formats (SDF)</title>
+<link rel="stylesheet" href="https://specifications.openehr.org/styles/openehr.css">
+</head>
+<body class="book toc2 toc-left">
+<div id="header">
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel0">
+<li><a href="#_openehr_serial_data_formats_sdf">openEHR Serial Data Formats (SDF)</a>
+<ul class="sectlevel1">
+<li><a href="#_amendment_record">Amendment Record</a></li>
+<li><a href="#_acknowledgements">Acknowledgements</a>
+<ul class="sectlevel2">
+<li><a href="#_authors">Authors</a></li>
+<li><a href="#_original_ip">Original IP</a></li>
+<li><a href="#_trademarks">Trademarks</a></li>
+</ul>
+</li>
+<li><a href="#_preface">1. Preface</a>
+<ul class="sectlevel2">
+<li><a href="#_purpose">1.1. Purpose</a></li>
+<li><a href="#_status">1.2. Status</a></li>
+<li><a href="#_feedback">1.3. Feedback</a></li>
+<li><a href="#_conformance">1.4. Conformance</a></li>
+<li><a href="#_tooling">1.5. Tooling</a></li>
+</ul>
+</li>
+<li><a href="#_overview">2. Overview</a>
+<ul class="sectlevel2">
+<li><a href="#_design_concept">2.1. Design Concept</a></li>
+<li><a href="#_parsing_model">2.2. Parsing Model</a></li>
+</ul>
+</li>
+<li><a href="#_data_values">3. Data Values</a>
+<ul class="sectlevel2">
+<li><a href="#_json_primitives">3.1. JSON Primitives</a></li>
+<li><a href="#_openehr_primitives_represented_as_json_string">3.2. openEHR Primitives Represented as JSON String</a>
+<ul class="sectlevel3">
+<li><a href="#_ehrscape_variants">3.2.1. EhrScape Variants</a></li>
+</ul>
+</li>
+<li><a href="#_openehr_intervals_represented_as_json_string">3.3. openEHR Intervals Represented as JSON String</a></li>
+<li><a href="#_lists_of_primitive_type_and_intervals">3.4. Lists of Primitive Type and Intervals</a></li>
+<li><a href="#_openehr_reference_model_data_value_types">3.5. openeHR Reference Model DATA_VALUE Types</a>
+<ul class="sectlevel3">
+<li><a href="#_ehrscape_variants_2">3.5.1. EhrScape Variants</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_syntax_specification">4. Syntax Specification</a>
+<ul class="sectlevel2">
+<li><a href="#_json_syntax_elements">4.1. JSON Syntax Elements</a></li>
+<li><a href="#_string_parser">4.2. String Parser</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="imageblock text-center">
+<div class="content">
+<img src="https://specifications.openehr.org/images/openEHR_logo_RGB.svg" alt="openEHR logo">
+</div>
+</div>
+</div>
+</div>
+<h1 id="_openehr_serial_data_formats_sdf" class="sect0"><a class="anchor" href="#_openehr_serial_data_formats_sdf"></a>openEHR Serial Data Formats (SDF)</h1>
+<div class="openblock partintro">
+<div class="content">
+<table class="tableblock frame-all grid-all fit-content spread">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="2"><strong>Issuer</strong>: <a href="https://www.openehr.org/programs/specification" target="_blank" rel="noopener">openEHR Specification Program</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Release</strong>: SM latest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Status</strong>: DEVELOPMENT</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Revision</strong>: <a href="#latest_issue">[latest_issue]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Date</strong>: <a href="#latest_issue_date">[latest_issue_date]</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>Keywords</strong>: SDF, serialization, openEHR</p></td>
+</tr>
+</tbody>
+</table>
+<div class="imageblock text-center">
+<div class="content">
+<object type="image/svg+xml" data="openehr_block_diagram.svg" width="60%"><span class="alt">openEHR components</span></object>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="2">&#169; 2020 - 2020 The openEHR Foundation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><a href="https://www.openehr.org" target="_blank" rel="noopener">The openEHR Foundation</a> is an independent, non-profit foundation, facilitating the sharing of health records by consumers and clinicians via open specifications, clinical models and open platform implementations.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Licence</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="https://specifications.openehr.org/images/cc-by-nd-88x31.png" alt="image"></span> Creative Commons Attribution-NoDerivs 3.0 Unported. <a href="https://creativecommons.org/licenses/by-nd/3.0/" class="bare">https://creativecommons.org/licenses/by-nd/3.0/</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Support</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Issues: <a href="https://specifications.openehr.org/components/SM/open_issues" target="_blank" rel="noopener">Problem Reports</a><br>
+ Web: <a href="https://specifications.openehr.org" target="_blank" rel="noopener">specifications.openEHR.org</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_amendment_record"><a class="anchor" href="#_amendment_record"></a>Amendment Record</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 54.5454%;">
+<col style="width: 18.1818%;">
+<col style="width: 18.1819%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Issue</th>
+<th class="tableblock halign-left valign-top">Details</th>
+<th class="tableblock halign-left valign-top">Raiser</th>
+<th class="tableblock halign-left valign-top">Completed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>SM Release 1.?.?</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>0.5.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECSM-5" target="_blank" rel="noopener">SPECSM-5</a>. Add Simplified Data Formats (SDF)<br>
+ Initial writing, adapted from the Better Platform 'Web Templates' specification and EtherCIS documentation.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">openEHR SEC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>27 Aug 2020</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_acknowledgements"><a class="anchor" href="#_acknowledgements"></a>Acknowledgements</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_authors"><a class="anchor" href="#_authors"></a>Authors</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Pieter Bos, Software Engineer, Nedap, Netherlands</p>
+</li>
+<li>
+<p>Diego Boscá, IBIME, Technical University Valencia, VeraTech for Health, Spain</p>
+</li>
+<li>
+<p>Borut Fabjan, Program Manager, Better, Slovenia</p>
+</li>
+<li>
+<p>Sebastian Iancu, Architect, Code24, Netherlands</p>
+</li>
+<li>
+<p>Bostjan Lah, CTO, Better, Slovenia</p>
+</li>
+<li>
+<p>Ian McNicoll MD, MSc, FreshEhr, UK</p>
+</li>
+<li>
+<p>Matija Polajnar, Architect, Better, Slovenia</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_original_ip"><a class="anchor" href="#_original_ip"></a>Original IP</h3>
+<div class="paragraph">
+<p>A significant part of the content of this specification was adapted from the Better (Marand) 'Web Templates' specification, kindly provided by Marand d.o.o. (Slovenia) and the EtherCIS JSON flat format description.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_trademarks"><a class="anchor" href="#_trademarks"></a>Trademarks</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>'openEHR' is a registered trademark of the openEHR Foundation</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_preface"><a class="anchor" href="#_preface"></a>1. Preface</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_purpose"><a class="anchor" href="#_purpose"></a>1.1. Purpose</h3>
+<div class="paragraph">
+<p>This document describes the Serial data formats, a set of serialisations for <a href="https://specifications.openehr.org/releases/RM/latest/index" target="_blank" rel="noopener">openEHR RM</a> data, intended to be used to generate simplified Data Templates.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_status"><a class="anchor" href="#_status"></a>1.2. Status</h3>
+<div class="paragraph">
+<p>This specification is in the DEVELOPMENT state. The development version of this document can be found at {openehr_simplified_data_format}[{openehr_simplified_data_format}^].</p>
+</div>
+<div class="paragraph">
+<p>Known omissions or questions are indicated in the text with a 'to be determined' paragraph, as follows:</p>
+</div>
+<div class="paragraph tbd">
+<p><strong>TBD</strong>: (example To Be Determined paragraph)</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_feedback"><a class="anchor" href="#_feedback"></a>1.3. Feedback</h3>
+<div class="paragraph">
+<p>Feedback may be provided on the <a href="https://discourse.openehr.org/c/specifications" target="_blank" rel="noopener">technical mailing list</a>.</p>
+</div>
+<div class="paragraph">
+<p>Issues may be raised on the <a href="https://specifications.openehr.org/components/SM/open_issues" target="_blank" rel="noopener">specifications Problem Report tracker</a>.</p>
+</div>
+<div class="paragraph">
+<p>To see changes made due to previously reported issues, see the <a href="https://specifications.openehr.org/components/SM/history" target="_blank" rel="noopener">SM component Change Request tracker</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_conformance"><a class="anchor" href="#_conformance"></a>1.4. Conformance</h3>
+<div class="paragraph tbd">
+<p>TBD: xxxx</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tooling"><a class="anchor" href="#_tooling"></a>1.5. Tooling</h3>
+<div class="paragraph tbd">
+<p>TBD: xxxx</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a>2. Overview</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_design_concept"><a class="anchor" href="#_design_concept"></a>2.1. Design Concept</h3>
+<div class="paragraph">
+<p>The Serial Data Formats (SDF) define compact serialisations for:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html" target="_blank" rel="noopener">openEHR Foundation Types</a> and</p>
+</li>
+<li>
+<p>the <a href="https://specifications.openehr.org/releases/RM/latest/data_types.html" target="_blank" rel="noopener">openEHR RM Data types</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The intention is twofold:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>to reduce the size and increase the human-readability of JSON-serialised openEHR data;</p>
+</li>
+<li>
+<p>to make generation of openEHR data easier.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The formats defined in this specification are mostly re-used from elsewhere in openEHR, and may be expected to be implemented in a standard library for each major implementation technology.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_parsing_model"><a class="anchor" href="#_parsing_model"></a>2.2. Parsing Model</h3>
+<div class="paragraph tbd">
+<p>TBD: xxxx</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_data_values"><a class="anchor" href="#_data_values"></a>3. Data Values</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_json_primitives"><a class="anchor" href="#_json_primitives"></a>3.1. JSON Primitives</h3>
+<div class="paragraph">
+<p>The following JSON primitive types are a subset of the openEHR Foundation Types, and are represented in SDF in their native JSON form.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 33.3333%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Formal type</th>
+<th class="tableblock halign-left valign-top">Definition</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"true" | "false"</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Integer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_json_syntax_elements">JSON integer</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5<br>
+ 124000<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Real</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_json_syntax_elements">JSON number</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5.0<br>
+ 6.023e23<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_json_syntax_elements">JSON string</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"mild anaemia"<br>
+ "a line of text\n"</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_openehr_primitives_represented_as_json_string"><a class="anchor" href="#_openehr_primitives_represented_as_json_string"></a>3.2. openEHR Primitives Represented as JSON String</h3>
+<div class="paragraph">
+<p>The following are openEHR primitive types represented as JSON Strings which may be parsed to instantiate the appropriate data type.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 12.5%;">
+<col style="width: 50%;">
+<col style="width: 37.5%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Formal type</th>
+<th class="tableblock halign-left valign-top">Definition</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Character</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_json_syntax_elements">JSON character</a></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre>"k"
+"\t"</pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Iso8601_date</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank" rel="noopener">ISO 8601 date string</a>, including partial forms; see <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html#_time_definitions_class" target="_blank" rel="noopener"><code>TIME_DEFINITIONS.<em>valid_iso8601_date</em>()</code></a>.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre>"2020-04-01"
+"2020-04"
+"2020"</pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Iso8601_time</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank" rel="noopener">ISO 8601 time string</a>, including partial forms; see <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html#_time_definitions_class" target="_blank" rel="noopener"><code>TIME_DEFINITIONS.<em>valid_iso8601_time</em>()</code></a>.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre>"13:45:00"
+"13:45"
+"13"
+"13:45:00.722+03:00"
+"13:45+03:00"</pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Iso8601_date_time</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank" rel="noopener">ISO 8601 date/time string</a>, including partial forms; see <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html#_time_definitions_class" target="_blank" rel="noopener"><code>TIME_DEFINITIONS.<em>valid_iso8601_date_time</em>()</code></a>.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre>"P2Y4M10D"
+"P1DT3H"
+"PT2h5m0s"</pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Iso8601_duration</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank" rel="noopener">ISO 8601 duration string</a>; see <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html#_time_definitions_class" target="_blank" rel="noopener"><code>TIME_DEFINITIONS.<em>valid_iso8601_duration</em>()</code></a>.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre>"P2Y4M10D"
+"P1DT3H"
+"PT2h5m0s"</pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Uri</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.ietf.org/rfc/rfc3986" target="_blank" rel="noopener">RFC 3986 string</a></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre>"https://www.openEHR.org"
+"http://snomed.info"</pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Terminology_code</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">openEHR ODIN <a href="https://specifications.openehr.org/releases/LANG/latest/odin.html#_syntax_specification" target="_blank" rel="noopener">TERM_CODE_REF</a>, defined as <code>"[&lt;terminology_id&gt;::&lt;code&gt;]" | "[&lt;terminology_id&gt;(&lt;version_id&gt;)::&lt;code&gt;]"</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre>"[icd10AM::F60.1]"
+"[snomed_ct(2020_06_01)::3415004]"</pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Terminology_term</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">openEHR ODIN <a href="https://specifications.openehr.org/releases/LANG/latest/odin.html#_syntax_specification" target="_blank" rel="noopener">XXXX</a>, defined as <code>"[&lt;terminology_id&gt;::&lt;code&gt;|&lt;text&gt;|]" | "[&lt;terminology_id&gt;(&lt;version_id&gt;)::&lt;code&gt;|&lt;text&gt;|]"</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre>"[icd10AM::F60.1|Schizoid personality disorder|]"
+"[snomed_ct(2020_06_01)::3415004|cyanosis|]"</pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph tbd">
+<p>TBD: S.I.: there is no support for version_id in Terminology_code / Terminology_term, or value in Terminology_term.</p>
+</div>
+<div class="sect3">
+<h4 id="_ehrscape_variants"><a class="anchor" href="#_ehrscape_variants"></a>3.2.1. EhrScape Variants</h4>
+<div class="paragraph">
+<p>EhrScape variants exist for the following <code>DV_</code> types.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Formal type</th>
+<th class="tableblock halign-left valign-top">EhrScape Format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Terminology_code</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>
+    <span class="tok-nt">&quot;|code&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;238&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;|terminology&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;openehr&quot;</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Terminology_term</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>
+    <span class="tok-nt">&quot;|code&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;238&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;|value&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;other care&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;|terminology&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;openehr&quot;</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_openehr_intervals_represented_as_json_string"><a class="anchor" href="#_openehr_intervals_represented_as_json_string"></a>3.3. openEHR Intervals Represented as JSON String</h3>
+<div class="paragraph">
+<p>Data instances of type <code>Interval&lt;T: Ordered&gt;</code>, where the concrete descendants of <code>Ordered</code> are shown in the <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html#_openehr_leaf_types" target="_blank" rel="noopener">openEHR Foundation Types</a> are represented in SDF templates as JSON Strings containing <a href="https://specifications.openehr.org/releases/LANG/latest/odin.html#_intervals_of_ordered_primitive_types" target="_blank" rel="noopener">openEHR ODIN intervals</a>, for example <code>"|08:02 .. 09:10|"</code>.</p>
+</div>
+<div class="paragraph">
+<p>The interval syntax is summarised as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    |N .. M|        -- the two-sided range N &gt;= x &lt;= M;
+    |&gt; N .. M|      -- the two-sided range N &gt; x &lt;= M;
+    |N .. &lt;M|       -- the two-sided range N &lt;= x &lt;M;
+    |&gt; N .. &lt;M|     -- the two-sided range N &gt; x &lt;M;
+    |&lt; N|           -- the one-sided range x &lt; N;
+    |&gt; N|           -- the one-sided range x &gt; N;
+    |&gt;= N|          -- the one-sided range x &gt;= N;
+    |&lt;= N|          -- the one-sided range x &lt;= N;
+    |N +/-M|        -- interval of N ±M;
+    |N±M|           -- interval of N ±M.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples of this syntax include:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    |0 .. 5|              -- integer interval
+    |0.0 .. 1000.0|       -- real interval
+    |0.0 .. &lt;1000.0|      -- real interval 0.0 &lt;= x &lt; 1000.0
+    |08:02 .. 09:10|      -- interval of time
+    |&gt;= 1939-02-01|       -- open-ended interval of dates
+    |5.0 ±0.5|            -- 4.5 ±5.5
+    |5.0 +/-0.5|          -- 4.5 ±5.5
+    |&gt;= 0|                -- &gt;= 0</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_lists_of_primitive_type_and_intervals"><a class="anchor" href="#_lists_of_primitive_type_and_intervals"></a>3.4. Lists of Primitive Type and Intervals</h3>
+<div class="paragraph">
+<p>Lists are represented in the standard JSON manner, with the elements represented as described above. The following shows various examples.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    ["cyan", "magenta", "yellow", "black"]
+    [1, 1, 2, 3, 5]
+    ["[icd10AM::F60.1]", "[icd10AM::F64.2]"]</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_openehr_reference_model_data_value_types"><a class="anchor" href="#_openehr_reference_model_data_value_types"></a>3.5. openeHR Reference Model DATA_VALUE Types</h3>
+<div class="paragraph">
+<p>All openEHR RM <code>DATA_VALUE</code> types can be represented in SDF form. Many have the same representation as the Foundation types on which they are based and are assumed to be instantiated to the correct RM type by virtue of parsing within a model-available context. These are shown in the following table.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Formal type</th>
+<th class="tableblock halign-left valign-top">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_BOOLEAN</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See <code>Boolean</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CODE_PHRASE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See <code>Terminology_code</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_TEXT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See <code>String</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_CODED_TEXT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See <code>Terminology_term</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_COUNT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See <code>Integer</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_DATE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See <code>Iso8601_date</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_DATE_TIME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See <code>Iso8601_date_time</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_TIME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See <code>Iso8601_time</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_DURATION</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See <code>Iso8601_duration</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_EHR_URI</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See <code>Uri</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The <code>DATA_VALUE</code> types that have specific SDF syntax forms are shown in the following table.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 40%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Formal type</th>
+<th class="tableblock halign-left valign-top">Definition</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_ORDINAL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"&lt;ordinal_value&gt;|&lt;terminology_code&gt;"</code> |<br>
+ <code>"&lt;ordinal_value&gt;|&lt;terminology_term&gt;"</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"1|[snomed_ct::313267000|Stroke|]"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_SCALE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"&lt;scale_value&gt;|&lt;terminology_code&gt;"</code> |<br>
+ <code>"&lt;scale_value&gt;|&lt;terminology_term&gt;"</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"1.5|[snomed_ct::127840596|minor difficulty|]"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_QUANTITY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"&lt;value&gt;,&lt;unit&gt;"</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"78.500,kg"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_PROPORTION</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"&lt;numerator&gt;/&lt;denominator&gt;;&lt;proportion_kind&gt;"</code> where is <code>&lt;proportion_kind&gt;</code> is <code>RATIO | UNITARY | PERCENT | FRACTION | INTEGER_FRACTION</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"25.3/100;PERCENT"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_MULTIMEDIA</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Standard JSON structure with compressed items internally</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>
+    <span class="tok-nt">&quot;integrityCheckAlgorithm&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;[openehr_integrity_check_algorithms::SHA-1]&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;mediaType&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;IANA_media-types::text/plain&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;compressionAlgorithm&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;[openehr_compression_algorithms::other]&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;uri&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;file://test.ethercis.com/dir/file.jpg&quot;</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_PARSABLE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CHECK</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CHECK</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_IDENTIFIER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Standard JSON</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>
+    <span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;id1&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;issuer&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;issuer1&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;assigner&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;assigner1&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;type&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;PERSON&quot;</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_INTERVAL&lt;T:DV_ORDERED&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CHECK</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CHECK</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="_ehrscape_variants_2"><a class="anchor" href="#_ehrscape_variants_2"></a>3.5.1. EhrScape Variants</h4>
+<div class="paragraph">
+<p>EhrScape variants exist for the following <code>DV_</code> types.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Formal type</th>
+<th class="tableblock halign-left valign-top">EhrScape Format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_PARSABLE</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>
+    <span class="tok-nt">&quot;|value&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Hello world!&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;|formalism&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;text/plain&quot;</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_MULTIMEDIA</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>
+    <span class="tok-nt">&quot;|integrityCheckAlgorithm&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;[openehr_integrity_check_algorithms::SHA-1]&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;|mediaType&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;IANA_media-types::text/plain&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;|compressionAlgorithm&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;[openehr_compression_algorithms::other]&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;|uri&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;file://test.ethercis.com/dir/file.jpg&quot;</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_IDENTIFIER</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>
+    <span class="tok-nt">&quot;|id&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;id1&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;|issuer&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;issuer1&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;|assigner&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;assigner1&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;|type&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;PERSON&quot;</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_syntax_specification"><a class="anchor" href="#_syntax_specification"></a>4. Syntax Specification</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The JSON syntax is formally specified in terms of a standard JSON parser, which will return native JSON objects, and a second-level JSON string parser, that will return structured SDF instances as described the specification in the previous section. The final instantiated type(s) will further depend on the formal type(s) in the model context.</p>
+</div>
+<div class="paragraph tbd">
+<p>TBD: provide Antlr4 files</p>
+</div>
+<div class="sect2">
+<h3 id="_json_syntax_elements"><a class="anchor" href="#_json_syntax_elements"></a>4.1. JSON Syntax Elements</h3>
+<div class="paragraph">
+<p>The following EBNF is the standard JSON parser production rules from <a href="http://json.org" target="_blank" rel="noopener">JSON.org</a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="ebnf"><span></span><span class="tok-k">json </span><span class="tok-o">=</span>
+   <span class="tok-k">element </span><span class="tok-p">;</span>
+
+<span class="tok-k">value </span><span class="tok-o">=</span>
+   <span class="tok-k">object</span>
+   <span class="tok-p">|</span> <span class="tok-k">array</span>
+   <span class="tok-p">|</span> <span class="tok-k">string</span>
+   <span class="tok-p">|</span> <span class="tok-k">number</span>
+   <span class="tok-p">|</span> <span class="tok-s2">&quot;true&quot;</span>
+   <span class="tok-p">|</span> <span class="tok-s2">&quot;false&quot;</span>
+   <span class="tok-p">|</span> <span class="tok-s2">&quot;null&quot;</span>
+   <span class="tok-p">;</span>
+
+<span class="tok-k">object </span><span class="tok-o">=</span>
+    <span class="tok-s1">&#39;{&#39;</span> <span class="tok-k">ws </span><span class="tok-s1">&#39;}&#39;</span>
+    <span class="tok-p">|</span> <span class="tok-s1">&#39;{&#39;</span> <span class="tok-k">members </span><span class="tok-s1">&#39;}&#39;</span>
+    <span class="tok-p">;</span>
+
+<span class="tok-k">members </span><span class="tok-o">=</span>
+    <span class="tok-k">member</span>
+    <span class="tok-p">|</span> <span class="tok-k">member </span><span class="tok-s1">&#39;,&#39;</span> <span class="tok-k">members</span>
+    <span class="tok-p">;</span>
+
+<span class="tok-k">member </span><span class="tok-o">=</span>
+    <span class="tok-k">ws string ws </span><span class="tok-s1">&#39;:&#39;</span> <span class="tok-k">element </span><span class="tok-p">;</span>
+
+<span class="tok-k">array </span><span class="tok-o">=</span>
+    <span class="tok-s1">&#39;[&#39;</span> <span class="tok-k">ws </span><span class="tok-s1">&#39;]&#39;</span>
+    <span class="tok-p">|</span> <span class="tok-s1">&#39;[&#39;</span> <span class="tok-k">elements </span><span class="tok-s1">&#39;]&#39;</span>
+    <span class="tok-p">;</span>
+
+<span class="tok-k">elements </span><span class="tok-o">=</span>
+    <span class="tok-k">element</span>
+    <span class="tok-p">|</span> <span class="tok-k">element </span><span class="tok-s1">&#39;,&#39;</span> <span class="tok-k">elements</span>
+    <span class="tok-p">;</span>
+
+<span class="tok-k">element </span><span class="tok-o">=</span>
+    <span class="tok-k">ws value ws </span><span class="tok-p">;</span>
+
+<span class="tok-k">string </span><span class="tok-o">=</span>
+    <span class="tok-s1">&#39;&quot;&#39;</span> <span class="tok-k">characters </span><span class="tok-s1">&#39;&quot;&#39;</span> <span class="tok-p">;</span>
+
+<span class="tok-k">characters </span><span class="tok-o">=</span>
+    <span class="tok-s2">&quot;&quot;</span>
+    <span class="tok-p">|</span> <span class="tok-k">character characters</span>
+    <span class="tok-p">;</span>
+
+<span class="tok-k">character </span><span class="tok-o">=</span>
+    <span class="tok-s1">&#39;0020&#39;</span> <span class="tok-o">-</span> <span class="tok-s1">&#39;10FFFF&#39;</span>
+    <span class="tok-p">|</span> <span class="tok-s1">&#39;&quot;&#39;</span> <span class="tok-o">-</span> <span class="tok-s1">&#39;\&#39;</span>
+    <span class="tok-p">|</span> <span class="tok-s1">&#39;\&#39;</span> <span class="tok-k">escape</span>
+    <span class="tok-p">;</span>
+
+<span class="tok-k">escape </span><span class="tok-o">=</span>
+    <span class="tok-s1">&#39;&quot;&#39;</span>
+    <span class="tok-p">|</span> <span class="tok-s1">&#39;\&#39;</span>
+    <span class="tok-p">|</span> <span class="tok-s1">&#39;/&#39;</span>
+    <span class="tok-p">|</span> <span class="tok-s1">&#39;b&#39;</span>
+    <span class="tok-p">|</span> <span class="tok-s1">&#39;f&#39;</span>
+    <span class="tok-p">|</span> <span class="tok-s1">&#39;n&#39;</span>
+    <span class="tok-p">|</span> <span class="tok-s1">&#39;r&#39;</span>
+    <span class="tok-p">|</span> <span class="tok-s1">&#39;t&#39;</span>
+    <span class="tok-p">|</span> <span class="tok-s1">&#39;u&#39;</span> <span class="tok-k">hex hex hex hex</span>
+    <span class="tok-p">;</span>
+
+<span class="tok-k">hex </span><span class="tok-o">=</span>
+    <span class="tok-k">digit</span>
+    <span class="tok-p">|</span> <span class="tok-s1">&#39;A&#39;</span> <span class="tok-o">-</span> <span class="tok-s1">&#39;F&#39;</span>
+    <span class="tok-p">|</span> <span class="tok-s1">&#39;a&#39;</span> <span class="tok-o">-</span> <span class="tok-s1">&#39;f&#39;</span>
+    <span class="tok-p">;</span>
+
+<span class="tok-k">number </span><span class="tok-o">=</span>
+    <span class="tok-k">integer fraction exponent </span><span class="tok-p">;</span>
+
+<span class="tok-k">integer </span><span class="tok-o">=</span>
+    <span class="tok-k">digit</span>
+    <span class="tok-p">|</span> <span class="tok-k">onenine digits</span>
+    <span class="tok-p">|</span> <span class="tok-s1">&#39;-&#39;</span> <span class="tok-k">digit</span>
+    <span class="tok-p">|</span> <span class="tok-s1">&#39;-&#39;</span> <span class="tok-k">onenine digits</span>
+    <span class="tok-p">;</span>
+
+<span class="tok-k">digits </span><span class="tok-o">=</span>
+    <span class="tok-k">digit</span>
+    <span class="tok-p">|</span> <span class="tok-k">digit digits</span>
+    <span class="tok-p">;</span>
+
+<span class="tok-k">digit </span><span class="tok-o">=</span>
+    <span class="tok-s1">&#39;0&#39;</span>
+    <span class="tok-p">|</span> <span class="tok-k">onenine</span>
+    <span class="tok-p">;</span>
+
+<span class="tok-k">onenine </span><span class="tok-o">=</span>
+    <span class="tok-s1">&#39;1&#39;</span> <span class="tok-o">-</span> <span class="tok-s1">&#39;9&#39;</span> <span class="tok-p">;</span>
+
+<span class="tok-k">fraction </span><span class="tok-o">=</span>
+    <span class="tok-s2">&quot;&quot;</span>
+    <span class="tok-p">|</span> <span class="tok-s1">&#39;.&#39;</span> <span class="tok-k">digits</span>
+    <span class="tok-p">;</span>
+
+<span class="tok-k">exponent </span><span class="tok-o">=</span>
+    <span class="tok-s2">&quot;&quot;</span>
+    <span class="tok-p">|</span> <span class="tok-s1">&#39;E&#39;</span> <span class="tok-k">sign digits</span>
+    <span class="tok-p">|</span> <span class="tok-s1">&#39;e&#39;</span> <span class="tok-k">sign digits</span>
+    <span class="tok-p">;</span>
+
+<span class="tok-k">sign </span><span class="tok-o">=</span>
+    <span class="tok-s2">&quot;&quot;</span>
+    <span class="tok-p">|</span> <span class="tok-s1">&#39;+&#39;</span>
+    <span class="tok-p">|</span> <span class="tok-s1">&#39;-&#39;</span>
+    <span class="tok-p">;</span>
+
+<span class="tok-k">ws </span><span class="tok-o">=</span>
+    <span class="tok-s2">&quot;&quot;</span>
+    <span class="tok-p">|</span> <span class="tok-s1">&#39;0020&#39;</span> <span class="tok-k">ws</span>
+    <span class="tok-p">|</span> <span class="tok-s1">&#39;000A&#39;</span> <span class="tok-k">ws</span>
+    <span class="tok-p">|</span> <span class="tok-s1">&#39;000D&#39;</span> <span class="tok-k">ws</span>
+    <span class="tok-p">|</span> <span class="tok-s1">&#39;0009&#39;</span> <span class="tok-k">ws</span>
+    <span class="tok-p">;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_string_parser"><a class="anchor" href="#_string_parser"></a>4.2. String Parser</h3>
+<div class="paragraph tbd">
+<p>TBD: define</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2020-08-27 19:38:50 +0100
+</div>
+</div>
+<link rel="stylesheet" href="https://specifications.openehr.org/styles/pygments-default.css">
+</body>
+</html>

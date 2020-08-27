@@ -28,22 +28,23 @@ include::master00-amendment_record.adoc[leveloffset=+1]
 
 == Acknowledgements
 
-=== Primary Author
+=== Authors
 
-* xxxx
+* Pieter Bos, Software Engineer, Nedap, Netherlands
+* Diego Boscá, IBIME, Technical University Valencia, VeraTech for Health, Spain
+* Borut Fabjan, Program Manager, Better, Slovenia
+* Sebastian Iancu, Architect, Code24, Netherlands
+* Bostjan Lah, CTO, Better, Slovenia
+* Ian McNicoll MD, MSc, FreshEhr, UK
+* Matija Polajnar, Architect, Better, Slovenia
 
-=== Contributors
-
-This specification has benefited from formal and informal input from the openEHR and wider health informatics community. The openEHR Foundation would like to recognise the following people for their contributions.
-
-* xxxx
+=== Original IP
 
 A significant part of the content of this specification was adapted from the Better (Marand) 'Web Templates' specification, kindly provided by Marand d.o.o. (Slovenia) and the EtherCIS JSON flat format description.
 
 === Trademarks
 
 * 'openEHR' is a registered trademark of the openEHR Foundation
-* 'OMG' and 'UML' are registered trademarks of the Object Management Group
 
 //
 // --------------------------------------------- TOC -----------------------------------------------
@@ -58,6 +59,7 @@ A significant part of the content of this specification was adapted from the Bet
 include::master01-preface.adoc[leveloffset=+1]
 include::master02-overview.adoc[leveloffset=+1]
 include::master03-data_values.adoc[leveloffset=+1]
+include::master04-syntax.adoc[leveloffset=+1]
 
 
 //
