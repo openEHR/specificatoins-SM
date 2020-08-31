@@ -153,6 +153,7 @@ The following shows the SDT serial formats for an `S_DV_QUANTITY` instance:
 
 ==== Path structure + terse value form
 
+
 [source,json]
 ----
 {
@@ -167,7 +168,6 @@ The following shows the SDT serial formats for an `S_DV_QUANTITY` instance:
 {
     "a/b/c/d|magnitude": 125,
     "a/b/c/d|units":    "mm[Hg]",
-    "a/b/c/d|precision":    1,
     "a/b/c/d|normal_status":  "H",
     "a/b/c/d|magnitude_status": "~",
     "a/b/c/d/_normal_range/lower|magnitude": 2.5,
@@ -182,13 +182,14 @@ The following shows the SDT serial formats for an `S_DV_QUANTITY` instance:
     "a/b/c/d/_other_reference_ranges:0/upper|magnitude": 16.6,
     "a/b/c/d/_other_reference_ranges:0/upper|unit": "mmol/l"
 }
-}
+
 ----
 
 ==== Regular structure + regular value form
 
 [.tbd]
 TBD: are the inner attributes supposed to have bars or not, i.e. "|magnitude" etc?
+
 
 [source,json]
 ----
@@ -201,7 +202,6 @@ TBD: are the inner attributes supposed to have bars or not, i.e. "|magnitude" et
                     "|units":     "mm[Hg]",
                     "|normal_status": "H",
                     "|magnitude_status": "~",
-                    "|precision" : 1,
                     "_normal_range" : {
                        "lower" : {
                                 "|magnitude": 3.5,
@@ -250,8 +250,6 @@ TBD: are the inner attributes supposed to have bars or not, i.e. "|magnitude" et
 ----
 
 ==== Regular structure + terse value form
-
-IMCN: ? Needs to handle precision
 
 [source,json]
 ----
