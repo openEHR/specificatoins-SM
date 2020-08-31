@@ -28,7 +28,10 @@ The following shows the SDT serial formats for an `S_DV_TEXT` instance:
 [source,json]
 ----
 {
-    "a/b/c/d|value": "anxiety"
+    "a/b/c/d|value": "anxiety",
+    "a/b/c/d/_mapping:0|match": "=",
+    "a/b/c/d/_mapping:0/target|terminology": "SNOMED-CT",
+    "a/b/c/d/_mapping:0/target|code": "21794005"
 }
 ----
 
@@ -44,7 +47,10 @@ TBD: are the inner attributes supposed to have bars or not, i.e. "|value" etc?
         "b" : {
             "c": {
                 "d" : {
-                    "|value": "anxiety"
+                    "|value": "anxiety",
+                    "_mapping:0|match": "=",
+                    "_mapping:0/target|terminology": "SNOMED-CT",
+                    "_mapping:0/target|code": "21794005"
                 }
             }
         }
@@ -85,9 +91,13 @@ The following shows the SDT serial formats for an `S_DV_CODED_TEXT` instance:
 [source,json]
 ----
 {
-    "a/b/c/d|terminology": "snomed_ct",
+    "a/b/c/d|terminology": "SNOMED-CT",
     "a/b/c/d|code": "48694002",
-    "a/b/c/d|value": "anxiety"
+    "a/b/c/d|value": "anxiety",
+    "a/b/c/d/_mapping:0|match": "=",
+    "a/b/c/d/_mapping:0/target|terminology": "ICD-10",
+    "a/b/c/d/_mapping:0/target|code": "H234"
+
 }
 ----
 
@@ -103,9 +113,17 @@ TBD: are the inner attributes supposed to have bars or not, i.e. "|terminology" 
         "b" : {
             "c": {
                 "d" : {
-                    "|terminology": "snomed_ct",
+                    "|terminology": "SNOMED-CT",
                     "|code": "48694002",
-                    "|value": "anxiety"
+                    "|value": "anxiety",
+                    "_mapping" : [
+                        {
+                        "|match": "=",
+                        "target" {
+                            "|terminology": "ICD-10",
+                            "|code": "21794005"
+                        }
+                    }
                 }
             }
         }
@@ -121,7 +139,7 @@ TBD: are the inner attributes supposed to have bars or not, i.e. "|terminology" 
     "a" : {
         "b" : {
             "c": {
-                "d" : "snomed_ct::48694002|anxiety|"
+                "d" : "SNOMED-CT::48694002|anxiety|"
             }
         }
     }
@@ -149,8 +167,21 @@ The following shows the SDT serial formats for an `S_DV_QUANTITY` instance:
 {
     "a/b/c/d|magnitude": 125,
     "a/b/c/d|units":    "mm[Hg]",
-    "a/b/c/d|xx":       "xx_val", -- other DvQ fields
-    "a/b/c/d|yy":       "yy_val"
+    "a/b/c/d|precision":    1,
+    "a/b/c/d|normal_status":  "H",
+    "a/b/c/d|magnitude_status": "~",
+    "a/b/c/d/_normal_range/lower|magnitude": 2.5,
+    "a/b/c/d/_normal_range/lower|unit": "mmol/l",
+    "a/b/c/d/_normal_range/upper|magnitude": 6.6,
+    "a/b/c/d/_normal_range/upper|unit": "mmol/l",
+    "a/b/c/d/_other_reference_ranges:0/meaning|code": "VH",
+    "a/b/c/d/_other_reference_ranges:0/meaning|terminology": "local-ranges",
+    "a/b/c/d/_other_reference_ranges:0/meaning|value": "Very high",
+    "a/b/c/d/_other_reference_ranges:0/lower|magnitude": 10.5,
+    "a/b/c/d/_other_reference_ranges:0/lower|unit": "mmol/l",
+    "a/b/c/d/_other_reference_ranges:0/upper|magnitude": 16.6,
+    "a/b/c/d/_other_reference_ranges:0/upper|unit": "mmol/l"
+}
 }
 ----
 
@@ -166,10 +197,51 @@ TBD: are the inner attributes supposed to have bars or not, i.e. "|magnitude" et
         "b" : {
             "c": {
                 "d" : {
-                    "magnitude": 125,
-                    "units":     "mm[Hg]",
-                    "xx":        "xx_val",
-                    "yy":        "yy_val"
+                    "|magnitude": 125,
+                    "|units":     "mm[Hg]",
+                    "|normal_status": "H",
+                    "|magnitude_status": "~",
+                    "|precision" : 1,
+                    "_normal_range" : {
+                       "lower" : {
+                                "|magnitude": 3.5,
+                                "|unit": "mmol/l"
+                                },
+                        "upper" : {
+                            "|magnitude": 7.5,
+                            "|unit": "mmol/l"
+                            }
+                    },            
+                    "_other_reference_ranges" : [
+                        { //Text-only meaning
+                            "meaning": "Child",
+                            "lower" : {
+                                "|magnitude": 10.5,
+                                "|unit": "mmol/l"
+                                },
+                            "upper" : {
+                                "|magnitude": 10.5,
+                                "|unit": "mmol/l"
+                                },
+                                
+                        },
+                        { //Coded meaning
+                            "meaning":  {
+                                "|value": "African-American",
+                                "|terminology" : "SNOMED-CT",
+                                "|code" : "23123456"
+                            },
+                            "lower" : {
+                                "|magnitude": 0.5,
+                                "|unit": "mmol/l"
+                                },
+                            "upper" : {
+                                "|magnitude": 8.5,
+                                "|unit": "mmol/l"
+                                }                               
+                        }
+
+                    ]     
                 }
             }
         }
@@ -178,6 +250,8 @@ TBD: are the inner attributes supposed to have bars or not, i.e. "|magnitude" et
 ----
 
 ==== Regular structure + terse value form
+
+IMCN: ? Needs to handle precision
 
 [source,json]
 ----
@@ -215,8 +289,8 @@ The following shows the SDT serial formats for an `S_DV_PARSABLE` instance:
         "b" : {
             "c": {
                 "d" : {
-                    "formalism": "markdown",
-                    "value":     "This is some markdown https://somwehere.org[linked text]"
+                    "|formalism": "markdown",
+                    "|value":     "This is some markdown https://somwehere.org[linked text]"
                 }
             }
         }
