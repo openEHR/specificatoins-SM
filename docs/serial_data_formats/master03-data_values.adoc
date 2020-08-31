@@ -327,5 +327,17 @@ a|
 }
 ----
 
+|`DV_ORDINAL`
+a|
+[source,json]
+----
+{
+    "\|ordinal": 1,
+    "\|value": "Absent",
+    "\|code": "at0004"
+}
+----
+
+
 |===
 

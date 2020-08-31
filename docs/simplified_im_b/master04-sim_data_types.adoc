@@ -123,7 +123,7 @@ TBD: are the inner attributes supposed to have bars or not, i.e. "|terminology" 
                             "|terminology": "ICD-10",
                             "|code": "21794005"
                         }
-                    }
+                    ]
                 }
             }
         }
@@ -131,6 +131,36 @@ TBD: are the inner attributes supposed to have bars or not, i.e. "|terminology" 
 }
 ----
 
+==== Ehrscape STRUCTURED variant - Regular structure + regular value form
+
+[.tbd]
+TBD: are the inner attributes supposed to have bars or not, i.e. "|terminology" etc?
+
+[source,json]
+----
+{
+    "a" : {
+        "b" : [{
+            "c": [{
+                "d" : [{
+                    "|terminology": "SNOMED-CT",
+                    "|code": "48694002",
+                    "|value": "anxiety",
+                    "_mapping" : [
+                        {
+                        "|match": "=",
+                        "target" {
+                            "|terminology": "ICD-10",
+                            "|code": "21794005"
+                        }
+                    ]
+                }]
+            }]
+        }]
+    }
+}
+
+----
 ==== Regular structure + terse value form
 
 [source,json]
@@ -185,7 +215,7 @@ The following shows the SDT serial formats for an `S_DV_QUANTITY` instance:
 
 ----
 
-==== Regular structure + regular value form
+==== Ehrscape STRUCTURED variant - Regular structure + regular value form
 
 [.tbd]
 TBD: are the inner attributes supposed to have bars or not, i.e. "|magnitude" etc?
@@ -195,57 +225,117 @@ TBD: are the inner attributes supposed to have bars or not, i.e. "|magnitude" et
 ----
 {
     "a" : {
-        "b" : {
-            "c": {
-                "d" : {
+        "b" : [{
+            "c": [{
+                "d" : [{
                     "|magnitude": 125,
                     "|units":     "mm[Hg]",
                     "|normal_status": "H",
                     "|magnitude_status": "~",
-                    "_normal_range" : {
-                       "lower" : {
+                    "_normal_range" : [{
+                       "lower" : [{
                                 "|magnitude": 3.5,
                                 "|unit": "mmol/l"
-                                },
-                        "upper" : {
+                                }],
+                        "upper" : [{
                             "|magnitude": 7.5,
                             "|unit": "mmol/l"
-                            }
-                    },            
+                            }]
+                    }],            
                     "_other_reference_ranges" : [
                         { //Text-only meaning
                             "meaning": "Child",
-                            "lower" : {
+                            "lower" : [{
                                 "|magnitude": 10.5,
                                 "|unit": "mmol/l"
-                                },
-                            "upper" : {
+                                }],
+                            "upper" : [{
                                 "|magnitude": 10.5,
                                 "|unit": "mmol/l"
-                                },
+                                }],
                                 
                         },
                         { //Coded meaning
-                            "meaning":  {
+                            "meaning":  [{
                                 "|value": "African-American",
                                 "|terminology" : "SNOMED-CT",
                                 "|code" : "23123456"
-                            },
-                            "lower" : {
+                            }],
+                            "lower" : [{
                                 "|magnitude": 0.5,
                                 "|unit": "mmol/l"
-                                },
-                            "upper" : {
+                                }],
+                            "upper" : [{
                                 "|magnitude": 8.5,
                                 "|unit": "mmol/l"
-                                }                               
-                        }
+                                }]                               
+                        }]     
+                }]
+            }]
+        }]
+    }]
+}
+----
 
-                    ]     
-                }
+==== Regular structure + regular value form
+
+[.tbd]
+TBD: are the inner attributes supposed to have bars or not, i.e. "|magnitude" etc?
+
+
+[source,json]
+----
+{
+  "a" : {
+    "b" : {
+      "c": {
+        "d" : {
+          "|magnitude": 125,
+          "|units": "mm[Hg]",
+          "|normal_status": "H",
+          "|magnitude_status": "~",
+          "_normal_range" : {
+            "lower" : {
+                "|magnitude": 3.5,
+                "|unit": "mmol/l"
+            },
+            "upper" : {
+              "|magnitude": 7.5,
+              "|unit": "mmol/l"
             }
-        }
+          },            
+          "_other_reference_ranges" : [
+            { //Text-only meaning
+              "meaning": "Child",
+              "lower" : {
+                "|magnitude": 10.5,
+                "|unit": "mmol/l"
+              },
+              "upper" : {
+                "|magnitude": 10.5,
+                "|unit": "mmol/l"
+              }
+            },
+            { //Coded meaning
+              "meaning":  {
+                "|value": "African-American",
+                "|terminology" : "SNOMED-CT",
+                "|code" : "23123456"
+              },
+              "lower" : {
+                "|magnitude": 0.5,
+                "|unit": "mmol/l"
+                },
+              "upper" : {
+                "|magnitude": 8.5,
+                "|unit": "mmol/l"
+                }                               
+            }
+          ]
+        }     
+      }
     }
+  }
 }
 ----
 
@@ -264,17 +354,155 @@ TBD: are the inner attributes supposed to have bars or not, i.e. "|magnitude" et
 }
 ----
 
-=== S_DV_PARSABLE
 
-The following shows the SDT serial formats for an `S_DV_PARSABLE` instance:
+=== S_DV_COUNT
 
+The following shows the SDT serial formats for an `S_DV_COUNT` instance:
+
+==== Path structure + terse value form
+
+[source,json]
+----
+{
+    "a/b/c/d": "23",
+}
+----
 ==== Path structure + regular value form
 
 [source,json]
 ----
 {
-    "a/b/c/d|formalism": "markdown",
-    "a/b/c/d|value":     "This is some markdown https://somwehere.org[linked text]"
+    "a/b/c/d": "23",
+}
+----
+
+==== Regular structure + regular value form
+
+In theory, as a DV_ORDERED, DV_COUNT should support other attributes like magnitude_status, normal_status, normal_range etc but not tested yet.
+
+[source,json]
+----
+{
+  "a" : {
+    "b" : {
+      "c": {
+        "d" : 23
+      }
+    }
+  }
+}
+----
+
+==== Ehrscape STRUCTURED variant Regular structure + regular value form
+
+[NOTE]
+Better STRUCTURED (regular) format represents every branch as an array, regardless of whether single or multiple occurrence - needs clarification.
+
+In theory, as a DV_ORDERED, DV_COUNT should support other attributes like magnitude_status, normal_status, normal_range etc but not tested yet.
+
+[source,json]
+----
+{
+    "a" : {
+        "b" : [{
+            "c": [
+                "d" : 23
+            ],
+          }],
+      }]
+}
+----
+
+
+=== S_DV_ORDINAL
+
+The following shows the SDT serial formats for an `S_DV_ORDINAL` instance:
+
+==== Path structure + terse form
+
+[source,json]
+----
+{
+    "a/b/c/d": "1|at0004|Absent|",
+}
+----
+==== Path structure + regular value form
+
+[source,json]
+----
+{
+    "a/b/c/d|ordinal": 1,
+    "a/b/c/d|code": "at0004",
+    "a/b/c/d|value": "Absent",
+}
+----
+
+
+==== Regular structure + regular value form
+
+[source,json]
+----
+{
+  "a" : {
+      "b" : {
+          "c": {
+              "d" : {
+                  "|code": "at0066",
+                  "|value": "Absent",
+                  "|ordinal": 1 
+              } 
+          }
+      }
+  }
+}
+----
+
+==== Ehrscape variant STRUCTURED Regular structure + regular value form
+
+[NOTE]
+Better STRUCTURED (regular) format represents every branch as an array, regardless of whether single or multiple occurrence - needs clarification.
+
+[source,json]
+----
+{
+    "a" : {
+        "b" : [{
+            "c": [{
+                "d" : [{
+                       "|code": "at0066",
+                       "|value": "Absent",
+                       "|ordinal": 1 
+                  }]
+              }],
+          }],
+      }
+}
+----
+
+=== S_DV_IDENTIFIER
+
+The following shows the SDT serial formats for an `S_DV_IDENTIFIER` instance:
+
+
+==== Path structure + terse form
+[NOTE]
+Not supported in Better Ehrscape
+
+[source,json]
+----
+{
+    "a/b/c/d": "1|at0004|Absent|",
+}
+----
+==== Path structure + regular value form
+
+[source,json]
+----
+{
+    "a/b/c/d|identifier": 1,
+    "a/b/c/d|type": "GMC number",
+    "a/b/c/d|assigner": "GMC-UK",
+    "a/b/c/d|issuer": "GMC-UK",
 }
 ----
 
@@ -284,17 +512,44 @@ The following shows the SDT serial formats for an `S_DV_PARSABLE` instance:
 ----
 {
     "a" : {
-        "b" : {
-            "c": {
-                "d" : {
-                    "|formalism": "markdown",
-                    "|value":     "This is some markdown https://somwehere.org[linked text]"
-                }
-            }
-        }
-    }
+      "b" : {
+          "c": {
+              "d" : {
+                "|identifier": 1,
+                "|type": "GMC number",
+                "|assigner": "GMC-UK",
+                "|issuer": "GMC-UK"
+              },
+            },
+        },
+      }
 }
 ----
+
+==== Ehrscape Regular (STRUCTURED) structure + regular value form
+
+[NOTE]
+Better STRUCTURED (regular) format represents every branch as an array, regardless of whether single or multiple occurrence - needs clarification.
+
+[source,json]
+----
+{
+    "a" : {
+      "b" : [{
+          "c": [{
+              "d" : [{
+                "|identifier": 1,
+                "|type": "GMC number",
+                "|assigner": "GMC-UK",
+                "|issuer": "GMC-UK"
+              }],
+            }],
+        }],
+      }
+}
+----
+
+
 
 == Class Definitions
 
