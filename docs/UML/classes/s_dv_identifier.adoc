@@ -9,6 +9,6 @@ h|*Description*
 2+a|Simplified RM form of `DV_IDENTIFIER` RM class.
 
 h|*Inherit*
-2+|`link:/releases/RM/{sm_release}/data_types.html#_dv_identifier_class[DV_IDENTIFIER^]`, `<<_s_data_value_class,S_DATA_VALUE>>`
+2+|`link:/releases/RM/{rm_release}/data_types.html#_dv_identifier_class[DV_IDENTIFIER^]`, `<<_s_data_value_class,S_DATA_VALUE>>`
 
 |===

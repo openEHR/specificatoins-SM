@@ -13,11 +13,11 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*0..1*
-|*id_namespace*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
+|*id_namespace*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Equivalent of `OBJECT_REF._namespace_`.
 
 h|*0..1*
-|*id_type*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
+|*id_type*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Equivalent of `OBJECT_REF._type_`.
 
 h|*1..1*

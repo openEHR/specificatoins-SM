@@ -14,20 +14,20 @@ h|*Functions*
 
 h|*1..1*
 |*has_party* ( +
-a_versioned_party_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]` +
-): `link:/releases/BASE/{sm_release}/foundation_types.html#_boolean_class[Boolean^]`
+a_versioned_party_id: `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^][1]` +
+): `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|Return True if Party exists.
 
 h|*1..1*
 |*has_party_version_id* ( +
-a_party_version_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]` +
-): `link:/releases/BASE/{sm_release}/foundation_types.html#_boolean_class[Boolean^]`
+a_party_version_id: `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^][1]` +
+): `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|True if a particular version of a Party exists.
 
 h|*1..1*
 |*get_party* ( +
-a_versioned_party_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]` +
-): `link:/releases/RM/{sm_release}/demographic.html#_party_class[PARTY^]` +
+a_versioned_party_id: `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^][1]` +
+): `link:/releases/RM/{rm_release}/demographic.html#_party_class[PARTY^]` +
  +
 __Pre_has_party__: `has_party (a_versioned_party_id)`
 a|Get the current Version of a Party.
@@ -40,9 +40,9 @@ a|Get the current Version of a Party.
 
 h|*1..1*
 |*get_party_at_time* ( +
-a_versioned_party_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]`, +
-a_time: `link:/releases/BASE/{sm_release}/foundation_types.html#_iso8601_date_time_class[Iso8601_date_time^][1]` +
-): `link:/releases/RM/{sm_release}/demographic.html#_party_class[PARTY^]`
+a_versioned_party_id: `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^][1]`, +
+a_time: `link:/releases/BASE/{base_release}/foundation_types.html#_iso8601_date_time_class[Iso8601_date_time^][1]` +
+): `link:/releases/RM/{rm_release}/demographic.html#_party_class[PARTY^]`
 a|Get the Version of a Party current at `_a_time_`.
 
 
@@ -53,9 +53,9 @@ a|Get the Version of a Party current at `_a_time_`.
 
 h|*1..1*
 |*update_party* ( +
-a_versioned_party_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]`, +
+a_versioned_party_id: `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^][1]`, +
 a_version: `<<_uv_party_class,UV_PARTY>>[1]` +
-): `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^]` +
+): `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^]` +
  +
 __Pre_party_definitions_valid__: `definitions_valid (a_version)` +
 __Pre_has_party__: `has_party (a_versioned_party_id)`
@@ -73,7 +73,7 @@ a|Update a `PARTY` with a new Version. Causes server-side creation of a new `ORI
 
 h|*0..1*
 |*delete_party* ( +
-a_versioned_party_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]` +
+a_versioned_party_id: `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^][1]` +
 ) +
  +
 __Pre_has_party__: `has_party (a_versioned_party_id)` +
@@ -88,8 +88,8 @@ a|Delete an existing Party.
 
 h|*1..1*
 |*get_party_at_version* ( +
-a_party_version_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]` +
-): `link:/releases/RM/{sm_release}/demographic.html#_party_class[PARTY^]` +
+a_party_version_id: `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^][1]` +
+): `link:/releases/RM/{rm_release}/demographic.html#_party_class[PARTY^]` +
  +
 __Pre_has_party_version__: `has_party_version (a_party_version_id)`
 a|Get a particular Party Version.

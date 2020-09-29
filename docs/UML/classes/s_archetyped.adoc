@@ -13,14 +13,14 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*archetype_id*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
+|*archetype_id*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Converted from `ARCHETYPE_ID`.
 
 h|*0..1*
-|*template_id*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
+|*template_id*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Converted from `TEMPLATE_ID`.
 
 h|*0..1*
-|*rm_version*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
+|*rm_version*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|(unchanged from RM)
 |===

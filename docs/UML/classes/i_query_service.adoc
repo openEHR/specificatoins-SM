@@ -15,9 +15,9 @@ h|*Functions*
 h|*0..1*
 |*execute_stored_query* ( +
 exec_spec: `<<_stored_query_execute_spec_class,STORED_QUERY_EXECUTE_SPEC>>[1]`, +
-row_offset: `link:/releases/BASE/{sm_release}/foundation_types.html#_integer_class[Integer^][0..1]`, +
-rows_to_fetch: `link:/releases/BASE/{sm_release}/foundation_types.html#_integer_class[Integer^][0..1]`, +
-ehr_ids: `link:/releases/BASE/{sm_release}/foundation_types.html#_list_class[List^]<link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^]>[0..1]` +
+row_offset: `link:/releases/BASE/{base_release}/foundation_types.html#_integer_class[Integer^][0..1]`, +
+rows_to_fetch: `link:/releases/BASE/{base_release}/foundation_types.html#_integer_class[Integer^][0..1]`, +
+ehr_ids: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^]>[0..1]` +
 ): `<<_result_set_class,RESULT_SET>>`
 a|Execute a query stored in the definition service, using its qualified query name. Return a Result set.
 
@@ -38,9 +38,9 @@ a|Execute a query stored in the definition service, using its qualified query na
 h|*0..1*
 |*execute_ad_hoc_query* ( +
 exec_spec: `<<_adhoc_query_execute_spec_class,ADHOC_QUERY_EXECUTE_SPEC>>[1]`, +
-row_offset: `link:/releases/BASE/{sm_release}/foundation_types.html#_integer_class[Integer^][0..1]`, +
-rows_to_fetch: `link:/releases/BASE/{sm_release}/foundation_types.html#_integer_class[Integer^][0..1]`, +
-ehr_ids: `link:/releases/BASE/{sm_release}/foundation_types.html#_list_class[List^]<link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^]>[0..1]` +
+row_offset: `link:/releases/BASE/{base_release}/foundation_types.html#_integer_class[Integer^][0..1]`, +
+rows_to_fetch: `link:/releases/BASE/{base_release}/foundation_types.html#_integer_class[Integer^][0..1]`, +
+ehr_ids: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^]>[0..1]` +
 ): `<<_result_set_class,RESULT_SET>>`
 a|Execute an ad hoc query, supplying the query text.
 

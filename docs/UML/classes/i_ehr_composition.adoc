@@ -14,9 +14,9 @@ h|*Functions*
 
 h|*1..1*
 |*has_composition* ( +
-an_ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]`, +
-a_version_uid: `link:/releases/BASE/{sm_release}/base_types.html#_object_version_id_class[OBJECT_VERSION_ID^][1]` +
-): `link:/releases/BASE/{sm_release}/foundation_types.html#_boolean_class[Boolean^]` +
+an_ehr_id: `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^][1]`, +
+a_version_uid: `link:/releases/BASE/{base_release}/base_types.html#_object_version_id_class[OBJECT_VERSION_ID^][1]` +
+): `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]` +
  +
 __Pre_has_ehr__: `has_ehr (an_ehr_id)`
 a|Return True if a Composition version with identifier `_a_version_uid_` exists.
@@ -29,9 +29,9 @@ a|Return True if a Composition version with identifier `_a_version_uid_` exists.
 
 h|*1..1*
 |*get_composition_latest* ( +
-an_ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]`, +
-a_versioned_object_uid: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]` +
-): `link:/releases/RM/{sm_release}/ehr.html#_composition_class[COMPOSITION^]` +
+an_ehr_id: `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^][1]`, +
+a_versioned_object_uid: `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^][1]` +
+): `link:/releases/RM/{rm_release}/ehr.html#_composition_class[COMPOSITION^]` +
  +
 __Pre_has_ehr__: `has_ehr (an_ehr_id)` +
 __Pre_has_composition__: `has_composition (an_ehr_id, a_version_uid)`
@@ -48,10 +48,10 @@ a|Retrieve the latest version of a Composition.
 
 h|*1..1*
 |*get_composition_at_time* ( +
-an_ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]`, +
-a_versioned_object_uid: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]`, +
-a_time: `link:/releases/BASE/{sm_release}/foundation_types.html#_iso8601_date_time_class[Iso8601_date_time^][0..1]` +
-): `link:/releases/RM/{sm_release}/ehr.html#_composition_class[COMPOSITION^]` +
+an_ehr_id: `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^][1]`, +
+a_versioned_object_uid: `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^][1]`, +
+a_time: `link:/releases/BASE/{base_release}/foundation_types.html#_iso8601_date_time_class[Iso8601_date_time^][0..1]` +
+): `link:/releases/RM/{rm_release}/ehr.html#_composition_class[COMPOSITION^]` +
  +
 __Pre_has_ehr__: `has_ehr (an_ehr_id)`
 a|Retrieve the Composition version extant at a given time, from a Versioned Composition. If no time supplied, get the latest.
@@ -65,9 +65,9 @@ a|Retrieve the Composition version extant at a given time, from a Versioned Comp
 
 h|*1..1*
 |*get_composition_at_version* ( +
-an_ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]`, +
-a_version_uid: `link:/releases/BASE/{sm_release}/base_types.html#_object_version_id_class[OBJECT_VERSION_ID^][1]` +
-): `link:/releases/RM/{sm_release}/ehr.html#_composition_class[COMPOSITION^]`
+an_ehr_id: `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^][1]`, +
+a_version_uid: `link:/releases/BASE/{base_release}/base_types.html#_object_version_id_class[OBJECT_VERSION_ID^][1]` +
+): `link:/releases/RM/{rm_release}/ehr.html#_composition_class[COMPOSITION^]`
 a|Get a particular Version of a Composition by version id.
 
 
@@ -79,9 +79,9 @@ a|Get a particular Version of a Composition by version id.
 
 h|*1..1*
 |*get_versioned_composition* ( +
-an_ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]`, +
-a_versioned_object_uid: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]` +
-): `link:/releases/RM/{sm_release}/ehr.html#_versioned_composition_class[VERSIONED_COMPOSITION^]` +
+an_ehr_id: `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^][1]`, +
+a_versioned_object_uid: `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^][1]` +
+): `link:/releases/RM/{rm_release}/ehr.html#_versioned_composition_class[VERSIONED_COMPOSITION^]` +
  +
 __Pre_has_ehr__: `has_ehr (an_ehr_id)`
 a|Retrieve the `VERSIONED_OBJECT` of a Composition by uid.
@@ -95,9 +95,9 @@ a|Retrieve the `VERSIONED_OBJECT` of a Composition by uid.
 
 h|*1..1*
 |*create_composition* ( +
-an_ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]`, +
+an_ehr_id: `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^][1]`, +
 a_comp: `<<_uv_composition_class,UV_COMPOSITION>>[1]` +
-): `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^]` +
+): `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^]` +
  +
 __Pre_has_ehr__: `has_ehr (an_ehr_id)` +
 __Pre_composition_definitions_valid__: `definitions_valid (a_comp)` +
@@ -116,9 +116,9 @@ a|Create the first version of a new Composition. Causes server-side creation of 
 
 h|*1..1*
 |*update_composition* ( +
-an_ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]`, +
+an_ehr_id: `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^][1]`, +
 a_comp: `<<_uv_composition_class,UV_COMPOSITION>>[1]` +
-): `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^]` +
+): `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^]` +
  +
 __Pre_has_ehr__: `has_ehr (an_ehr_id)` +
 __Pre_composition_definitions_valid__: `definitions_valid (a_comp)` +
@@ -136,8 +136,8 @@ a|Update an existing Composition, which includes server-side creation of a new `
 
 h|*0..1*
 |*delete_composition* ( +
-an_ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]`, +
-a_version_uid: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]` +
+an_ehr_id: `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^][1]`, +
+a_version_uid: `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^][1]` +
 ) +
  +
 __Pre_has_ehr__: `has_ehr (an_ehr_id)`

@@ -25,6 +25,6 @@ h|*0..1*
 a|Last time point at which resource can be assumed to be available.
 
 h|*0..1*
-|*notes*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
+|*notes*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Human-readable notes on the resource.
 |===

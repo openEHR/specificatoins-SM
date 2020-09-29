@@ -28,13 +28,13 @@ a|Converted from `DV_ENCAPSULATED`
 TODO: what happens for scanned doc images etc, which are presumably `DV_MULTIMEDIA`?
 
 h|*0..1*
-|*feeder_system_item_id*: `link:/releases/BASE/{sm_release}/foundation_types.html#_list_class[List^]<<<_s_dv_identifier_class,S_DV_IDENTIFIER>>>`
+|*feeder_system_item_id*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_s_dv_identifier_class,S_DV_IDENTIFIER>>>`
 a|(unchanged from RM)
 
 TODO: Web template attribute name is singular form of name in RM - probably going to be confusing.
 
 h|*0..1*
-|*originating_system_item_id*: `link:/releases/BASE/{sm_release}/foundation_types.html#_list_class[List^]<<<_s_dv_identifier_class,S_DV_IDENTIFIER>>>`
+|*originating_system_item_id*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_s_dv_identifier_class,S_DV_IDENTIFIER>>>`
 a|(unchanged from RM)
 
 TODO: Web template attribute name is singular form of name in RM - probably going to be confusing.

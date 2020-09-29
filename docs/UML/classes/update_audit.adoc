@@ -13,15 +13,15 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*change_type*: `link:/releases/BASE/{sm_release}/foundation_types.html#_terminology_code_class[Terminology_code^]`
+|*change_type*: `link:/releases/BASE/{base_release}/foundation_types.html#_terminology_code_class[Terminology_code^]`
 a|Type of change. Coded using the openEHR Terminology  audit change type  group.
 
 h|*0..1*
-|*description*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
+|*description*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Reason for committal.
 
 h|*1..1*
-|*committer*: `link:/releases/RM/{sm_release}/common.html#_party_proxy_class[PARTY_PROXY^]`
+|*committer*: `link:/releases/RM/{rm_release}/common.html#_party_proxy_class[PARTY_PROXY^]`
 a|Identity and optional reference into identity management service, of user who committed the item.
 
 h|*Invariants*

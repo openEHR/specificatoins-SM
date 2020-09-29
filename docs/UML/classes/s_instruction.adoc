@@ -16,14 +16,14 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*0..1*
-|*narrative*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
+|*narrative*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Converted from `DV_TEXT` to `String`.
 
 h|*0..1*
-|*expiry_time*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
+|*expiry_time*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Converted from `DV_DATE_TIME`.
 
 h|*0..1*
-|*activities*: `link:/releases/BASE/{sm_release}/foundation_types.html#_list_class[List^]<<<_s_activity_class,S_ACTIVITY>>>`
+|*activities*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_s_activity_class,S_ACTIVITY>>>`
 a|(unchanged from RM)
 |===

@@ -16,6 +16,6 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*scheme*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
+|*scheme*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|
 |===

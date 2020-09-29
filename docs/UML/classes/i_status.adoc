@@ -13,7 +13,7 @@ h|*Functions*
 ^h|*Meaning*
 
 h|*1..1*
-|*last_call_failed* (): `link:/releases/BASE/{sm_release}/foundation_types.html#_boolean_class[Boolean^]`
+|*last_call_failed* (): `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|Return True if the last call generated an error, i.e. any result other than `CALL_STATUSES._success_`.
 
 h|*1..1*

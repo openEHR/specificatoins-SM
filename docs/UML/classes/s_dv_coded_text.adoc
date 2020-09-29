@@ -16,10 +16,10 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*code*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
+|*code*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Converted from `DV_CODED_TEXT._defining_code.code_string_`.
 
 h|*1..1*
-|*terminology*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
+|*terminology*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Converted from `DV_CODED_TEXT._defining_code.terminology_id_`.
 |===

@@ -16,14 +16,14 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*id*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
+|*id*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Converted from `PARTICIPATION._performer.external_ref.id.value_`.
 
 h|*0..1*
-|*mode*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
+|*mode*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Converted from `PARTICIPATION._mode_: DV_CODED_TEXT`.
 
 h|*1..1*
-|*function*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
+|*function*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Converted from `PARTICIPATION._function_: DV_TEXT`.
 |===

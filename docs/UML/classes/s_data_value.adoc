@@ -18,14 +18,14 @@ h|*Functions*
 h|*1..1 +
 (effected)*
 |*to_rm* ( +
-rm: `link:/releases/LANG/{sm_release}/bmm.html#_bmm_model_class[BMM_MODEL^][1]` +
-): `link:/releases/RM/{sm_release}/data_types.html#_data_value_class[DATA_VALUE^]`
+rm: `link:/releases/LANG/{lang_release}/bmm.html#_bmm_model_class[BMM_MODEL^][1]` +
+): `link:/releases/RM/{rm_release}/data_types.html#_data_value_class[DATA_VALUE^]`
 a|
 
 h|*0..1 +
 (effected)*
 |*from_rm* ( +
-a_val: `link:/releases/RM/{sm_release}/data_types.html#_data_value_class[DATA_VALUE^][1]` +
+a_val: `link:/releases/RM/{rm_release}/data_types.html#_data_value_class[DATA_VALUE^][1]` +
 )
 a|
 |===

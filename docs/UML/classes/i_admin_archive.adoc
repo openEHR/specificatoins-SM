@@ -14,7 +14,7 @@ h|*Functions*
 
 h|*0..1*
 |*archive_ehrs* ( +
-ehr_ids: `link:/releases/BASE/{sm_release}/foundation_types.html#_list_class[List^]<link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^]>[0..1]` +
+ehr_ids: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^]>[0..1]` +
 )
 a|Move selected EHRs to archival storage.
 
@@ -26,7 +26,7 @@ a|Move selected EHRs to archival storage.
 
 h|*0..1*
 |*archive_parties* ( +
-party_ids: `link:/releases/BASE/{sm_release}/foundation_types.html#_list_class[List^]<link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^]>[0..1]` +
+party_ids: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^]>[0..1]` +
 )
 a|Move selected Parties and relationships to archival storage.
 

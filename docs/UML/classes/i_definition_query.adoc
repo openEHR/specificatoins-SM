@@ -14,8 +14,8 @@ h|*Functions*
 
 h|*1..1*
 |*has_query* ( +
-a_query_name: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^][1]` +
-): `link:/releases/BASE/{sm_release}/foundation_types.html#_boolean_class[Boolean^]`
+a_query_name: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]` +
+): `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|Return True if the query identified by `_a_query_name_` is registered.
 
 .Parameters +
@@ -24,16 +24,16 @@ a|Return True if the query identified by `_a_query_name_` is registered.
 
 h|*1..1*
 |*valid_query* ( +
-a_query_text: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^][1]`, +
-a_formalism: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^][1]` +
-): `link:/releases/BASE/{sm_release}/foundation_types.html#_boolean_class[Boolean^]`
+a_query_text: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]`, +
+a_formalism: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]` +
+): `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|Return True if the provided query text is a valid instance of the formalism.
 
 h|*1..1*
 |*register_query* ( +
-a_query_text: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^][1]`, +
-a_formalism: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^][1]`, +
-a_query_name: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^][0..1]` +
+a_query_text: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]`, +
+a_formalism: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]`, +
+a_query_name: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][0..1]` +
 ): `<<_query_descriptor_class,QUERY_DESCRIPTOR>>` +
  +
 __Pre_valid_query__: `is_valid_query(a_query_text)`
@@ -45,26 +45,26 @@ a|Register a query under a qualified name. If no name is provided, one is create
 
 h|*1..1*
 |*register_query_set* ( +
-a_query_set_name: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^][0..1]` +
-): `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^]`
+a_query_set_name: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][0..1]` +
+): `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^]`
 a|Register a query set.
 
 TODO: determine details.
 
 h|*0..1*
 |*list_queries* ( +
-item_offset: `link:/releases/BASE/{sm_release}/foundation_types.html#_integer_class[Integer^][0..1]`, +
-items_to_fetch: `link:/releases/BASE/{sm_release}/foundation_types.html#_integer_class[Integer^][0..1]` +
-): `link:/releases/BASE/{sm_release}/foundation_types.html#_list_class[List^]<<<_query_descriptor_class,QUERY_DESCRIPTOR>>>`
+item_offset: `link:/releases/BASE/{base_release}/foundation_types.html#_integer_class[Integer^][0..1]`, +
+items_to_fetch: `link:/releases/BASE/{base_release}/foundation_types.html#_integer_class[Integer^][0..1]` +
+): `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_query_descriptor_class,QUERY_DESCRIPTOR>>>`
 a|List all registered queries.
 
 h|*0..1*
 |*list_matching_queries* ( +
-id_pattern: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^][1]`, +
-artefact_id_pattern: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^][1]`, +
-item_offset: `link:/releases/BASE/{sm_release}/foundation_types.html#_integer_class[Integer^][0..1]`, +
-items_to_fetch: `link:/releases/BASE/{sm_release}/foundation_types.html#_integer_class[Integer^][0..1]` +
-): `link:/releases/BASE/{sm_release}/foundation_types.html#_list_class[List^]<<<_query_descriptor_class,QUERY_DESCRIPTOR>>>`
+id_pattern: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]`, +
+artefact_id_pattern: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]`, +
+item_offset: `link:/releases/BASE/{base_release}/foundation_types.html#_integer_class[Integer^][0..1]`, +
+items_to_fetch: `link:/releases/BASE/{base_release}/foundation_types.html#_integer_class[Integer^][0..1]` +
+): `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_query_descriptor_class,QUERY_DESCRIPTOR>>>`
 a|List all registered queries matching an identifier pattern (regex) and an artefact identifier pattern (regex) for artefacts referenced in the query. Either pattern may be the regex for 'match any'.
 
 
@@ -79,7 +79,7 @@ a|List all registered queries matching an identifier pattern (regex) and an arte
 
 h|*0..1*
 |*delete_query* ( +
-a_query_name: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^][1]` +
+a_query_name: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]` +
 ) +
  +
 __Pre_has_query__: `has_query(a_query_name)` +
@@ -95,6 +95,6 @@ a|Delete query with name `_a_query_name_`.
 * `invalid_query`
 
 h|*1..1*
-|*queries_count* (): `link:/releases/BASE/{sm_release}/foundation_types.html#_integer_class[Integer^]`
+|*queries_count* (): `link:/releases/BASE/{base_release}/foundation_types.html#_integer_class[Integer^]`
 a|Return total count of queries.
 |===

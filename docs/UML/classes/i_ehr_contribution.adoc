@@ -14,8 +14,8 @@ h|*Functions*
 
 h|*0..1*
 |*has_contribution* ( +
-an_ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]`, +
-a_contrib_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]` +
+an_ehr_id: `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^][1]`, +
+a_contrib_id: `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^][1]` +
 ) +
  +
 __Pre_has_ehr__: `has_ehr (an_ehr_id)`
@@ -29,9 +29,9 @@ a|Return True if the Contribution with `_a_contrib_id_` in EHR with id `_an_ehr_
 
 h|*1..1*
 |*get_contribution* ( +
-an_ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]`, +
-a_contrib_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]` +
-): `link:/releases/RM/{sm_release}/common.html#_contribution_class[CONTRIBUTION^]` +
+an_ehr_id: `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^][1]`, +
+a_contrib_id: `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^][1]` +
+): `link:/releases/RM/{rm_release}/common.html#_contribution_class[CONTRIBUTION^]` +
  +
 __Pre_has_ehr__: `has_ehr (an_ehr_id)` +
 __Pre_has_contribution__: `has_contribution (a_contrib_id)`
@@ -46,10 +46,10 @@ a|Return the Contribution with id `_a_contrib_id_` in EHR with id `_an_ehr_id_`.
 
 h|*1..1*
 |*commit_contribution* ( +
-an_ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]`, +
-versions: `link:/releases/BASE/{sm_release}/foundation_types.html#_list_class[List^]<<<_update_version_class,UPDATE_VERSION>>>[1]`, +
+an_ehr_id: `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^][1]`, +
+versions: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_update_version_class,UPDATE_VERSION>>>[1]`, +
 an_audit: `<<_update_audit_class,UPDATE_AUDIT>>[1]` +
-): `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^]` +
+): `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^]` +
  +
 __Pre_has_ehr__: `has_ehr (an_ehr_id)` +
 __Post_has_contribution__: `has_contribution (a_contrib_id)`
@@ -63,11 +63,11 @@ a|Commit a `CONTRIBUTION` containing any number of `UPDATE_VERSION` objects.
 
 h|*0..1*
 |*list_contributions* ( +
-an_ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]`, +
-time_range: `link:/releases/BASE/{sm_release}/foundation_types.html#_interval_class[Interval^]<link:/releases/BASE/{sm_release}/foundation_types.html#_iso8601_date_time_class[Iso8601_date_time^]>[0..1]`, +
-item_offset: `link:/releases/BASE/{sm_release}/foundation_types.html#_integer_class[Integer^][0..1]`, +
-items_to_fetch: `link:/releases/BASE/{sm_release}/foundation_types.html#_integer_class[Integer^][0..1]` +
-): `link:/releases/BASE/{sm_release}/foundation_types.html#_list_class[List^]<link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^]>`
+an_ehr_id: `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^][1]`, +
+time_range: `link:/releases/BASE/{base_release}/foundation_types.html#_interval_class[Interval^]<link:/releases/BASE/{base_release}/foundation_types.html#_iso8601_date_time_class[Iso8601_date_time^]>[0..1]`, +
+item_offset: `link:/releases/BASE/{base_release}/foundation_types.html#_integer_class[Integer^][0..1]`, +
+items_to_fetch: `link:/releases/BASE/{base_release}/foundation_types.html#_integer_class[Integer^][0..1]` +
+): `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^]>`
 a|Obtain a list of identifiers of Contributions in EHR.
 
 
@@ -80,9 +80,9 @@ a|Obtain a list of identifiers of Contributions in EHR.
 
 h|*1..1*
 |*contribution_count* ( +
-ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]`, +
-time_range: `link:/releases/BASE/{sm_release}/foundation_types.html#_interval_class[Interval^]<link:/releases/BASE/{sm_release}/foundation_types.html#_iso8601_date_time_class[Iso8601_date_time^]>[0..1]` +
-): `link:/releases/BASE/{sm_release}/foundation_types.html#_integer_class[Integer^]`
+ehr_id: `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^][1]`, +
+time_range: `link:/releases/BASE/{base_release}/foundation_types.html#_interval_class[Interval^]<link:/releases/BASE/{base_release}/foundation_types.html#_iso8601_date_time_class[Iso8601_date_time^]>[0..1]` +
+): `link:/releases/BASE/{base_release}/foundation_types.html#_integer_class[Integer^]`
 a|Obtain a count of Contributions in EHR.
 
 

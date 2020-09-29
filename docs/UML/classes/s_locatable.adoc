@@ -20,7 +20,7 @@ h|*1..1*
 a|(unchanged from RM)
 
 h|*0..1*
-|*links*: `link:/releases/BASE/{sm_release}/foundation_types.html#_list_class[List^]<<<_s_link_class,S_LINK>>>`
+|*links*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_s_link_class,S_LINK>>>`
 a|(unchanged from RM)
 
 h|*0..1*

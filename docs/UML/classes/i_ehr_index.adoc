@@ -14,8 +14,8 @@ h|*Functions*
 
 h|*0..1*
 |*add_ehr_subject* ( +
-an_ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]`, +
-a_subject_id: `link:/releases/BASE/{sm_release}/base_types.html#_object_ref_class[OBJECT_REF^][1]`, +
+an_ehr_id: `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^][1]`, +
+a_subject_id: `link:/releases/BASE/{base_release}/base_types.html#_object_ref_class[OBJECT_REF^][1]`, +
 a_status: `<<_resource_status_class,RESOURCE_STATUS>>[0..1]`, +
 a_loc_desc: `<<_location_desc_class,LOCATION_DESC>>[0..1]` +
 )
@@ -23,8 +23,8 @@ a|Add a subject identifier for the EHR with `_an_ehr_id_`, with an optional reso
 
 h|*0..1*
 |*update_ehr_subject_status* ( +
-an_ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]`, +
-a_subject_id: `link:/releases/BASE/{sm_release}/base_types.html#_object_ref_class[OBJECT_REF^][1]`, +
+an_ehr_id: `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^][1]`, +
+a_subject_id: `link:/releases/BASE/{base_release}/base_types.html#_object_ref_class[OBJECT_REF^][1]`, +
 a_status: `<<_resource_status_class,RESOURCE_STATUS>>[1]` +
 )
 a|Update subject resource status for the association of the EHR with `_an_ehr_id_` and subject `_a_subject_id_`.
@@ -38,8 +38,8 @@ a|Update subject resource status for the association of the EHR with `_an_ehr_id
 
 h|*0..1*
 |*update_ehr_subject_loc_desc* ( +
-an_ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]`, +
-a_subject_id: `link:/releases/BASE/{sm_release}/base_types.html#_object_ref_class[OBJECT_REF^][1]`, +
+an_ehr_id: `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^][1]`, +
+a_subject_id: `link:/releases/BASE/{base_release}/base_types.html#_object_ref_class[OBJECT_REF^][1]`, +
 a_loc_desc: `<<_location_desc_class,LOCATION_DESC>>[0..1]` +
 )
 a|Update location descriptor for the association of the EHR with `_an_ehr_id_` and subject `_a_subject_id_`.
@@ -53,8 +53,8 @@ a|Update location descriptor for the association of the EHR with `_an_ehr_id_` a
 
 h|*0..1*
 |*remove_ehr_subject* ( +
-an_ehr_id: `link:/releases/BASE/{sm_release}/base_types.html#_uuid_class[UUID^][1]`, +
-a_subject_id: `link:/releases/BASE/{sm_release}/base_types.html#_object_ref_class[OBJECT_REF^][1]` +
+an_ehr_id: `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^][1]`, +
+a_subject_id: `link:/releases/BASE/{base_release}/base_types.html#_object_ref_class[OBJECT_REF^][1]` +
 )
 a|Remove the subject identifier association with the EHR with `_an_ehr_id_` (it might remain associated with other EHRs however).
 
@@ -67,7 +67,7 @@ a|Remove the subject identifier association with the EHR with `_an_ehr_id_` (it 
 
 h|*0..1*
 |*remove_subject* ( +
-a_subject_id: `link:/releases/BASE/{sm_release}/base_types.html#_object_ref_class[OBJECT_REF^][1]` +
+a_subject_id: `link:/releases/BASE/{base_release}/base_types.html#_object_ref_class[OBJECT_REF^][1]` +
 )
 a|Remove all entries for a subject.
 

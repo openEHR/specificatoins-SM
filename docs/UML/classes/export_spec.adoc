@@ -25,6 +25,6 @@ h|*0..1*
 a|Encoding to use.
 
 h|*1..1*
-|*segment_split_size*: `link:/releases/BASE/{sm_release}/foundation_types.html#_integer_class[Integer^]`
+|*segment_split_size*: `link:/releases/BASE/{base_release}/foundation_types.html#_integer_class[Integer^]`
 a|Size in kb of segment size on file system to split export into.
 |===

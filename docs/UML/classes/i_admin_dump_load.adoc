@@ -14,7 +14,7 @@ h|*Functions*
 
 h|*0..1*
 |*export_ehrs* ( +
-file_sys_loc: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^][1]`, +
+file_sys_loc: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]`, +
 logical_fmt: `<<_export_format_enumeration,EXPORT_FORMAT>>[0..1]`, +
 comp_fmt: `<<_compression_format_enumeration,COMPRESSION_FORMAT>>[0..1]`, +
 enc_format: `<<_encoding_format_enumeration,ENCODING_FORMAT>>[0..1]` +
@@ -31,7 +31,7 @@ a|Export all EHRs to a file-system location in a specified format.
 
 h|*0..1*
 |*load_ehrs* ( +
-file_sys_loc: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^][1]` +
+file_sys_loc: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]` +
 )
 a|Populate EHR repository from export archive on file system. Repository need not be empty, but import EHRs with duplicate EHR ids will fail.
 

@@ -13,15 +13,15 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*source*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
+|*source*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|AQL text of query.
 
 h|*0..1*
-|*formalism*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^] +
+|*formalism*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^] +
 {default{nbsp}={nbsp}"aql"}`
 a|
 
 h|*1..1*
-|*query_parameters*: `link:/releases/BASE/{sm_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^], link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]>`
+|*query_parameters*: `link:/releases/BASE/{base_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^], link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]>`
 a|Parameters to substitute in query in the form of a set of tagged String values; each tag must match a parameter name in the query.
 |===

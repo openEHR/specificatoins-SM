@@ -16,51 +16,51 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*0..1*
-|*data*: `link:/releases/BASE/{sm_release}/foundation_types.html#_list_class[List^]<<<_s_event_class,S_EVENT>>>`
+|*data*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_s_event_class,S_EVENT>>>`
 a|Converted from `OBSERVATION._data.events[1]_`.
 
 h|*0..1*
-|*state*: `link:/releases/BASE/{sm_release}/foundation_types.html#_list_class[List^]<<<_s_event_class,S_EVENT>>>`
+|*state*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_s_event_class,S_EVENT>>>`
 a|Converted from `OBSERVATION._state.events[1]_`.
 
 h|*0..1*
-|*history_origin*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
+|*history_origin*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|For multi-event series, converted from `OBSERVATION._data.origin_`.
 
 TODO: should be called `_data_origin_`.
 
 h|*0..1*
-|*history_period*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
+|*history_period*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|For multi-event series, converted from `OBSERVATION._data.period_`.
 
 TODO: should be called `_data_period_`.
 
 h|*0..1*
-|*history_summary*: `link:/releases/BASE/{sm_release}/foundation_types.html#_list_class[List^]<<<_s_item_class,S_ITEM>>>`
+|*history_summary*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_s_item_class,S_ITEM>>>`
 a|For multi-event series, converted from `OBSERVATION._data.summary_`.
 
 TODO: should be called `_data_summary_`.
 
 h|*0..1*
-|*history_duration*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
+|*history_duration*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|For multi-event series, converted from `OBSERVATION._data.duration_`.
 
 
 TODO: should be called `_data_duration_`.
 
 h|*0..1*
-|*state_origin*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
+|*state_origin*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|For multi-event series, converted from `OBSERVATION._state.origin_`.
 
 h|*0..1*
-|*state_period*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
+|*state_period*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|For multi-event series, converted from `OBSERVATION._state.period_`.
 
 h|*0..1*
-|*state_summary*: `link:/releases/BASE/{sm_release}/foundation_types.html#_list_class[List^]<<<_s_item_class,S_ITEM>>>`
+|*state_summary*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_s_item_class,S_ITEM>>>`
 a|For multi-event series, converted from `OBSERVATION._state.summary_`.
 
 h|*0..1*
-|*state_duration*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
+|*state_duration*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|For multi-event series, converted from `OBSERVATION._state.duration_`.
 |===

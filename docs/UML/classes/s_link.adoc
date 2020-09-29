@@ -16,18 +16,18 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*meaning*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
+|*meaning*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Converted from `LINK._meaning.value_`.
 
 TODO: what if original was coded?
 
 h|*1..1*
-|*type*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
+|*type*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Converted from `LINK._type.value_`.
 
 TODO: what if original was coded?
 
 h|*1..1*
-|*target*: `link:/releases/BASE/{sm_release}/foundation_types.html#_string_class[String^]`
+|*target*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Converted from `LINK._target_`.
 |===
