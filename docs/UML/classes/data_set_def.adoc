@@ -13,7 +13,7 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*retrieve_frames*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_data_retrieve_frame_class,DATA_RETRIEVE_FRAME>>>`
+|*retrieve_frames*: `link:/releases/BASE/{base_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^],<<_data_retrieve_frame_class,DATA_RETRIEVE_FRAME>>>`
 a|
 
 h|*1..1*
@@ -33,7 +33,7 @@ h|*0..1*
 a|Optional list of identifiers of applications using this data set. May be used to track applications, and dump the data set when empty.
 
 h|*1..1*
-|*variables*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_variable_def_class,VARIABLE_DEF>>>`
+|*variables*: `link:/releases/BASE/{base_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^],<<_variable_def_class,VARIABLE_DEF>>>`
 a|
 h|*Functions*
 ^h|*Signature*

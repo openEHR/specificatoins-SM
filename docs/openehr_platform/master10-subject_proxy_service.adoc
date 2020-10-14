@@ -21,6 +21,61 @@ When a data-set is installed, the data retrieve frames are executed on a basis d
 [.tbd]
 TBD: details on different return data structures.
 
+== Specifying a Data-set
+
+A data set specification would be provided through a REST API as a text specification, e.g. in JSON or YAML. Such a specification might be derived from an {openehr_decision_language}[openEHR Decision Language Modules^], or some other source. An example is shown below.
+
+[source,yaml]
+----
+data_set: !!DATA_SET_DEF
+    id: antenatal_1.v1.0.3
+    subject_id: 137284657
+    creating_app_id: task_planning
+    variables:
+        - name: date_of_birth
+          type_name: Date
+          source_frame_id: basic_admin
+          source_frame_path: /path/to/dob
+            
+        - name: systolic_bp
+          type_name: Quantity
+          currency: PT2m
+          source_frame_id: bp_obs
+          source_frame_path: /data[id2]/events[id7]/data[id4]/items[id5]
+            
+        - name: diastolic_bp
+          type_name: Quantity
+          currency: PT2m
+          source_frame_id: bp_obs
+          source_frame_path: /data[id2]/events[id7]/data[id4]/items[id6]
+
+        - name: is_type1_diabetic
+          type_name: Boolean
+          source_frame_id: diagnoses
+          source_frame_path: /data[id2]/items[id3]
+            
+    retrieve_frames:
+        - id: basic_admin
+          retrieve_method: !!API_CALL
+              system_id: pas3.nhs.org.uk
+              call_name: fhir_admin_request
+              parameters:
+                  - xxxx: abc
+                  - yyyy: def
+    
+        - id: bp_obs
+          retrieve_method: !!QUERY_CALL
+              system_id: ehr1.nhs.org.uk
+              call_name: aql_execute
+              query_text: xxxx
+    
+        - id: diagnoses
+          retrieve_method: !!QUERY_CALL
+              system_id: ehr1.nhs.org.uk
+              call_name: aql_execute
+              query_text: xxxx
+----
+
 == Class Definitions
 
 include::{uml_export_dir}/classes/i_subject_proxy_service.adoc[]

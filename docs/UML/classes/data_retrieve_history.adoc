@@ -13,6 +13,6 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*0..1*
-|*items*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_data_retrieve_sample_class,DATA_RETRIEVE_SAMPLE>>>`
+|*items*: `link:/releases/BASE/{base_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{base_release}/foundation_types.html#_iso8601_date_time_class[Iso8601_date_time^],<<_data_retrieve_sample_class,DATA_RETRIEVE_SAMPLE>>>`
 a|Samples constituting the retrieve history of this frame.
 |===

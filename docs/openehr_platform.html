@@ -156,19 +156,20 @@
 <ul class="sectlevel2">
 <li><a href="#_overview_9">10.1. Overview</a></li>
 <li><a href="#_data_set_package">10.2. Data-set Package</a></li>
-<li><a href="#_class_definitions_8">10.3. Class Definitions</a>
+<li><a href="#_specifying_a_data_set">10.3. Specifying a Data-set</a></li>
+<li><a href="#_class_definitions_8">10.4. Class Definitions</a>
 <ul class="sectlevel3">
-<li><a href="#_i_subject_proxy_service_interface">10.3.1. I_SUBJECT_PROXY_SERVICE Interface</a></li>
-<li><a href="#_data_set_def_class">10.3.2. DATA_SET_DEF Class</a></li>
-<li><a href="#_variable_def_class">10.3.3. VARIABLE_DEF Class</a></li>
-<li><a href="#_data_retrieve_frame_class">10.3.4. DATA_RETRIEVE_FRAME Class</a></li>
-<li><a href="#_data_retrieve_history_class">10.3.5. DATA_RETRIEVE_HISTORY Class</a></li>
-<li><a href="#_data_retrieve_sample_class">10.3.6. DATA_RETRIEVE_SAMPLE Class</a></li>
-<li><a href="#_data_set_result_class">10.3.7. DATA_SET_RESULT Class</a></li>
-<li><a href="#_variable_value_class">10.3.8. VARIABLE_VALUE Class</a></li>
-<li><a href="#_variable_value_single_class">10.3.9. VARIABLE_VALUE_SINGLE Class</a></li>
-<li><a href="#_variable_value_list_class">10.3.10. VARIABLE_VALUE_LIST Class</a></li>
-<li><a href="#_variable_value_time_series_class">10.3.11. VARIABLE_VALUE_TIME_SERIES Class</a></li>
+<li><a href="#_i_subject_proxy_service_interface">10.4.1. I_SUBJECT_PROXY_SERVICE Interface</a></li>
+<li><a href="#_data_set_def_class">10.4.2. DATA_SET_DEF Class</a></li>
+<li><a href="#_variable_def_class">10.4.3. VARIABLE_DEF Class</a></li>
+<li><a href="#_data_retrieve_frame_class">10.4.4. DATA_RETRIEVE_FRAME Class</a></li>
+<li><a href="#_data_retrieve_history_class">10.4.5. DATA_RETRIEVE_HISTORY Class</a></li>
+<li><a href="#_data_retrieve_sample_class">10.4.6. DATA_RETRIEVE_SAMPLE Class</a></li>
+<li><a href="#_data_set_result_class">10.4.7. DATA_SET_RESULT Class</a></li>
+<li><a href="#_variable_value_class">10.4.8. VARIABLE_VALUE Class</a></li>
+<li><a href="#_variable_value_single_class">10.4.9. VARIABLE_VALUE_SINGLE Class</a></li>
+<li><a href="#_variable_value_list_class">10.4.10. VARIABLE_VALUE_LIST Class</a></li>
+<li><a href="#_variable_value_time_series_class">10.4.11. VARIABLE_VALUE_TIME_SERIES Class</a></li>
 </ul>
 </li>
 </ul>
@@ -4743,9 +4744,66 @@ tdd: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" t
 </div>
 </div>
 <div class="sect2">
-<h3 id="_class_definitions_8"><a class="anchor" href="#_class_definitions_8"></a>10.3. Class Definitions</h3>
+<h3 id="_specifying_a_data_set"><a class="anchor" href="#_specifying_a_data_set"></a>10.3. Specifying a Data-set</h3>
+<div class="paragraph">
+<p>A data set specification would be provided through a REST API as a text specification, e.g. in JSON or YAML. Such a specification might be derived from an <a href="https://specifications.openehr.org/releases/PROC/latest/decision_language.html" target="_blank" rel="noopener">openEHR Decision Language Modules</a>, or some other source. An example is shown below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="yaml"><span></span><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">data_set</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-kt">!!DATA_SET_DEF</span>
+    <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">id</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">antenatal_1.v1.0.3</span>
+    <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">subject_id</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">137284657</span>
+    <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">creating_app_id</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">task_planning</span>
+    <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">variables</span><span class="tok-p tok-p-Indicator">:</span>
+        <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">date_of_birth</span>
+          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">type_name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">Date</span>
+          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">source_frame_id</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">basic_admin</span>
+          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">source_frame_path</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">/path/to/dob</span>
+
+        <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">systolic_bp</span>
+          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">type_name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">Quantity</span>
+          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">currency</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">PT2m</span>
+          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">source_frame_id</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">bp_obs</span>
+          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">source_frame_path</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">/data[id2]/events[id7]/data[id4]/items[id5]</span>
+
+        <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">diastolic_bp</span>
+          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">type_name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">Quantity</span>
+          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">currency</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">PT2m</span>
+          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">source_frame_id</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">bp_obs</span>
+          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">source_frame_path</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">/data[id2]/events[id7]/data[id4]/items[id6]</span>
+
+        <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">is_type1_diabetic</span>
+          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">type_name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">Boolean</span>
+          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">source_frame_id</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">diagnoses</span>
+          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">source_frame_path</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">/data[id2]/items[id3]</span>
+
+    <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">retrieve_frames</span><span class="tok-p tok-p-Indicator">:</span>
+        <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">id</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">basic_admin</span>
+          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">retrieve_method</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-kt">!!API_CALL</span>
+              <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">system_id</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">pas3.nhs.org.uk</span>
+              <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">call_name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">fhir_admin_request</span>
+              <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">parameters</span><span class="tok-p tok-p-Indicator">:</span>
+                  <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">xxxx</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">abc</span>
+                  <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">yyyy</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">def</span>
+
+        <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">id</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">bp_obs</span>
+          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">retrieve_method</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-kt">!!QUERY_CALL</span>
+              <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">system_id</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">ehr1.nhs.org.uk</span>
+              <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">call_name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">aql_execute</span>
+              <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">query_text</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">xxxx</span>
+
+        <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">id</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">diagnoses</span>
+          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">retrieve_method</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-kt">!!QUERY_CALL</span>
+              <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">system_id</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">ehr1.nhs.org.uk</span>
+              <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">call_name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">aql_execute</span>
+              <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">query_text</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">xxxx</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_class_definitions_8"><a class="anchor" href="#_class_definitions_8"></a>10.4. Class Definitions</h3>
 <div class="sect3">
-<h4 id="_i_subject_proxy_service_interface"><a class="anchor" href="#_i_subject_proxy_service_interface"></a>10.3.1. I_SUBJECT_PROXY_SERVICE Interface</h4>
+<h4 id="_i_subject_proxy_service_interface"><a class="anchor" href="#_i_subject_proxy_service_interface"></a>10.4.1. I_SUBJECT_PROXY_SERVICE Interface</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4832,7 +4890,7 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 </table>
 </div>
 <div class="sect3">
-<h4 id="_data_set_def_class"><a class="anchor" href="#_data_set_def_class"></a>10.3.2. DATA_SET_DEF Class</h4>
+<h4 id="_data_set_def_class"><a class="anchor" href="#_data_set_def_class"></a>10.4.2. DATA_SET_DEF Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4857,7 +4915,7 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>retrieve_frames</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_data_retrieve_frame_class">DATA_RETRIEVE_FRAME</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>retrieve_frames</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_hash_class">Hash<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_string_class">String</sup></a>,<a href="#_data_retrieve_frame_class">DATA_RETRIEVE_FRAME</a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 <tr>
@@ -4890,7 +4948,7 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>variables</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_variable_def_class">VARIABLE_DEF</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>variables</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_hash_class">Hash<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_string_class">String</sup></a>,<a href="#_variable_def_class">VARIABLE_DEF</a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 <tr>
@@ -4909,7 +4967,7 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 </table>
 </div>
 <div class="sect3">
-<h4 id="_variable_def_class"><a class="anchor" href="#_variable_def_class"></a>10.3.3. VARIABLE_DEF Class</h4>
+<h4 id="_variable_def_class"><a class="anchor" href="#_variable_def_class"></a>10.4.3. VARIABLE_DEF Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4997,7 +5055,7 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 </table>
 </div>
 <div class="sect3">
-<h4 id="_data_retrieve_frame_class"><a class="anchor" href="#_data_retrieve_frame_class"></a>10.3.4. DATA_RETRIEVE_FRAME Class</h4>
+<h4 id="_data_retrieve_frame_class"><a class="anchor" href="#_data_retrieve_frame_class"></a>10.4.4. DATA_RETRIEVE_FRAME Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5072,7 +5130,7 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 </table>
 </div>
 <div class="sect3">
-<h4 id="_data_retrieve_history_class"><a class="anchor" href="#_data_retrieve_history_class"></a>10.3.5. DATA_RETRIEVE_HISTORY Class</h4>
+<h4 id="_data_retrieve_history_class"><a class="anchor" href="#_data_retrieve_history_class"></a>10.4.5. DATA_RETRIEVE_HISTORY Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5097,7 +5155,7 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>items</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_data_retrieve_sample_class">DATA_RETRIEVE_SAMPLE</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>items</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_hash_class">Hash<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_iso8601_date_time_class">Iso8601_date_time</sup></a>,<a href="#_data_retrieve_sample_class">DATA_RETRIEVE_SAMPLE</a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Samples constituting the retrieve history of this frame.</p>
 </div></div></td>
@@ -5106,7 +5164,7 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 </table>
 </div>
 <div class="sect3">
-<h4 id="_data_retrieve_sample_class"><a class="anchor" href="#_data_retrieve_sample_class"></a>10.3.6. DATA_RETRIEVE_SAMPLE Class</h4>
+<h4 id="_data_retrieve_sample_class"><a class="anchor" href="#_data_retrieve_sample_class"></a>10.4.6. DATA_RETRIEVE_SAMPLE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5168,7 +5226,7 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 </table>
 </div>
 <div class="sect3">
-<h4 id="_data_set_result_class"><a class="anchor" href="#_data_set_result_class"></a>10.3.7. DATA_SET_RESULT Class</h4>
+<h4 id="_data_set_result_class"><a class="anchor" href="#_data_set_result_class"></a>10.4.7. DATA_SET_RESULT Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5214,7 +5272,7 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 </table>
 </div>
 <div class="sect3">
-<h4 id="_variable_value_class"><a class="anchor" href="#_variable_value_class"></a>10.3.8. VARIABLE_VALUE Class</h4>
+<h4 id="_variable_value_class"><a class="anchor" href="#_variable_value_class"></a>10.4.8. VARIABLE_VALUE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5254,7 +5312,7 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 </table>
 </div>
 <div class="sect3">
-<h4 id="_variable_value_single_class"><a class="anchor" href="#_variable_value_single_class"></a>10.3.9. VARIABLE_VALUE_SINGLE Class</h4>
+<h4 id="_variable_value_single_class"><a class="anchor" href="#_variable_value_single_class"></a>10.4.9. VARIABLE_VALUE_SINGLE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5292,7 +5350,7 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 </table>
 </div>
 <div class="sect3">
-<h4 id="_variable_value_list_class"><a class="anchor" href="#_variable_value_list_class"></a>10.3.10. VARIABLE_VALUE_LIST Class</h4>
+<h4 id="_variable_value_list_class"><a class="anchor" href="#_variable_value_list_class"></a>10.4.10. VARIABLE_VALUE_LIST Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5333,7 +5391,7 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 </table>
 </div>
 <div class="sect3">
-<h4 id="_variable_value_time_series_class"><a class="anchor" href="#_variable_value_time_series_class"></a>10.3.11. VARIABLE_VALUE_TIME_SERIES Class</h4>
+<h4 id="_variable_value_time_series_class"><a class="anchor" href="#_variable_value_time_series_class"></a>10.4.11. VARIABLE_VALUE_TIME_SERIES Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
