@@ -15,8 +15,8 @@ image::{diagrams_uri}/assumed_model.svg[id=assumed_model, align="center"]
 The following figure illustrates the components of the abstract openEHR Platform, along with their interfaces.
 
 [.text-center]
-.sm.openehr_platform.platform_definition Package
-image::{uml_diagrams_uri}/SM-platform_definition.svg[id=platform_definition, align="center"]
+.sm.platform.definition Package
+image::{uml_diagrams_uri}/SM-platform.definition.svg[id=platform_definition, align="center"]
 
 Each component has one or more associated interfaces, i.e. abstract service definitions which define a _transactional interface_ to the service represented by the component. Each interface consists of a number of _calls_, and each call is defined in an abstract way, i.e. independent of the representations and expressions required by a concrete protocol.
 
@@ -28,7 +28,6 @@ The services are as follows.
 |===
 |Service        |Description
 
-|Admin          |Service providing administrative facilities on all services in the installed environment, such as back-up.
 |Definitions    |Service enabling upload and querying of definition artefacts, including archetypes, templates and queries.
 |EHR            |Versioned persistence service for EHRs.
 |Demographic    |Versioned persistence service for demographic data.
@@ -37,9 +36,10 @@ The services are as follows.
 |Terminology    |Service providing access to terminology, including intentional value sets.
 |Message        |Message import and export service, supporting multiple message formats as we as EHR Extracts and documents.
 |System Log     |IHE ATNA-compliant system log.
+|Subject Proxy  |Service for registering subject-focussed data-sets that provide a 'proxy' picture of the subject over time.
+|Admin          |Service providing administrative facilities on all services in the installed environment, such as back-up.
                                                             
 |===
-
 
 == Interface Calls
 
@@ -172,7 +172,7 @@ The following naming conventions are used for naming parameters throughout this 
 
 == Package Structure
 
-The openEHR Platform Service Model package structure is illustrated below. It consists of two outer packages, `platform_definition` and `platform_interface`. The former contains the service components, while the latter contains the interfaces attached to each service component.
+The openEHR Platform Service Model package structure is illustrated below. It consists of the packages `common`, `definition` and `interface`. The second contains the service components, while the third contains the interfaces attached to each service component.
 
 [.text-center]
 .sm.openehr_platform Package Overview

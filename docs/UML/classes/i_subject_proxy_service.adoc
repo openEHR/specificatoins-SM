@@ -1,0 +1,56 @@
+=== I_SUBJECT_PROXY_SERVICE Interface
+
+[cols="^1,3,5"]
+|===
+h|*Interface*
+2+^h|*I_SUBJECT_PROXY_SERVICE*
+
+h|*Description*
+2+a|Service that populates data-sets registered for subjects by applications.
+
+h|*Functions*
+^h|*Signature*
+^h|*Meaning*
+
+h|*0..1*
+|*register_data_set* ( +
+subject_id: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]`, +
+application_id: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]`, +
+definition: `<<_data_set_def_class,DATA_SET_DEF>>[1]` +
+)
+a|Register a new data-set for a subject by an application.
+
+h|*0..1*
+|*remove_data_set* ( +
+subject_id: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]`, +
+application_id: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]` +
+)
+a|Remove this data-set from the service.
+
+h|*0..1*
+|*remove_subject* ( +
+subject_id: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]` +
+)
+a|Remove all data-sets for `_subject_id_`.
+
+h|*0..1*
+|*remove_application* ( +
+application_id: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]` +
+)
+a|Remove all data-sets for `_application_id_`.
+
+h|*1..1*
+|*get_variable* ( +
+subject_id: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]`, +
+data_set_id: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]`, +
+var_name: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]` +
+): `<<_variable_value_class,VARIABLE_VALUE>>`
+a|Get a single variable value from a data-set.
+
+h|*1..1*
+|*get_data_set* ( +
+subject_id: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]`, +
+data_set_id: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]` +
+): `<<_data_set_result_class,DATA_SET_RESULT>>`
+a|Get a full data set result.
+|===

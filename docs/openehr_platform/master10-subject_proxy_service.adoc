@@ -1,0 +1,40 @@
+= Subject Proxy Service
+
+== Overview
+
+The `platform.interface.subject_proxy` package shown below defines service interface for the `SUBJECT_PROXY` component in the logical platform architecture.
+
+[.text-center]
+.`sm.platform.interface.subject_proxy` package
+image::{uml_diagrams_uri}/SM-platform.interface.subject_proxy.svg[id=platform_interface_subject_proxy, align="center"]
+
+This service allows applications to register _data-sets_ used to aggregate data from one or more platform data sources, via their respective services into a coherent set of subject-focused data items required by an application. After registration in the service, data retrievals (e.g. queries or other API calls) are executed by the service, possibly repeated over time, to obtain values sufficiently _current_ for the application's needs. The service provides methods to retrieve single variable values or full data-sets.
+
+== Data-set Package
+
+The `data_set` package shown above defines the representation of _data-sets_ in the Subject proxy service. A data-set is understood as a logical collection of data variables relating to a _subject_, normally a subject of care, but may be any entity. The data-set is defined in terms of _data-set definition_ (`DATA_SET_DEF`) and _data retrieve frames_ (`DATA_RETRIEVE_FRAME`) structures, the latter of which specify how groups of data items are obtained from services in the current system environment. 
+
+Each retrieve frame corresponds to a set of data available from a single source, and having the same a datcurrency, i.e. 'freshness'. Different retrieve frames are used to access different systems and/or to execute distinct queries. A data-set may therefore have associated a number of data retrieve frames in order to populate all of its variables.
+
+When a data-set is installed, the data retrieve frames are executed on a basis determined by the implementation, causing a history of retrieve sample(s) to be created, each of which contains the raw results of an actual retrieval. This enables subsequent calls to the service 'get' methods (`_get_variable_()` and `_get_data_set_()`) to extract variable values from the raw data.
+
+[.tbd]
+TBD: details on different return data structures.
+
+== Class Definitions
+
+include::{uml_export_dir}/classes/i_subject_proxy_service.adoc[]
+
+include::{uml_export_dir}/classes/data_set_def.adoc[]
+include::{uml_export_dir}/classes/variable_def.adoc[]
+
+include::{uml_export_dir}/classes/data_retrieve_frame.adoc[]
+include::{uml_export_dir}/classes/data_retrieve_history.adoc[]
+include::{uml_export_dir}/classes/data_retrieve_sample.adoc[]
+
+include::{uml_export_dir}/classes/data_set_result.adoc[]
+include::{uml_export_dir}/classes/variable_value.adoc[]
+include::{uml_export_dir}/classes/variable_value_single.adoc[]
+include::{uml_export_dir}/classes/variable_value_list.adoc[]
+include::{uml_export_dir}/classes/variable_value_time_series.adoc[]
+

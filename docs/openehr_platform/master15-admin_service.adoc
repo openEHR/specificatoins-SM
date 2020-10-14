@@ -2,11 +2,11 @@
 
 == Overview
 
-The `platform_interface.admin` package shown below defines service interface to the `ADMIN` component in the logical platform architecture.
+The `platform.interface.admin` package shown below defines service interface to the `ADMIN` component in the logical platform architecture.
 
 [.text-center]
-.`sm.openehr_platform.platform_interface.admin` package
-image::{uml_diagrams_uri}/SM-platform_interface.admin.svg[id=platform_interface_admin, align="center"]
+.`sm.platform.interface.admin` package
+image::{uml_diagrams_uri}/SM-platform.interface.admin.svg[id=platform_interface_admin, align="center"]
 
 == Class Definitions
 

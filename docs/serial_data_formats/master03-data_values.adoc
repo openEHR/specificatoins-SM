@@ -114,7 +114,7 @@ TBD: S.I.: there is no support for version_id in Terminology_code / Terminology_
 
 === EhrScape Variants
 
-EhrScape variants exist for the following `DV_` types.
+EhrScape variants exist for the following types.
 
 [cols="1,4", options="header"]
 |===

@@ -14,6 +14,18 @@ The intention is twofold:
 
 The formats defined in this specification are mostly re-used from elsewhere in openEHR, and may be expected to be implemented in a standard library for each major implementation technology.
 
+
+== Variant forms and Rules for Mixing
+
+[.tbd]
+TBD: xxxx
+
+=== EhrScape Format
+
+[.tbd]
+TBD: xxxx
+
+
 == Parsing Model
 
 [.tbd]

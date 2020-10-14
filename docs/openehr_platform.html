@@ -60,7 +60,7 @@
 <li><a href="#_i_status_interface">3.4.1. I_STATUS Interface</a></li>
 <li><a href="#_call_status_class">3.4.2. CALL_STATUS Class</a></li>
 <li><a href="#_call_status_type_enumeration">3.4.3. CALL_STATUS_TYPE Enumeration</a></li>
-<li><a href="#_update_versiont_class">3.4.4. UPDATE_VERSION&lt;T&gt; Class</a></li>
+<li><a href="#_update_version_class">3.4.4. UPDATE_VERSION Class</a></li>
 <li><a href="#_update_audit_class">3.4.5. UPDATE_AUDIT Class</a></li>
 <li><a href="#_i_validity_checker_interface">3.4.6. I_VALIDITY_CHECKER Interface</a></li>
 <li><a href="#_validity_checker_status_enumeration">3.4.7. VALIDITY_CHECKER_STATUS Enumeration</a></li>
@@ -84,7 +84,7 @@
 </li>
 </ul>
 </li>
-<li><a href="#_ehr_package">5. EHR Package</a>
+<li><a href="#_ehr_service">5. EHR Service</a>
 <ul class="sectlevel2">
 <li><a href="#_overview_4">5.1. Overview</a></li>
 <li><a href="#_class_definitions_3">5.2. Class Definitions</a>
@@ -100,7 +100,7 @@
 </li>
 </ul>
 </li>
-<li><a href="#_demographic_package">6. Demographic Package</a>
+<li><a href="#_demographic_service">6. Demographic Service</a>
 <ul class="sectlevel2">
 <li><a href="#_overview_5">6.1. Overview</a></li>
 <li><a href="#_class_definitions_4">6.2. Class Definitions</a>
@@ -112,7 +112,7 @@
 </li>
 </ul>
 </li>
-<li><a href="#_ehr_index_package">7. EHR Index Package</a>
+<li><a href="#_ehr_index_service">7. EHR Index Service</a>
 <ul class="sectlevel2">
 <li><a href="#_overview_6">7.1. Overview</a></li>
 <li><a href="#_class_definitions_5">7.2. Class Definitions</a>
@@ -125,7 +125,7 @@
 </li>
 </ul>
 </li>
-<li><a href="#_query_package">8. Query Package</a>
+<li><a href="#_query_service">8. Query Service</a>
 <ul class="sectlevel2">
 <li><a href="#_overview_7">8.1. Overview</a></li>
 <li><a href="#_class_definitions_6">8.2. Class Definitions</a>
@@ -140,7 +140,7 @@
 </li>
 </ul>
 </li>
-<li><a href="#_message_package">9. Message Package</a>
+<li><a href="#_message_service">9. Message Service</a>
 <ul class="sectlevel2">
 <li><a href="#_overview_8">9.1. Overview</a></li>
 <li><a href="#_class_definitions_7">9.2. Class Definitions</a>
@@ -152,16 +152,37 @@
 </li>
 </ul>
 </li>
-<li><a href="#_admin_package">10. Admin Package</a>
+<li><a href="#_subject_proxy_service">10. Subject Proxy Service</a>
 <ul class="sectlevel2">
 <li><a href="#_overview_9">10.1. Overview</a></li>
-<li><a href="#_class_definitions_8">10.2. Class Definitions</a>
+<li><a href="#_data_set_package">10.2. Data-set Package</a></li>
+<li><a href="#_class_definitions_8">10.3. Class Definitions</a>
 <ul class="sectlevel3">
-<li><a href="#_i_admin_service_interface">10.2.1. I_ADMIN_SERVICE Interface</a></li>
-<li><a href="#_i_admin_archive_interface">10.2.2. I_ADMIN_ARCHIVE Interface</a></li>
-<li><a href="#_i_admin_dump_load_interface">10.2.3. I_ADMIN_DUMP_LOAD Interface</a></li>
-<li><a href="#_dump_load_fail_report_class">10.2.4. DUMP_LOAD_FAIL_REPORT Class</a></li>
-<li><a href="#_export_spec_class">10.2.5. EXPORT_SPEC Class</a></li>
+<li><a href="#_i_subject_proxy_service_interface">10.3.1. I_SUBJECT_PROXY_SERVICE Interface</a></li>
+<li><a href="#_data_set_def_class">10.3.2. DATA_SET_DEF Class</a></li>
+<li><a href="#_variable_def_class">10.3.3. VARIABLE_DEF Class</a></li>
+<li><a href="#_data_retrieve_frame_class">10.3.4. DATA_RETRIEVE_FRAME Class</a></li>
+<li><a href="#_data_retrieve_history_class">10.3.5. DATA_RETRIEVE_HISTORY Class</a></li>
+<li><a href="#_data_retrieve_sample_class">10.3.6. DATA_RETRIEVE_SAMPLE Class</a></li>
+<li><a href="#_data_set_result_class">10.3.7. DATA_SET_RESULT Class</a></li>
+<li><a href="#_variable_value_class">10.3.8. VARIABLE_VALUE Class</a></li>
+<li><a href="#_variable_value_single_class">10.3.9. VARIABLE_VALUE_SINGLE Class</a></li>
+<li><a href="#_variable_value_list_class">10.3.10. VARIABLE_VALUE_LIST Class</a></li>
+<li><a href="#_variable_value_time_series_class">10.3.11. VARIABLE_VALUE_TIME_SERIES Class</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_admin_package">11. Admin Package</a>
+<ul class="sectlevel2">
+<li><a href="#_overview_10">11.1. Overview</a></li>
+<li><a href="#_class_definitions_9">11.2. Class Definitions</a>
+<ul class="sectlevel3">
+<li><a href="#_i_admin_service_interface">11.2.1. I_ADMIN_SERVICE Interface</a></li>
+<li><a href="#_i_admin_archive_interface">11.2.2. I_ADMIN_ARCHIVE Interface</a></li>
+<li><a href="#_i_admin_dump_load_interface">11.2.3. I_ADMIN_DUMP_LOAD Interface</a></li>
+<li><a href="#_dump_load_fail_report_class">11.2.4. DUMP_LOAD_FAIL_REPORT Class</a></li>
+<li><a href="#_export_spec_class">11.2.5. EXPORT_SPEC Class</a></li>
 </ul>
 </li>
 </ul>
@@ -263,10 +284,16 @@
 <th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>SM Release 1.0.0</strong></p></th>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>0.9.6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>0.9.7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add Subject Proxy Service and Data set package.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>14 Oct 2020</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.9.6</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Adjust naming and definitions of elements in <code>RESULT_SET</code> classes to reflect REST API.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">S Iancu</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>25 Mar 2020</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">25 Mar 2020</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0.9.5</p></td>
@@ -466,9 +493,9 @@
 </div>
 <div id="platform_definition" class="imageblock text-center text-center">
 <div class="content">
-<img src="UML/diagrams/SM-platform_definition.svg" alt="SM platform definition">
+<img src="UML/diagrams/SM-platform.definition.svg" alt="SM platform.definition">
 </div>
-<div class="title">Figure 2. sm.openehr_platform.platform_definition Package</div>
+<div class="title">Figure 2. sm.platform.definition Package</div>
 </div>
 <div class="paragraph">
 <p>Each component has one or more associated interfaces, i.e. abstract service definitions which define a <em>transactional interface</em> to the service represented by the component. Each interface consists of a number of <em>calls</em>, and each call is defined in an abstract way, i.e. independent of the representations and expressions required by a concrete protocol.</p>
@@ -491,10 +518,6 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Admin</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Service providing administrative facilities on all services in the installed environment, such as back-up.</p></td>
-</tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Definitions</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Service enabling upload and querying of definition artefacts, including archetypes, templates and queries.</p></td>
@@ -526,6 +549,14 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">System Log</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">IHE ATNA-compliant system log.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subject Proxy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Service for registering subject-focussed data-sets that provide a 'proxy' picture of the subject over time.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Admin</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Service providing administrative facilities on all services in the installed environment, such as back-up.</p></td>
 </tr>
 </tbody>
 </table>
@@ -759,7 +790,7 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 <div class="sect2">
 <h3 id="_package_structure"><a class="anchor" href="#_package_structure"></a>2.6. Package Structure</h3>
 <div class="paragraph">
-<p>The openEHR Platform Service Model package structure is illustrated below. It consists of two outer packages, <code>platform_definition</code> and <code>platform_interface</code>. The former contains the service components, while the latter contains the interfaces attached to each service component.</p>
+<p>The openEHR Platform Service Model package structure is illustrated below. It consists of the packages <code>common</code>, <code>definition</code> and <code>interface</code>. The second contains the service components, while the third contains the interfaces attached to each service component.</p>
 </div>
 <div id="platform_packages" class="imageblock text-center text-center">
 <div class="content">
@@ -776,7 +807,7 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 <div class="sect2">
 <h3 id="_overview_2"><a class="anchor" href="#_overview_2"></a>3.1. Overview</h3>
 <div class="paragraph">
-<p>The <code>platform_interface.common</code> package shown below defines common elements of the platform service model. The key elements are:</p>
+<p>The <code>platform.common</code> package shown below defines common elements of the platform service model, including:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -793,9 +824,9 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 </div>
 <div id="sm_platform_interface_common" class="imageblock text-center text-center">
 <div class="content">
-<img src="UML/diagrams/SM-platform_interface.common.svg" alt="SM platform interface.common">
+<img src="UML/diagrams/SM-platform.interface.common.svg" alt="SM platform.interface.common">
 </div>
-<div class="title">Figure 4. <code>sm.openehr_platform.platform_interface.common</code> package</div>
+<div class="title">Figure 4. <code>sm.openehr_platform.platform_common</code> package</div>
 </div>
 </div>
 <div class="sect2">
@@ -1023,7 +1054,7 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 </table>
 </div>
 <div class="sect3">
-<h4 id="_update_versiont_class"><a class="anchor" href="#_update_versiont_class"></a>3.4.4. UPDATE_VERSION&lt;T&gt; Class</h4>
+<h4 id="_update_version_class"><a class="anchor" href="#_update_version_class"></a>3.4.4. UPDATE_VERSION Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -1233,13 +1264,13 @@ a_content: <code><a href="/releases/RM/latest/common.html#_locatable_class" targ
 <div class="sect2">
 <h3 id="_overview_3"><a class="anchor" href="#_overview_3"></a>4.1. Overview</h3>
 <div class="paragraph">
-<p>The <code>platform_interface.definitions</code> package shown below defines service interface to the <code>definitions</code> component in the logical platform architecture.</p>
+<p>The <code>platform.interface.definitions</code> package shown below defines service interface to the <code>definitions</code> component in the logical platform architecture.</p>
 </div>
 <div id="sm_platform_interface_definitions" class="imageblock text-center text-center">
 <div class="content">
-<img src="UML/diagrams/SM-platform_interface.definitions.svg" alt="SM platform interface.definitions">
+<img src="UML/diagrams/SM-platform.interface.definitions.svg" alt="SM platform.interface.definitions">
 </div>
-<div class="title">Figure 5. <code>sm.openehr_platform.platform_interface.definitions</code> package</div>
+<div class="title">Figure 5. <code>sm.platform.interface.definitions</code> package</div>
 </div>
 <div class="paragraph">
 <p>The interfaces provided in this service are designed to enable any model-like or reference artefacts, other than terminology, to be stored for use by the rest of the system. This includes archetypes, templates, queries, and query sets.</p>
@@ -2073,18 +2104,18 @@ a_query_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ehr_package"><a class="anchor" href="#_ehr_package"></a>5. EHR Package</h2>
+<h2 id="_ehr_service"><a class="anchor" href="#_ehr_service"></a>5. EHR Service</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_overview_4"><a class="anchor" href="#_overview_4"></a>5.1. Overview</h3>
 <div class="paragraph">
-<p>The <code>platform_interface.ehr</code> package shown below defines service interface to the <code>EHR</code> component in the logical platform architecture.</p>
+<p>The <code>platform.interface.ehr</code> package shown below defines service interface to the <code>EHR</code> component in the logical platform architecture.</p>
 </div>
 <div id="sm_platform_interface_ehr" class="imageblock text-center text-center">
 <div class="content">
-<img src="UML/diagrams/SM-platform_interface.ehr.svg" alt="SM platform interface.ehr">
+<img src="UML/diagrams/SM-platform.interface.ehr.svg" alt="SM platform.interface.ehr">
 </div>
-<div class="title">Figure 6. <code>sm.openehr_platform.platform_interface.ehr</code> package</div>
+<div class="title">Figure 6. <code>sm.platform.interface.ehr</code> package</div>
 </div>
 </div>
 <div class="sect2">
@@ -3397,18 +3428,18 @@ time_range: <code><a href="/releases/BASE/latest/foundation_types.html#_interval
 </div>
 </div>
 <div class="sect1">
-<h2 id="_demographic_package"><a class="anchor" href="#_demographic_package"></a>6. Demographic Package</h2>
+<h2 id="_demographic_service"><a class="anchor" href="#_demographic_service"></a>6. Demographic Service</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_overview_5"><a class="anchor" href="#_overview_5"></a>6.1. Overview</h3>
 <div class="paragraph">
-<p>The <code>platform_interface.demographic</code> package shown below defines service interface to the <code>DEMOGRAPHIC_SERVICE</code> component in the logical platform architecture.</p>
+<p>The <code>platform.interface.demographic</code> package shown below defines service interface to the <code>DEMOGRAPHIC_SERVICE</code> component in the logical platform architecture.</p>
 </div>
 <div id="platform_interface_demographic" class="imageblock text-center text-center">
 <div class="content">
-<img src="UML/diagrams/SM-platform_interface.demographic.svg" alt="SM platform interface.demographic">
+<img src="UML/diagrams/SM-platform.interface.demographic.svg" alt="SM platform.interface.demographic">
 </div>
-<div class="title">Figure 7. <code>sm.openehr_platform.platform_interface.demographic</code> package</div>
+<div class="title">Figure 7. <code>sm.platform.interface.demographic</code> package</div>
 </div>
 </div>
 <div class="sect2">
@@ -3812,18 +3843,18 @@ a_party_rel_version_id: <code><a href="/releases/BASE/latest/base_types.html#_uu
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ehr_index_package"><a class="anchor" href="#_ehr_index_package"></a>7. EHR Index Package</h2>
+<h2 id="_ehr_index_service"><a class="anchor" href="#_ehr_index_service"></a>7. EHR Index Service</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_overview_6"><a class="anchor" href="#_overview_6"></a>7.1. Overview</h3>
 <div class="paragraph">
-<p>The <code>platform_interface.ehr_index</code> package shown below defines service interface to the <code>EHR_INDEX</code> component in the logical platform architecture.</p>
+<p>The <code>platform.interface.ehr_index</code> package shown below defines service interface to the <code>EHR_INDEX</code> component in the logical platform architecture.</p>
 </div>
 <div id="platform_interface_ehr_index" class="imageblock text-center text-center">
 <div class="content">
-<img src="UML/diagrams/SM-platform_interface.ehr_index.svg" alt="SM platform interface.ehr index">
+<img src="UML/diagrams/SM-platform.interface.ehr_index.svg" alt="SM platform.interface.ehr index">
 </div>
-<div class="title">Figure 8. <code>sm.openehr_platform.platform_interface.ehr_index</code> package</div>
+<div class="title">Figure 8. <code>sm.platform.interface.ehr_index</code> package</div>
 </div>
 <div class="paragraph">
 <p>The primary function of the EHR Index service is to enable the recording of associations of subject identifiers (i.e. patient or other subject or care identifiers) with EHR identifiers. In a privacy-supporting environment, this enables EHRs to be persisted with only an EHR id; the EHR Index has to be used to obtain the subject identifier, which will usually be used as a key into a demographic or MPI service, ultimately allowing EHR data to be associated with the correct patient demographic information in a user application.</p>
@@ -4098,18 +4129,18 @@ a_subject_id: <code><a href="/releases/BASE/latest/base_types.html#_object_ref_c
 </div>
 </div>
 <div class="sect1">
-<h2 id="_query_package"><a class="anchor" href="#_query_package"></a>8. Query Package</h2>
+<h2 id="_query_service"><a class="anchor" href="#_query_service"></a>8. Query Service</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_overview_7"><a class="anchor" href="#_overview_7"></a>8.1. Overview</h3>
 <div class="paragraph">
-<p>The <code>platform_interface.query</code> package shown below defines service interface to the <code>QUERY_SERVICE</code> component in the logical platform architecture.</p>
+<p>The <code>platform.interface.query</code> package shown below defines service interface to the <code>QUERY_SERVICE</code> component in the logical platform architecture.</p>
 </div>
 <div id="platform_interface_query" class="imageblock text-center text-center">
 <div class="content">
-<img src="UML/diagrams/SM-platform_interface.query.svg" alt="SM platform interface.query">
+<img src="UML/diagrams/SM-platform.interface.query.svg" alt="SM platform.interface.query">
 </div>
-<div class="title">Figure 9. <code>sm.openehr_platform.platform_interface.query</code> package</div>
+<div class="title">Figure 9. <code>sm.platform.interface.query</code> package</div>
 </div>
 <div class="paragraph">
 <p>The model of querying here is based on the notion of being able to execute either queries previously stored in the <code>DEFINITION</code> service, or else ad hoc queries. For stored queries, no assumption is made as to whether the query language is AQL (the openEHR default) or something else, only that there are stored queries that can be executed in a standard way.</p>
@@ -4528,18 +4559,18 @@ check on whether needed or inside the path.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_message_package"><a class="anchor" href="#_message_package"></a>9. Message Package</h2>
+<h2 id="_message_service"><a class="anchor" href="#_message_service"></a>9. Message Service</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_overview_8"><a class="anchor" href="#_overview_8"></a>9.1. Overview</h3>
 <div class="paragraph">
-<p>The <code>platform_interface.message</code> package shown below defines service interface to the <code>MESSAGE</code> component in the logical platform architecture.</p>
+<p>The <code>platform.interface.message</code> package shown below defines service interface to the <code>MESSAGE</code> component in the logical platform architecture.</p>
 </div>
 <div id="platform_interface_message" class="imageblock text-center text-center">
 <div class="content">
-<img src="UML/diagrams/SM-platform_interface.message.svg" alt="SM platform interface.message">
+<img src="UML/diagrams/SM-platform.interface.message.svg" alt="SM platform.interface.message">
 </div>
-<div class="title">Figure 10. <code>sm.openehr_platform.platform_interface.message</code> package</div>
+<div class="title">Figure 10. <code>sm.platform.interface.message</code> package</div>
 </div>
 </div>
 <div class="sect2">
@@ -4679,24 +4710,691 @@ tdd: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" t
 </div>
 </div>
 <div class="sect1">
-<h2 id="_admin_package"><a class="anchor" href="#_admin_package"></a>10. Admin Package</h2>
+<h2 id="_subject_proxy_service"><a class="anchor" href="#_subject_proxy_service"></a>10. Subject Proxy Service</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_overview_9"><a class="anchor" href="#_overview_9"></a>10.1. Overview</h3>
 <div class="paragraph">
-<p>The <code>platform_interface.admin</code> package shown below defines service interface to the <code>ADMIN</code> component in the logical platform architecture.</p>
+<p>The <code>platform.interface.subject_proxy</code> package shown below defines service interface for the <code>SUBJECT_PROXY</code> component in the logical platform architecture.</p>
 </div>
-<div id="platform_interface_admin" class="imageblock text-center text-center">
+<div id="platform_interface_subject_proxy" class="imageblock text-center text-center">
 <div class="content">
-<img src="UML/diagrams/SM-platform_interface.admin.svg" alt="SM platform interface.admin">
+<img src="UML/diagrams/SM-platform.interface.subject_proxy.svg" alt="SM platform.interface.subject proxy">
 </div>
-<div class="title">Figure 11. <code>sm.openehr_platform.platform_interface.admin</code> package</div>
+<div class="title">Figure 11. <code>sm.platform.interface.subject_proxy</code> package</div>
+</div>
+<div class="paragraph">
+<p>This service allows applications to register <em>data-sets</em> used to aggregate data from one or more platform data sources, via their respective services into a coherent set of subject-focused data items required by an application. After registration in the service, data retrievals (e.g. queries or other API calls) are executed by the service, possibly repeated over time, to obtain values sufficiently <em>current</em> for the application&#8217;s needs. The service provides methods to retrieve single variable values or full data-sets.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_class_definitions_8"><a class="anchor" href="#_class_definitions_8"></a>10.2. Class Definitions</h3>
+<h3 id="_data_set_package"><a class="anchor" href="#_data_set_package"></a>10.2. Data-set Package</h3>
+<div class="paragraph">
+<p>The <code>data_set</code> package shown above defines the representation of <em>data-sets</em> in the Subject proxy service. A data-set is understood as a logical collection of data variables relating to a <em>subject</em>, normally a subject of care, but may be any entity. The data-set is defined in terms of <em>data-set definition</em> (<code>DATA_SET_DEF</code>) and <em>data retrieve frames</em> (<code>DATA_RETRIEVE_FRAME</code>) structures, the latter of which specify how groups of data items are obtained from services in the current system environment.</p>
+</div>
+<div class="paragraph">
+<p>Each retrieve frame corresponds to a set of data available from a single source, and having the same a datcurrency, i.e. 'freshness'. Different retrieve frames are used to access different systems and/or to execute distinct queries. A data-set may therefore have associated a number of data retrieve frames in order to populate all of its variables.</p>
+</div>
+<div class="paragraph">
+<p>When a data-set is installed, the data retrieve frames are executed on a basis determined by the implementation, causing a history of retrieve sample(s) to be created, each of which contains the raw results of an actual retrieval. This enables subsequent calls to the service 'get' methods (<code><em>get_variable</em>()</code> and <code><em>get_data_set</em>()</code>) to extract variable values from the raw data.</p>
+</div>
+<div class="paragraph tbd">
+<p>TBD: details on different return data structures.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_class_definitions_8"><a class="anchor" href="#_class_definitions_8"></a>10.3. Class Definitions</h3>
 <div class="sect3">
-<h4 id="_i_admin_service_interface"><a class="anchor" href="#_i_admin_service_interface"></a>10.2.1. I_ADMIN_SERVICE Interface</h4>
+<h4 id="_i_subject_proxy_service_interface"><a class="anchor" href="#_i_subject_proxy_service_interface"></a>10.3.1. I_SUBJECT_PROXY_SERVICE Interface</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Interface</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>I_SUBJECT_PROXY_SERVICE</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Service that populates data-sets registered for subjects by applications.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>register_data_set</strong> (<br>
+subject_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
+application_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
+definition: <code><a href="#_data_set_def_class">DATA_SET_DEF</a>[1]</code><br>
+)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Register a new data-set for a subject by an application.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>remove_data_set</strong> (<br>
+subject_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
+application_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code><br>
+)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Remove this data-set from the service.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>remove_subject</strong> (<br>
+subject_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code><br>
+)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Remove all data-sets for <code><em>subject_id</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>remove_application</strong> (<br>
+application_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code><br>
+)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Remove all data-sets for <code><em>application_id</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_variable</strong> (<br>
+subject_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
+data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
+var_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code><br>
+): <code><a href="#_variable_value_class">VARIABLE_VALUE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Get a single variable value from a data-set.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_data_set</strong> (<br>
+subject_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
+data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code><br>
+): <code><a href="#_data_set_result_class">DATA_SET_RESULT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Get a full data set result.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_data_set_def_class"><a class="anchor" href="#_data_set_def_class"></a>10.3.2. DATA_SET_DEF Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DATA_SET_DEF</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Data set definition for a subject, usually an individual, but may be for anything else, e.g. a clinical study. Consists of at least one <code>DATA_VARIABLE_DEF</code> and a set of <code>DATA_RETRIEVE_FRAMEs</code>, which define how to obtain the data from a particular system environment.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>retrieve_frames</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_data_retrieve_frame_class">DATA_RETRIEVE_FRAME</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>id</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Unique identifier of this data set.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subject_id</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Identifier of data subject, i.e. the entity for which these data 'are about'.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>creating_app_id</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Identifier of creating / registering application.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>using_app_ids</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_string_class">String</sup></a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional list of identifiers of applications using this data set. May be used to track applications, and dump the data set when empty.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>variables</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_variable_def_class">VARIABLE_DEF</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong> (): <code><a href="#_data_set_result_class">DATA_SET_RESULT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Iterate over all <code><em>variables</em></code> and generate a <code>DATA_SET_RESULT</code>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_variable_def_class"><a class="anchor" href="#_variable_def_class"></a>10.3.3. VARIABLE_DEF Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>VARIABLE_DEF</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>One item in a data-set, corresponding to a single symbolic variable. May take various forms, including atomic, list and time series.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>source</strong>: <code><a href="#_data_retrieve_frame_class">DATA_RETRIEVE_FRAME</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Source data frame, derived from <code><em>source_frame_id</em></code>. In an optimised system, may be shared with Data set items from other Data sets.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Symbolic name by which this item is known in the data-set. Typically required to be a legal variable name in a programming language.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Formal type name from defining model.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>currency</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_iso8601_duration_class" target="_blank" rel="noopener">Iso8601_duration</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Required currency of this data item. If not set, most recent available is valid.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>time_window</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_interval_class">Interval<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_iso8601_date_time_class">Iso8601_date_time</sup></a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Time window of this variable to use in the retrieve request.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>source_frame_id</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Identifier of Data retrieve frame.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>source_frame_path</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Path within source data frame to obtain this item. If not present, the path <code>'/'</code> is assumed, i.e. the item is the sole member of a data frame which has no hierarchical structure.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong> (): <code><a href="#_variable_value_class">VARIABLE_VALUE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Extract the value from the source retrieve frame, reprocessing if necessary to obtain intended type (single, list, time_series).</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_data_retrieve_frame_class"><a class="anchor" href="#_data_retrieve_frame_class"></a>10.3.4. DATA_RETRIEVE_FRAME Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DATA_RETRIEVE_FRAME</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Package of data items having the same currency and time-window, retrieved by one call or query (<code><em>retrieve_method</em></code>).</p>
+</div>
+<div class="paragraph">
+<p>Maintains a retrieve history, which consists of one or potentially more 'samples' obtained over time.</p>
+</div>
+<div class="paragraph">
+<p>In an optimised system, may serve as the source for more than one Data set variable, in which case the <code><em>currency</em></code> will be the lowest currency of all connected variables.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>id</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Unique identifier of this retrieve frame in the Subject proxy service.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>currency</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_iso8601_duration_class" target="_blank" rel="noopener">Iso8601_duration</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Required currency of this frame. If not set, only a single retrieve is needed.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>retrieve_method</strong>: <code><a href="/releases/PROC/latest/task_planning.html#_system_call_class" target="_blank" rel="noopener">SYSTEM_CALL</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>System call used to perform retrieval of this data frame.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>retrieve_history</strong>: <code><a href="#_data_retrieve_history_class">DATA_RETRIEVE_HISTORY</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Run-time created retrieval history.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>time_window</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_interval_class">Interval<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_iso8601_date_time_class">Iso8601_date_time</sup></a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Time window of this frame as an interval of time-points in past time. If not set, no time-window is used in the retrieve request.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>fallback_method</strong>: <code><a href="/releases/PROC/latest/task_planning.html#_system_call_class" target="_blank" rel="noopener">SYSTEM_CALL</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Alternative method to use if primary retrieve method fails.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_data_retrieve_history_class"><a class="anchor" href="#_data_retrieve_history_class"></a>10.3.5. DATA_RETRIEVE_HISTORY Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DATA_RETRIEVE_HISTORY</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Sample history of this retrieve frame.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>items</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_data_retrieve_sample_class">DATA_RETRIEVE_SAMPLE</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Samples constituting the retrieve history of this frame.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_data_retrieve_sample_class"><a class="anchor" href="#_data_retrieve_sample_class"></a>10.3.6. DATA_RETRIEVE_SAMPLE Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DATA_RETRIEVE_SAMPLE</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>One retrieval (sample) of a retrieve frame, generated by invocation of the relevant method.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>retrieve_time</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_iso8601_date_time_class" target="_blank" rel="noopener">Iso8601_date_time</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Time at which data retrieve attempt made (i.e. when data frame instantiated on caller side, if successful).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>effective_time</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_iso8601_date_time_class" target="_blank" rel="noopener">Iso8601_date_time</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Real-world time to which data pertains, if available. Usually obtainable via model-specific call.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_unavailable</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Flag to indicate that no data available for this retrieve attempt.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>unavailable_reason</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Potentially a reason for absent data on this retrieve.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>result</strong>: <code><a href="#_result_set_class">RESULT_SET</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Result of retrieve call execution.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_data_set_result_class"><a class="anchor" href="#_data_set_result_class"></a>10.3.7. DATA_SET_RESULT Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DATA_SET_RESULT</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Data set result consisting of full set of variable values extracted from data retrieve frame sources.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>id</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Unique identifier of this data set.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subject_id</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Identifier of data subject, i.e. the entity for which these data 'are about'.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>variables</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_variable_value_class">VARIABLE_VALUE</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_variable_value_class"><a class="anchor" href="#_variable_value_class"></a>10.3.8. VARIABLE_VALUE Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>VARIABLE_VALUE (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>retrieve_time</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_iso8601_date_time_class" target="_blank" rel="noopener">Iso8601_date_time</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>unavailable_reason</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_unavailable</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_variable_value_single_class"><a class="anchor" href="#_variable_value_single_class"></a>10.3.9. VARIABLE_VALUE_SINGLE Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>VARIABLE_VALUE_SINGLE</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Atomic data-set item.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_variable_value_class">VARIABLE_VALUE</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_any_class" target="_blank" rel="noopener">Any</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Single value, copied or referenced from the Result set of the latest sample of the relevant source Data retrieve frame.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_variable_value_list_class"><a class="anchor" href="#_variable_value_list_class"></a>10.3.10. VARIABLE_VALUE_LIST Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>VARIABLE_VALUE_LIST</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Dataset item in the form of a list.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_variable_value_class">VARIABLE_VALUE</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_any_class">Any</sup></a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Single value, copied or referenced from the Result set of the latest sample of the relevant source Data retrieve frame.</p>
+</div>
+<div class="paragraph">
+<p>May require transformation to obtain the right List structure.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_variable_value_time_series_class"><a class="anchor" href="#_variable_value_time_series_class"></a>10.3.11. VARIABLE_VALUE_TIME_SERIES Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>VARIABLE_VALUE_TIME_SERIES</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Data-set item in the form of a time-series.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_variable_value_class">VARIABLE_VALUE</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_hash_class">Hash<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_iso8601_date_time_class">Iso8601_date_time</sup></a>,<a href="/releases/BASE/latest/foundation_types.html#_any_class" target="_blank" rel="noopener">Any</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Single value, copied or referenced from the Result set of the latest sample of the relevant source Data retrieve frame.</p>
+</div>
+<div class="paragraph">
+<p>May require transformation to obtain the right Map structure.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_admin_package"><a class="anchor" href="#_admin_package"></a>11. Admin Package</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_overview_10"><a class="anchor" href="#_overview_10"></a>11.1. Overview</h3>
+<div class="paragraph">
+<p>The <code>platform.interface.admin</code> package shown below defines service interface to the <code>ADMIN</code> component in the logical platform architecture.</p>
+</div>
+<div id="platform_interface_admin" class="imageblock text-center text-center">
+<div class="content">
+<img src="UML/diagrams/SM-platform.interface.admin.svg" alt="SM platform.interface.admin">
+</div>
+<div class="title">Figure 12. <code>sm.platform.interface.admin</code> package</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_class_definitions_9"><a class="anchor" href="#_class_definitions_9"></a>11.2. Class Definitions</h3>
+<div class="sect3">
+<h4 id="_i_admin_service_interface"><a class="anchor" href="#_i_admin_service_interface"></a>11.2.1. I_ADMIN_SERVICE Interface</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4812,7 +5510,7 @@ a_party_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" ta
 </table>
 </div>
 <div class="sect3">
-<h4 id="_i_admin_archive_interface"><a class="anchor" href="#_i_admin_archive_interface"></a>10.2.2. I_ADMIN_ARCHIVE Interface</h4>
+<h4 id="_i_admin_archive_interface"><a class="anchor" href="#_i_admin_archive_interface"></a>11.2.2. I_ADMIN_ARCHIVE Interface</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4873,7 +5571,7 @@ party_ids: <code><a href="/releases/BASE/latest/foundation_types.html#_list_clas
 </table>
 </div>
 <div class="sect3">
-<h4 id="_i_admin_dump_load_interface"><a class="anchor" href="#_i_admin_dump_load_interface"></a>10.2.3. I_ADMIN_DUMP_LOAD Interface</h4>
+<h4 id="_i_admin_dump_load_interface"><a class="anchor" href="#_i_admin_dump_load_interface"></a>11.2.3. I_ADMIN_DUMP_LOAD Interface</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4950,7 +5648,7 @@ file_sys_loc: <code><a href="/releases/BASE/latest/foundation_types.html#_string
 </table>
 </div>
 <div class="sect3">
-<h4 id="_dump_load_fail_report_class"><a class="anchor" href="#_dump_load_fail_report_class"></a>10.2.4. DUMP_LOAD_FAIL_REPORT Class</h4>
+<h4 id="_dump_load_fail_report_class"><a class="anchor" href="#_dump_load_fail_report_class"></a>11.2.4. DUMP_LOAD_FAIL_REPORT Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5005,7 +5703,7 @@ file_sys_loc: <code><a href="/releases/BASE/latest/foundation_types.html#_string
 </table>
 </div>
 <div class="sect3">
-<h4 id="_export_spec_class"><a class="anchor" href="#_export_spec_class"></a>10.2.5. EXPORT_SPEC Class</h4>
+<h4 id="_export_spec_class"><a class="anchor" href="#_export_spec_class"></a>11.2.5. EXPORT_SPEC Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5065,7 +5763,7 @@ file_sys_loc: <code><a href="/releases/BASE/latest/foundation_types.html#_string
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-27 11:04:13 +0100
+Last updated 2020-10-14 17:13:41 +0100
 </div>
 </div>
 <link rel="stylesheet" href="https://specifications.openehr.org/styles/pygments-default.css">

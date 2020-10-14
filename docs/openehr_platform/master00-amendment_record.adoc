@@ -6,10 +6,15 @@
 
 4+^h|*SM Release 1.0.0*
 
-|[[latest_issue]]0.9.6
+|[[latest_issue]]0.9.7
+|Add Subject Proxy Service and Data set package.
+|T Beale
+|[[latest_issue_date]]14 Oct 2020
+
+|0.9.6
 |Adjust naming and definitions of elements in `RESULT_SET` classes to reflect REST API.
 |S Iancu
-|[[latest_issue_date]]25 Mar 2020
+|25 Mar 2020
 
 |0.9.5
 |Add missing enumeration `_invalid_artefact_` to `DEFINITION_CALL_STATUS_TYPE` ({spec_tickets}/SPECPR-293[SPECPR-293^]); +
