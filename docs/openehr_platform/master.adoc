@@ -62,6 +62,7 @@ include::master07-ehr_index_service.adoc[leveloffset=+1]
 include::master08-query_service.adoc[leveloffset=+1]
 include::master09-message_service.adoc[leveloffset=+1]
 include::master10-subject_proxy_service.adoc[leveloffset=+1]
+include::master12-terminology_service.adoc[leveloffset=+1]
 include::master15-admin_service.adoc[leveloffset=+1]
 
 

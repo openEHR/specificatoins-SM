@@ -174,16 +174,26 @@
 </li>
 </ul>
 </li>
-<li><a href="#_admin_package">11. Admin Package</a>
+<li><a href="#_terminology_service">11. Terminology Service</a>
 <ul class="sectlevel2">
 <li><a href="#_overview_10">11.1. Overview</a></li>
 <li><a href="#_class_definitions_9">11.2. Class Definitions</a>
 <ul class="sectlevel3">
-<li><a href="#_i_admin_service_interface">11.2.1. I_ADMIN_SERVICE Interface</a></li>
-<li><a href="#_i_admin_archive_interface">11.2.2. I_ADMIN_ARCHIVE Interface</a></li>
-<li><a href="#_i_admin_dump_load_interface">11.2.3. I_ADMIN_DUMP_LOAD Interface</a></li>
-<li><a href="#_dump_load_fail_report_class">11.2.4. DUMP_LOAD_FAIL_REPORT Class</a></li>
-<li><a href="#_export_spec_class">11.2.5. EXPORT_SPEC Class</a></li>
+<li><a href="#_i_terminology_service_interface">11.2.1. I_TERMINOLOGY_SERVICE Interface</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_admin_service">12. Admin Service</a>
+<ul class="sectlevel2">
+<li><a href="#_overview_11">12.1. Overview</a></li>
+<li><a href="#_class_definitions_10">12.2. Class Definitions</a>
+<ul class="sectlevel3">
+<li><a href="#_i_admin_service_interface">12.2.1. I_ADMIN_SERVICE Interface</a></li>
+<li><a href="#_i_admin_archive_interface">12.2.2. I_ADMIN_ARCHIVE Interface</a></li>
+<li><a href="#_i_admin_dump_load_interface">12.2.3. I_ADMIN_DUMP_LOAD Interface</a></li>
+<li><a href="#_dump_load_fail_report_class">12.2.4. DUMP_LOAD_FAIL_REPORT Class</a></li>
+<li><a href="#_export_spec_class">12.2.5. EXPORT_SPEC Class</a></li>
 </ul>
 </li>
 </ul>
@@ -5435,10 +5445,162 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 </div>
 </div>
 <div class="sect1">
-<h2 id="_admin_package"><a class="anchor" href="#_admin_package"></a>11. Admin Package</h2>
+<h2 id="_terminology_service"><a class="anchor" href="#_terminology_service"></a>11. Terminology Service</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_overview_10"><a class="anchor" href="#_overview_10"></a>11.1. Overview</h3>
+<div class="paragraph">
+<p>The <code>platform.interface.terminology</code> package shown below defines service interface to the <code>TERMINOLOGY</code> component in the logical platform architecture.</p>
+</div>
+<div id="platform_interface_terminology" class="imageblock text-center text-center">
+<div class="content">
+<img src="UML/diagrams/SM-platform.interface.terminology.svg" alt="SM platform.interface.terminology">
+</div>
+<div class="title">Figure 12. <code>sm.platform.interface.terminology</code> package</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_class_definitions_9"><a class="anchor" href="#_class_definitions_9"></a>11.2. Class Definitions</h3>
+<div class="sect3">
+<h4 id="_i_terminology_service_interface"><a class="anchor" href="#_i_terminology_service_interface"></a>11.2.1. I_TERMINOLOGY_SERVICE Interface</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Interface</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>I_TERMINOLOGY_SERVICE</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Terminology service interface.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_terminology_ids</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_string_class">String</sup></a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Get the identifiers of all terminologies as they are known in this terminology server. These may be URIs. These are the identifiers that may be used in subsequent calls to the service.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_terminology</strong> (<br>
+terminology_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return True if this server has a terminology with the identifier <code><em>terminology_id</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_terminology_description</strong> (<br>
+terminology_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/base_types.html#_terminology_description_class" target="_blank" rel="noopener">Terminology_description</a></code><br>
+<br>
+<em>Pre_has_terminology</em>: <code>has_terminology(terminology_id)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Get the description object for the terminology with identifier <code><em>terminology_id</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_term</strong> (<br>
+terminology_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
+code: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
+at_date: <code><a href="/releases/BASE/latest/foundation_types.html#_iso8601_date_class" target="_blank" rel="noopener">Iso8601_date</a>[0..1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code><br>
+<br>
+<em>Pre_has_terminology</em>: <code>has_terminology(terminology_id)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return True if the term with code <code><em>code</em></code> is known in the terminology with identifier <code><em>terminology_id</em></code>. If <code><em>at_date</em></code> is specified, the response indicates that the code was present in the terminology at the date.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_term</strong> (<br>
+terminology_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
+code: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
+attributes: <code><a href="/releases/BASE/latest/foundation_types.html#_hash_class">Hash<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_string_class">String</sup></a>, <a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>&gt;[0..1]</code>,<br>
+at_date: <code><a href="/releases/BASE/latest/foundation_types.html#_iso8601_date_class" target="_blank" rel="noopener">Iso8601_date</a>[0..1]</code><br>
+): <code><a href="/releases/BASE/latest/base_types.html#_terminology_extract_class" target="_blank" rel="noopener">Terminology_extract</a></code><br>
+<br>
+<em>Pre_has_terminology</em>: <code>has_terminology(terminology_id)</code><br>
+<em>Pre_has_term</em>: <code>has_term (terminology_id, code)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Retrieve a term definition from a terminology, including particular attributes i.e. <code>Term_relationships</code>. If <code><em>at_date</em></code> is specified, the response is the definition of the term as it was on a certain date.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subsumes</strong> (<br>
+terminology_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
+ref_code: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
+candidate_child_code: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code><br>
+<br>
+<em>Pre_has_terminology</em>: <code>has_terminology(terminology_id)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return True if <code><em>candidate_child_code</em></code> is in the strict subsumption of <code><em>ref_code</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value_set_validate</strong> (<br>
+terminology_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
+value_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
+candidate_code: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
+at_date: <code><a href="/releases/BASE/latest/foundation_types.html#_iso8601_date_class" target="_blank" rel="noopener">Iso8601_date</a>[0..1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code><br>
+<br>
+<em>Pre_has_terminology</em>: <code>has_terminology(terminology_id)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return True if <code><em>candidate_code</em></code> is in the value set identified by <code><em>value_set_id</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_value_set</strong> (<br>
+terminology_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
+value_set_code: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return True if this terminology service has a value-set identified by <code><em>value_set_code</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_value_set</strong> (<br>
+terminology_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
+value_set_code: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/base_types.html#_terminology_extract_class" target="_blank" rel="noopener">Terminology_extract</a></code><br>
+<br>
+<em>Pre_has_terminology</em>: <code>has_terminology(terminology_id)</code><br>
+<em>Pre_has_value_set</em>: <code>has_value_set (terminology_id, value_set_code)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Retrieve a value-set identified by <code><em>value_set_code</em></code>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_admin_service"><a class="anchor" href="#_admin_service"></a>12. Admin Service</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_overview_11"><a class="anchor" href="#_overview_11"></a>12.1. Overview</h3>
 <div class="paragraph">
 <p>The <code>platform.interface.admin</code> package shown below defines service interface to the <code>ADMIN</code> component in the logical platform architecture.</p>
 </div>
@@ -5446,13 +5608,13 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 <div class="content">
 <img src="UML/diagrams/SM-platform.interface.admin.svg" alt="SM platform.interface.admin">
 </div>
-<div class="title">Figure 12. <code>sm.platform.interface.admin</code> package</div>
+<div class="title">Figure 13. <code>sm.platform.interface.admin</code> package</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_class_definitions_9"><a class="anchor" href="#_class_definitions_9"></a>11.2. Class Definitions</h3>
+<h3 id="_class_definitions_10"><a class="anchor" href="#_class_definitions_10"></a>12.2. Class Definitions</h3>
 <div class="sect3">
-<h4 id="_i_admin_service_interface"><a class="anchor" href="#_i_admin_service_interface"></a>11.2.1. I_ADMIN_SERVICE Interface</h4>
+<h4 id="_i_admin_service_interface"><a class="anchor" href="#_i_admin_service_interface"></a>12.2.1. I_ADMIN_SERVICE Interface</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5568,7 +5730,7 @@ a_party_id: <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" ta
 </table>
 </div>
 <div class="sect3">
-<h4 id="_i_admin_archive_interface"><a class="anchor" href="#_i_admin_archive_interface"></a>11.2.2. I_ADMIN_ARCHIVE Interface</h4>
+<h4 id="_i_admin_archive_interface"><a class="anchor" href="#_i_admin_archive_interface"></a>12.2.2. I_ADMIN_ARCHIVE Interface</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5629,7 +5791,7 @@ party_ids: <code><a href="/releases/BASE/latest/foundation_types.html#_list_clas
 </table>
 </div>
 <div class="sect3">
-<h4 id="_i_admin_dump_load_interface"><a class="anchor" href="#_i_admin_dump_load_interface"></a>11.2.3. I_ADMIN_DUMP_LOAD Interface</h4>
+<h4 id="_i_admin_dump_load_interface"><a class="anchor" href="#_i_admin_dump_load_interface"></a>12.2.3. I_ADMIN_DUMP_LOAD Interface</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5706,7 +5868,7 @@ file_sys_loc: <code><a href="/releases/BASE/latest/foundation_types.html#_string
 </table>
 </div>
 <div class="sect3">
-<h4 id="_dump_load_fail_report_class"><a class="anchor" href="#_dump_load_fail_report_class"></a>11.2.4. DUMP_LOAD_FAIL_REPORT Class</h4>
+<h4 id="_dump_load_fail_report_class"><a class="anchor" href="#_dump_load_fail_report_class"></a>12.2.4. DUMP_LOAD_FAIL_REPORT Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5761,7 +5923,7 @@ file_sys_loc: <code><a href="/releases/BASE/latest/foundation_types.html#_string
 </table>
 </div>
 <div class="sect3">
-<h4 id="_export_spec_class"><a class="anchor" href="#_export_spec_class"></a>11.2.5. EXPORT_SPEC Class</h4>
+<h4 id="_export_spec_class"><a class="anchor" href="#_export_spec_class"></a>12.2.5. EXPORT_SPEC Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
