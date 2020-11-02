@@ -25,7 +25,7 @@ a|Return True if this server has a terminology with the identifier `_terminology
 h|*1..1*
 |*get_terminology_description* ( +
 terminology_id: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]` +
-): `link:/releases/BASE/{base_release}/base_types.html#_terminology_description_class[Terminology_description^]` +
+): `<<_terminology_description_class,Terminology_description>>` +
  +
 __Pre_has_terminology__: `has_terminology(terminology_id)`
 a|Get the description object for the terminology with identifier `_terminology_id_`.
@@ -46,7 +46,7 @@ terminology_id: `link:/releases/BASE/{base_release}/foundation_types.html#_strin
 code: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]`, +
 attributes: `link:/releases/BASE/{base_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^], link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]>[0..1]`, +
 at_date: `link:/releases/BASE/{base_release}/foundation_types.html#_iso8601_date_class[Iso8601_date^][0..1]` +
-): `link:/releases/BASE/{base_release}/base_types.html#_terminology_extract_class[Terminology_extract^]` +
+): `<<_terminology_extract_class,Terminology_extract>>` +
  +
 __Pre_has_terminology__: `has_terminology(terminology_id)` +
 __Pre_has_term__: `has_term (terminology_id, code)`
@@ -84,7 +84,7 @@ h|*1..1*
 |*get_value_set* ( +
 terminology_id: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]`, +
 value_set_code: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]` +
-): `link:/releases/BASE/{base_release}/base_types.html#_terminology_extract_class[Terminology_extract^]` +
+): `<<_terminology_extract_class,Terminology_extract>>` +
  +
 __Pre_has_terminology__: `has_terminology(terminology_id)` +
 __Pre_has_value_set__: `has_value_set (terminology_id, value_set_code)`
