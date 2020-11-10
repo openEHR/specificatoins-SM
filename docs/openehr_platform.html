@@ -154,22 +154,38 @@
 </li>
 <li><a href="#_subject_proxy_service">10. Subject Proxy Service</a>
 <ul class="sectlevel2">
-<li><a href="#_overview_9">10.1. Overview</a></li>
-<li><a href="#_data_set_package">10.2. Data-set Package</a></li>
-<li><a href="#_specifying_a_data_set">10.3. Specifying a Data-set</a></li>
+<li><a href="#_overview_9">10.1. Overview</a>
+<ul class="sectlevel3">
+<li><a href="#_semantic_reframing_from_the_general_and_epistemic_to_the_ontic_and_use_specific">10.1.1. Semantic Reframing: from the General and Epistemic to the Ontic and Use-specific</a></li>
+<li><a href="#_manually_reported_and_missing_data">10.1.2. Manually Reported and Missing Data</a></li>
+<li><a href="#_type_system_conversion">10.1.3. Type System Conversion</a></li>
+<li><a href="#_the_temporal_dimension_currency">10.1.4. The Temporal Dimension: Currency</a></li>
+</ul>
+</li>
+<li><a href="#_usage_and_data_structures">10.2. Usage and Data Structures</a></li>
+<li><a href="#_bindings">10.3. Bindings</a>
+<ul class="sectlevel3">
+<li><a href="#_specifying_a_data_set">10.3.1. Specifying a Data-set</a></li>
+<li><a href="#_specifying_a_binding">10.3.2. Specifying a Binding</a></li>
+</ul>
+</li>
 <li><a href="#_class_definitions_8">10.4. Class Definitions</a>
 <ul class="sectlevel3">
 <li><a href="#_i_subject_proxy_service_interface">10.4.1. I_SUBJECT_PROXY_SERVICE Interface</a></li>
-<li><a href="#_data_set_def_class">10.4.2. DATA_SET_DEF Class</a></li>
-<li><a href="#_variable_def_class">10.4.3. VARIABLE_DEF Class</a></li>
-<li><a href="#_data_retrieve_frame_class">10.4.4. DATA_RETRIEVE_FRAME Class</a></li>
-<li><a href="#_data_retrieve_history_class">10.4.5. DATA_RETRIEVE_HISTORY Class</a></li>
-<li><a href="#_data_retrieve_sample_class">10.4.6. DATA_RETRIEVE_SAMPLE Class</a></li>
-<li><a href="#_data_set_result_class">10.4.7. DATA_SET_RESULT Class</a></li>
-<li><a href="#_variable_value_class">10.4.8. VARIABLE_VALUE Class</a></li>
-<li><a href="#_variable_value_single_class">10.4.9. VARIABLE_VALUE_SINGLE Class</a></li>
-<li><a href="#_variable_value_list_class">10.4.10. VARIABLE_VALUE_LIST Class</a></li>
-<li><a href="#_variable_value_time_series_class">10.4.11. VARIABLE_VALUE_TIME_SERIES Class</a></li>
+<li><a href="#_subject_proxy_class">10.4.2. SUBJECT_PROXY Class</a></li>
+<li><a href="#_subject_variable_class">10.4.3. SUBJECT_VARIABLE Class</a></li>
+<li><a href="#_subject_app_data_set_class">10.4.4. SUBJECT_APP_DATA_SET Class</a></li>
+<li><a href="#_data_set_result_class">10.4.5. DATA_SET_RESULT Class</a></li>
+<li><a href="#_sample_class">10.4.6. SAMPLE Class</a></li>
+<li><a href="#_result_set_sample_class">10.4.7. RESULT_SET_SAMPLE Class</a></li>
+<li><a href="#_variable_sample_class">10.4.8. VARIABLE_SAMPLE Class</a></li>
+<li><a href="#_variable_value_class">10.4.9. VARIABLE_VALUE Class</a></li>
+<li><a href="#_variable_value_single_class">10.4.10. VARIABLE_VALUE_SINGLE Class</a></li>
+<li><a href="#_variable_value_list_class">10.4.11. VARIABLE_VALUE_LIST Class</a></li>
+<li><a href="#_variable_value_time_series_class">10.4.12. VARIABLE_VALUE_TIME_SERIES Class</a></li>
+<li><a href="#_i_data_binding_interface">10.4.13. I_DATA_BINDING Interface</a></li>
+<li><a href="#_env_binding_class">10.4.14. ENV_BINDING Class</a></li>
+<li><a href="#_variable_binding_class">10.4.15. VARIABLE_BINDING Class</a></li>
 </ul>
 </li>
 </ul>
@@ -4441,6 +4457,10 @@ ehr_ids: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class"
 </div></div></td>
 </tr>
 <tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="/releases/BASE/latest/foundation_types.html#_any_class" target="_blank" rel="noopener">Any</a></code></p></td>
+</tr>
+<tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
@@ -4732,7 +4752,7 @@ tdd: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" t
 <div class="sect2">
 <h3 id="_overview_9"><a class="anchor" href="#_overview_9"></a>10.1. Overview</h3>
 <div class="paragraph">
-<p>The <code>platform.interface.subject_proxy</code> package shown below defines service interface for the <code>SUBJECT_PROXY</code> component in the logical platform architecture.</p>
+<p>The <code>platform.interface.subject_proxy</code> package shown below defines the service interface and related information structures for the <code>SUBJECT_PROXY</code> service in the openEHR platform architecture. This service allows real world variables characterising the state of a <em>subject</em>, which is usually a patient, but may be some other entity, to be tracked over time. The subject is registered in the service.</p>
 </div>
 <div id="platform_interface_subject_proxy" class="imageblock text-center text-center">
 <div class="content">
@@ -4741,78 +4761,238 @@ tdd: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" t
 <div class="title">Figure 11. <code>sm.platform.interface.subject_proxy</code> package</div>
 </div>
 <div class="paragraph">
-<p>This service allows applications to register <em>data-sets</em> used to aggregate data from one or more platform data sources, via their respective services into a coherent set of subject-focused data items required by an application. After registration in the service, data retrievals (e.g. queries or other API calls) are executed by the service, possibly repeated over time, to obtain values sufficiently <em>current</em> for the application&#8217;s needs. The service provides methods to retrieve single variable values or full data-sets.</p>
+<p>The Subject Proxy Service performs a number of jobs, which taken together, have the effect of 'lifting' data from the typically complex IT environment, and converting it to a clean representation of specific subject attributes relevant to specific applications, including Plan workflows and Decision Support. These jobs are described below.</p>
+</div>
+<div class="sect3">
+<h4 id="_semantic_reframing_from_the_general_and_epistemic_to_the_ontic_and_use_specific"><a class="anchor" href="#_semantic_reframing_from_the_general_and_epistemic_to_the_ontic_and_use_specific"></a>10.1.1. Semantic Reframing: from the General and Epistemic to the Ontic and Use-specific</h4>
+<div class="paragraph">
+<p>The relationship between guidelines and data exhibits a number of semantic characteristics that lead to the concept of the Subject Proxy as an independent interfacing service.</p>
+</div>
+<div class="paragraph">
+<p>In order to define a care pathway or guideline (possibly adapted into a patient-specific care plan), various subject state variables and events are needed. Since guidelines are specific to purpose, the number of variables is typically low, and for many simpler guidelines, as few as three or four. Many guidelines need access to common variables such as 'sex', 'age', basic clinical classifiers such as 'is diabetic', 'is pregnant' and then a relatively small number of condition-specific variables representing patient state (e.g. 'neutrophils', 'ldl') and specific diagnoses (e.g. 'eclampsia', 'gestational hypertension'). A guideline of medium complexity, such as for RCHOPS (non-Hodgkins lymphoma) chemotherapy needs around 20 variables, and a complex guideline such as for sepsis might need 50 - 100.</p>
+</div>
+<div class="paragraph">
+<p>These small numbers are in contrast to the total number of distinct types of data point that will be routinely recorded for an average subject over long periods and relating to all conditions, which is in the O(1k) range, or the number of such data points recorded for a population, e.g. all inpatients + outpatients of a large hospital, which is O(10k). The latter corresponds to the variety of data that a general EMR product would need to cope with. The 'data sets' for specific guidelines are thus small and well-defined in comparison to the data generally captured within a patient record over time, and thus candidates for encapsulation.</p>
+</div>
+<div class="paragraph">
+<p>Data set size is not the only distinguishing characteristic of a computable guideline. Where variables such as 'systolic blood pressure', 'is diabetic' and so on are mentioned in guidelines, they are intended to refer to the real patient state or history, i.e. they are references to values representing <em>ontic</em> entities, independent of how they might be obtained or stored. This is in contrast with the view of data where it is captured in health records or documents, which is an <em>epistemic</em> one, i.e. the result of a knowledge capture activity. Consequently, a query into a departmental hospital system asking if patient 150009 is diabetic, indicates that the patient is diabetic in the case of a positive answer, but otherwise probably doesn&#8217;t indicate anything, since the full list of patient 150009&#8217;s problems is often not found in departmental systems.</p>
+</div>
+<div class="paragraph">
+<p>A query into any particular epistemic resource, i.e. a particular database, health record system or document only indicates what is known about the subject <em>by that system</em>. A true picture of the patient state can be approximated by access to all available data stores (e.g. hospital and GP EMR systems), assuming some are of reasonable quality, and is further improved by access to real-time device data (e.g. monitors connected to the patient while in hospital, but also at home). The best approximation of the ontic situation of the patient will be from the sum of all such sources plus 'carers in the room' who can report events as they unfold (patient going into cardiac arrest), and the patient herself, who is sometimes the only reliable origin of certain facts.</p>
+</div>
+<div class="paragraph">
+<p>This epistemic <em>coverage problem</em> indicates a need which may be addressed with the Subject Proxy, which is to act as a data 'concentrator', obtaining relevant data from all epistemic sources including live actors to obtain a usable approximation of true patient state. This is a practical thing to do at the guideline / plan level by virtue of the small sizes of the variable sets. The data concentrator function is described in more detail below.</p>
+</div>
+<div class="paragraph">
+<p>Comprehensive coverage of all possible sources is not the only problem to solve in order to define variables for use in guidelines and plans. In formal terms, symbolic references appearing at different levels in the environment have different semantics. Within the EHR system S1 for example, a generic API call <code>has_diagnosis(pat_id, x)</code> has the meaning: 'indicates whether patient P is known to have diagnosis x, according to S1'. However, within a guideline related to pregnancy, a variable <code>is_diabetic</code> defined in a Subject Proxy is more convenient, and is intended to represent the true diabetic state (or not) of the patient. The SPO thus not only has the effect of data concentration in order to extract a true ontic picture of the subject, but it reifies technical data access calls into ontic variables, specific to the guideline. In some cases, such variables might have pre-coordinated names such as <code>previous_history_of_eclampsia</code>, combining a temporal region with a substantive state.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_manually_reported_and_missing_data"><a class="anchor" href="#_manually_reported_and_missing_data"></a>10.1.2. Manually Reported and Missing Data</h4>
+<div class="paragraph">
+<p>A Subject Proxy acts as a <em>data concentrator</em>, providing a single interface to all available sources of information about the subject. In a typical in-patient or live-encounter (e.g. GP visit) situation, these include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the EMR system providing the institutional patient record;</p>
+</li>
+<li>
+<p>any shared (e.g. regional or national) EHR system providing e.g. summary and/or emergency data;</p>
+</li>
+<li>
+<p>devices attached to the patient, e.g. vital signs, pulse oximeter etc.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In many cases, a variable required by an application, e.g. sufficiently recent patient weight, is not available from the EMR/EHR or from any other source. This is a common problem in all decision support environments, and the usual solution is that an application window is displayed to ask the clinician for the data directly. This may be entered (e.g. after weighing the patient or asking the patient for his last weight), saved into the EMR, and the original request retried. Traditionally, this data request 'loop' has been engineered into either the main EMR application or into the decision support component. It is however a general problem and can be conveniently solved in a generic way using the Subject Proxy.</p>
+</div>
+<div class="paragraph">
+<p>Further, there are some subject state variables and particularly events that are only available 'live' from clinicians working with the patient, e.g. state of consciousness, occurrence of a post-heart surgery heart attack (requiring emergency cardiac shock and/or re-sternotomy), haemorrhage during childbirth etc. Such events can only be realistically asserted 'in the room' by a clinician, potentially via a voice interface.</p>
+</div>
+<div class="paragraph">
+<p>Consequently, we can say that the following constitute two more routine data sources for a Subject Proxy:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>just-in-time UI capture of missing data;</p>
+</li>
+<li>
+<p><em>manually-reported</em> events 'in the room'.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The effect of data concentration in the Subject Proxy is that the plan, decision support, and all other applications can rely on a single location to obtain patient state and events, even where the relevant underlying data are not (yet) available in source systems. Additionally, such 'live' data obtained by sich methods may be written to the relevant EMR and/or EHR by the Subject Proxy, removing the problem of other applications having to make ad hoc writes, following ad hoc data capture.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_type_system_conversion"><a class="anchor" href="#_type_system_conversion"></a>10.1.3. Type System Conversion</h4>
+<div class="paragraph">
+<p>A natural consequence of obtaining data from multiple sources is that the data will be instances different concrete concrete models (e.g. HL7 messages, documents and FHIR resources; openEHR query results; proprietary EMR data etc). It is also the case that the requesting plan-oriented and decision-support applications can work effectively with a relatively stripped down system of data types and limited structures. The latter is due to the fact that although data tend to be captured in larger structures such as full blood panels, full vital sign data sets and so on, guidelines and plans tend to require only specific lab analytes (e.g. troponin for investigating possible heart attack) and vital signs, e.g. systolic blood pressure (no need for diastolic pressure, patient position or other details).</p>
+</div>
+<div class="paragraph">
+<p>The consequence of this is that the type system required at the Subject Proxy level may be significantly simplified compared to the type systems and structures in which data are originally captured. The use of an SPO as the interface for decision support and plan applications to back-end systems greatly simplifies the artifacts needed in the latter components.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_temporal_dimension_currency"><a class="anchor" href="#_the_temporal_dimension_currency"></a>10.1.4. The Temporal Dimension: Currency</h4>
+<div class="paragraph">
+<p>Another common problem traditionally handled by individual applications, including decision-support, is the <em>currency</em> of data, i.e. its 'recency'. Some variables such as body height are sufficiently current even when measured years earlier, while others such as oxygen saturation and heart rate need to be less than a minute old to be useful. To obtain valid values, applications often implement a scheme based on polling, automated server-side 'push' query execution, publish-subscribe or other mechanisms to obtain current data. None of this funcionality can really be avoided, but the Subject Proxy provides a single place to locate it, such that client applications simply access the SPO variables they need, and the SPO takes care of the update problem.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_data_set_package"><a class="anchor" href="#_data_set_package"></a>10.2. Data-set Package</h3>
+<h3 id="_usage_and_data_structures"><a class="anchor" href="#_usage_and_data_structures"></a>10.2. Usage and Data Structures</h3>
 <div class="paragraph">
-<p>The <code>data_set</code> package shown above defines the representation of <em>data-sets</em> in the Subject proxy service. A data-set is understood as a logical collection of data variables relating to a <em>subject</em>, normally a subject of care, but may be any entity. The data-set is defined in terms of <em>data-set definition</em> (<code>DATA_SET_DEF</code>) and <em>data retrieve frames</em> (<code>DATA_RETRIEVE_FRAME</code>) structures, the latter of which specify how groups of data items are obtained from services in the current system environment.</p>
+<p>The data structures used by the Subject Proxy Service are shown below.</p>
+</div>
+<div id="platform_interface_subject_proxy_structure" class="imageblock text-center text-center">
+<div class="content">
+<img src="UML/diagrams/SM-platform.interface.subject_proxy-structure.svg" alt="SM platform.interface.subject proxy structure">
+</div>
+<div class="title">Figure 12. Subject Proxy structures</div>
 </div>
 <div class="paragraph">
-<p>Each retrieve frame corresponds to a set of data available from a single source, and having the same a datcurrency, i.e. 'freshness'. Different retrieve frames are used to access different systems and/or to execute distinct queries. A data-set may therefore have associated a number of data retrieve frames in order to populate all of its variables.</p>
+<p>The usage of the service follows the general pattern:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>register a subject, typically a patient, but may be any other tracked entity, including devices, sites;</p>
+</li>
+<li>
+<p>add variable definitions to a subject;</p>
+</li>
+<li>
+<p>register a binding for an environment, consisting of concrete methods for retrieving and converting data from back-end systems to its variable form.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>When a data-set is installed, the data retrieve frames are executed on a basis determined by the implementation, causing a history of retrieve sample(s) to be created, each of which contains the raw results of an actual retrieval. This enables subsequent calls to the service 'get' methods (<code><em>get_variable</em>()</code> and <code><em>get_data_set</em>()</code>) to extract variable values from the raw data.</p>
+<p>The calling sequence to achieve this is of the logical form:</p>
 </div>
-<div class="paragraph tbd">
-<p>TBD: details on different return data structures.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span><span class="tok-c1">//</span>
+<span class="tok-c1">// populated in caller</span>
+<span class="tok-c1">//</span>
+<span class="tok-n">sps</span><span class="tok-p">:</span> <span class="tok-n">I_SUBJECT_PROXY_SERVICE</span><span class="tok-p">;</span>
+<span class="tok-n">var1</span><span class="tok-p">,</span> <span class="tok-n">var2</span><span class="tok-p">,</span> <span class="tok-n">var3</span><span class="tok-p">:</span> <span class="tok-n">SUBJECT_VARIABLE</span><span class="tok-p">;</span>
+<span class="tok-n">env_binding1</span><span class="tok-p">:</span> <span class="tok-n">ENV_BINDING</span><span class="tok-p">;</span>
+
+<span class="tok-c1">//</span>
+<span class="tok-c1">// calls to Subject Proxy Service</span>
+<span class="tok-c1">//</span>
+<span class="tok-n">register_binding</span> <span class="tok-p">(</span><span class="tok-n">env_binding1</span><span class="tok-p">);</span>
+
+<span class="tok-n">sps</span><span class="tok-p">.</span><span class="tok-n">register_subject</span> <span class="tok-p">(</span><span class="tok-s">&quot;1394850&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;individual&quot;</span><span class="tok-p">);</span>
+<span class="tok-n">sps</span><span class="tok-p">.</span><span class="tok-n">add_subject_variable</span> <span class="tok-p">(</span><span class="tok-s">&quot;1394850&quot;</span><span class="tok-p">,</span> <span class="tok-n">var1</span><span class="tok-p">);</span>
+<span class="tok-n">sps</span><span class="tok-p">.</span><span class="tok-n">add_subject_variable</span> <span class="tok-p">(</span><span class="tok-s">&quot;1394850&quot;</span><span class="tok-p">,</span> <span class="tok-n">var2</span><span class="tok-p">);</span>
+<span class="tok-n">sps</span><span class="tok-p">.</span><span class="tok-n">add_subject_variable</span> <span class="tok-p">(</span><span class="tok-s">&quot;1394850&quot;</span><span class="tok-p">,</span> <span class="tok-n">var3</span><span class="tok-p">);</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The first call registers a <em>binding</em> for a specific environment. See below for how bindings are defined. The next call creates the subject in the service, while the subsequent <code><em>add_subject_variable</em></code> calls are used to build up the proxy variable set for the subject.</p>
+</div>
+<div class="paragraph">
+<p>This calling sequence suits system initialisation when specific subject proxy variables are created for global use for specific subjects. Typical variables in a healthcare IT environment include <code><em>date_of_birth</em></code> and <code><em>sex</em></code>.</p>
+</div>
+<div class="paragraph">
+<p>However many variables are defined by particular applications, including guidelines and planning applications. Accordingly, the service provides a way to register an <em>application data set</em>, i.e. a collection of subject variables, for a subject. In this case, the calling sequence will be of the following form.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="kotlin"><span></span><span class="tok-c1">//</span>
+<span class="tok-c1">// populated in caller</span>
+<span class="tok-c1">//</span>
+<span class="tok-n">sps</span><span class="tok-p">:</span> <span class="tok-n">I_SUBJECT_PROXY_SERVICE</span><span class="tok-p">;</span>
+<span class="tok-n">ds1</span><span class="tok-p">:</span> <span class="tok-n">SUBJECT_APP_DATA_SET</span><span class="tok-p">;</span>
+<span class="tok-n">env_binding1</span><span class="tok-p">:</span> <span class="tok-n">ENV_BINDING</span><span class="tok-p">;</span>
+
+<span class="tok-c1">//</span>
+<span class="tok-c1">// calls to Subject Proxy Service</span>
+<span class="tok-c1">//</span>
+<span class="tok-n">sps</span><span class="tok-p">.</span><span class="tok-n">register_binding</span> <span class="tok-p">(</span><span class="tok-n">env_binding1</span><span class="tok-p">);</span>
+
+<span class="tok-n">sps</span><span class="tok-p">.</span><span class="tok-n">register_subject</span> <span class="tok-p">(</span><span class="tok-s">&quot;1394850&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;individual&quot;</span><span class="tok-p">);</span>
+<span class="tok-n">sps</span><span class="tok-p">.</span><span class="tok-n">register_application_data_set</span> <span class="tok-p">(</span><span class="tok-n">ds1</span><span class="tok-p">);</span>
+<span class="tok-n">sps</span><span class="tok-p">.</span><span class="tok-n">register_application_data_set</span> <span class="tok-p">(</span><span class="tok-n">ds1</span><span class="tok-p">);</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this sequence, the subject variables are established via calls to <code><em>register_application_data_set</em></code>, each of which will cause the addition or modification of subject variables not already defined for the subject. When use of an application or subject ceases, the relevant data sets can be removed easily via the various <code><em>remove_xx</em></code> calls.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_specifying_a_data_set"><a class="anchor" href="#_specifying_a_data_set"></a>10.3. Specifying a Data-set</h3>
+<h3 id="_bindings"><a class="anchor" href="#_bindings"></a>10.3. Bindings</h3>
+<div class="paragraph">
+<p>xxx.</p>
+</div>
+<div class="sect3">
+<h4 id="_specifying_a_data_set"><a class="anchor" href="#_specifying_a_data_set"></a>10.3.1. Specifying a Data-set</h4>
 <div class="paragraph">
 <p>A data set specification would be provided through a REST API as a text specification, e.g. in JSON or YAML. Such a specification might be derived from an <a href="https://specifications.openehr.org/releases/PROC/latest/decision_language.html" target="_blank" rel="noopener">openEHR Decision Language Modules</a>, or some other source. An example is shown below.</p>
+</div>
+<div class="paragraph">
+<p>TO BE REWRITTEN</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="yaml"><span></span><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">data_set</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-kt">!!DATA_SET_DEF</span>
-    <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">id</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">antenatal_1.v1.0.3</span>
-    <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">subject_id</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">137284657</span>
+    <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">antenatal_1.v1.0.3</span>
     <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">creating_app_id</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">task_planning</span>
     <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">variables</span><span class="tok-p tok-p-Indicator">:</span>
         <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">date_of_birth</span>
           <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">type_name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">Date</span>
-          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">source_frame_id</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">basic_admin</span>
-          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">source_frame_path</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">/path/to/dob</span>
 
         <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">systolic_bp</span>
           <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">type_name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">Quantity</span>
           <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">currency</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">PT2m</span>
-          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">source_frame_id</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">bp_obs</span>
-          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">source_frame_path</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">/data[id2]/events[id7]/data[id4]/items[id5]</span>
 
         <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">diastolic_bp</span>
           <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">type_name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">Quantity</span>
           <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">currency</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">PT2m</span>
-          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">source_frame_id</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">bp_obs</span>
-          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">source_frame_path</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">/data[id2]/events[id7]/data[id4]/items[id6]</span>
 
         <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">is_type1_diabetic</span>
-          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">type_name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">Boolean</span>
-          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">source_frame_id</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">diagnoses</span>
-          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">source_frame_path</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">/data[id2]/items[id3]</span>
-
-    <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">retrieve_frames</span><span class="tok-p tok-p-Indicator">:</span>
-        <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">id</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">basic_admin</span>
-          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">retrieve_method</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-kt">!!API_CALL</span>
+          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">type_name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">Boolean</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_specifying_a_binding"><a class="anchor" href="#_specifying_a_binding"></a>10.3.2. Specifying a Binding</h4>
+<div class="paragraph">
+<p>xxx</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="yaml"><span></span><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">binding</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-kt">!!ENV_BINDING</span>
+    <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">variable_bindings</span><span class="tok-p tok-p-Indicator">:</span>
+        <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">date_of_birth</span>
+          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">type_name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">Date</span>
+          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">primary_method</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-kt">!!API_CALL</span>
               <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">system_id</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">pas3.nhs.org.uk</span>
               <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">call_name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">fhir_admin_request</span>
               <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">parameters</span><span class="tok-p tok-p-Indicator">:</span>
                   <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">xxxx</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">abc</span>
                   <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">yyyy</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">def</span>
 
-        <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">id</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">bp_obs</span>
-          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">retrieve_method</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-kt">!!QUERY_CALL</span>
+        <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">systolic_bp</span>
+          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">type_name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">Quantity</span>
+          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">primary_method</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-kt">!!QUERY_CALL</span>
               <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">system_id</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">ehr1.nhs.org.uk</span>
               <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">call_name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">aql_execute</span>
               <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">query_text</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">xxxx</span>
 
-        <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">id</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">diagnoses</span>
-          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">retrieve_method</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-kt">!!QUERY_CALL</span>
+        <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">is_type1_diabetic</span>
+          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">type_name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">Boolean</span>
+          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">primary_method</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-kt">!!QUERY_CALL</span>
               <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">system_id</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">ehr1.nhs.org.uk</span>
               <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">call_name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">aql_execute</span>
               <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">query_text</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">xxxx</span></code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -4834,7 +5014,7 @@ tdd: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" t
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Service that populates data-sets registered for subjects by applications.</p>
+<p>Service that maintains subject 'proxies' consisting of variables, and also enables applications to associate data-sets with subject variables.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -4844,18 +5024,58 @@ tdd: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" t
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>register_data_set</strong> (<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>register_subject</strong> (<br>
 subject_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
-application_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
-definition: <code><a href="#_data_set_def_class">DATA_SET_DEF</a>[1]</code><br>
+subject_category: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[0..1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Register a new data-set for a subject by an application.</p>
+<p>Register a new subject. The subject category may also be specified, otherwise it will be the default category.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>remove_data_set</strong> (<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add_subject_variable</strong> (<br>
+subject_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
+var: <code><a href="#_subject_variable_class">SUBJECT_VARIABLE</a>[1]</code><br>
+)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Add a new subject variable definition to the proxy for <code><em>subject_id</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>register_binding</strong> (<br>
+binding: <code><a href="#_env_binding_class">ENV_BINDING</a>[1]</code><br>
+)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Register a binding for an environment, consisting of a set of variable bindings, each including method(s) for data retrieval to populate the related variable</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add_binding_variable</strong> (<br>
+env_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
+var: <code><a href="#_variable_binding_class">VARIABLE_BINDING</a>[1]</code><br>
+)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Add a variable binding to the binding for an environment.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>register_application_data_set</strong> (<br>
+definition: <code><a href="#_subject_app_data_set_class">SUBJECT_APP_DATA_SET</a>[1]</code><br>
+)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Register a data-set consisting of a set of subject variable for an existing subject by an application.</p>
+</div>
+<div class="paragraph">
+<p>This may have the effect of creating new subject variables, reducing the currency of existing subject variables, if the currency is lower in the corresponding data set variable, or making no change for variables that already exist.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>remove_application_data_set</strong> (<br>
 subject_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
 application_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code><br>
 )</p></td>
@@ -4869,7 +5089,7 @@ application_id: <code><a href="/releases/BASE/latest/foundation_types.html#_stri
 subject_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Remove all data-sets for <code><em>subject_id</em></code>.</p>
+<p>Remove proxy and any data-sets for an existing subject.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -4878,14 +5098,13 @@ subject_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_c
 application_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Remove all data-sets for <code><em>application_id</em></code>.</p>
+<p>Remove all data-sets for <code><em>application_id</em></code>, across all subjects.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_variable</strong> (<br>
 subject_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
-data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
 var_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code><br>
 ): <code><a href="#_variable_value_class">VARIABLE_VALUE</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -4906,7 +5125,7 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 </table>
 </div>
 <div class="sect3">
-<h4 id="_data_set_def_class"><a class="anchor" href="#_data_set_def_class"></a>10.4.2. DATA_SET_DEF Class</h4>
+<h4 id="_subject_proxy_class"><a class="anchor" href="#_subject_proxy_class"></a>10.4.2. SUBJECT_PROXY Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4916,12 +5135,12 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DATA_SET_DEF</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>SUBJECT_PROXY</strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Data set definition for a subject, usually an individual, but may be for anything else, e.g. a clinical study. Consists of at least one <code>DATA_VARIABLE_DEF</code> and a set of <code>DATA_RETRIEVE_FRAMEs</code>, which define how to obtain the data from a particular system environment.</p>
+<p>Proxy object for subject identified by <code><em>subject_id</em></code>. The <code><em>variables</em></code> attribute is the full set of proxy variables being retrieved for this subject.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -4931,59 +5150,40 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>retrieve_frames</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_hash_class">Hash<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_string_class">String</sup></a>,<a href="#_data_retrieve_frame_class">DATA_RETRIEVE_FRAME</a>&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>id</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Unique identifier of this data set.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subject_id</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Identifier of data subject, i.e. the entity for which these data 'are about'.</p>
+<p>Identifier of data subject, i.e. the entity for which the variables 'are about'.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>creating_app_id</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>variables</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_hash_class">Hash<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_string_class">String</sup></a>,<a href="#_subject_variable_class">SUBJECT_VARIABLE</a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Identifier of creating / registering application.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>using_app_ids</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_string_class">String</sup></a>&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Optional list of identifiers of applications using this data set. May be used to track applications, and dump the data set when empty.</p>
+<p>The proxy variables for this subject.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>variables</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_hash_class">Hash<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_string_class">String</sup></a>,<a href="#_variable_def_class">VARIABLE_DEF</a>&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>create_time</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_iso8601_date_time_class" target="_blank" rel="noopener">Iso8601_date_time</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Time of creation of this proxy.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong> (): <code><a href="#_data_set_result_class">DATA_SET_RESULT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subject_category</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Iterate over all <code><em>variables</em></code> and generate a <code>DATA_SET_RESULT</code>.</p>
+<p>Category of subject, e.g. patient, other entity.</p>
+</div>
+<div class="paragraph">
+<p>TODO: currently not controlled.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_variable_def_class"><a class="anchor" href="#_variable_def_class"></a>10.4.3. VARIABLE_DEF Class</h4>
+<h4 id="_subject_variable_class"><a class="anchor" href="#_subject_variable_class"></a>10.4.3. SUBJECT_VARIABLE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -4993,12 +5193,12 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>VARIABLE_DEF</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>SUBJECT_VARIABLE</strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>One item in a data-set, corresponding to a single symbolic variable. May take various forms, including atomic, list and time series.</p>
+<p>A single subject variable whose data may take various forms, including atomic, list and time series.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -5007,10 +5207,24 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>source</strong>: <code><a href="#_data_retrieve_frame_class">DATA_RETRIEVE_FRAME</a></code></p></td>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>source</strong>: <code><a href="#_i_data_binding_interface">I_DATA_BINDING</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Source data frame, derived from <code><em>source_frame_id</em></code>. In an optimised system, may be shared with Data set items from other Data sets.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>history</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_variable_sample_class">VARIABLE_SAMPLE</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Samples constituting the retrieve history of this frame.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>last_result</strong>: <code><a href="#_result_set_sample_class">RESULT_SET_SAMPLE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Run-time created retrieval history.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -5036,23 +5250,12 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>time_window</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_interval_class">Interval<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_iso8601_date_time_class">Iso8601_date_time</sup></a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ask_user</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Time window of this variable to use in the retrieve request.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>source_frame_id</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Identifier of Data retrieve frame.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>source_frame_path</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Path within source data frame to obtain this item. If not present, the path <code>'/'</code> is assumed, i.e. the item is the sole member of a data frame which has no hierarchical structure.</p>
+<p>If set true, the service should attempt to obtain the data item from a live user.</p>
+</div>
+<div class="paragraph">
+<p>TODO: can only work if access method defined.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -5062,7 +5265,7 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong> (): <code><a href="#_variable_value_class">VARIABLE_VALUE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong> (): <code><a href="#_variable_sample_class">VARIABLE_SAMPLE</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Extract the value from the source retrieve frame, reprocessing if necessary to obtain intended type (single, list, time_series).</p>
 </div></div></td>
@@ -5071,7 +5274,7 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 </table>
 </div>
 <div class="sect3">
-<h4 id="_data_retrieve_frame_class"><a class="anchor" href="#_data_retrieve_frame_class"></a>10.4.4. DATA_RETRIEVE_FRAME Class</h4>
+<h4 id="_subject_app_data_set_class"><a class="anchor" href="#_subject_app_data_set_class"></a>10.4.4. SUBJECT_APP_DATA_SET Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5081,18 +5284,12 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DATA_RETRIEVE_FRAME</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>SUBJECT_APP_DATA_SET</strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Package of data items having the same currency and time-window, retrieved by one call or query (<code><em>retrieve_method</em></code>).</p>
-</div>
-<div class="paragraph">
-<p>Maintains a retrieve history, which consists of one or potentially more 'samples' obtained over time.</p>
-</div>
-<div class="paragraph">
-<p>In an optimised system, may serve as the source for more than one Data set variable, in which case the <code><em>currency</em></code> will be the lowest currency of all connected variables.</p>
+<p>Data set relating to a subject as used within an application.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -5102,51 +5299,61 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>id</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Unique identifier of this retrieve frame in the Subject proxy service.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>currency</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_iso8601_duration_class" target="_blank" rel="noopener">Iso8601_duration</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Required currency of this frame. If not set, only a single retrieve is needed.</p>
+<p>Unique name of this data set.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>retrieve_method</strong>: <code><a href="/releases/PROC/latest/task_planning.html#_system_call_class" target="_blank" rel="noopener">SYSTEM_CALL</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subject_id</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>System call used to perform retrieval of this data frame.</p>
+<p>Identifier of data subject, i.e. the entity for which these data 'are about'.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>creating_app_id</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Identifier of creating / registering application.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>using_app_ids</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_string_class">String</sup></a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional list of identifiers of applications using this data set. May be used to track applications, and dump the data set when empty.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>retrieve_history</strong>: <code><a href="#_data_retrieve_history_class">DATA_RETRIEVE_HISTORY</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>variables</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_hash_class">Hash<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_string_class">String</sup></a>,<a href="#_subject_variable_class">SUBJECT_VARIABLE</a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Run-time created retrieval history.</p>
+<p>Set of variable definitions in this data set.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>time_window</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_interval_class">Interval<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_iso8601_date_time_class">Iso8601_date_time</sup></a>&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Time window of this frame as an interval of time-points in past time. If not set, no time-window is used in the retrieve request.</p>
-</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>last_result</strong>: <code><a href="#_data_set_result_class">DATA_SET_RESULT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>fallback_method</strong>: <code><a href="/releases/PROC/latest/task_planning.html#_system_call_class" target="_blank" rel="noopener">SYSTEM_CALL</a></code></p></td>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong> (): <code><a href="#_data_set_result_class">DATA_SET_RESULT</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Alternative method to use if primary retrieve method fails.</p>
+<p>Iterate over all <code><em>variables</em></code> and generate a <code>DATA_SET_RESULT</code>.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_data_retrieve_history_class"><a class="anchor" href="#_data_retrieve_history_class"></a>10.4.5. DATA_RETRIEVE_HISTORY Class</h4>
+<h4 id="_data_set_result_class"><a class="anchor" href="#_data_set_result_class"></a>10.4.5. DATA_SET_RESULT Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5156,12 +5363,12 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DATA_RETRIEVE_HISTORY</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DATA_SET_RESULT</strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Sample history of this retrieve frame.</p>
+<p>Data set result consisting of full set of variable values extracted from data retrieve frame sources.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -5170,17 +5377,29 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>items</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_hash_class">Hash<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_iso8601_date_time_class">Iso8601_date_time</sup></a>,<a href="#_data_retrieve_sample_class">DATA_RETRIEVE_SAMPLE</a>&gt;</code></p></td>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Samples constituting the retrieve history of this frame.</p>
+<p>Unique name of this data set.</p>
 </div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subject_id</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Identifier of data subject, i.e. the entity for which these data 'are about'.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>variables</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_variable_sample_class">VARIABLE_SAMPLE</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_data_retrieve_sample_class"><a class="anchor" href="#_data_retrieve_sample_class"></a>10.4.6. DATA_RETRIEVE_SAMPLE Class</h4>
+<h4 id="_sample_class"><a class="anchor" href="#_sample_class"></a>10.4.6. SAMPLE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5190,7 +5409,7 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DATA_RETRIEVE_SAMPLE</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>SAMPLE&lt;T&gt;</strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
@@ -5233,7 +5452,7 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>result</strong>: <code><a href="#_result_set_class">RESULT_SET</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>result</strong>: <code>T</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Result of retrieve call execution.</p>
 </div></div></td>
@@ -5242,7 +5461,7 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 </table>
 </div>
 <div class="sect3">
-<h4 id="_data_set_result_class"><a class="anchor" href="#_data_set_result_class"></a>10.4.7. DATA_SET_RESULT Class</h4>
+<h4 id="_result_set_sample_class"><a class="anchor" href="#_result_set_sample_class"></a>10.4.7. RESULT_SET_SAMPLE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5252,13 +5471,15 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 <tbody>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DATA_SET_RESULT</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>RESULT_SET_SAMPLE</strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Data set result consisting of full set of variable values extracted from data retrieve frame sources.</p>
-</div></div></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_sample_class">SAMPLE</a></code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -5266,29 +5487,55 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>id</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>result</strong>: <code><a href="#_result_set_class">RESULT_SET</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Unique identifier of this data set.</p>
+<p>Result of retrieve call execution.</p>
 </div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subject_id</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Identifier of data subject, i.e. the entity for which these data 'are about'.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>variables</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_variable_value_class">VARIABLE_VALUE</a>&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_variable_value_class"><a class="anchor" href="#_variable_value_class"></a>10.4.8. VARIABLE_VALUE Class</h4>
+<h4 id="_variable_sample_class"><a class="anchor" href="#_variable_sample_class"></a>10.4.8. VARIABLE_SAMPLE Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>VARIABLE_SAMPLE</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_sample_class">SAMPLE</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>result</strong>: <code><a href="#_variable_value_class">VARIABLE_VALUE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Result of retrieve call execution.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_variable_value_class"><a class="anchor" href="#_variable_value_class"></a>10.4.9. VARIABLE_VALUE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5305,30 +5552,14 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>retrieve_time</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_iso8601_date_time_class" target="_blank" rel="noopener">Iso8601_date_time</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>unavailable_reason</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_unavailable</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="/releases/BASE/latest/foundation_types.html#_any_class" target="_blank" rel="noopener">Any</a></code></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_variable_value_single_class"><a class="anchor" href="#_variable_value_single_class"></a>10.4.9. VARIABLE_VALUE_SINGLE Class</h4>
+<h4 id="_variable_value_single_class"><a class="anchor" href="#_variable_value_single_class"></a>10.4.10. VARIABLE_VALUE_SINGLE Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5366,7 +5597,7 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 </table>
 </div>
 <div class="sect3">
-<h4 id="_variable_value_list_class"><a class="anchor" href="#_variable_value_list_class"></a>10.4.10. VARIABLE_VALUE_LIST Class</h4>
+<h4 id="_variable_value_list_class"><a class="anchor" href="#_variable_value_list_class"></a>10.4.11. VARIABLE_VALUE_LIST Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5407,7 +5638,7 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 </table>
 </div>
 <div class="sect3">
-<h4 id="_variable_value_time_series_class"><a class="anchor" href="#_variable_value_time_series_class"></a>10.4.11. VARIABLE_VALUE_TIME_SERIES Class</h4>
+<h4 id="_variable_value_time_series_class"><a class="anchor" href="#_variable_value_time_series_class"></a>10.4.12. VARIABLE_VALUE_TIME_SERIES Class</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -5447,6 +5678,148 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 </tbody>
 </table>
 </div>
+<div class="sect3">
+<h4 id="_i_data_binding_interface"><a class="anchor" href="#_i_data_binding_interface"></a>10.4.13. I_DATA_BINDING Interface</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Interface</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>I_DATA_BINDING</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bindings</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_env_binding_class">ENV_BINDING</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_variable</strong> (<br>
+name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
+type: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code><br>
+): <code><a href="#_result_set_sample_class">RESULT_SET_SAMPLE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_env_binding_class"><a class="anchor" href="#_env_binding_class"></a>10.4.14. ENV_BINDING Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>ENV_BINDING</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>variable_bindings</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_variable_binding_class">VARIABLE_BINDING</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>env_id</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Identifier of the environment for which this binding is designed.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_variable_binding_class"><a class="anchor" href="#_variable_binding_class"></a>10.4.15. VARIABLE_BINDING Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>VARIABLE_BINDING</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Binding</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>primary_method</strong>: <code><a href="/releases/PROC/latest/task_planning.html#_system_call_class" target="_blank" rel="noopener">SYSTEM_CALL</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>System call used to perform retrieval of this data frame.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>fallback_method</strong>: <code><a href="/releases/PROC/latest/task_planning.html#_system_call_class" target="_blank" rel="noopener">SYSTEM_CALL</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Alternative method to use if primary retrieve method fails.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Symbolic name by which this item is known in the data-set. Typically required to be a legal variable name in a programming language.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Formal type name from defining model.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_manual</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this variable is obtained by manual notification, typically from a worker observing the subject in a point of care situation.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -5462,7 +5835,7 @@ data_set_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_
 <div class="content">
 <img src="UML/diagrams/SM-platform.interface.terminology.svg" alt="SM platform.interface.terminology">
 </div>
-<div class="title">Figure 12. <code>sm.platform.interface.terminology</code> package</div>
+<div class="title">Figure 13. <code>sm.platform.interface.terminology</code> package</div>
 </div>
 </div>
 <div class="sect2">
@@ -5949,7 +6322,7 @@ code: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" 
 <div class="content">
 <img src="UML/diagrams/SM-platform.interface.admin.svg" alt="SM platform.interface.admin">
 </div>
-<div class="title">Figure 13. <code>sm.platform.interface.admin</code> package</div>
+<div class="title">Figure 14. <code>sm.platform.interface.admin</code> package</div>
 </div>
 </div>
 <div class="sect2">
@@ -6324,7 +6697,7 @@ file_sys_loc: <code><a href="/releases/BASE/latest/foundation_types.html#_string
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-10-14 17:13:41 +0100
+Last updated 2020-11-02 12:43:06 UTC
 </div>
 </div>
 <link rel="stylesheet" href="https://specifications.openehr.org/styles/pygments-default.css">

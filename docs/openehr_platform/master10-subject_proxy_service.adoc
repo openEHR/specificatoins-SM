@@ -2,75 +2,180 @@
 
 == Overview
 
-The `platform.interface.subject_proxy` package shown below defines service interface for the `SUBJECT_PROXY` component in the logical platform architecture.
+The `platform.interface.subject_proxy` package shown below defines the service interface and related information structures for the `SUBJECT_PROXY` service in the openEHR platform architecture. This service allows real world variables characterising the state of a _subject_, which is usually a patient, but may be some other entity, to be tracked over time. The subject is registered in the service.
 
 [.text-center]
 .`sm.platform.interface.subject_proxy` package
 image::{uml_diagrams_uri}/SM-platform.interface.subject_proxy.svg[id=platform_interface_subject_proxy, align="center"]
 
-This service allows applications to register _data-sets_ used to aggregate data from one or more platform data sources, via their respective services into a coherent set of subject-focused data items required by an application. After registration in the service, data retrievals (e.g. queries or other API calls) are executed by the service, possibly repeated over time, to obtain values sufficiently _current_ for the application's needs. The service provides methods to retrieve single variable values or full data-sets.
+The Subject Proxy Service performs a number of jobs, which taken together, have the effect of 'lifting' data from the typically complex IT environment, and converting it to a clean representation of specific subject attributes relevant to specific applications, including Plan workflows and Decision Support. These jobs are described below.
 
-== Data-set Package
+=== Semantic Reframing: from the General and Epistemic to the Ontic and Use-specific
 
-The `data_set` package shown above defines the representation of _data-sets_ in the Subject proxy service. A data-set is understood as a logical collection of data variables relating to a _subject_, normally a subject of care, but may be any entity. The data-set is defined in terms of _data-set definition_ (`DATA_SET_DEF`) and _data retrieve frames_ (`DATA_RETRIEVE_FRAME`) structures, the latter of which specify how groups of data items are obtained from services in the current system environment. 
+The relationship between guidelines and data exhibits a number of semantic characteristics that lead to the concept of the Subject Proxy as an independent interfacing service. 
 
-Each retrieve frame corresponds to a set of data available from a single source, and having the same a datcurrency, i.e. 'freshness'. Different retrieve frames are used to access different systems and/or to execute distinct queries. A data-set may therefore have associated a number of data retrieve frames in order to populate all of its variables.
+In order to define a care pathway or guideline (possibly adapted into a patient-specific care plan), various subject state variables and events are needed. Since guidelines are specific to purpose, the number of variables is typically low, and for many simpler guidelines, as few as three or four. Many guidelines need access to common variables such as 'sex', 'age', basic clinical classifiers such as 'is diabetic', 'is pregnant' and then a relatively small number of condition-specific variables representing patient state (e.g. 'neutrophils', 'ldl') and specific diagnoses (e.g. 'eclampsia', 'gestational hypertension'). A guideline of medium complexity, such as for RCHOPS (non-Hodgkins lymphoma) chemotherapy needs around 20 variables, and a complex guideline such as for sepsis might need 50 - 100.
 
-When a data-set is installed, the data retrieve frames are executed on a basis determined by the implementation, causing a history of retrieve sample(s) to be created, each of which contains the raw results of an actual retrieval. This enables subsequent calls to the service 'get' methods (`_get_variable_()` and `_get_data_set_()`) to extract variable values from the raw data.
+These small numbers are in contrast to the total number of distinct types of data point that will be routinely recorded for an average subject over long periods and relating to all conditions, which is in the O(1k) range, or the number of such data points recorded for a population, e.g. all inpatients + outpatients of a large hospital, which is O(10k). The latter corresponds to the variety of data that a general EMR product would need to cope with. The 'data sets' for specific guidelines are thus small and well-defined in comparison to the data generally captured within a patient record over time, and thus candidates for encapsulation.
 
-[.tbd]
-TBD: details on different return data structures.
+Data set size is not the only distinguishing characteristic of a computable guideline. Where variables such as 'systolic blood pressure', 'is diabetic' and so on are mentioned in guidelines, they are intended to refer to the real patient state or history, i.e. they are references to values representing _ontic_ entities, independent of how they might be obtained or stored. This is in contrast with the view of data where it is captured in health records or documents, which is an _epistemic_ one, i.e. the result of a knowledge capture activity. Consequently, a query into a departmental hospital system asking if patient 150009 is diabetic, indicates that the patient is diabetic in the case of a positive answer, but otherwise probably doesn't indicate anything, since the full list of patient 150009's problems is often not found in departmental systems.
 
-== Specifying a Data-set
+A query into any particular epistemic resource, i.e. a particular database, health record system or document only indicates what is known about the subject _by that system_. A true picture of the patient state can be approximated by access to all available data stores (e.g. hospital and GP EMR systems), assuming some are of reasonable quality, and is further improved by access to real-time device data (e.g. monitors connected to the patient while in hospital, but also at home). The best approximation of the ontic situation of the patient will be from the sum of all such sources plus 'carers in the room' who can report events as they unfold (patient going into cardiac arrest), and the patient herself, who is sometimes the only reliable origin of certain facts.
+
+This epistemic _coverage problem_ indicates a need which may be addressed with the Subject Proxy, which is to act as a data 'concentrator', obtaining relevant data from all epistemic sources including live actors to obtain a usable approximation of true patient state. This is a practical thing to do at the guideline / plan level by virtue of the small sizes of the variable sets. The data concentrator function is described in more detail below.
+
+Comprehensive coverage of all possible sources is not the only problem to solve in order to define variables for use in guidelines and plans. In formal terms, symbolic references appearing at different levels in the environment have different semantics. Within the EHR system S1 for example, a generic API call `has_diagnosis(pat_id, x)` has the meaning: 'indicates whether patient P is known to have diagnosis x, according to S1'. However, within a guideline related to pregnancy, a variable `is_diabetic` defined in a Subject Proxy is more convenient, and is intended to represent the true diabetic state (or not) of the patient. The SPO thus not only has the effect of data concentration in order to extract a true ontic picture of the subject, but it reifies technical data access calls into ontic variables, specific to the guideline. In some cases, such variables might have pre-coordinated names such as `previous_history_of_eclampsia`, combining a temporal region with a substantive state.
+
+=== Manually Reported and Missing Data
+
+A Subject Proxy acts as a _data concentrator_, providing a single interface to all available sources of information about the subject. In a typical in-patient or live-encounter (e.g. GP visit) situation, these include:
+
+* the EMR system providing the institutional patient record;
+* any shared (e.g. regional or national) EHR system providing e.g. summary and/or emergency data;
+* devices attached to the patient, e.g. vital signs, pulse oximeter etc.
+
+In many cases, a variable required by an application, e.g. sufficiently recent patient weight, is not available from the EMR/EHR or from any other source. This is a common problem in all decision support environments, and the usual solution is that an application window is displayed to ask the clinician for the data directly. This may be entered (e.g. after weighing the patient or asking the patient for his last weight), saved into the EMR, and the original request retried. Traditionally, this data request 'loop' has been engineered into either the main EMR application or into the decision support component. It is however a general problem and can be conveniently solved in a generic way using the Subject Proxy.
+
+Further, there are some subject state variables and particularly events that are only available 'live' from clinicians working with the patient, e.g. state of consciousness, occurrence of a post-heart surgery heart attack (requiring emergency cardiac shock and/or re-sternotomy), haemorrhage during childbirth etc. Such events can only be realistically asserted 'in the room' by a clinician, potentially via a voice interface.
+
+Consequently, we can say that the following constitute two more routine data sources for a Subject Proxy:
+
+* just-in-time UI capture of missing data;
+* _manually-reported_ events 'in the room'.
+
+The effect of data concentration in the Subject Proxy is that the plan, decision support, and all other applications can rely on a single location to obtain patient state and events, even where the relevant underlying data are not (yet) available in source systems. Additionally, such 'live' data obtained by sich methods may be written to the relevant EMR and/or EHR by the Subject Proxy, removing the problem of other applications having to make ad hoc writes, following ad hoc data capture.
+
+=== Type System Conversion
+
+A natural consequence of obtaining data from multiple sources is that the data will be instances different concrete concrete models (e.g. HL7 messages, documents and FHIR resources; openEHR query results; proprietary EMR data etc). It is also the case that the requesting plan-oriented and decision-support applications can work effectively with a relatively stripped down system of data types and limited structures. The latter is due to the fact that although data tend to be captured in larger structures such as full blood panels, full vital sign data sets and so on, guidelines and plans tend to require only specific lab analytes (e.g. troponin for investigating possible heart attack) and vital signs, e.g. systolic blood pressure (no need for diastolic pressure, patient position or other details).
+
+The consequence of this is that the type system required at the Subject Proxy level may be significantly simplified compared to the type systems and structures in which data are originally captured. The use of an SPO as the interface for decision support and plan applications to back-end systems greatly simplifies the artifacts needed in the latter components.
+
+=== The Temporal Dimension: Currency
+
+Another common problem traditionally handled by individual applications, including decision-support, is the _currency_ of data, i.e. its 'recency'. Some variables such as body height are sufficiently current even when measured years earlier, while others such as oxygen saturation and heart rate need to be less than a minute old to be useful. To obtain valid values, applications often implement a scheme based on polling, automated server-side 'push' query execution, publish-subscribe or other mechanisms to obtain current data. None of this funcionality can really be avoided, but the Subject Proxy provides a single place to locate it, such that client applications simply access the SPO variables they need, and the SPO takes care of the update problem.
+
+== Usage and Data Structures
+
+The data structures used by the Subject Proxy Service are shown below.
+
+[.text-center]
+.Subject Proxy structures
+image::{uml_diagrams_uri}/SM-platform.interface.subject_proxy-structure.svg[id=platform_interface_subject_proxy_structure, align="center"]
+
+The usage of the service follows the general pattern:
+
+* register a subject, typically a patient, but may be any other tracked entity, including devices, sites;
+* add variable definitions to a subject;
+* register a binding for an environment, consisting of concrete methods for retrieving and converting data from back-end systems to its variable form.
+
+The calling sequence to achieve this is of the logical form:
+
+[source,kotlin]
+----
+//
+// populated in caller
+//
+sps: I_SUBJECT_PROXY_SERVICE;
+var1, var2, var3: SUBJECT_VARIABLE;
+env_binding1: ENV_BINDING;
+
+//
+// calls to Subject Proxy Service
+//
+register_binding (env_binding1);
+
+sps.register_subject ("1394850", "individual");
+sps.add_subject_variable ("1394850", var1);
+sps.add_subject_variable ("1394850", var2);
+sps.add_subject_variable ("1394850", var3);
+----
+
+The first call registers a _binding_ for a specific environment. See below for how bindings are defined. The next call creates the subject in the service, while the subsequent `_add_subject_variable_` calls are used to build up the proxy variable set for the subject. 
+
+This calling sequence suits system initialisation when specific subject proxy variables are created for global use for specific subjects. Typical variables in a healthcare IT environment include `_date_of_birth_` and `_sex_`.
+
+However many variables are defined by particular applications, including guidelines and planning applications. Accordingly, the service provides a way to register an _application data set_, i.e. a collection of subject variables, for a subject. In this case, the calling sequence will be of the following form.
+
+[source,kotlin]
+----
+//
+// populated in caller
+//
+sps: I_SUBJECT_PROXY_SERVICE;
+ds1: SUBJECT_APP_DATA_SET;
+env_binding1: ENV_BINDING;
+
+//
+// calls to Subject Proxy Service
+//
+sps.register_binding (env_binding1);
+
+sps.register_subject ("1394850", "individual");
+sps.register_application_data_set (ds1);
+sps.register_application_data_set (ds1);
+----
+
+In this sequence, the subject variables are established via calls to `_register_application_data_set_`, each of which will cause the addition or modification of subject variables not already defined for the subject. When use of an application or subject ceases, the relevant data sets can be removed easily via the various `_remove_xx_` calls.
+
+== Bindings
+
+xxx.
+
+=== Specifying a Data-set
 
 A data set specification would be provided through a REST API as a text specification, e.g. in JSON or YAML. Such a specification might be derived from an {openehr_decision_language}[openEHR Decision Language Modules^], or some other source. An example is shown below.
+
+TO BE REWRITTEN
 
 [source,yaml]
 ----
 data_set: !!DATA_SET_DEF
-    id: antenatal_1.v1.0.3
-    subject_id: 137284657
+    name: antenatal_1.v1.0.3
     creating_app_id: task_planning
     variables:
         - name: date_of_birth
           type_name: Date
-          source_frame_id: basic_admin
-          source_frame_path: /path/to/dob
             
         - name: systolic_bp
           type_name: Quantity
           currency: PT2m
-          source_frame_id: bp_obs
-          source_frame_path: /data[id2]/events[id7]/data[id4]/items[id5]
             
         - name: diastolic_bp
           type_name: Quantity
           currency: PT2m
-          source_frame_id: bp_obs
-          source_frame_path: /data[id2]/events[id7]/data[id4]/items[id6]
 
         - name: is_type1_diabetic
           type_name: Boolean
-          source_frame_id: diagnoses
-          source_frame_path: /data[id2]/items[id3]
-            
-    retrieve_frames:
-        - id: basic_admin
-          retrieve_method: !!API_CALL
+----
+
+=== Specifying a Binding
+
+xxx
+
+[source,yaml]
+----
+binding: !!ENV_BINDING
+    variable_bindings:
+        - name: date_of_birth
+          type_name: Date
+          primary_method: !!API_CALL
               system_id: pas3.nhs.org.uk
               call_name: fhir_admin_request
               parameters:
                   - xxxx: abc
                   - yyyy: def
     
-        - id: bp_obs
-          retrieve_method: !!QUERY_CALL
+        - name: systolic_bp
+          type_name: Quantity
+          primary_method: !!QUERY_CALL
               system_id: ehr1.nhs.org.uk
               call_name: aql_execute
               query_text: xxxx
     
-        - id: diagnoses
-          retrieve_method: !!QUERY_CALL
+        - name: is_type1_diabetic
+          type_name: Boolean
+          primary_method: !!QUERY_CALL
               system_id: ehr1.nhs.org.uk
               call_name: aql_execute
               query_text: xxxx
@@ -80,16 +185,22 @@ data_set: !!DATA_SET_DEF
 
 include::{uml_export_dir}/classes/i_subject_proxy_service.adoc[]
 
-include::{uml_export_dir}/classes/data_set_def.adoc[]
-include::{uml_export_dir}/classes/variable_def.adoc[]
+include::{uml_export_dir}/classes/subject_proxy.adoc[]
+include::{uml_export_dir}/classes/subject_variable.adoc[]
 
-include::{uml_export_dir}/classes/data_retrieve_frame.adoc[]
-include::{uml_export_dir}/classes/data_retrieve_history.adoc[]
-include::{uml_export_dir}/classes/data_retrieve_sample.adoc[]
-
+include::{uml_export_dir}/classes/subject_app_data_set.adoc[]
 include::{uml_export_dir}/classes/data_set_result.adoc[]
+
+include::{uml_export_dir}/classes/sample.adoc[]
+include::{uml_export_dir}/classes/result_set_sample.adoc[]
+include::{uml_export_dir}/classes/variable_sample.adoc[]
+
 include::{uml_export_dir}/classes/variable_value.adoc[]
 include::{uml_export_dir}/classes/variable_value_single.adoc[]
 include::{uml_export_dir}/classes/variable_value_list.adoc[]
 include::{uml_export_dir}/classes/variable_value_time_series.adoc[]
+
+include::{uml_export_dir}/classes/i_data_binding.adoc[]
+include::{uml_export_dir}/classes/env_binding.adoc[]
+include::{uml_export_dir}/classes/variable_binding.adoc[]
 

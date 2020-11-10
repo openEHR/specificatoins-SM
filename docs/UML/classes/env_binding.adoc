@@ -1,0 +1,22 @@
+=== ENV_BINDING Class
+
+[cols="^1,3,5"]
+|===
+h|*Class*
+2+^h|*ENV_BINDING*
+
+h|*Description*
+2+a|
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*0..1*
+|*variable_bindings*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_variable_binding_class,VARIABLE_BINDING>>>`
+a|
+
+h|*1..1*
+|*env_id*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
+a|Identifier of the environment for which this binding is designed.
+|===

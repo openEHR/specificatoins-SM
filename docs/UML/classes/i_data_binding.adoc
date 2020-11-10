@@ -1,0 +1,28 @@
+=== I_DATA_BINDING Interface
+
+[cols="^1,3,5"]
+|===
+h|*Interface*
+2+^h|*I_DATA_BINDING*
+
+h|*Description*
+2+a|
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*0..1*
+|*bindings*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_env_binding_class,ENV_BINDING>>>`
+a|
+h|*Functions*
+^h|*Signature*
+^h|*Meaning*
+
+h|*1..1*
+|*get_variable* ( +
+name: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]`, +
+type: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]` +
+): `<<_result_set_sample_class,RESULT_SET_SAMPLE>>`
+a|
+|===

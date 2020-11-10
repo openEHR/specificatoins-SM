@@ -8,19 +8,7 @@ h|*Class*
 h|*Description*
 2+a|
 
-h|*Attributes*
-^h|*Signature*
-^h|*Meaning*
+h|*Inherit*
+2+|`link:/releases/BASE/{base_release}/foundation_types.html#_any_class[Any^]`
 
-h|*1..1*
-|*retrieve_time*: `link:/releases/BASE/{base_release}/foundation_types.html#_iso8601_date_time_class[Iso8601_date_time^]`
-a|
-
-h|*0..1*
-|*unavailable_reason*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
-a|
-
-h|*1..1*
-|*is_unavailable*: `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
-a|
 |===

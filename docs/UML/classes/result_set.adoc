@@ -10,6 +10,9 @@ h|*Description*
 
 Ideally the Result set has sufficient meta-data to be processible independently of the original query.
 
+h|*Inherit*
+2+|`link:/releases/BASE/{base_release}/foundation_types.html#_any_class[Any^]`
+
 h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*

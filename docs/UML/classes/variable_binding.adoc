@@ -1,0 +1,34 @@
+=== VARIABLE_BINDING Class
+
+[cols="^1,3,5"]
+|===
+h|*Class*
+2+^h|*VARIABLE_BINDING*
+
+h|*Description*
+2+a|Binding
+
+h|*Attributes*
+^h|*Signature*
+^h|*Meaning*
+
+h|*0..1*
+|*primary_method*: `link:/releases/PROC/{proc_release}/task_planning.html#_system_call_class[SYSTEM_CALL^]`
+a|System call used to perform retrieval of this data frame.
+
+h|*0..1*
+|*fallback_method*: `link:/releases/PROC/{proc_release}/task_planning.html#_system_call_class[SYSTEM_CALL^]`
+a|Alternative method to use if primary retrieve method fails.
+
+h|*1..1*
+|*name*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
+a|Symbolic name by which this item is known in the data-set. Typically required to be a legal variable name in a programming language.
+
+h|*1..1*
+|*type_name*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
+a|Formal type name from defining model.
+
+h|*1..1*
+|*is_manual*: `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
+a|True if this variable is obtained by manual notification, typically from a worker observing the subject in a point of care situation.
+|===

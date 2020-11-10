@@ -13,14 +13,14 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*id*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
-a|Unique identifier of this data set.
+|*name*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
+a|Unique name of this data set.
 
 h|*1..1*
 |*subject_id*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Identifier of data subject, i.e. the entity for which these data 'are about'.
 
 h|*0..1*
-|*variables*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_variable_value_class,VARIABLE_VALUE>>>`
+|*variables*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_variable_sample_class,VARIABLE_SAMPLE>>>`
 a|
 |===
