@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*VARIABLE_VALUE_LIST*
 
 h|*Description*
-2+a|Dataset item in the form of a list.
+2+a|Variable value in the form of a list.
 
 h|*Inherit*
 2+|`<<_variable_value_class,VARIABLE_VALUE>>`

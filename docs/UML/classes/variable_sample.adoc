@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*VARIABLE_SAMPLE*
 
 h|*Description*
-2+a|
+2+a|Sample whose result is in the form of a `VARIABLE_VALUE` (descendant) structure.
 
 h|*Inherit*
 2+|`<<_sample_class,SAMPLE>>`

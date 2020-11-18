@@ -1,12 +1,6 @@
 = Subject Proxy Service
 
-== Overview
-
-The `platform.interface.subject_proxy` package shown below defines the service interface and related information structures for the `SUBJECT_PROXY` service in the openEHR platform architecture. This service allows real world variables characterising the state of a _subject_, which is usually a patient, but may be some other entity, to be tracked over time. The subject is registered in the service.
-
-[.text-center]
-.`sm.platform.interface.subject_proxy` package
-image::{uml_diagrams_uri}/SM-platform.interface.subject_proxy.svg[id=platform_interface_subject_proxy, align="center"]
+== Conceptual Purpose
 
 The Subject Proxy Service performs a number of jobs, which taken together, have the effect of 'lifting' data from the typically complex IT environment, and converting it to a clean representation of specific subject attributes relevant to specific applications, including Plan workflows and Decision Support. These jobs are described below.
 
@@ -45,7 +39,7 @@ Consequently, we can say that the following constitute two more routine data sou
 
 The effect of data concentration in the Subject Proxy is that the plan, decision support, and all other applications can rely on a single location to obtain patient state and events, even where the relevant underlying data are not (yet) available in source systems. Additionally, such 'live' data obtained by sich methods may be written to the relevant EMR and/or EHR by the Subject Proxy, removing the problem of other applications having to make ad hoc writes, following ad hoc data capture.
 
-=== Type System Conversion
+=== Type Conversion
 
 A natural consequence of obtaining data from multiple sources is that the data will be instances different concrete concrete models (e.g. HL7 messages, documents and FHIR resources; openEHR query results; proprietary EMR data etc). It is also the case that the requesting plan-oriented and decision-support applications can work effectively with a relatively stripped down system of data types and limited structures. The latter is due to the fact that although data tend to be captured in larger structures such as full blood panels, full vital sign data sets and so on, guidelines and plans tend to require only specific lab analytes (e.g. troponin for investigating possible heart attack) and vital signs, e.g. systolic blood pressure (no need for diastolic pressure, patient position or other details).
 
@@ -55,7 +49,19 @@ The consequence of this is that the type system required at the Subject Proxy le
 
 Another common problem traditionally handled by individual applications, including decision-support, is the _currency_ of data, i.e. its 'recency'. Some variables such as body height are sufficiently current even when measured years earlier, while others such as oxygen saturation and heart rate need to be less than a minute old to be useful. To obtain valid values, applications often implement a scheme based on polling, automated server-side 'push' query execution, publish-subscribe or other mechanisms to obtain current data. None of this funcionality can really be avoided, but the Subject Proxy provides a single place to locate it, such that client applications simply access the SPO variables they need, and the SPO takes care of the update problem.
 
-== Usage and Data Structures
+== Service Model
+
+The `platform.interface.subject_proxy` package shown below defines the service interface and related information structures for the `SUBJECT_PROXY` service in the openEHR platform architecture. This service allows real world variables characterising the state of a _subject_, which is usually a patient, but may be some other entity, to be tracked over time. The subject is registered in the service.
+
+[.text-center]
+.`sm.platform.interface.subject_proxy` package
+image::{uml_diagrams_uri}/SM-platform.interface.subject_proxy.svg[id=platform_interface_subject_proxy, align="center"]
+
+=== Class Descriptions
+
+include::{uml_export_dir}/classes/i_subject_proxy_service.adoc[leveloffset=+1]
+
+== Data Structures
 
 The data structures used by the Subject Proxy Service are shown below.
 
@@ -63,11 +69,46 @@ The data structures used by the Subject Proxy Service are shown below.
 .Subject Proxy structures
 image::{uml_diagrams_uri}/SM-platform.interface.subject_proxy-structure.svg[id=platform_interface_subject_proxy_structure, align="center"]
 
+=== Class Definitions
+
+include::{uml_export_dir}/classes/subject_proxy.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/subject_variable.adoc[leveloffset=+1]
+
+include::{uml_export_dir}/classes/subject_data_set.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/data_set_result.adoc[leveloffset=+1]
+
+include::{uml_export_dir}/classes/sample.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/result_set_sample.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/variable_sample.adoc[leveloffset=+1]
+
+include::{uml_export_dir}/classes/variable_value.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/variable_value_single.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/variable_value_list.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/variable_value_time_series.adoc[leveloffset=+1]
+
+== Bindings
+
+The following UML diagram shows the classes and an internal interface relating to bindings.
+
+[.text-center]
+.Subject Proxy binding
+image::{uml_diagrams_uri}/SM-platform.interface.subject_proxy-binding.svg[id=platform_interface_subject_proxy_binding, align="center"]
+
+A binding (represented by `ENV_BINDING`) is understood as a set of retrieval methods (e.g. API invocations, queries) each associated with a single subject variable (represented by `VARIABLE_BINDING`), for a particular execution environment. A binding may be loaded in the service via the call `_register_binding ()_`.
+
+=== Class Definitions
+
+include::{uml_export_dir}/classes/i_data_binding.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/env_binding.adoc[leveloffset=+1]
+include::{uml_export_dir}/classes/variable_binding.adoc[leveloffset=+1]
+
+== Usage
+
 The usage of the service follows the general pattern:
 
-* register a subject, typically a patient, but may be any other tracked entity, including devices, sites;
-* add variable definitions to a subject;
-* register a binding for an environment, consisting of concrete methods for retrieving and converting data from back-end systems to its variable form.
+* at system startup, register a binding for an environment, consisting of concrete methods for retrieving and converting data from back-end systems to its variable form;
+* during normal operation, register a subject, typically a patient, but may be any other tracked entity, including devices, sites;
+* add variable definitions to a subject.
 
 The calling sequence to achieve this is of the logical form:
 
@@ -83,7 +124,7 @@ env_binding1: ENV_BINDING;
 //
 // calls to Subject Proxy Service
 //
-register_binding (env_binding1);
+sps.register_binding (env_binding1);
 
 sps.register_subject ("1394850", "individual");
 sps.add_subject_variable ("1394850", var1);
@@ -118,19 +159,19 @@ sps.register_application_data_set (ds1);
 
 In this sequence, the subject variables are established via calls to `_register_application_data_set_`, each of which will cause the addition or modification of subject variables not already defined for the subject. When use of an application or subject ceases, the relevant data sets can be removed easily via the various `_remove_xx_` calls.
 
-== Bindings
+The following example illustrates a typical run-time situation for the use of the Subject Proxy Service.
 
-xxx.
+[.text-center]
+.Typical Subject Proxy situation
+image::{diagrams_uri}/spo_context.svg[id=spo_context, align="center"]
 
-=== Specifying a Data-set
+== Specifying a Data-set
 
 A data set specification would be provided through a REST API as a text specification, e.g. in JSON or YAML. Such a specification might be derived from an {openehr_decision_language}[openEHR Decision Language Modules^], or some other source. An example is shown below.
 
-TO BE REWRITTEN
-
 [source,yaml]
 ----
-data_set: !!DATA_SET_DEF
+data_set: !!SUBJECT_DATA_SET
     name: antenatal_1.v1.0.3
     creating_app_id: task_planning
     variables:
@@ -151,56 +192,33 @@ data_set: !!DATA_SET_DEF
 
 === Specifying a Binding
 
-xxx
+The following shows a partial YAML representation of an `ENV_BINDING`
 
 [source,yaml]
 ----
 binding: !!ENV_BINDING
     variable_bindings:
-        - name: date_of_birth
-          type_name: Date
+        - variable_name: date_of_birth
+          source_type_name: HL7v3::Date
           primary_method: !!API_CALL
               system_id: pas3.nhs.org.uk
-              call_name: fhir_admin_request
+              call_name: cda_admin_request
               parameters:
                   - xxxx: abc
                   - yyyy: def
     
-        - name: systolic_bp
-          type_name: Quantity
+        - variable_name: systolic_bp
+          source_type_name: openEHR::DV_QUANTITY
           primary_method: !!QUERY_CALL
               system_id: ehr1.nhs.org.uk
               call_name: aql_execute
               query_text: xxxx
     
-        - name: is_type1_diabetic
-          type_name: Boolean
-          primary_method: !!QUERY_CALL
+        - variable_name: is_type1_diabetic
+          source_type_name: FHIR::boolean
+          primary_method: !!API_CALL
               system_id: ehr1.nhs.org.uk
-              call_name: aql_execute
+              call_name: fhir_execute
               query_text: xxxx
 ----
-
-== Class Definitions
-
-include::{uml_export_dir}/classes/i_subject_proxy_service.adoc[]
-
-include::{uml_export_dir}/classes/subject_proxy.adoc[]
-include::{uml_export_dir}/classes/subject_variable.adoc[]
-
-include::{uml_export_dir}/classes/subject_app_data_set.adoc[]
-include::{uml_export_dir}/classes/data_set_result.adoc[]
-
-include::{uml_export_dir}/classes/sample.adoc[]
-include::{uml_export_dir}/classes/result_set_sample.adoc[]
-include::{uml_export_dir}/classes/variable_sample.adoc[]
-
-include::{uml_export_dir}/classes/variable_value.adoc[]
-include::{uml_export_dir}/classes/variable_value_single.adoc[]
-include::{uml_export_dir}/classes/variable_value_list.adoc[]
-include::{uml_export_dir}/classes/variable_value_time_series.adoc[]
-
-include::{uml_export_dir}/classes/i_data_binding.adoc[]
-include::{uml_export_dir}/classes/env_binding.adoc[]
-include::{uml_export_dir}/classes/variable_binding.adoc[]
 

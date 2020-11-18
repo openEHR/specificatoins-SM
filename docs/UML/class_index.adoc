@@ -216,7 +216,7 @@
 [.xcode]
 * link:/releases/SM/{sm_release}/platform.html#_stored_query_execute_spec_class[STORED_QUERY_EXECUTE_SPEC^]
 [.xcode]
-* link:/releases/SM/{sm_release}/platform.html#_subject_app_data_set_class[SUBJECT_APP_DATA_SET^]
+* link:/releases/SM/{sm_release}/platform.html#_subject_data_set_class[SUBJECT_DATA_SET^]
 [.xcode]
 * link:/releases/SM/{sm_release}/platform.html#_subject_proxy_class[SUBJECT_PROXY^]
 [.xcode]

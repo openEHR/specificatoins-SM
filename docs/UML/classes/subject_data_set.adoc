@@ -1,9 +1,9 @@
-=== SUBJECT_APP_DATA_SET Class
+=== SUBJECT_DATA_SET Class
 
 [cols="^1,3,5"]
 |===
 h|*Class*
-2+^h|*SUBJECT_APP_DATA_SET*
+2+^h|*SUBJECT_DATA_SET*
 
 h|*Description*
 2+a|Data set relating to a subject as used within an application.
@@ -34,7 +34,7 @@ a|Set of variable definitions in this data set.
 
 h|*0..1*
 |*last_result*: `<<_data_set_result_class,DATA_SET_RESULT>>`
-a|
+a|Most recently obtained data set result.
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*

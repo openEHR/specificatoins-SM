@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*VARIABLE_VALUE_TIME_SERIES*
 
 h|*Description*
-2+a|Data-set item in the form of a time-series.
+2+a|Variable value in the form of a time-series.
 
 h|*Inherit*
 2+|`<<_variable_value_class,VARIABLE_VALUE>>`

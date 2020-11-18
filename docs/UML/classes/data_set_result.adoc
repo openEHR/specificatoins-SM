@@ -22,5 +22,5 @@ a|Identifier of data subject, i.e. the entity for which these data 'are about'.
 
 h|*0..1*
 |*variables*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_variable_sample_class,VARIABLE_SAMPLE>>>`
-a|
+a|Samples of variables included in this data set.
 |===

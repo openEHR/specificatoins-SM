@@ -6,7 +6,9 @@ h|*Class*
 2+^h|*VARIABLE_BINDING*
 
 h|*Description*
-2+a|Binding
+2+a|Binding of a named subject variable such as `is_type1_diabetic` to an extraction method for a particular computing environment.
+
+The `_variable_name_` can be used to match subject variables elsewhere in the Subject Proxy stack.
 
 h|*Attributes*
 ^h|*Signature*
@@ -21,12 +23,14 @@ h|*0..1*
 a|Alternative method to use if primary retrieve method fails.
 
 h|*1..1*
-|*name*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
-a|Symbolic name by which this item is known in the data-set. Typically required to be a legal variable name in a programming language.
+|*variable_name*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
+a|Symbolic name by which this item is known in client applications or services (e.g. CDS, guidelines execution engine).
+
+Typically required to be a legal variable name in a programming language.
 
 h|*1..1*
-|*type_name*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
-a|Formal type name from defining model.
+|*source_type_name*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
+a|Formal name of the expected type of the result of executing either the primary or fallback method. This might not be the same type as expected by the calling system.
 
 h|*1..1*
 |*is_manual*: `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`

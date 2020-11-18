@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*VARIABLE_VALUE_SINGLE*
 
 h|*Description*
-2+a|Atomic data-set item.
+2+a|Atomic Variable value.
 
 h|*Inherit*
 2+|`<<_variable_value_class,VARIABLE_VALUE>>`

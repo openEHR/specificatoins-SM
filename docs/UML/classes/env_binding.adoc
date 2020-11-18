@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*ENV_BINDING*
 
 h|*Description*
-2+a|
+2+a|Binding for an execution environment to a set of subject variables.
 
 h|*Attributes*
 ^h|*Signature*
@@ -14,7 +14,7 @@ h|*Attributes*
 
 h|*0..1*
 |*variable_bindings*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_variable_binding_class,VARIABLE_BINDING>>>`
-a|
+a|Bindings for all variables served from this environment.
 
 h|*1..1*
 |*env_id*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
