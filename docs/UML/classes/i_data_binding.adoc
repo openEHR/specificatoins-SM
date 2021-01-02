@@ -14,7 +14,7 @@ h|*Attributes*
 
 h|*0..1*
 |*bindings*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_env_binding_class,ENV_BINDING>>>`
-a|
+a|All bindings registered in this service, one per environment.
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*

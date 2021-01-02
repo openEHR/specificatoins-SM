@@ -14,7 +14,7 @@ h|*Attributes*
 
 h|*0..1*
 |*source*: `<<_i_data_binding_interface,I_DATA_BINDING>>`
-a|Source data frame, derived from `_source_frame_id_`. In an optimised system, may be shared with Data set items from other Data sets.
+a|Source data binding.
 
 h|*0..1*
 |*history*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_variable_sample_class,VARIABLE_SAMPLE>>>`
@@ -26,7 +26,7 @@ a|Most recently obtained result.
 
 h|*1..1*
 |*name*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
-a|Symbolic name by which this item is known in the data-set. Typically required to be a legal variable name in a programming language.
+a|Canonical name by which this item is known in the service. Typically required to be a legal variable name in a programming language.
 
 h|*1..1*
 |*type_name*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`

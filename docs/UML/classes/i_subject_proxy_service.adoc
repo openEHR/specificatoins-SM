@@ -31,26 +31,11 @@ __Pre_subject_valid__: `has_subject(subject_id)`
 a|Add a new subject variable definition to the proxy for `_subject_id_`.
 
 h|*0..1*
-|*register_binding* ( +
-binding: `<<_env_binding_class,ENV_BINDING>>[1]` +
-) +
- +
-__Pre_new_env__: `not has_binding(binding.env_id)`
-a|Register a binding for an environment, consisting of a set of variable bindings, each including method(s) for data retrieval to populate the related variable
-
-h|*0..1*
-|*add_binding_variable* ( +
-env_id: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]`, +
-var: `<<_variable_binding_class,VARIABLE_BINDING>>[1]` +
-) +
- +
-__Pre_valid_binding__: `has_binding(env_id)`
-a|Add a variable binding to the binding for an environment.
-
-h|*0..1*
 |*register_application_data_set* ( +
 definition: `<<_subject_data_set_class,SUBJECT_DATA_SET>>[1]` +
-)
+) +
+ +
+__Pre_subject_valid__: `has_subject(subject_id)`
 a|Register a data-set consisting of a set of subject variable for an existing subject by an application.
 
 This may have the effect of creating new subject variables, reducing the currency of existing subject variables, if the currency is lower in the corresponding data set variable, or making no change for variables that already exist.
@@ -110,6 +95,23 @@ h|*1..1*
 application_id: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]` +
 ): `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|Return True if application with id `_application_id_` has been registered in the service.
+
+h|*0..1*
+|*register_binding* ( +
+binding: `<<_env_binding_class,ENV_BINDING>>[1]` +
+) +
+ +
+__Pre_new_env__: `not has_binding(binding.env_id)`
+a|Register a binding for an environment, consisting of a set of variable bindings, each including method(s) for data retrieval to populate the related variable
+
+h|*0..1*
+|*add_binding_variable* ( +
+env_id: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]`, +
+var: `<<_variable_binding_class,VARIABLE_BINDING>>[1]` +
+) +
+ +
+__Pre_valid_binding__: `has_binding(env_id)`
+a|Add a variable binding to the binding container for an environment.
 
 h|*1..1*
 |*has_binding* ( +

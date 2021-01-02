@@ -7,9 +7,9 @@
 4+^h|*SM Release 1.0.0*
 
 |[[latest_issue]]0.9.7
-|Add Subject Proxy Service and Data set package.
+|Add Subject Proxy Service.
 |T Beale
-|[[latest_issue_date]]14 Oct 2020
+|[[latest_issue_date]]02 Jan 2021
 
 |0.9.6
 |Adjust naming and definitions of elements in `RESULT_SET` classes to reflect REST API.

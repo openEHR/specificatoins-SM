@@ -19,4 +19,8 @@ a|Bindings for all variables served from this environment.
 h|*1..1*
 |*env_id*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Identifier of the environment for which this binding is designed.
+
+h|*0..1*
+|*description*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
+a|An informal description of the environment useful for display and other human consumption.
 |===

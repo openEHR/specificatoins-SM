@@ -13,8 +13,8 @@ h|*Attributes*
 ^h|*Meaning*
 
 h|*1..1*
-|*name*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
-a|Unique name of this data set.
+|*id*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
+a|Unique identifier of this data set with respect to other data sets in use for the same subject. Usually derived from some application semantic label, such as a guideline id or similar.
 
 h|*1..1*
 |*subject_id*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
@@ -30,7 +30,7 @@ a|Optional list of identifiers of applications using this data set. May be used 
 
 h|*1..1*
 |*variables*: `link:/releases/BASE/{base_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^],<<_subject_variable_class,SUBJECT_VARIABLE>>>`
-a|Set of variable definitions in this data set.
+a|Set of variable definitions in this data set keyed by *local name* within the data set, which may differ from the `SUBJECT_VARIABLE._name_`, which is the canonical name in the service. For example, a variable whose canonical name is "date_of_birth" may be known within a data set as "dob".
 
 h|*0..1*
 |*last_result*: `<<_data_set_result_class,DATA_SET_RESULT>>`
