@@ -1,20 +1,20 @@
-= Subject Proxy Service
+= Subject Proxy Service (SPS)
 
-This service allows symbolic real world variables characterising the state of a _subject_, which is often a sujbect of care, i.e a patient, but may be some other entity, to be retrieved and potentially tracked over time. Such variables are useful for many kinds of application, since they provide a standard means of obtaining information that concretely may reside in different kinds of back-end systems. Symbolic variables are relied upon by openEHR Task Plans and Decision Logic Modules, within which the conceptual purpose and typical use are described in the {openehr_proc_overview}#_subject_proxy_service[openEHR Process and Planning Overview^].
+The Subject Proxy Service (SPS) allows symbolic real world variables characterising the state of a _subject_, which is often a sujbect of care, i.e a patient, but may be some other entity, to be retrieved and potentially tracked over time. Such variables are useful for many kinds of application, since they provide a standard means of obtaining information that concretely may reside in different kinds of back-end systems, without the calling application having to know or care about the particular system, standard or representational model of any variable. Symbolic variables are relied upon by openEHR Task Plans and Decision Logic Modules, within which the conceptual purpose and typical use are described in the {openehr_proc_overview}#_subject_proxy_service[openEHR Process and Planning Overview^].
 
 == Subject Variable Naming
 
 The Subject Proxy Service enables the registration of _subject variables_ by various means. Each subject variable is identified within the service by a _canonical name_ (`SUBJECT_VARIABLE._name_`, in the model below), which is the name used for it in calls mentioning variables by name. 
 
-Canonical names are preferably intelligible natural language names that accurately indicate their meaning, such as "date_of_birth", "is_type1_diabetic" and so on, but may be any name that is legal within the relevant source contexts and valid within this service. To be valid within the service, canonical names may not contain whitespace or any unprintable character, but there are no other restrictions (e.g. of case, or first character being a letter etc). 
+Canonical names are preferably intelligible natural language names that accurately indicate their meaning, such as `"date_of_birth"`, `"is_type1_diabetic"` and so on, but may be any name that is legal within the relevant source contexts and valid within this service. To be valid within the service, canonical names may not contain whitespace or any unprintable character, but there are no other restrictions (e.g. of case, or first character being a letter etc). 
 
-An _application data set_, which is a convenience collection of variables registered by / for an application may however use data set-local aliases, for example "dob" for the canonical name "date_of_birth".
+An _application data set_, which is a convenience collection of variables registered by / for an application may however use data set-local aliases, for example `"dob"` for the canonical name `"date_of_birth"`.
 
 Canonical names must be unique within the service, regardless of which subjects or applications may use them at any given time.
 
 == Service Interface
 
-The Subject Proxy Service supports the following abstract kinds of operations (with variants):
+The SPS supports the following abstract kinds of operations (with variants):
 
 * _Register a subject_: create a new subject in the service, with which which variables can be associated;
 * _Add subject variable_: add a subject variable definition to an existing subject;
@@ -30,7 +30,7 @@ image::{uml_diagrams_uri}/SM-platform.interface.subject_proxy.svg[id=platform_in
 
 == Data Structures
 
-The data entities used by the service are conceptually as follows:
+The data entities used by the SPS are conceptually as follows:
 
 * _Subject proxy_: a container for all variables and data sets for a single subject;
 * _Subject variable_: a proxy for a single subject variable, including sample history over time;
@@ -53,6 +53,10 @@ The following UML diagram shows the classes and an internal interface relating t
 image::{uml_diagrams_uri}/SM-platform.interface.subject_proxy-binding.svg[id=platform_interface_subject_proxy_binding, align="center"]
 
 A binding (represented by `ENV_BINDING`) is understood as a set of retrieval methods (e.g. API invocations, queries) each associated with a single subject variable (represented by `VARIABLE_BINDING`), for a particular execution environment. A binding may be loaded in the service via the call `_register_binding()_`.
+
+== Persistence
+
+It is assumed that the contents of the SPS are persisted for the life of the system i.e. until the point of any system level re-initialisation actions. The SPS includes a `_reset()_` operation that enables all content to be dumped, returning the service to its virgin state.
 
 == Usage
 
