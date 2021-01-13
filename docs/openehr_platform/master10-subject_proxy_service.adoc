@@ -52,7 +52,7 @@ The following UML diagram shows the classes and an internal interface relating t
 .Subject Proxy binding
 image::{uml_diagrams_uri}/SM-platform.interface.subject_proxy-binding.svg[id=platform_interface_subject_proxy_binding, align="center"]
 
-A binding (represented by `ENV_BINDING`) is understood as a set of retrieval methods (e.g. API invocations, queries) each associated with a single subject variable (represented by `VARIABLE_BINDING`), for a particular execution environment. A binding may be loaded in the service via the call `_register_binding()_`.
+A binding (represented by `ENV_BINDING`) is understood as a set of retrieval methods (e.g. API invocations, queries) each associated with a single subject variable (represented by `VARIABLE_BINDING`), for a particular execution environment. A binding may be loaded in the service via the call `_register_binding()_`. Subject variables at the binding layer are identified by the same identifier used in the proxy layer, i.e. the canonical variable name such as `date_of_birth` acts as the key for each variable binding in the binding layer.
 
 == Persistence
 

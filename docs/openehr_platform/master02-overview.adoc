@@ -175,5 +175,5 @@ The following naming conventions are used for naming parameters throughout this 
 The openEHR Platform Service Model package structure is illustrated below. It consists of the packages `common`, `definition` and `interface`. The second contains the service components, while the third contains the interfaces attached to each service component.
 
 [.text-center]
-.sm.openehr_platform Package Overview
+.sm.platform Package Overview
 image::{uml_diagrams_uri}/SM-platform-packages.svg[id=platform_packages, align="center"]
