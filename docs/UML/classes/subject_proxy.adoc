@@ -31,6 +31,6 @@ a|Category of subject, e.g. patient, other entity.
 TODO: currently not controlled.
 
 h|*0..1*
-|*data_sets*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_subject_data_set_class,SUBJECT_DATA_SET>>>`
+|*data_sets*: `link:/releases/BASE/{base_release}/foundation_types.html#_hash_class[Hash^]<link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^],<<_subject_data_set_class,SUBJECT_DATA_SET>>>`
 a|All data sets for this subject.
 |===

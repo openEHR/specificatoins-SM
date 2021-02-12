@@ -1,6 +1,10 @@
 = Subject Proxy Service (SPS)
 
-The Subject Proxy Service (SPS) allows symbolic real world variables characterising the state of a _subject_, which is often a sujbect of care, i.e a patient, but may be some other entity, to be retrieved and potentially tracked over time. Such variables are useful for many kinds of application, since they provide a standard means of obtaining information that concretely may reside in different kinds of back-end systems, without the calling application having to know or care about the particular system, standard or representational model of any variable. Symbolic variables are relied upon by openEHR Task Plans and Decision Logic Modules, within which the conceptual purpose and typical use are described in the {openehr_proc_overview}#_subject_proxy_service[openEHR Process and Planning Overview^].
+== Overview
+
+The Subject Proxy Service (SPS) allows symbolic variables characterising the real world state of a _subject_ which is often a subject of care (i.e a patient) but may be some other entity, to be retrieved and tracked over time. Such variables are useful for many kinds of application, since they provide a standard means of obtaining information that concretely reside in different kinds of back-end systems or  devices, or may be requested from live users. The SPS avoids the calling application having to know about the particular standard, representational model, query language or API of the data source for any given variable. Consequently there is no need to even assume that an openEHR back-end system is the source of any given variable.
+
+Subject variables may be conveniently used by any application are relied upon by openEHR Task Plans and Decision Logic Modules, within which the conceptual purpose and typical use are described in the {openehr_proc_overview}#_subject_proxy_service[openEHR Process and Planning Overview^].
 
 == Subject Variable Naming
 
@@ -20,7 +24,7 @@ The SPS supports the following abstract kinds of operations (with variants):
 * _Add subject variable_: add a subject variable definition to an existing subject;
 * _Register application data set_: register a set of subject variables for a particular application;
 * _Register binding_: add a binding for an 'environment', which is usually a concrete computing context containing multiple back-end systems from which subject variables can be populated;
-* _Add binding variable_: add a binding for a named and typed variable to an environment binding - this provides a data access method for that environment.
+* _Add binding data frame_: add a data retrieval frame to an environment binding - this provides a data access method for that environment.
 
 The `platform.interface.subject_proxy` package shown below defines the service interface and related information structures for the `SUBJECT_PROXY` service in the openEHR platform architecture.
 
@@ -44,7 +48,21 @@ The formal class definitions are shown in the following UML.
 .Subject Proxy structures
 image::{uml_diagrams_uri}/SM-platform.interface.subject_proxy-structure.svg[id=platform_interface_subject_proxy_structure, align="center"]
 
+== Samples
+
+The `SAMPLE` class provides a generic wrapper for any retrieved back-end data, stamping it with a `_retrieve_time_` and a `_is_unavailable_` flag in case no data could be obtained. The optional `_effective_time_` represents the clinically relevant time of the sample, which is comparable to `_currency_` in order to determine the freshness of the data. The descendant `DATA_FRAME_SAMPLE` specialises the payload to full data frame results, which may be large query results, complex data objects etc, or indeed, single values.
+
+The following UML shows the Sample hierarchy.
+
+[.text-center]
+.Subject Proxy structures
+image::{uml_diagrams_uri}/SM-platform.interface.subject_proxy-sample.svg[id=platform_interface_subject_proxy_sample, align="center"]
+
 == Bindings
+
+A binding (represented by `ENV_BINDING`) is understood as a set of retrieval methods (e.g. API invocations, queries) each defined by a _data frame_ (represented by `DATA_FRAME`), for a particular execution environment, and _independent of any particular subject_. A binding may be loaded in the service via the call `_register_binding()_`. Each data frame has a primary and optionally a fallback method which can be executed to obtain the data, as well as a retrieval result, in the native format of the API used to access the source system, e.g. openEHR AQL Result_set, a particular FHIR profiled resource, an HL7v2 message, XDS document and so on. The interface `I_DATA_BINDING` provides a (partially specified) internal API for retrieving a result from a particular data frame.
+
+The retrieved data frame results are of type `DATA_FRAME_SAMPLE`, representing a single 'sample' of some kind of retrieval result from a back-end system or interoperability gateway. The descendant types provide a few common forms.
 
 The following UML diagram shows the classes and an internal interface relating to bindings.
 
@@ -52,11 +70,9 @@ The following UML diagram shows the classes and an internal interface relating t
 .Subject Proxy binding
 image::{uml_diagrams_uri}/SM-platform.interface.subject_proxy-binding.svg[id=platform_interface_subject_proxy_binding, align="center"]
 
-A binding (represented by `ENV_BINDING`) is understood as a set of retrieval methods (e.g. API invocations, queries) each associated with a single subject variable (represented by `VARIABLE_BINDING`), for a particular execution environment. A binding may be loaded in the service via the call `_register_binding()_`. Subject variables at the binding layer are identified by the same identifier used in the proxy layer, i.e. the canonical variable name such as `date_of_birth` acts as the key for each variable binding in the binding layer.
-
 == Persistence
 
-It is assumed that the contents of the SPS are persisted for the life of the system i.e. until the point of any system level re-initialisation actions. The SPS includes a `_reset()_` operation that enables all content to be dumped, returning the service to its virgin state.
+It is assumed that the configuration contents (i.e. not data frame or variable results) of the SPS are persisted for the life of the system i.e. until the point of any system level re-initialisation actions. The SPS includes a `_reset()_` operation that enables all content to be dumped, returning the service to its virgin state.
 
 == Usage
 
@@ -148,33 +164,33 @@ data_set: !!SUBJECT_DATA_SET
 
 === Specifying a Binding
 
-The following shows a partial YAML representation of an `ENV_BINDING`
+The following shows a partial YAML representation of an `ENV_BINDING` for a particular deployment environment.
 
 [source,yaml]
 ----
 binding: !!ENV_BINDING
-    variable_bindings:
-        - variable_name: date_of_birth
-          source_type_name: HL7v3::Date
+    data_frames:
+        - frame_id: OracleMPI::basic_demographics
+          model_type: OracleMPI
           primary_method: !!API_CALL
               system_id: pas3.nhs.org.uk
-              call_name: cda_admin_request
+              call_name: REST_get
               parameters:
                   - xxxx: abc
                   - yyyy: def
     
-        - variable_name: systolic_bp
-          source_type_name: openEHR::DV_QUANTITY
+        - frame_id: openEHR::vital_signs
+          model_type: openEHR-EHR
           primary_method: !!QUERY_CALL
               system_id: ehr1.nhs.org.uk
-              call_name: aql_execute
+              call_name: aql_query
               query_text: xxxx
     
-        - variable_name: is_type1_diabetic
-          source_type_name: FHIR::boolean
+        - frame_id: OracleMPI::basic_demographics
+          model_type: HL7-FHIR_DSTU4_UK
           primary_method: !!API_CALL
               system_id: ehr1.nhs.org.uk
-              call_name: fhir_execute
+              call_name: fhir_get
               query_text: xxxx
 ----
 
@@ -189,7 +205,10 @@ include::{uml_export_dir}/classes/subject_data_set.adoc[]
 include::{uml_export_dir}/classes/data_set_result.adoc[]
 
 include::{uml_export_dir}/classes/sample.adoc[]
-include::{uml_export_dir}/classes/result_set_sample.adoc[]
+include::{uml_export_dir}/classes/data_frame_sample.adoc[]
+include::{uml_export_dir}/classes/openehr_sample.adoc[]
+include::{uml_export_dir}/classes/hl7v2_sample.adoc[]
+include::{uml_export_dir}/classes/hl7_fhir_sample.adoc[]
 include::{uml_export_dir}/classes/variable_sample.adoc[]
 
 include::{uml_export_dir}/classes/variable_value.adoc[]
@@ -199,5 +218,5 @@ include::{uml_export_dir}/classes/variable_value_time_series.adoc[]
 
 include::{uml_export_dir}/classes/i_data_binding.adoc[]
 include::{uml_export_dir}/classes/env_binding.adoc[]
-include::{uml_export_dir}/classes/variable_binding.adoc[]
+include::{uml_export_dir}/classes/data_frame.adoc[]
 

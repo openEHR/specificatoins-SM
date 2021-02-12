@@ -12,18 +12,6 @@ h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|*0..1*
-|*source*: `<<_i_data_binding_interface,I_DATA_BINDING>>`
-a|Source data binding.
-
-h|*0..1*
-|*history*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_variable_sample_class,VARIABLE_SAMPLE>>>`
-a|Samples constituting the retrieve history of this variable.
-
-h|*0..1*
-|*last_result*: `<<_result_set_sample_class,RESULT_SET_SAMPLE>>`
-a|Most recently obtained result.
-
 h|*1..1*
 |*name*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Canonical name by which this item is known in the service. Typically required to be a legal variable name in a programming language.
@@ -45,6 +33,22 @@ TODO: can only work if access method defined.
 h|*1..1*
 |*is_manual*: `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|True if this variable is obtained by manual notification, typically from a worker observing the subject in a point of care situation.
+
+h|*1..1*
+|*frame_id*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
+a|Identifier of retreve frame from which to extract this variable.
+
+h|*0..1*
+|*history*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_variable_sample_class,VARIABLE_SAMPLE>>>`
+a|Samples constituting the retrieve history of this variable.
+
+h|*1..1*
+|*frame_path*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
+a|Path within `_last_frame_` result.
+
+h|*0..1*
+|*last_frame*: `<<_data_frame_sample_class,DATA_FRAME_SAMPLE>>`
+a|Most recent retrieve frame from which to extract variable value.
 h|*Functions*
 ^h|*Signature*
 ^h|*Meaning*

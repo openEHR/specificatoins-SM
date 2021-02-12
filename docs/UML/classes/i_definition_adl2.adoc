@@ -14,7 +14,7 @@ h|*Functions*
 
 h|*1..1*
 |*has_artefact* ( +
-an_id: `link:/releases/AM/{am_release}/AOM2.html#_archetype_hrid_class[ARCHETYPE_HRID^][1]` +
+an_id: `link:/releases/PROC/{proc_release}/task_planning.html#_archetype_hrid_class[ARCHETYPE_HRID^][1]` +
 ): `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|Return True if AOM2 artefact with id `_an_id_` exists in the service.
 
@@ -43,7 +43,7 @@ The artefact must validate.
 
 h|*1..1*
 |*get_artefact* ( +
-an_id: `link:/releases/AM/{am_release}/AOM2.html#_archetype_hrid_class[ARCHETYPE_HRID^][1]` +
+an_id: `link:/releases/PROC/{proc_release}/task_planning.html#_archetype_hrid_class[ARCHETYPE_HRID^][1]` +
 ): `link:/releases/AM/{am_release}/AOM2.html#_authored_archetype_class[AUTHORED_ARCHETYPE^]` +
  +
 __Pre_artefact_exists__: `has_artefact (an_id)`
@@ -59,28 +59,28 @@ h|*0..1*
 |*list_artefacts* ( +
 item_offset: `link:/releases/BASE/{base_release}/foundation_types.html#_integer_class[Integer^][0..1]`, +
 items_to_fetch: `link:/releases/BASE/{base_release}/foundation_types.html#_integer_class[Integer^][0..1]` +
-): `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<link:/releases/AM/{am_release}/AOM2.html#_archetype_hrid_class[ARCHETYPE_HRID^]>`
+): `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<link:/releases/PROC/{proc_release}/task_planning.html#_archetype_hrid_class[ARCHETYPE_HRID^]>`
 a|List all AOM2 artefacts known in the service.
 
 h|*0..1*
 |*list_archetypes* ( +
 item_offset: `link:/releases/BASE/{base_release}/foundation_types.html#_integer_class[Integer^][0..1]`, +
 items_to_fetch: `link:/releases/BASE/{base_release}/foundation_types.html#_integer_class[Integer^][0..1]` +
-): `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<link:/releases/AM/{am_release}/AOM2.html#_archetype_hrid_class[ARCHETYPE_HRID^]>`
+): `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<link:/releases/PROC/{proc_release}/task_planning.html#_archetype_hrid_class[ARCHETYPE_HRID^]>`
 a|List all archetypes, i.e. artefacts whose concrete type is `AUTHORED_ARCHETYPE`.
 
 h|*0..1*
 |*list_templates* ( +
 item_offset: `link:/releases/BASE/{base_release}/foundation_types.html#_integer_class[Integer^][0..1]`, +
 items_to_fetch: `link:/releases/BASE/{base_release}/foundation_types.html#_integer_class[Integer^][0..1]` +
-): `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<link:/releases/AM/{am_release}/AOM2.html#_archetype_hrid_class[ARCHETYPE_HRID^]>`
+): `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<link:/releases/PROC/{proc_release}/task_planning.html#_archetype_hrid_class[ARCHETYPE_HRID^]>`
 a|List all archetypes, i.e. artefacts whose concrete type is `TEMPLATE`.
 
 h|*0..1*
 |*list_opts* ( +
 item_offset: `link:/releases/BASE/{base_release}/foundation_types.html#_integer_class[Integer^][0..1]`, +
 items_to_fetch: `link:/releases/BASE/{base_release}/foundation_types.html#_integer_class[Integer^][0..1]` +
-): `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<link:/releases/AM/{am_release}/AOM2.html#_archetype_hrid_class[ARCHETYPE_HRID^]>`
+): `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<link:/releases/PROC/{proc_release}/task_planning.html#_archetype_hrid_class[ARCHETYPE_HRID^]>`
 a|List all archetypes, i.e. artefacts whose concrete type is `OPERATIONAL_TEMPLATE`.
 
 h|*0..1*
@@ -88,7 +88,7 @@ h|*0..1*
 id_pattern: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]`, +
 item_offset: `link:/releases/BASE/{base_release}/foundation_types.html#_integer_class[Integer^][0..1]`, +
 items_to_fetch: `link:/releases/BASE/{base_release}/foundation_types.html#_integer_class[Integer^][0..1]` +
-): `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<link:/releases/AM/{am_release}/AOM2.html#_archetype_hrid_class[ARCHETYPE_HRID^]>`
+): `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<link:/releases/PROC/{proc_release}/task_planning.html#_archetype_hrid_class[ARCHETYPE_HRID^]>`
 a|List all artefacts whose identifiers match a regex pattern.
 
 
@@ -99,7 +99,7 @@ a|List all artefacts whose identifiers match a regex pattern.
 
 h|*0..1*
 |*delete_artefact* ( +
-an_id: `link:/releases/AM/{am_release}/AOM2.html#_archetype_hrid_class[ARCHETYPE_HRID^][1]` +
+an_id: `link:/releases/PROC/{proc_release}/task_planning.html#_archetype_hrid_class[ARCHETYPE_HRID^][1]` +
 )
 a|Delete the AOM2 artefact with id `_an_id_`.
 

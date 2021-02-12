@@ -12,10 +12,6 @@ h|*Attributes*
 ^h|*Signature*
 ^h|*Meaning*
 
-h|*0..1*
-|*variable_bindings*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_variable_binding_class,VARIABLE_BINDING>>>`
-a|Bindings for all variables served from this environment.
-
 h|*1..1*
 |*env_id*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|Identifier of the environment for which this binding is designed.
@@ -23,4 +19,8 @@ a|Identifier of the environment for which this binding is designed.
 h|*0..1*
 |*description*: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^]`
 a|An informal description of the environment useful for display and other human consumption.
+
+h|*0..1*
+|*data_frames*: `link:/releases/BASE/{base_release}/foundation_types.html#_list_class[List^]<<<_data_frame_class,DATA_FRAME>>>`
+a|
 |===

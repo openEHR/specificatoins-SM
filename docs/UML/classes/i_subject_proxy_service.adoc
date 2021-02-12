@@ -113,13 +113,13 @@ a|Register a binding for an environment, consisting of a set of variable binding
 TODO: determine whether SPS is 1:1 with an 'environment', in which case, only one binding is ever required in a system instance.
 
 h|*0..1*
-|*add_binding_variable* ( +
+|*add_binding_frame* ( +
 env_id: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]`, +
-var: `<<_variable_binding_class,VARIABLE_BINDING>>[1]` +
+frame[1] +
 ) +
  +
 __Pre_valid_binding__: `has_binding(env_id)`
-a|Add a variable binding to the binding container for an environment.
+a|Add a retrieve frame definition to the binding container for an environment.
 
 h|*1..1*
 |*has_binding* ( +
