@@ -252,8 +252,6 @@
 [.xcode]
 * link:/releases/SM/{sm_release}/platform.html#_uv_party_relationship_class[UV_PARTY_RELATIONSHIP^]
 [.xcode]
-* link:/releases/SM/{sm_release}/platform.html#_validity_checker_status_enumeration[VALIDITY_CHECKER_STATUS^]
-[.xcode]
 * link:/releases/SM/{sm_release}/platform.html#_variable_sample_class[VARIABLE_SAMPLE^]
 [.xcode]
 * link:/releases/SM/{sm_release}/platform.html#_variable_value_class[VARIABLE_VALUE^]

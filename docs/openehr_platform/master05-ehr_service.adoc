@@ -23,3 +23,7 @@ include::{uml_export_dir}/classes/i_ehr_composition.adoc[]
 include::{uml_export_dir}/classes/i_ehr_contribution.adoc[]
 
 include::{uml_export_dir}/classes/ehr_summary.adoc[]
+
+include::{uml_export_dir}/classes/uv_folder.adoc[]
+
+include::{uml_export_dir}/classes/uv_composition.adoc[]

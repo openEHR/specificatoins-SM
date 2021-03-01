@@ -6,7 +6,7 @@ h|*Class*
 2+^h|*UV_FOLDER*
 
 h|*Description*
-2+a|
+2+a|Form of `UPDATE_VERSION` specific to `FOLDER`.
 
 h|*Inherit*
 2+|`<<_update_version_class,UPDATE_VERSION>>`

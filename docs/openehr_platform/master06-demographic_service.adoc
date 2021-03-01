@@ -15,3 +15,7 @@ include::{uml_export_dir}/classes/i_demographic_service.adoc[]
 include::{uml_export_dir}/classes/i_party.adoc[]
 
 include::{uml_export_dir}/classes/i_party_relationship.adoc[]
+
+include::{uml_export_dir}/classes/uv_party.adoc[]
+
+include::{uml_export_dir}/classes/uv_party_relationship.adoc[]

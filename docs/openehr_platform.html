@@ -63,7 +63,6 @@
 <li><a href="#_update_version_class">3.4.4. UPDATE_VERSION Class</a></li>
 <li><a href="#_update_audit_class">3.4.5. UPDATE_AUDIT Class</a></li>
 <li><a href="#_i_validity_checker_interface">3.4.6. I_VALIDITY_CHECKER Interface</a></li>
-<li><a href="#_validity_checker_status_enumeration">3.4.7. VALIDITY_CHECKER_STATUS Enumeration</a></li>
 </ul>
 </li>
 </ul>
@@ -96,6 +95,8 @@
 <li><a href="#_i_ehr_composition_interface">5.2.5. I_EHR_COMPOSITION Interface</a></li>
 <li><a href="#_i_ehr_contribution_interface">5.2.6. I_EHR_CONTRIBUTION Interface</a></li>
 <li><a href="#_ehr_summary_class">5.2.7. EHR_SUMMARY Class</a></li>
+<li><a href="#_uv_folder_class">5.2.8. UV_FOLDER Class</a></li>
+<li><a href="#_uv_composition_class">5.2.9. UV_COMPOSITION Class</a></li>
 </ul>
 </li>
 </ul>
@@ -108,6 +109,8 @@
 <li><a href="#_i_demographic_service_interface">6.2.1. I_DEMOGRAPHIC_SERVICE Interface</a></li>
 <li><a href="#_i_party_interface">6.2.2. I_PARTY Interface</a></li>
 <li><a href="#_i_party_relationship_interface">6.2.3. I_PARTY_RELATIONSHIP Interface</a></li>
+<li><a href="#_uv_party_class">6.2.4. UV_PARTY Class</a></li>
+<li><a href="#_uv_party_relationship_class">6.2.5. UV_PARTY_RELATIONSHIP Class</a></li>
 </ul>
 </li>
 </ul>
@@ -1247,47 +1250,9 @@ a_content: <code><a href="/releases/RM/latest/common.html#_locatable_class" targ
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>Unresolved directive in master03-common_package.adoc - include::../UML/classes/validity_checker_status.adoc[]</p>
 </div>
-<div class="sect3">
-<h4 id="_validity_checker_status_enumeration"><a class="anchor" href="#_validity_checker_status_enumeration"></a>3.4.7. VALIDITY_CHECKER_STATUS Enumeration</h4>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Enumeration</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>VALIDITY_CHECKER_STATUS</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Enumeration representing <code>I_DEFINITIONS_CHECKER</code> statuses.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock">definition_unknown</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>The content object contains definition identifiers not known in the local <code>definitions</code> service.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock">content_invalid</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>The content object is not a valid instance of its reference model classes.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
 </div>
 </div>
 </div>
@@ -3458,6 +3423,58 @@ time_range: <code><a href="/releases/BASE/latest/foundation_types.html#_interval
 </tbody>
 </table>
 </div>
+<div class="sect3">
+<h4 id="_uv_folder_class"><a class="anchor" href="#_uv_folder_class"></a>5.2.8. UV_FOLDER Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>UV_FOLDER</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Form of <code>UPDATE_VERSION</code> specific to <code>FOLDER</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_update_version_class">UPDATE_VERSION</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_uv_composition_class"><a class="anchor" href="#_uv_composition_class"></a>5.2.9. UV_COMPOSITION Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>UV_COMPOSITION</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Form of <code>UPDATE_VERSION</code> specific to <code>COMPOSITION</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_update_version_class">UPDATE_VERSION</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -3869,6 +3886,58 @@ a_party_rel_version_id: <code><a href="/releases/BASE/latest/base_types.html#_uu
 </li>
 </ul>
 </div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_uv_party_class"><a class="anchor" href="#_uv_party_class"></a>6.2.4. UV_PARTY Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>UV_PARTY</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Form of <code>UPDATE_VERSION</code> specific to <code>PARTY</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_update_version_class">UPDATE_VERSION</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_uv_party_relationship_class"><a class="anchor" href="#_uv_party_relationship_class"></a>6.2.5. UV_PARTY_RELATIONSHIP Class</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>UV_PARTY_RELATIONSHIP</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Form of <code>UPDATE_VERSION</code> specific to <code>PARTY_RELATIONSHIP</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_update_version_class">UPDATE_VERSION</a></code></p></td>
 </tr>
 </tbody>
 </table>
