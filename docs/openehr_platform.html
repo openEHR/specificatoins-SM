@@ -324,7 +324,7 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>0.9.7</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Add Subject Proxy Service.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>12 Feb 2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>01 Apr 2021</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0.9.6</p></td>
@@ -1250,9 +1250,6 @@ a_content: <code><a href="/releases/RM/latest/common.html#_locatable_class" targ
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>Unresolved directive in master03-common_package.adoc - include::../UML/classes/validity_checker_status.adoc[]</p>
-</div>
 </div>
 </div>
 </div>
@@ -1351,7 +1348,7 @@ a_content: <code><a href="/releases/RM/latest/common.html#_locatable_class" targ
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_artefact</strong> (<br>
-an_id: <code><a href="/releases/PROC/latest/task_planning.html#_archetype_hrid_class" target="_blank" rel="noopener">ARCHETYPE_HRID</a>[1]</code><br>
+an_id: <code><a href="/releases/AM/latest/AOM2.html#_archetype_hrid_class" target="_blank" rel="noopener">ARCHETYPE_HRID</a>[1]</code><br>
 ): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return True if AOM2 artefact with id <code><em>an_id</em></code> exists in the service.</p>
@@ -1392,7 +1389,7 @@ an_artefact: <code><a href="/releases/AM/latest/AOM2.html#_authored_archetype_cl
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_artefact</strong> (<br>
-an_id: <code><a href="/releases/PROC/latest/task_planning.html#_archetype_hrid_class" target="_blank" rel="noopener">ARCHETYPE_HRID</a>[1]</code><br>
+an_id: <code><a href="/releases/AM/latest/AOM2.html#_archetype_hrid_class" target="_blank" rel="noopener">ARCHETYPE_HRID</a>[1]</code><br>
 ): <code><a href="/releases/AM/latest/AOM2.html#_authored_archetype_class" target="_blank" rel="noopener">AUTHORED_ARCHETYPE</a></code><br>
 <br>
 <em>Pre_artefact_exists</em>: <code>has_artefact (an_id)</code></p></td>
@@ -1413,7 +1410,7 @@ an_id: <code><a href="/releases/PROC/latest/task_planning.html#_archetype_hrid_c
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_artefacts</strong> (<br>
 item_offset: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code>,<br>
 items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code><br>
-): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/PROC/latest/task_planning.html#_archetype_hrid_class">ARCHETYPE_HRID</sup></a>&gt;</code></p></td>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/AM/latest/AOM2.html#_archetype_hrid_class">ARCHETYPE_HRID</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>List all AOM2 artefacts known in the service.</p>
 </div></div></td>
@@ -1423,7 +1420,7 @@ items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_inte
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_archetypes</strong> (<br>
 item_offset: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code>,<br>
 items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code><br>
-): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/PROC/latest/task_planning.html#_archetype_hrid_class">ARCHETYPE_HRID</sup></a>&gt;</code></p></td>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/AM/latest/AOM2.html#_archetype_hrid_class">ARCHETYPE_HRID</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>List all archetypes, i.e. artefacts whose concrete type is <code>AUTHORED_ARCHETYPE</code>.</p>
 </div></div></td>
@@ -1433,7 +1430,7 @@ items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_inte
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_templates</strong> (<br>
 item_offset: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code>,<br>
 items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code><br>
-): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/PROC/latest/task_planning.html#_archetype_hrid_class">ARCHETYPE_HRID</sup></a>&gt;</code></p></td>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/AM/latest/AOM2.html#_archetype_hrid_class">ARCHETYPE_HRID</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>List all archetypes, i.e. artefacts whose concrete type is <code>TEMPLATE</code>.</p>
 </div></div></td>
@@ -1443,7 +1440,7 @@ items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_inte
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_opts</strong> (<br>
 item_offset: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code>,<br>
 items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code><br>
-): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/PROC/latest/task_planning.html#_archetype_hrid_class">ARCHETYPE_HRID</sup></a>&gt;</code></p></td>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/AM/latest/AOM2.html#_archetype_hrid_class">ARCHETYPE_HRID</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>List all archetypes, i.e. artefacts whose concrete type is <code>OPERATIONAL_TEMPLATE</code>.</p>
 </div></div></td>
@@ -1454,7 +1451,7 @@ items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_inte
 id_pattern: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
 item_offset: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code>,<br>
 items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code><br>
-): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/PROC/latest/task_planning.html#_archetype_hrid_class">ARCHETYPE_HRID</sup></a>&gt;</code></p></td>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/AM/latest/AOM2.html#_archetype_hrid_class">ARCHETYPE_HRID</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>List all artefacts whose identifiers match a regex pattern.</p>
 </div>
@@ -1470,7 +1467,7 @@ items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_inte
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_artefact</strong> (<br>
-an_id: <code><a href="/releases/PROC/latest/task_planning.html#_archetype_hrid_class" target="_blank" rel="noopener">ARCHETYPE_HRID</a>[1]</code><br>
+an_id: <code><a href="/releases/AM/latest/AOM2.html#_archetype_hrid_class" target="_blank" rel="noopener">ARCHETYPE_HRID</a>[1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Delete the AOM2 artefact with id <code><em>an_id</em></code>.</p>
@@ -4825,22 +4822,34 @@ tdd: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" t
 <p>The Subject Proxy Service (SPS) allows symbolic variables characterising the real world state of a <em>subject</em> which is often a subject of care (i.e a patient) but may be some other entity, to be retrieved and tracked over time. Such variables are useful for many kinds of application, since they provide a standard means of obtaining information that concretely reside in different kinds of back-end systems or  devices, or may be requested from live users. The SPS avoids the calling application having to know about the particular standard, representational model, query language or API of the data source for any given variable. Consequently there is no need to even assume that an openEHR back-end system is the source of any given variable.</p>
 </div>
 <div class="paragraph">
-<p>Subject variables may be conveniently used by any application are relied upon by openEHR Task Plans and Decision Logic Modules, within which the conceptual purpose and typical use are described in the <a href="https://specifications.openehr.org/releases/PROC/latest/overview.html#_subject_proxy_service" target="_blank" rel="noopener">openEHR Process and Planning Overview</a>.</p>
+<p>The following diagram shows conceptually the population of subject proxy variables from back-end systems, via the various intermediate layers of the Subject Proxy Service.</p>
+</div>
+<div id="spo_conceptual" class="imageblock text-center text-center">
+<div class="content">
+<img src="openehr_platform/diagrams/spo_conceptual.svg" alt="spo conceptual">
+</div>
+<div class="title">Figure 11. Typical Subject Proxy situation</div>
+</div>
+<div class="paragraph">
+<p>Subject variables may be conveniently used by any application and are relied upon by openEHR Task Plans and Decision Logic Modules, for which the conceptual purpose and typical use are described in the <a href="https://specifications.openehr.org/releases/PROC/latest/overview.html#_subject_proxy_service" target="_blank" rel="noopener">openEHR Process and Planning Overview</a>.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_subject_variable_naming"><a class="anchor" href="#_subject_variable_naming"></a>10.2. Subject Variable Naming</h3>
 <div class="paragraph">
-<p>The Subject Proxy Service enables the registration of <em>subject variables</em> by various means. Each subject variable is identified within the service by a <em>canonical name</em> (<code>SUBJECT_VARIABLE.<em>name</em></code>, in the model below), which is the name used for it in calls mentioning variables by name.</p>
+<p>The Subject Proxy Service enables the registration of <em>subject variables</em> by various means. Each subject variable is identified within the service by a <em>canonical name</em> (<code>SUBJECT_VARIABLE.<em>canonical_name</em></code>, in the model below), which is the name used for it in calls mentioning variables by name.</p>
 </div>
 <div class="paragraph">
-<p>Canonical names are preferably intelligible natural language names that accurately indicate their meaning, such as <code>"date_of_birth"</code>, <code>"is_type1_diabetic"</code> and so on, but may be any name that is legal within the relevant source contexts and valid within this service. To be valid within the service, canonical names may not contain whitespace or any unprintable character, but there are no other restrictions (e.g. of case, or first character being a letter etc).</p>
+<p>The canonical name is formed from <code>SUBJECT_VARIABLE.<em>name</em></code>, prefixed by <code><em>namespace</em></code> if it is set, and are unique within the service, regardless of which subjects or applications may use them at any given time. The <code><em>name</em></code> attribute is an intelligible natural language names that accurately indicate its meaning, such as <code>"date_of_birth"</code>, <code>"is_type1_diabetic"</code> and so on, but may be any name that is legal within the relevant source contexts and valid within this service. Some variable names such as <code>"date_of_birth"</code> are regarded as having a globally agreed definition (e.g. the date recorded as date of birth against the subject in administration systems), while other variables such as <code><em>has_heart_failure</em></code> may have a definitions specific to particular guidelines, such as CHA<sub>2</sub>DS<sub>2</sub>-VASc, a guideline for atrial fibrillation (AF) diagnosis etc. The use of namespaces in the latter cases would have the effect of defining variables such as <code>cha2ds2vasc::has_heart_failure</code> and <code>af_diagnosis::has_heart_failure</code> (where <code>"cha2ds2vasc"</code> and <code>"af_diagnosis"</code> are namespace values), each of which may have a semantically different retrieval definition (for example including or excluding heart murmur).</p>
 </div>
 <div class="paragraph">
-<p>An <em>application data set</em>, which is a convenience collection of variables registered by / for an application may however use data set-local aliases, for example <code>"dob"</code> for the canonical name <code>"date_of_birth"</code>.</p>
+<p>If <code><em>namespace</em></code> is not set, the variable is understood to be in the 'global' namespace, and to have the same meaning for all users. There is nothing to stop a variable existing in both the global namespace and one or more specific namespaces, for example <code>date_of_birth</code> (standard administrative concept) and <code>tribal::date_of_birth</code> (a specific 'date of birth' concept used for ethnic or religious reasons).</p>
 </div>
 <div class="paragraph">
-<p>Canonical names must be unique within the service, regardless of which subjects or applications may use them at any given time.</p>
+<p>To be valid within the service, canonical names may not contain whitespace or any unprintable character, but there are no other restrictions (e.g. of case, or first character being a letter etc).</p>
+</div>
+<div class="paragraph">
+<p>An <em>application data set</em>, which is a convenience collection of variables registered by / for an application may however use data set-local aliases, for example <code>"dob"</code> for the canonical name <code>"date_of_birth"</code>. This allows the names used locally within client computation contexts for the same variable registered in the SPS may differ. It is recommended that this flexibility be used sparingly in order to limit confusion within the overall system design environment.</p>
 </div>
 </div>
 <div class="sect2">
@@ -4874,7 +4883,7 @@ tdd: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" t
 <div class="content">
 <img src="UML/diagrams/SM-platform.interface.subject_proxy.svg" alt="SM platform.interface.subject proxy">
 </div>
-<div class="title">Figure 11. <code>sm.platform.interface.subject_proxy</code> package</div>
+<div class="title">Figure 12. <code>sm.platform.interface.subject_proxy</code> package</div>
 </div>
 </div>
 <div class="sect2">
@@ -4908,7 +4917,7 @@ tdd: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" t
 <div class="content">
 <img src="UML/diagrams/SM-platform.interface.subject_proxy-structure.svg" alt="SM platform.interface.subject proxy structure">
 </div>
-<div class="title">Figure 12. Subject Proxy structures</div>
+<div class="title">Figure 13. Subject Proxy structures</div>
 </div>
 </div>
 <div class="sect2">
@@ -4923,7 +4932,7 @@ tdd: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" t
 <div class="content">
 <img src="UML/diagrams/SM-platform.interface.subject_proxy-sample.svg" alt="SM platform.interface.subject proxy sample">
 </div>
-<div class="title">Figure 13. Subject Proxy structures</div>
+<div class="title">Figure 14. Subject Proxy structures</div>
 </div>
 </div>
 <div class="sect2">
@@ -4941,7 +4950,7 @@ tdd: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" t
 <div class="content">
 <img src="UML/diagrams/SM-platform.interface.subject_proxy-binding.svg" alt="SM platform.interface.subject proxy binding">
 </div>
-<div class="title">Figure 14. Subject Proxy binding</div>
+<div class="title">Figure 15. Subject Proxy binding</div>
 </div>
 </div>
 <div class="sect2">
@@ -5029,7 +5038,7 @@ tdd: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" t
 <div class="content">
 <img src="openehr_platform/diagrams/spo_context.svg" alt="spo context">
 </div>
-<div class="title">Figure 15. Typical Subject Proxy situation</div>
+<div class="title">Figure 16. Typical Subject Proxy situation</div>
 </div>
 <div class="sect3">
 <h4 id="_specifying_a_data_set"><a class="anchor" href="#_specifying_a_data_set"></a>10.8.1. Specifying a Data-set</h4>
@@ -5370,12 +5379,28 @@ env_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
 <p>A single subject variable whose data may take various forms, including atomic, list and time series.</p>
+</div>
+<div class="paragraph">
+<p>Variables are considered either <em>global</em>, having just a <code><em>name</em></code>, or <em>qualified</em>, in which case <code><em>namespace</em></code> is also set. A name-spaced variable is one whose meaning is relative to the context of the name-space, typically a specific guideline.</p>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>namespace</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional namespace qualifying <code><em>name</em></code>. Used to distinguish variables that may have the same name but have local meanings within specific contexts, e.g. specific guidelines.</p>
+</div>
+<div class="paragraph">
+<p>For example, a variable <code><em>has_heart_failure</em></code> is likely to have definitions specific to particular guidelines, such as CHA<sub>2</sub>DS<sub>2</sub>-VASc and (say) a guideline for CHF diagnosis. The use of namespaces in both cases would have the effect of defining variables such as <code>cha2ds2vasc::_has_heart_failure_</code> and <code>chf_diagnosis::_has_heart_failure_</code>, each of which may have a different retrieval definition.</p>
+</div>
+<div class="paragraph">
+<p>If not set, the variable is understood to be in a 'global' namespace, and to have the same meaning for all users, as is likely to be the case for a variable such as <code><em>is_type1_diabetic</em></code>.</p>
+</div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
@@ -5416,13 +5441,6 @@ env_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div></div></td>
 </tr>
 <tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>frame_id</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Identifier of retreve frame from which to extract this variable.</p>
-</div></div></td>
-</tr>
-<tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>history</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_variable_sample_class">VARIABLE_SAMPLE</a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -5431,9 +5449,9 @@ env_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>frame_path</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>frame_id</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Path within <code><em>last_frame</em></code> result.</p>
+<p>Identifier of retrieve frame from which to extract this variable.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -5444,15 +5462,38 @@ env_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 </div></div></td>
 </tr>
 <tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>frame_path</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Path within <code><em>last_frame</em></code> result.</p>
+</div></div></td>
+</tr>
+<tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>canonical_name</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return canonical name, formed from <code><em>namespace</em></code> (if present) and <code><em>name</em></code>. In the first case, the result will be <code>namespace::name</code>, in the latter, just <code>name</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong> (): <code><a href="#_variable_sample_class">VARIABLE_SAMPLE</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Extract the value from the source retrieve frame, reprocessing if necessary to obtain intended type (single, list, time_series).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_global</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code><br>
+<br>
+<em>Post_result</em>: <code>Result = (namespace = Void)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if <code><em>namespace</em></code> is set.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -5992,9 +6033,9 @@ env_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_frame</strong> (<br>
 subject_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
 frame_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code><br>
-): <code><a href="#_openehr_sample_class">OPENEHR_SAMPLE</a></code></p></td>
+): <code><a href="#_data_frame_sample_class">DATA_FRAME_SAMPLE</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Execute a retrieve on a single named variable, for a specific subject.</p>
+<p>Execute a retrieve on a data frame, for a specific subject.</p>
 </div>
 <div class="hdlist">
 <div class="title">Parameters<br></div>
@@ -6150,7 +6191,7 @@ frame_id: <code><a href="/releases/BASE/latest/foundation_types.html#_string_cla
 <div class="content">
 <img src="UML/diagrams/SM-platform.interface.terminology.svg" alt="SM platform.interface.terminology">
 </div>
-<div class="title">Figure 16. <code>sm.platform.interface.terminology</code> package</div>
+<div class="title">Figure 17. <code>sm.platform.interface.terminology</code> package</div>
 </div>
 </div>
 <div class="sect2">
@@ -6637,7 +6678,7 @@ code: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" 
 <div class="content">
 <img src="UML/diagrams/SM-platform.interface.admin.svg" alt="SM platform.interface.admin">
 </div>
-<div class="title">Figure 17. <code>sm.platform.interface.admin</code> package</div>
+<div class="title">Figure 18. <code>sm.platform.interface.admin</code> package</div>
 </div>
 </div>
 <div class="sect2">

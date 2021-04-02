@@ -23,8 +23,8 @@ h|*1..1*
 |*get_frame* ( +
 subject_id: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]`, +
 frame_id: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]` +
-): `<<_openehr_sample_class,OPENEHR_SAMPLE>>`
-a|Execute a retrieve on a single named variable, for a specific subject.
+): `<<_data_frame_sample_class,DATA_FRAME_SAMPLE>>`
+a|Execute a retrieve on a data frame, for a specific subject.
 
 .Parameters +
 [horizontal]

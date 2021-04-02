@@ -4,17 +4,25 @@
 
 The Subject Proxy Service (SPS) allows symbolic variables characterising the real world state of a _subject_ which is often a subject of care (i.e a patient) but may be some other entity, to be retrieved and tracked over time. Such variables are useful for many kinds of application, since they provide a standard means of obtaining information that concretely reside in different kinds of back-end systems or  devices, or may be requested from live users. The SPS avoids the calling application having to know about the particular standard, representational model, query language or API of the data source for any given variable. Consequently there is no need to even assume that an openEHR back-end system is the source of any given variable.
 
-Subject variables may be conveniently used by any application are relied upon by openEHR Task Plans and Decision Logic Modules, within which the conceptual purpose and typical use are described in the {openehr_proc_overview}#_subject_proxy_service[openEHR Process and Planning Overview^].
+The following diagram shows conceptually the population of subject proxy variables from back-end systems, via the various intermediate layers of the Subject Proxy Service.
+
+[.text-center]
+.Typical Subject Proxy situation
+image::{diagrams_uri}/spo_conceptual.svg[id=spo_conceptual, align="center"]
+
+Subject variables may be conveniently used by any application and are relied upon by openEHR Task Plans and Decision Logic Modules, for which the conceptual purpose and typical use are described in the {openehr_proc_overview}#_subject_proxy_service[openEHR Process and Planning Overview^].
 
 == Subject Variable Naming
 
-The Subject Proxy Service enables the registration of _subject variables_ by various means. Each subject variable is identified within the service by a _canonical name_ (`SUBJECT_VARIABLE._name_`, in the model below), which is the name used for it in calls mentioning variables by name. 
+The Subject Proxy Service enables the registration of _subject variables_ by various means. Each subject variable is identified within the service by a _canonical name_ (`SUBJECT_VARIABLE._canonical_name_`, in the model below), which is the name used for it in calls mentioning variables by name.
 
-Canonical names are preferably intelligible natural language names that accurately indicate their meaning, such as `"date_of_birth"`, `"is_type1_diabetic"` and so on, but may be any name that is legal within the relevant source contexts and valid within this service. To be valid within the service, canonical names may not contain whitespace or any unprintable character, but there are no other restrictions (e.g. of case, or first character being a letter etc). 
+The canonical name is formed from `SUBJECT_VARIABLE._name_`, prefixed by `_namespace_` if it is set, and are unique within the service, regardless of which subjects or applications may use them at any given time. The `_name_` attribute is an intelligible natural language names that accurately indicate its meaning, such as `"date_of_birth"`, `"is_type1_diabetic"` and so on, but may be any name that is legal within the relevant source contexts and valid within this service. Some variable names such as `"date_of_birth"` are regarded as having a globally agreed definition (e.g. the date recorded as date of birth against the subject in administration systems), while other variables such as `_has_heart_failure_` may have a definitions specific to particular guidelines, such as CHA~2~DS~2~-VASc, a guideline for atrial fibrillation (AF) diagnosis etc. The use of namespaces in the latter cases would have the effect of defining variables such as `cha2ds2vasc::has_heart_failure` and `af_diagnosis::has_heart_failure` (where `"cha2ds2vasc"` and `"af_diagnosis"` are namespace values), each of which may have a semantically different retrieval definition (for example including or excluding heart murmur).
 
-An _application data set_, which is a convenience collection of variables registered by / for an application may however use data set-local aliases, for example `"dob"` for the canonical name `"date_of_birth"`.
+If `_namespace_` is not set, the variable is understood to be in the 'global' namespace, and to have the same meaning for all users. There is nothing to stop a variable existing in both the global namespace and one or more specific namespaces, for example `date_of_birth` (standard administrative concept) and `tribal::date_of_birth` (a specific 'date of birth' concept used for ethnic or religious reasons).
 
-Canonical names must be unique within the service, regardless of which subjects or applications may use them at any given time.
+To be valid within the service, canonical names may not contain whitespace or any unprintable character, but there are no other restrictions (e.g. of case, or first character being a letter etc). 
+
+An _application data set_, which is a convenience collection of variables registered by / for an application may however use data set-local aliases, for example `"dob"` for the canonical name `"date_of_birth"`. This allows the names used locally within client computation contexts for the same variable registered in the SPS may differ. It is recommended that this flexibility be used sparingly in order to limit confusion within the overall system design environment.
 
 == Service Interface
 

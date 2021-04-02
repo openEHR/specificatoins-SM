@@ -9,7 +9,7 @@
 |[[latest_issue]]0.9.7
 |Add Subject Proxy Service.
 |T Beale
-|[[latest_issue_date]]12 Feb 2021
+|[[latest_issue_date]]01 Apr 2021
 
 |0.9.6
 |Adjust naming and definitions of elements in `RESULT_SET` classes to reflect REST API.

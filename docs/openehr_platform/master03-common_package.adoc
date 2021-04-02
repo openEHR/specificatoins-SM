@@ -41,5 +41,3 @@ include::{uml_export_dir}/classes/update_version.adoc[]
 include::{uml_export_dir}/classes/update_audit.adoc[]
 
 include::{uml_export_dir}/classes/i_validity_checker.adoc[]
-
-include::{uml_export_dir}/classes/validity_checker_status.adoc[]
