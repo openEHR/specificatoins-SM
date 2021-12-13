@@ -6,10 +6,16 @@
 
 4+^h|*SM Release 1.0.0*
 
-|[[latest_issue]]0.9.7
+|[[latest_issue]]0.9.8
+|Fixes to specific interfaces due to SEC analysis: +
+ Rename `I_DEFINITION_QUERY.register_xx` to `store_xx` and `_formalism_` parameter to `_a_type_`; document representation of formalism version;
+|S Iancu
+|[[latest_issue_date]]13 Dec 2021
+
+|0.9.7
 |Add Subject Proxy Service.
 |T Beale
-|[[latest_issue_date]]01 Apr 2021
+|01 Apr 2021
 
 |0.9.6
 |Adjust naming and definitions of elements in `RESULT_SET` classes to reflect REST API.

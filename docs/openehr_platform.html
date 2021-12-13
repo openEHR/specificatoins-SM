@@ -71,7 +71,11 @@
 <ul class="sectlevel2">
 <li><a href="#_overview_3">4.1. Overview</a></li>
 <li><a href="#_archetypes_and_templates">4.2. Archetypes and Templates</a></li>
-<li><a href="#_registered_queries">4.3. Registered Queries</a></li>
+<li><a href="#_registered_queries">4.3. Registered Queries</a>
+<ul class="sectlevel3">
+<li><a href="#_query_formalism">4.3.1. Query Formalism</a></li>
+</ul>
+</li>
 <li><a href="#_class_definitions_2">4.4. Class Definitions</a>
 <ul class="sectlevel3">
 <li><a href="#_i_definition_adl2_interface">4.4.1. I_DEFINITION_ADL2 Interface</a></li>
@@ -321,10 +325,17 @@
 <th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>SM Release 1.0.0</strong></p></th>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>0.9.7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>0.9.8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fixes to specific interfaces due to SEC analysis:<br>
+ Rename <code>I_DEFINITION_QUERY.register_xx</code> to <code>store_xx</code> and <code><em>formalism</em></code> parameter to <code><em>a_type</em></code>; document representation of formalism version;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S Iancu</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>13 Dec 2021</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.9.7</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Add Subject Proxy Service.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>01 Apr 2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">01 Apr 2021</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0.9.6</p></td>
@@ -1318,6 +1329,41 @@ a_content: <code><a href="/releases/RM/latest/common.html#_locatable_class" targ
 <div class="paragraph">
 <p>If no namespace is supplied, the namespace <code>"misc"</code> is assumed.</p>
 </div>
+<div class="sect3">
+<h4 id="_query_formalism"><a class="anchor" href="#_query_formalism"></a>4.3.1. Query Formalism</h4>
+<div class="paragraph">
+<p>A stored or ad hoc query text has an associated formalism, i.e. query language, provided in the <code><em>a_type</em></code> parameter in various calls. This parameter is a string value, treated case-insensitively carrying the name of the formalism of the query text, with an optional version identifier separated by the '::' delimiter. The version identifier may be:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a semver.org partial or full version string, such as "1", "1.0", "1.0.3"; OR</p>
+</li>
+<li>
+<p>any text value, for non-computable version identifiers.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If no version identifier part is supplied, the major version "1" is assumed.</p>
+</div>
+<div class="paragraph">
+<p>Accordingly, the following values for the <code><em>type</em></code> parameter are all equivalent:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>"AQL"</p>
+</li>
+<li>
+<p>"aql"</p>
+</li>
+<li>
+<p>"AQL::1"</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_class_definitions_2"><a class="anchor" href="#_class_definitions_2"></a>4.4. Class Definitions</h3>
@@ -1348,7 +1394,7 @@ a_content: <code><a href="/releases/RM/latest/common.html#_locatable_class" targ
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_artefact</strong> (<br>
-an_id: <code><a href="/releases/AM/latest/AOM2.html#_archetype_hrid_class" target="_blank" rel="noopener">ARCHETYPE_HRID</a>[1]</code><br>
+an_id: <code><a href="/releases/PROC/latest/task_planning.html#_archetype_hrid_class" target="_blank" rel="noopener">ARCHETYPE_HRID</a>[1]</code><br>
 ): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return True if AOM2 artefact with id <code><em>an_id</em></code> exists in the service.</p>
@@ -1389,7 +1435,7 @@ an_artefact: <code><a href="/releases/AM/latest/AOM2.html#_authored_archetype_cl
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_artefact</strong> (<br>
-an_id: <code><a href="/releases/AM/latest/AOM2.html#_archetype_hrid_class" target="_blank" rel="noopener">ARCHETYPE_HRID</a>[1]</code><br>
+an_id: <code><a href="/releases/PROC/latest/task_planning.html#_archetype_hrid_class" target="_blank" rel="noopener">ARCHETYPE_HRID</a>[1]</code><br>
 ): <code><a href="/releases/AM/latest/AOM2.html#_authored_archetype_class" target="_blank" rel="noopener">AUTHORED_ARCHETYPE</a></code><br>
 <br>
 <em>Pre_artefact_exists</em>: <code>has_artefact (an_id)</code></p></td>
@@ -1410,7 +1456,7 @@ an_id: <code><a href="/releases/AM/latest/AOM2.html#_archetype_hrid_class" targe
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_artefacts</strong> (<br>
 item_offset: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code>,<br>
 items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code><br>
-): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/AM/latest/AOM2.html#_archetype_hrid_class">ARCHETYPE_HRID</sup></a>&gt;</code></p></td>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/PROC/latest/task_planning.html#_archetype_hrid_class">ARCHETYPE_HRID</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>List all AOM2 artefacts known in the service.</p>
 </div></div></td>
@@ -1420,7 +1466,7 @@ items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_inte
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_archetypes</strong> (<br>
 item_offset: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code>,<br>
 items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code><br>
-): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/AM/latest/AOM2.html#_archetype_hrid_class">ARCHETYPE_HRID</sup></a>&gt;</code></p></td>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/PROC/latest/task_planning.html#_archetype_hrid_class">ARCHETYPE_HRID</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>List all archetypes, i.e. artefacts whose concrete type is <code>AUTHORED_ARCHETYPE</code>.</p>
 </div></div></td>
@@ -1430,7 +1476,7 @@ items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_inte
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_templates</strong> (<br>
 item_offset: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code>,<br>
 items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code><br>
-): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/AM/latest/AOM2.html#_archetype_hrid_class">ARCHETYPE_HRID</sup></a>&gt;</code></p></td>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/PROC/latest/task_planning.html#_archetype_hrid_class">ARCHETYPE_HRID</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>List all archetypes, i.e. artefacts whose concrete type is <code>TEMPLATE</code>.</p>
 </div></div></td>
@@ -1440,7 +1486,7 @@ items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_inte
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_opts</strong> (<br>
 item_offset: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code>,<br>
 items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code><br>
-): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/AM/latest/AOM2.html#_archetype_hrid_class">ARCHETYPE_HRID</sup></a>&gt;</code></p></td>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/PROC/latest/task_planning.html#_archetype_hrid_class">ARCHETYPE_HRID</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>List all archetypes, i.e. artefacts whose concrete type is <code>OPERATIONAL_TEMPLATE</code>.</p>
 </div></div></td>
@@ -1451,7 +1497,7 @@ items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_inte
 id_pattern: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
 item_offset: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code>,<br>
 items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code><br>
-): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/AM/latest/AOM2.html#_archetype_hrid_class">ARCHETYPE_HRID</sup></a>&gt;</code></p></td>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/PROC/latest/task_planning.html#_archetype_hrid_class">ARCHETYPE_HRID</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>List all artefacts whose identifiers match a regex pattern.</p>
 </div>
@@ -1467,7 +1513,7 @@ items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_inte
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_artefact</strong> (<br>
-an_id: <code><a href="/releases/AM/latest/AOM2.html#_archetype_hrid_class" target="_blank" rel="noopener">ARCHETYPE_HRID</a>[1]</code><br>
+an_id: <code><a href="/releases/PROC/latest/task_planning.html#_archetype_hrid_class" target="_blank" rel="noopener">ARCHETYPE_HRID</a>[1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Delete the AOM2 artefact with id <code><em>an_id</em></code>.</p>
@@ -1809,17 +1855,30 @@ a_query_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>valid_query</strong> (<br>
 a_query_text: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
-a_formalism: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code><br>
+a_type: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code><br>
 ): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return True if the provided query text is a valid instance of the formalism.</p>
+</div>
+<div class="hdlist">
+<div class="title">Parameters<br></div>
+<table>
+<tr>
+<td class="hdlist1">
+<code><em>a_type</em></code>
+</td>
+<td class="hdlist2">
+<p>Name and optionally version of the query formalism (i.e. language).</p>
+</td>
+</tr>
+</table>
 </div></div></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>register_query</strong> (<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>store_query</strong> (<br>
 a_query_text: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
-a_formalism: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
+a_type: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
 a_query_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[0..1]</code><br>
 ): <code><a href="#_query_descriptor_class">QUERY_DESCRIPTOR</a></code><br>
 <br>
@@ -1832,10 +1891,10 @@ a_query_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string
 <table>
 <tr>
 <td class="hdlist1">
-<code><em>a_formalism</em></code>
+<code><em>a_type</em></code>
 </td>
 <td class="hdlist2">
-<p>Case-insensitive name of the formalism of the query text. Values include "AQL" (and "aql").</p>
+<p>Name and optionally version of the query formalism (i.e. language).</p>
 </td>
 </tr>
 </table>
@@ -1843,7 +1902,7 @@ a_query_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>register_query_set</strong> (<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>store_query_set</strong> (<br>
 a_query_set_name: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[0..1]</code><br>
 ): <code><a href="/releases/BASE/latest/base_types.html#_uuid_class" target="_blank" rel="noopener">UUID</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">

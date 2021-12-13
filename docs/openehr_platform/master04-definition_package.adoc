@@ -33,6 +33,21 @@ Examples:
 
 If no namespace is supplied, the namespace `"misc"` is assumed.
 
+=== Query Formalism
+
+A stored or ad hoc query text has an associated formalism, i.e. query language, provided in the `_a_type_` parameter in various calls. This parameter is a string value, treated case-insensitively carrying the name of the formalism of the query text, with an optional version identifier separated by the '::' delimiter. The version identifier may be:
+
+* a semver.org partial or full version string, such as "1", "1.0", "1.0.3"; OR
+* any text value, for non-computable version identifiers.
+
+If no version identifier part is supplied, the major version "1" is assumed.
+
+Accordingly, the following values for the `_type_` parameter are all equivalent:
+
+* "AQL"
+* "aql"
+* "AQL::1"
+
 == Class Definitions
 
 include::{uml_export_dir}/classes/i_definition_adl2.adoc[]

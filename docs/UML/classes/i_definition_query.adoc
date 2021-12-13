@@ -25,14 +25,18 @@ a|Return True if the query identified by `_a_query_name_` is registered.
 h|*1..1*
 |*valid_query* ( +
 a_query_text: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]`, +
-a_formalism: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]` +
+a_type: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]` +
 ): `link:/releases/BASE/{base_release}/foundation_types.html#_boolean_class[Boolean^]`
 a|Return True if the provided query text is a valid instance of the formalism.
 
+.Parameters +
+[horizontal]
+`_a_type_`:: Name and optionally version of the query formalism (i.e. language).
+
 h|*1..1*
-|*register_query* ( +
+|*store_query* ( +
 a_query_text: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]`, +
-a_formalism: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]`, +
+a_type: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][1]`, +
 a_query_name: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][0..1]` +
 ): `<<_query_descriptor_class,QUERY_DESCRIPTOR>>` +
  +
@@ -41,10 +45,10 @@ a|Register a query under a qualified name. If no name is provided, one is create
 
 .Parameters +
 [horizontal]
-`_a_formalism_`:: Case-insensitive name of the formalism of the query text. Values include "AQL" (and "aql").
+`_a_type_`:: Name and optionally version of the query formalism (i.e. language).
 
 h|*1..1*
-|*register_query_set* ( +
+|*store_query_set* ( +
 a_query_set_name: `link:/releases/BASE/{base_release}/foundation_types.html#_string_class[String^][0..1]` +
 ): `link:/releases/BASE/{base_release}/base_types.html#_uuid_class[UUID^]`
 a|Register a query set.
