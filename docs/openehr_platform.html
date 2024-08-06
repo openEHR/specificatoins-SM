@@ -4,11 +4,13 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.10">
+<meta name="generator" content="Asciidoctor 2.0.23">
 <meta name="description" content="openEHR Platform Abstract Service Model">
 <meta name="keywords" content="openehr, service, API">
 <title>openEHR Platform Service Model</title>
 <link rel="stylesheet" href="https://specifications.openehr.org/styles/openehr.css">
+<link rel="stylesheet" href="https://specifications.openehr.org/styles/pygments-default.css">
+<link rel="stylesheet" href="https://specifications.openehr.org/styles/asciidoctor-tabs.css">
 </head>
 <body class="book toc2 toc-left">
 <div id="header">
@@ -17,7 +19,6 @@
 <ul class="sectlevel0">
 <li><a href="#_openehr_platform_service_model">openEHR Platform Service Model</a>
 <ul class="sectlevel1">
-<li><a href="#_amendment_record">Amendment Record</a></li>
 <li><a href="#_acknowledgements">Acknowledgements</a>
 <ul class="sectlevel2">
 <li><a href="#_primary_author">Primary Author</a></li>
@@ -228,6 +229,7 @@
 </li>
 </ul>
 </li>
+<li><a href="#_amendment_record">13. Amendment Record</a></li>
 </ul>
 </li>
 </ul>
@@ -258,7 +260,7 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Release</strong>: SM latest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Release</strong>: SM development</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Status</strong>: TRIAL</p></td>
 </tr>
 <tr>
@@ -282,7 +284,7 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-center valign-top" colspan="2">&#169; 2017 - 2021 The openEHR Foundation</th>
+<th class="tableblock halign-center valign-top" colspan="2">&#169; 2017 - 2024 The openEHR Foundation</th>
 </tr>
 </thead>
 <tbody>
@@ -297,105 +299,6 @@
 <td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Support</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Issues: <a href="https://specifications.openehr.org/components/SM/open_issues" target="_blank" rel="noopener">Problem Reports</a><br>
  Web: <a href="https://specifications.openehr.org" target="_blank" rel="noopener">specifications.openEHR.org</a></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_amendment_record"><a class="anchor" href="#_amendment_record"></a>Amendment Record</h2>
-<div class="sectionbody">
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 9.0909%;">
-<col style="width: 54.5454%;">
-<col style="width: 18.1818%;">
-<col style="width: 18.1819%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Issue</th>
-<th class="tableblock halign-left valign-top">Details</th>
-<th class="tableblock halign-left valign-top">Raiser</th>
-<th class="tableblock halign-left valign-top">Completed</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>SM Release 1.0.0</strong></p></th>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>0.9.8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Fixes to specific interfaces due to SEC analysis:<br>
- Rename <code>I_DEFINITION_QUERY.register_xx</code> to <code>store_xx</code> and <code><em>formalism</em></code> parameter to <code><em>a_type</em></code>; document representation of formalism version;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S Iancu</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>13 Dec 2021</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.9.7</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Add Subject Proxy Service.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">01 Apr 2021</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.9.6</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Adjust naming and definitions of elements in <code>RESULT_SET</code> classes to reflect REST API.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S Iancu</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">25 Mar 2020</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.9.5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Add missing enumeration <code><em>invalid_artefact</em></code> to <code>DEFINITION_CALL_STATUS_TYPE</code> (<a href="https://specifications.openehr.org/tickets/SPECPR-293" target="_blank" rel="noopener">SPECPR-293</a>);<br>
- Add <code><em>xxx_count()</em></code> calls to <code>I_DEFINITION_XX</code> interfaces (<a href="https://specifications.openehr.org/tickets/SPECPR-288" target="_blank" rel="noopener">SPECPR-288</a>);<br>
- Rename <code><em>row_offset</em></code> and <code><em>rows_to_fetch</em></code> to <code><em>item_offset</em></code> and <code><em>items_to_fetch</em></code> (<a href="https://specifications.openehr.org/tickets/SPECPR-292" target="_blank" rel="noopener">SPECPR-292</a>);<br>
- Change names of <code><em>list_all_xxx()</em></code> functions in <code>definitions</code> interfaces to <code><em>list_xxx()</em></code> (<a href="https://specifications.openehr.org/tickets/SPECPR-292" target="_blank" rel="noopener">SPECPR-292</a>);<br>
- Added <code><em>valid_xxx()</em></code> calls and preconditions to <code><em>upload_xx()</em></code> calls in  <code>I_DEFINITION_XX</code> interfaces (<a href="https://specifications.openehr.org/tickets/SPECPR-291" target="_blank" rel="noopener">SPECPR-291</a>);<br>
- Remove duplicate operation <code>I_EHR.<em>list_contributions()</em></code> (<a href="https://specifications.openehr.org/tickets/SPECPR-304" target="_blank" rel="noopener">SPECPR-304</a>);<br>
- Improve documentation of implicit server-side Contribution and Version creation (<a href="https://specifications.openehr.org/tickets/SPECPR-305" target="_blank" rel="noopener">SPECPR-305</a>);<br>
- Correct argument types of <code>I_EHR_COMPOSITION.<em>get_composition_xx()</em></code> functions; rename <code><em>get_composition()</em></code> to <code><em>get_composition_latest()</em></code>.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">P Pazos</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">28 Feb 2019</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Add <code>I_DEFINITIONS_CHECKER</code> and <code>DEFINITIONS_CHECKER_STATUS</code> to support definitions validity pre-conditions.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">16 Jan 2019</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.9.4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Improve documentation text;<br>
- Reverse order of Parameter and Errors sections in operations text.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">22 Aug 2018</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.9.3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Improve documentation text;<br>
- Add section on call conventions; improve query register calls based on REST API 0.9.0.<br>
- Add EHR Index section.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">14 Feb 2018</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.9.2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Improve documentation text;<br>
- remove <code><em>auth_tok</em></code> argument from calls.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">22 Oct 2017</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.9.1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Added demographic interface calls;<br>
- added more admin interface calls.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">18 Oct 2017</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.9.0</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECSM-1" target="_blank" rel="noopener">SPECSM-1</a>: Initial writing.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">openEHR SEC</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">15 Sep 2017</p></td>
 </tr>
 </tbody>
 </table>
@@ -422,7 +325,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Pablo Pazos, Principal, Cabloabs, Uruguay</p>
+<p>Pablo Pazos Gutierrez, CaboLabs, Uruguay</p>
 </li>
 </ul>
 </div>
@@ -487,7 +390,7 @@
 <div class="sect2">
 <h3 id="_status"><a class="anchor" href="#_status"></a>1.3. Status</h3>
 <div class="paragraph">
-<p>This specification is in the TRIAL state. The development version of this document can be found at <a href="https://specifications.openehr.org/releases/SM/latest/openehr_platform.html" target="_blank" rel="noopener">https://specifications.openehr.org/releases/SM/latest/openehr_platform.html</a>.</p>
+<p>This specification is in the TRIAL state. The development version of this document can be found at <a href="https://specifications.openehr.org/releases/SM/development/openehr_platform.html" target="_blank" rel="noopener">https://specifications.openehr.org/releases/SM/development/openehr_platform.html</a>.</p>
 </div>
 <div class="paragraph">
 <p>Known omissions or questions are indicated in the text with a 'to be determined' paragraph, as follows:</p>
@@ -717,12 +620,12 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="idl"><span></span><span class="tok-o">//</span> definition
+<pre class="pygments highlight"><code data-lang="idl"><span></span><span class="tok-o">//</span><span class="tok-w"> </span>definition
 
-interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
-    Boolean has_ehr(UUID an_ehr_id);
-    UUID create_ehr();
-    UUID create_ehr_with_id(UUID an_ehr_id);
+interface<span class="tok-w"> </span>I_EHR_SERVICE<span class="tok-w"> </span><span class="tok-o">:</span><span class="tok-w"> </span>I_STATUS<span class="tok-w"> </span>{
+<span class="tok-w">    </span>Boolean<span class="tok-w"> </span>has_ehr(UUID<span class="tok-w"> </span>an_ehr_id);
+<span class="tok-w">    </span>UUID<span class="tok-w"> </span>create_ehr();
+<span class="tok-w">    </span>UUID<span class="tok-w"> </span>create_ehr_with_id(UUID<span class="tok-w"> </span>an_ehr_id);
 }</code></pre>
 </div>
 </div>
@@ -734,29 +637,29 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java"><span></span><span class="tok-n">I_EHR_SERVICE</span> <span class="tok-n">i_ehr_service</span><span class="tok-o">;</span>
-<span class="tok-n">CALL_STATUS</span> <span class="tok-n">call_status</span><span class="tok-o">;</span>
-<span class="tok-n">UUID</span> <span class="tok-n">test_result</span><span class="tok-o">,</span> <span class="tok-n">result</span><span class="tok-o">,</span> <span class="tok-n">an_ehr_id</span><span class="tok-o">;</span>
+<pre class="pygments highlight"><code data-lang="java"><span></span><span class="tok-n">I_EHR_SERVICE</span><span class="tok-w"> </span><span class="tok-n">i_ehr_service</span><span class="tok-p">;</span>
+<span class="tok-n">CALL_STATUS</span><span class="tok-w"> </span><span class="tok-n">call_status</span><span class="tok-p">;</span>
+<span class="tok-n">UUID</span><span class="tok-w"> </span><span class="tok-n">test_result</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">result</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">an_ehr_id</span><span class="tok-p">;</span>
 
-<span class="tok-k">try</span> <span class="tok-o">{</span>
-    <span class="tok-n">test_result</span> <span class="tok-o">=</span> <span class="tok-n">i_ehr_service</span><span class="tok-o">.</span><span class="tok-na">create_ehr_with_id</span><span class="tok-o">(</span><span class="tok-n">an_ehr_id</span><span class="tok-o">);</span>
-    <span class="tok-k">if</span> <span class="tok-o">(</span><span class="tok-n">i_ehr_service</span><span class="tok-o">.</span><span class="tok-na">last_call_error</span><span class="tok-o">())</span>
-        <span class="tok-n">call_status</span> <span class="tok-o">=</span> <span class="tok-n">i_ehr_service</span><span class="tok-o">.</span><span class="tok-na">last_call_status</span><span class="tok-o">();</span>
-    <span class="tok-k">else</span>
-        <span class="tok-n">result</span> <span class="tok-o">=</span> <span class="tok-n">test_result</span><span class="tok-o">;</span>
-<span class="tok-o">}</span>
-<span class="tok-k">catch</span> <span class="tok-o">(</span><span class="tok-n">PreConditionException</span> <span class="tok-n">e</span><span class="tok-o">)</span> <span class="tok-o">{</span>
-    <span class="tok-c1">// deal with pre-condition violations</span>
+<span class="tok-k">try</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">    </span><span class="tok-n">test_result</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">i_ehr_service</span><span class="tok-p">.</span><span class="tok-na">create_ehr_with_id</span><span class="tok-p">(</span><span class="tok-n">an_ehr_id</span><span class="tok-p">);</span>
+<span class="tok-w">    </span><span class="tok-k">if</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-n">i_ehr_service</span><span class="tok-p">.</span><span class="tok-na">last_call_error</span><span class="tok-p">())</span>
+<span class="tok-w">        </span><span class="tok-n">call_status</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">i_ehr_service</span><span class="tok-p">.</span><span class="tok-na">last_call_status</span><span class="tok-p">();</span>
+<span class="tok-w">    </span><span class="tok-k">else</span>
+<span class="tok-w">        </span><span class="tok-n">result</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-n">test_result</span><span class="tok-p">;</span>
+<span class="tok-p">}</span>
+<span class="tok-k">catch</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-n">PreConditionException</span><span class="tok-w"> </span><span class="tok-n">e</span><span class="tok-p">)</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">    </span><span class="tok-c1">// deal with pre-condition violations</span>
 
-    <span class="tok-n">call_status</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-n">CallStatus</span><span class="tok-o">(</span><span class="tok-n">CallStatuses</span><span class="tok-o">.</span><span class="tok-na">precondition_violation</span><span class="tok-o">)</span>
-    <span class="tok-c1">// set any other information</span>
-<span class="tok-o">}</span>
-<span class="tok-k">catch</span> <span class="tok-o">(</span><span class="tok-n">Exception</span> <span class="tok-n">e</span><span class="tok-o">)</span> <span class="tok-o">{</span>
-    <span class="tok-c1">// deal with other exceptions</span>
+<span class="tok-w">    </span><span class="tok-n">call_status</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-k">new</span><span class="tok-w"> </span><span class="tok-n">CallStatus</span><span class="tok-p">(</span><span class="tok-n">CallStatuses</span><span class="tok-p">.</span><span class="tok-na">precondition_violation</span><span class="tok-p">)</span>
+<span class="tok-w">    </span><span class="tok-c1">// set any other information</span>
+<span class="tok-p">}</span>
+<span class="tok-k">catch</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-n">Exception</span><span class="tok-w"> </span><span class="tok-n">e</span><span class="tok-p">)</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">    </span><span class="tok-c1">// deal with other exceptions</span>
 
-    <span class="tok-n">call_status</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-n">CallStatus</span><span class="tok-o">(</span><span class="tok-n">CallStatuses</span><span class="tok-o">.</span><span class="tok-na">exception</span><span class="tok-o">)</span>
-    <span class="tok-c1">// set any other information</span>
-<span class="tok-o">}</span>
+<span class="tok-w">    </span><span class="tok-n">call_status</span><span class="tok-w"> </span><span class="tok-o">=</span><span class="tok-w"> </span><span class="tok-k">new</span><span class="tok-w"> </span><span class="tok-n">CallStatus</span><span class="tok-p">(</span><span class="tok-n">CallStatuses</span><span class="tok-p">.</span><span class="tok-na">exception</span><span class="tok-p">)</span>
+<span class="tok-w">    </span><span class="tok-c1">// set any other information</span>
+<span class="tok-p">}</span>
 
 
 <span class="tok-c1">// package up call_status, result in response</span></code></pre>
@@ -892,7 +795,7 @@ interface I_EHR_SERVICE <span class="tok-o">:</span> I_STATUS {
 <p>To perform this work on the server, the <code>UPDATE_VERSION&lt;T&gt;</code> structure is provided in order to enable the appropriate meta-data to be supplied by the caller, leaving out parts that are generated by the service. Thus, a partial version of <code>AUDIT_DETAILS</code> called <code>UPDATE_AUDIT</code> is used, since the <code><em>time_committed</em></code> and <code><em>system_id</em></code> attributes need to be generated on the server. <code>ATTESTATION</code> instances can be supplied in their full form.</p>
 </div>
 <div class="paragraph">
-<p>The <code><em>preceding_version_uid</em></code> attribute must be specified, except in the case where the version update is a first version. The <code><em>lifecycle_state</em></code> must be supplied in all cases, which is a value such as <code>532|complete|</code>, <code>553|incomplete|</code>, <code>523|deleted|</code>, etc from the <a href="https://github.com/openEHR/terminology" target="_blank" rel="noopener">openEHR terminology</a>.</p>
+<p>The <code><em>preceding_version_uid</em></code> attribute must be specified, except in the case where the version update is a first version. The <code><em>lifecycle_state</em></code> must be supplied in all cases, which is a value such as <code>532|complete|</code>, <code>553|incomplete|</code>, <code>523|deleted|</code>, etc from the <a href="https://github.com/openEHR/specifications-TERM" target="_blank" rel="noopener">openEHR terminology</a>.</p>
 </div>
 <div class="paragraph">
 <p>This approach allows the server side to create the required new <code>ORIGINAL_VERSION&lt;T&gt;</code> object, rather than the client trying to do it.</p>
@@ -1394,7 +1297,7 @@ a_content: <code><a href="/releases/RM/latest/common.html#_locatable_class" targ
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_artefact</strong> (<br>
-an_id: <code><a href="/releases/PROC/latest/task_planning.html#_archetype_hrid_class" target="_blank" rel="noopener">ARCHETYPE_HRID</a>[1]</code><br>
+an_id: <code><a href="/releases/AM/latest/AOM2.html#_archetype_hrid_class" target="_blank" rel="noopener">ARCHETYPE_HRID</a>[1]</code><br>
 ): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Return True if AOM2 artefact with id <code><em>an_id</em></code> exists in the service.</p>
@@ -1435,7 +1338,7 @@ an_artefact: <code><a href="/releases/AM/latest/AOM2.html#_authored_archetype_cl
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>get_artefact</strong> (<br>
-an_id: <code><a href="/releases/PROC/latest/task_planning.html#_archetype_hrid_class" target="_blank" rel="noopener">ARCHETYPE_HRID</a>[1]</code><br>
+an_id: <code><a href="/releases/AM/latest/AOM2.html#_archetype_hrid_class" target="_blank" rel="noopener">ARCHETYPE_HRID</a>[1]</code><br>
 ): <code><a href="/releases/AM/latest/AOM2.html#_authored_archetype_class" target="_blank" rel="noopener">AUTHORED_ARCHETYPE</a></code><br>
 <br>
 <em>Pre_artefact_exists</em>: <code>has_artefact (an_id)</code></p></td>
@@ -1456,7 +1359,7 @@ an_id: <code><a href="/releases/PROC/latest/task_planning.html#_archetype_hrid_c
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_artefacts</strong> (<br>
 item_offset: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code>,<br>
 items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code><br>
-): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/PROC/latest/task_planning.html#_archetype_hrid_class">ARCHETYPE_HRID</sup></a>&gt;</code></p></td>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/AM/latest/AOM2.html#_archetype_hrid_class">ARCHETYPE_HRID</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>List all AOM2 artefacts known in the service.</p>
 </div></div></td>
@@ -1466,7 +1369,7 @@ items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_inte
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_archetypes</strong> (<br>
 item_offset: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code>,<br>
 items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code><br>
-): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/PROC/latest/task_planning.html#_archetype_hrid_class">ARCHETYPE_HRID</sup></a>&gt;</code></p></td>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/AM/latest/AOM2.html#_archetype_hrid_class">ARCHETYPE_HRID</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>List all archetypes, i.e. artefacts whose concrete type is <code>AUTHORED_ARCHETYPE</code>.</p>
 </div></div></td>
@@ -1476,7 +1379,7 @@ items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_inte
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_templates</strong> (<br>
 item_offset: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code>,<br>
 items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code><br>
-): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/PROC/latest/task_planning.html#_archetype_hrid_class">ARCHETYPE_HRID</sup></a>&gt;</code></p></td>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/AM/latest/AOM2.html#_archetype_hrid_class">ARCHETYPE_HRID</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>List all archetypes, i.e. artefacts whose concrete type is <code>TEMPLATE</code>.</p>
 </div></div></td>
@@ -1486,7 +1389,7 @@ items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_inte
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>list_opts</strong> (<br>
 item_offset: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code>,<br>
 items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code><br>
-): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/PROC/latest/task_planning.html#_archetype_hrid_class">ARCHETYPE_HRID</sup></a>&gt;</code></p></td>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/AM/latest/AOM2.html#_archetype_hrid_class">ARCHETYPE_HRID</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>List all archetypes, i.e. artefacts whose concrete type is <code>OPERATIONAL_TEMPLATE</code>.</p>
 </div></div></td>
@@ -1497,7 +1400,7 @@ items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_inte
 id_pattern: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
 item_offset: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code>,<br>
 items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[0..1]</code><br>
-): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/PROC/latest/task_planning.html#_archetype_hrid_class">ARCHETYPE_HRID</sup></a>&gt;</code></p></td>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_list_class">List<sup></a>&lt;<a href="/releases/AM/latest/AOM2.html#_archetype_hrid_class">ARCHETYPE_HRID</sup></a>&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>List all artefacts whose identifiers match a regex pattern.</p>
 </div>
@@ -1513,7 +1416,7 @@ items_to_fetch: <code><a href="/releases/BASE/latest/foundation_types.html#_inte
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>delete_artefact</strong> (<br>
-an_id: <code><a href="/releases/PROC/latest/task_planning.html#_archetype_hrid_class" target="_blank" rel="noopener">ARCHETYPE_HRID</a>[1]</code><br>
+an_id: <code><a href="/releases/AM/latest/AOM2.html#_archetype_hrid_class" target="_blank" rel="noopener">ARCHETYPE_HRID</a>[1]</code><br>
 )</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Delete the AOM2 artefact with id <code><em>an_id</em></code>.</p>
@@ -5044,19 +4947,19 @@ tdd: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" t
 <pre class="pygments highlight"><code data-lang="kotlin"><span></span><span class="tok-c1">//</span>
 <span class="tok-c1">// populated in caller</span>
 <span class="tok-c1">//</span>
-<span class="tok-n">sps</span><span class="tok-p">:</span> <span class="tok-n">I_SUBJECT_PROXY_SERVICE</span><span class="tok-p">;</span>
-<span class="tok-n">var1</span><span class="tok-p">,</span> <span class="tok-n">var2</span><span class="tok-p">,</span> <span class="tok-n">var3</span><span class="tok-p">:</span> <span class="tok-n">SUBJECT_VARIABLE</span><span class="tok-p">;</span>
-<span class="tok-n">env_binding1</span><span class="tok-p">:</span> <span class="tok-n">ENV_BINDING</span><span class="tok-p">;</span>
+<span class="tok-n">sps</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-n">I_SUBJECT_PROXY_SERVICE</span><span class="tok-p">;</span>
+<span class="tok-n">var1</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">var2</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">var3</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-n">SUBJECT_VARIABLE</span><span class="tok-p">;</span>
+<span class="tok-n">env_binding1</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-n">ENV_BINDING</span><span class="tok-p">;</span>
 
 <span class="tok-c1">//</span>
 <span class="tok-c1">// calls to Subject Proxy Service</span>
 <span class="tok-c1">//</span>
-<span class="tok-n">sps</span><span class="tok-p">.</span><span class="tok-n">register_binding</span> <span class="tok-p">(</span><span class="tok-n">env_binding1</span><span class="tok-p">);</span>
+<span class="tok-n">sps</span><span class="tok-p">.</span><span class="tok-na">register_binding</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-n">env_binding1</span><span class="tok-p">);</span>
 
-<span class="tok-n">sps</span><span class="tok-p">.</span><span class="tok-n">register_subject</span> <span class="tok-p">(</span><span class="tok-s">&quot;1394850&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;individual&quot;</span><span class="tok-p">);</span>
-<span class="tok-n">sps</span><span class="tok-p">.</span><span class="tok-n">add_subject_variable</span> <span class="tok-p">(</span><span class="tok-s">&quot;1394850&quot;</span><span class="tok-p">,</span> <span class="tok-n">var1</span><span class="tok-p">);</span>
-<span class="tok-n">sps</span><span class="tok-p">.</span><span class="tok-n">add_subject_variable</span> <span class="tok-p">(</span><span class="tok-s">&quot;1394850&quot;</span><span class="tok-p">,</span> <span class="tok-n">var2</span><span class="tok-p">);</span>
-<span class="tok-n">sps</span><span class="tok-p">.</span><span class="tok-n">add_subject_variable</span> <span class="tok-p">(</span><span class="tok-s">&quot;1394850&quot;</span><span class="tok-p">,</span> <span class="tok-n">var3</span><span class="tok-p">);</span></code></pre>
+<span class="tok-n">sps</span><span class="tok-p">.</span><span class="tok-na">register_subject</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-s">&quot;1394850&quot;</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-s">&quot;individual&quot;</span><span class="tok-p">);</span>
+<span class="tok-n">sps</span><span class="tok-p">.</span><span class="tok-na">add_subject_variable</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-s">&quot;1394850&quot;</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">var1</span><span class="tok-p">);</span>
+<span class="tok-n">sps</span><span class="tok-p">.</span><span class="tok-na">add_subject_variable</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-s">&quot;1394850&quot;</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">var2</span><span class="tok-p">);</span>
+<span class="tok-n">sps</span><span class="tok-p">.</span><span class="tok-na">add_subject_variable</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-s">&quot;1394850&quot;</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">var3</span><span class="tok-p">);</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5073,18 +4976,18 @@ tdd: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" t
 <pre class="pygments highlight"><code data-lang="kotlin"><span></span><span class="tok-c1">//</span>
 <span class="tok-c1">// populated in caller</span>
 <span class="tok-c1">//</span>
-<span class="tok-n">sps</span><span class="tok-p">:</span> <span class="tok-n">I_SUBJECT_PROXY_SERVICE</span><span class="tok-p">;</span>
-<span class="tok-n">ds1</span><span class="tok-p">,</span> <span class="tok-n">ds2</span><span class="tok-p">:</span> <span class="tok-n">SUBJECT_APP_DATA_SET</span><span class="tok-p">;</span>
-<span class="tok-n">env_binding1</span><span class="tok-p">:</span> <span class="tok-n">ENV_BINDING</span><span class="tok-p">;</span>
+<span class="tok-n">sps</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-n">I_SUBJECT_PROXY_SERVICE</span><span class="tok-p">;</span>
+<span class="tok-n">ds1</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-n">ds2</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-n">SUBJECT_APP_DATA_SET</span><span class="tok-p">;</span>
+<span class="tok-n">env_binding1</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-n">ENV_BINDING</span><span class="tok-p">;</span>
 
 <span class="tok-c1">//</span>
 <span class="tok-c1">// calls to Subject Proxy Service</span>
 <span class="tok-c1">//</span>
-<span class="tok-n">sps</span><span class="tok-p">.</span><span class="tok-n">register_binding</span> <span class="tok-p">(</span><span class="tok-n">env_binding1</span><span class="tok-p">);</span>
+<span class="tok-n">sps</span><span class="tok-p">.</span><span class="tok-na">register_binding</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-n">env_binding1</span><span class="tok-p">);</span>
 
-<span class="tok-n">sps</span><span class="tok-p">.</span><span class="tok-n">register_subject</span> <span class="tok-p">(</span><span class="tok-s">&quot;1394850&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;individual&quot;</span><span class="tok-p">);</span>
-<span class="tok-n">sps</span><span class="tok-p">.</span><span class="tok-n">register_application_data_set</span> <span class="tok-p">(</span><span class="tok-n">ds1</span><span class="tok-p">);</span>
-<span class="tok-n">sps</span><span class="tok-p">.</span><span class="tok-n">register_application_data_set</span> <span class="tok-p">(</span><span class="tok-n">ds2</span><span class="tok-p">);</span></code></pre>
+<span class="tok-n">sps</span><span class="tok-p">.</span><span class="tok-na">register_subject</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-s">&quot;1394850&quot;</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-s">&quot;individual&quot;</span><span class="tok-p">);</span>
+<span class="tok-n">sps</span><span class="tok-p">.</span><span class="tok-na">register_application_data_set</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-n">ds1</span><span class="tok-p">);</span>
+<span class="tok-n">sps</span><span class="tok-p">.</span><span class="tok-na">register_application_data_set</span><span class="tok-w"> </span><span class="tok-p">(</span><span class="tok-n">ds2</span><span class="tok-p">);</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5106,23 +5009,23 @@ tdd: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" t
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="yaml"><span></span><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">data_set</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-kt">!!SUBJECT_DATA_SET</span>
-    <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">antenatal_1.v1.0.3</span>
-    <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">creating_app_id</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">task_planning</span>
-    <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">variables</span><span class="tok-p tok-p-Indicator">:</span>
-        <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">date_of_birth</span>
-          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">type_name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">Date</span>
+<pre class="pygments highlight"><code data-lang="yaml"><span></span><span class="tok-nt">data_set</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-kt">!!SUBJECT_DATA_SET</span>
+<span class="tok-w">    </span><span class="tok-nt">name</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">antenatal_1.v1.0.3</span>
+<span class="tok-w">    </span><span class="tok-nt">creating_app_id</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">task_planning</span>
+<span class="tok-w">    </span><span class="tok-nt">variables</span><span class="tok-p">:</span>
+<span class="tok-w">        </span><span class="tok-p tok-p-Indicator">-</span><span class="tok-w"> </span><span class="tok-nt">name</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">date_of_birth</span>
+<span class="tok-w">          </span><span class="tok-nt">type_name</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">Date</span>
 
-        <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">systolic_bp</span>
-          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">type_name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">Quantity</span>
-          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">currency</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">PT2m</span>
+<span class="tok-w">        </span><span class="tok-p tok-p-Indicator">-</span><span class="tok-w"> </span><span class="tok-nt">name</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">systolic_bp</span>
+<span class="tok-w">          </span><span class="tok-nt">type_name</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">Quantity</span>
+<span class="tok-w">          </span><span class="tok-nt">currency</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">PT2m</span>
 
-        <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">diastolic_bp</span>
-          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">type_name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">Quantity</span>
-          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">currency</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">PT2m</span>
+<span class="tok-w">        </span><span class="tok-p tok-p-Indicator">-</span><span class="tok-w"> </span><span class="tok-nt">name</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">diastolic_bp</span>
+<span class="tok-w">          </span><span class="tok-nt">type_name</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">Quantity</span>
+<span class="tok-w">          </span><span class="tok-nt">currency</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">PT2m</span>
 
-        <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">is_type1_diabetic</span>
-          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">type_name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">Boolean</span></code></pre>
+<span class="tok-w">        </span><span class="tok-p tok-p-Indicator">-</span><span class="tok-w"> </span><span class="tok-nt">name</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">is_type1_diabetic</span>
+<span class="tok-w">          </span><span class="tok-nt">type_name</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">Boolean</span></code></pre>
 </div>
 </div>
 </div>
@@ -5133,30 +5036,30 @@ tdd: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" t
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="yaml"><span></span><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">binding</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-kt">!!ENV_BINDING</span>
-    <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">data_frames</span><span class="tok-p tok-p-Indicator">:</span>
-        <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">frame_id</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">OracleMPI::basic_demographics</span>
-          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">model_type</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">OracleMPI</span>
-          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">primary_method</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-kt">!!API_CALL</span>
-              <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">system_id</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">pas3.nhs.org.uk</span>
-              <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">call_name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">REST_get</span>
-              <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">parameters</span><span class="tok-p tok-p-Indicator">:</span>
-                  <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">xxxx</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">abc</span>
-                  <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">yyyy</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">def</span>
+<pre class="pygments highlight"><code data-lang="yaml"><span></span><span class="tok-nt">binding</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-kt">!!ENV_BINDING</span>
+<span class="tok-w">    </span><span class="tok-nt">data_frames</span><span class="tok-p">:</span>
+<span class="tok-w">        </span><span class="tok-p tok-p-Indicator">-</span><span class="tok-w"> </span><span class="tok-nt">frame_id</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">OracleMPI::basic_demographics</span>
+<span class="tok-w">          </span><span class="tok-nt">model_type</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">OracleMPI</span>
+<span class="tok-w">          </span><span class="tok-nt">primary_method</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-kt">!!API_CALL</span>
+<span class="tok-w">              </span><span class="tok-nt">system_id</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">pas3.nhs.org.uk</span>
+<span class="tok-w">              </span><span class="tok-nt">call_name</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">REST_get</span>
+<span class="tok-w">              </span><span class="tok-nt">parameters</span><span class="tok-p">:</span>
+<span class="tok-w">                  </span><span class="tok-p tok-p-Indicator">-</span><span class="tok-w"> </span><span class="tok-nt">xxxx</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">abc</span>
+<span class="tok-w">                  </span><span class="tok-p tok-p-Indicator">-</span><span class="tok-w"> </span><span class="tok-nt">yyyy</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">def</span>
 
-        <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">frame_id</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">openEHR::vital_signs</span>
-          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">model_type</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">openEHR-EHR</span>
-          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">primary_method</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-kt">!!QUERY_CALL</span>
-              <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">system_id</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">ehr1.nhs.org.uk</span>
-              <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">call_name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">aql_query</span>
-              <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">query_text</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">xxxx</span>
+<span class="tok-w">        </span><span class="tok-p tok-p-Indicator">-</span><span class="tok-w"> </span><span class="tok-nt">frame_id</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">openEHR::vital_signs</span>
+<span class="tok-w">          </span><span class="tok-nt">model_type</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">openEHR-EHR</span>
+<span class="tok-w">          </span><span class="tok-nt">primary_method</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-kt">!!QUERY_CALL</span>
+<span class="tok-w">              </span><span class="tok-nt">system_id</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">ehr1.nhs.org.uk</span>
+<span class="tok-w">              </span><span class="tok-nt">call_name</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">aql_query</span>
+<span class="tok-w">              </span><span class="tok-nt">query_text</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">xxxx</span>
 
-        <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">frame_id</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">OracleMPI::basic_demographics</span>
-          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">model_type</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">HL7-FHIR_DSTU4_UK</span>
-          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">primary_method</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-kt">!!API_CALL</span>
-              <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">system_id</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">ehr1.nhs.org.uk</span>
-              <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">call_name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">fhir_get</span>
-              <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">query_text</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">xxxx</span></code></pre>
+<span class="tok-w">        </span><span class="tok-p tok-p-Indicator">-</span><span class="tok-w"> </span><span class="tok-nt">frame_id</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">OracleMPI::basic_demographics</span>
+<span class="tok-w">          </span><span class="tok-nt">model_type</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">HL7-FHIR_DSTU4_UK</span>
+<span class="tok-w">          </span><span class="tok-nt">primary_method</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-kt">!!API_CALL</span>
+<span class="tok-w">              </span><span class="tok-nt">system_id</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">ehr1.nhs.org.uk</span>
+<span class="tok-w">              </span><span class="tok-nt">call_name</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">fhir_get</span>
+<span class="tok-w">              </span><span class="tok-nt">query_text</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">xxxx</span></code></pre>
 </div>
 </div>
 </div>
@@ -7109,12 +7012,111 @@ file_sys_loc: <code><a href="/releases/BASE/latest/foundation_types.html#_string
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_amendment_record"><a class="anchor" href="#_amendment_record"></a>13. Amendment Record</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 54.5454%;">
+<col style="width: 18.1818%;">
+<col style="width: 18.1819%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Issue</th>
+<th class="tableblock halign-left valign-top">Details</th>
+<th class="tableblock halign-left valign-top">Raiser</th>
+<th class="tableblock halign-left valign-top">Completed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>SM Release 1.0.0 (unreleased)</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>0.9.8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fixes to specific interfaces due to SEC analysis:<br>
+ Rename <code>I_DEFINITION_QUERY.register_xx</code> to <code>store_xx</code> and <code><em>formalism</em></code> parameter to <code><em>a_type</em></code>; document representation of formalism version;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S Iancu</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>13 Dec 2021</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.9.7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add Subject Proxy Service.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">01 Apr 2021</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.9.6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adjust naming and definitions of elements in <code>RESULT_SET</code> classes to reflect REST API.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S Iancu</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">25 Mar 2020</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.9.5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add missing enumeration <code><em>invalid_artefact</em></code> to <code>DEFINITION_CALL_STATUS_TYPE</code> (<a href="https://specifications.openehr.org/tickets/SPECPR-293" target="_blank" rel="noopener">SPECPR-293</a>);<br>
+ Add <code><em>xxx_count()</em></code> calls to <code>I_DEFINITION_XX</code> interfaces (<a href="https://specifications.openehr.org/tickets/SPECPR-288" target="_blank" rel="noopener">SPECPR-288</a>);<br>
+ Rename <code><em>row_offset</em></code> and <code><em>rows_to_fetch</em></code> to <code><em>item_offset</em></code> and <code><em>items_to_fetch</em></code> (<a href="https://specifications.openehr.org/tickets/SPECPR-292" target="_blank" rel="noopener">SPECPR-292</a>);<br>
+ Change names of <code><em>list_all_xxx()</em></code> functions in <code>definitions</code> interfaces to <code><em>list_xxx()</em></code> (<a href="https://specifications.openehr.org/tickets/SPECPR-292" target="_blank" rel="noopener">SPECPR-292</a>);<br>
+ Added <code><em>valid_xxx()</em></code> calls and preconditions to <code><em>upload_xx()</em></code> calls in  <code>I_DEFINITION_XX</code> interfaces (<a href="https://specifications.openehr.org/tickets/SPECPR-291" target="_blank" rel="noopener">SPECPR-291</a>);<br>
+ Remove duplicate operation <code>I_EHR.<em>list_contributions()</em></code> (<a href="https://specifications.openehr.org/tickets/SPECPR-304" target="_blank" rel="noopener">SPECPR-304</a>);<br>
+ Improve documentation of implicit server-side Contribution and Version creation (<a href="https://specifications.openehr.org/tickets/SPECPR-305" target="_blank" rel="noopener">SPECPR-305</a>);<br>
+ Correct argument types of <code>I_EHR_COMPOSITION.<em>get_composition_xx()</em></code> functions; rename <code><em>get_composition()</em></code> to <code><em>get_composition_latest()</em></code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">P Pazos</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">28 Feb 2019</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add <code>I_DEFINITIONS_CHECKER</code> and <code>DEFINITIONS_CHECKER_STATUS</code> to support definitions validity pre-conditions.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16 Jan 2019</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.9.4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Improve documentation text;<br>
+ Reverse order of Parameter and Errors sections in operations text.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">22 Aug 2018</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.9.3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Improve documentation text;<br>
+ Add section on call conventions; improve query register calls based on REST API 0.9.0.<br>
+ Add EHR Index section.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">14 Feb 2018</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.9.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Improve documentation text;<br>
+ remove <code><em>auth_tok</em></code> argument from calls.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">22 Oct 2017</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.9.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Added demographic interface calls;<br>
+ added more admin interface calls.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">18 Oct 2017</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.9.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECSM-1" target="_blank" rel="noopener">SPECSM-1</a>: Initial writing.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">openEHR SEC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15 Sep 2017</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-11-02 12:43:06 UTC
+Last updated 2024-08-06 19:18:54 UTC
 </div>
 </div>
-<link rel="stylesheet" href="https://specifications.openehr.org/styles/pygments-default.css">
+<script src="https://specifications.openehr.org/js/asciidoctor-tabs.js"></script>
 </body>
 </html>

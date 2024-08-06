@@ -4,11 +4,13 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.10">
+<meta name="generator" content="Asciidoctor 2.0.23">
 <meta name="description" content="openEHR Simplified Information Model 'B'">
 <meta name="keywords" content="SIM-B, information model, openEHR">
 <title>openEHR Simplified Information Model 'B'</title>
 <link rel="stylesheet" href="https://specifications.openehr.org/styles/openehr.css">
+<link rel="stylesheet" href="https://specifications.openehr.org/styles/pygments-default.css">
+<link rel="stylesheet" href="https://specifications.openehr.org/styles/asciidoctor-tabs.css">
 </head>
 <body class="book toc2 toc-left">
 <div id="header">
@@ -17,7 +19,6 @@
 <ul class="sectlevel0">
 <li><a href="#_openehr_simplified_information_model_b">openEHR Simplified Information Model 'B'</a>
 <ul class="sectlevel1">
-<li><a href="#_amendment_record">Amendment Record</a></li>
 <li><a href="#_acknowledgements">Acknowledgements</a>
 <ul class="sectlevel2">
 <li><a href="#_primary_author">Primary Author</a></li>
@@ -183,6 +184,7 @@
 <li><a href="#_simplified_im_package_2">5.5. Simplified IM Package</a></li>
 </ul>
 </li>
+<li><a href="#_amendment_record">6. Amendment Record</a></li>
 </ul>
 </li>
 </ul>
@@ -213,7 +215,7 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Release</strong>: SM latest</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Release</strong>: SM development</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Status</strong>: DEVELOPMENT</p></td>
 </tr>
 <tr>
@@ -237,7 +239,7 @@
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-center valign-top" colspan="2">&#169; 2019 - 2020 The openEHR Foundation</th>
+<th class="tableblock halign-center valign-top" colspan="2">&#169; 2019 - 2024 The openEHR Foundation</th>
 </tr>
 </thead>
 <tbody>
@@ -252,39 +254,6 @@
 <td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Support</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Issues: <a href="https://specifications.openehr.org/components/SM/open_issues" target="_blank" rel="noopener">Problem Reports</a><br>
  Web: <a href="https://specifications.openehr.org" target="_blank" rel="noopener">specifications.openEHR.org</a></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_amendment_record"><a class="anchor" href="#_amendment_record"></a>Amendment Record</h2>
-<div class="sectionbody">
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 9.0909%;">
-<col style="width: 54.5454%;">
-<col style="width: 18.1818%;">
-<col style="width: 18.1819%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Issue</th>
-<th class="tableblock halign-left valign-top">Details</th>
-<th class="tableblock halign-left valign-top">Raiser</th>
-<th class="tableblock halign-left valign-top">Completed</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>SM Release 1.?.?</strong></p></th>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>0.7.0</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECSM-2" target="_blank" rel="noopener">SPECSM-2</a>. Add Simplified Information Model 'B' (SIM-B);<br>
- Initial writing, adapted from the Marand Better Platform 'Web Templates' specification.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">openEHR SEC</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>17 Jul 2019</p></td>
 </tr>
 </tbody>
 </table>
@@ -349,7 +318,7 @@
 <div class="sect2">
 <h3 id="_status"><a class="anchor" href="#_status"></a>1.2. Status</h3>
 <div class="paragraph">
-<p>This specification is in the DEVELOPMENT state. The development version of this document can be found at <a href="https://specifications.openehr.org/releases/SM/latest/simplified_im_b.html" target="_blank" rel="noopener">https://specifications.openehr.org/releases/SM/latest/simplified_im_b.html</a>.</p>
+<p>This specification is in the DEVELOPMENT state. The development version of this document can be found at <a href="https://specifications.openehr.org/releases/SM/development/simplified_im_b.html" target="_blank" rel="noopener">https://specifications.openehr.org/releases/SM/development/simplified_im_b.html</a>.</p>
 </div>
 <div class="paragraph">
 <p>Known omissions or questions are indicated in the text with a 'to be determined' paragraph, as follows:</p>
@@ -647,7 +616,7 @@ a_val: <code><a href="/releases/BASE/latest/foundation_types.html#_any_class" ta
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>
-    <span class="tok-nt">&quot;a/b/c/d&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;anxiety&quot;</span>
+<span class="tok-w">    </span><span class="tok-nt">&quot;a/b/c/d&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s2">&quot;anxiety&quot;</span>
 <span class="tok-p">}</span></code></pre>
 </div>
 </div>
@@ -657,7 +626,7 @@ a_val: <code><a href="/releases/BASE/latest/foundation_types.html#_any_class" ta
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>
-    <span class="tok-nt">&quot;a/b/c/d|value&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;anxiety&quot;</span>
+<span class="tok-w">    </span><span class="tok-nt">&quot;a/b/c/d|value&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s2">&quot;anxiety&quot;</span>
 <span class="tok-p">}</span></code></pre>
 </div>
 </div>
@@ -670,15 +639,15 @@ a_val: <code><a href="/releases/BASE/latest/foundation_types.html#_any_class" ta
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>
-    <span class="tok-nt">&quot;a&quot;</span> <span class="tok-p">:</span> <span class="tok-p">{</span>
-        <span class="tok-nt">&quot;b&quot;</span> <span class="tok-p">:</span> <span class="tok-p">{</span>
-            <span class="tok-nt">&quot;c&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
-                <span class="tok-nt">&quot;d&quot;</span> <span class="tok-p">:</span> <span class="tok-p">{</span>
-                    <span class="tok-nt">&quot;|value&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;anxiety&quot;</span>
-                <span class="tok-p">}</span>
-            <span class="tok-p">}</span>
-        <span class="tok-p">}</span>
-    <span class="tok-p">}</span>
+<span class="tok-w">    </span><span class="tok-nt">&quot;a&quot;</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">        </span><span class="tok-nt">&quot;b&quot;</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">            </span><span class="tok-nt">&quot;c&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">                </span><span class="tok-nt">&quot;d&quot;</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">                    </span><span class="tok-nt">&quot;|value&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s2">&quot;anxiety&quot;</span>
+<span class="tok-w">                </span><span class="tok-p">}</span>
+<span class="tok-w">            </span><span class="tok-p">}</span>
+<span class="tok-w">        </span><span class="tok-p">}</span>
+<span class="tok-w">    </span><span class="tok-p">}</span>
 <span class="tok-p">}</span></code></pre>
 </div>
 </div>
@@ -688,13 +657,13 @@ a_val: <code><a href="/releases/BASE/latest/foundation_types.html#_any_class" ta
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>
-    <span class="tok-nt">&quot;a&quot;</span> <span class="tok-p">:</span> <span class="tok-p">{</span>
-        <span class="tok-nt">&quot;b&quot;</span> <span class="tok-p">:</span> <span class="tok-p">{</span>
-            <span class="tok-nt">&quot;c&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
-                <span class="tok-nt">&quot;d&quot;</span> <span class="tok-p">:</span> <span class="tok-s2">&quot;anxiety&quot;</span>
-            <span class="tok-p">}</span>
-        <span class="tok-p">}</span>
-    <span class="tok-p">}</span>
+<span class="tok-w">    </span><span class="tok-nt">&quot;a&quot;</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">        </span><span class="tok-nt">&quot;b&quot;</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">            </span><span class="tok-nt">&quot;c&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">                </span><span class="tok-nt">&quot;d&quot;</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s2">&quot;anxiety&quot;</span>
+<span class="tok-w">            </span><span class="tok-p">}</span>
+<span class="tok-w">        </span><span class="tok-p">}</span>
+<span class="tok-w">    </span><span class="tok-p">}</span>
 <span class="tok-p">}</span></code></pre>
 </div>
 </div>
@@ -710,7 +679,7 @@ a_val: <code><a href="/releases/BASE/latest/foundation_types.html#_any_class" ta
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>
-    <span class="tok-nt">&quot;a/b/c/d&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;snomed_ct::48694002|anxiety|&quot;</span>
+<span class="tok-w">    </span><span class="tok-nt">&quot;a/b/c/d&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s2">&quot;snomed_ct::48694002|anxiety|&quot;</span>
 <span class="tok-p">}</span></code></pre>
 </div>
 </div>
@@ -720,9 +689,9 @@ a_val: <code><a href="/releases/BASE/latest/foundation_types.html#_any_class" ta
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>
-    <span class="tok-nt">&quot;a/b/c/d|terminology&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;snomed_ct&quot;</span><span class="tok-p">,</span>
-    <span class="tok-nt">&quot;a/b/c/d|code&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;48694002&quot;</span><span class="tok-p">,</span>
-    <span class="tok-nt">&quot;a/b/c/d|value&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;anxiety&quot;</span>
+<span class="tok-w">    </span><span class="tok-nt">&quot;a/b/c/d|terminology&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s2">&quot;snomed_ct&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">    </span><span class="tok-nt">&quot;a/b/c/d|code&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s2">&quot;48694002&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">    </span><span class="tok-nt">&quot;a/b/c/d|value&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s2">&quot;anxiety&quot;</span>
 <span class="tok-p">}</span></code></pre>
 </div>
 </div>
@@ -735,17 +704,17 @@ a_val: <code><a href="/releases/BASE/latest/foundation_types.html#_any_class" ta
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>
-    <span class="tok-nt">&quot;a&quot;</span> <span class="tok-p">:</span> <span class="tok-p">{</span>
-        <span class="tok-nt">&quot;b&quot;</span> <span class="tok-p">:</span> <span class="tok-p">{</span>
-            <span class="tok-nt">&quot;c&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
-                <span class="tok-nt">&quot;d&quot;</span> <span class="tok-p">:</span> <span class="tok-p">{</span>
-                    <span class="tok-nt">&quot;|terminology&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;snomed_ct&quot;</span><span class="tok-p">,</span>
-                    <span class="tok-nt">&quot;|code&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;48694002&quot;</span><span class="tok-p">,</span>
-                    <span class="tok-nt">&quot;|value&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;anxiety&quot;</span>
-                <span class="tok-p">}</span>
-            <span class="tok-p">}</span>
-        <span class="tok-p">}</span>
-    <span class="tok-p">}</span>
+<span class="tok-w">    </span><span class="tok-nt">&quot;a&quot;</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">        </span><span class="tok-nt">&quot;b&quot;</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">            </span><span class="tok-nt">&quot;c&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">                </span><span class="tok-nt">&quot;d&quot;</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">                    </span><span class="tok-nt">&quot;|terminology&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s2">&quot;snomed_ct&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">                    </span><span class="tok-nt">&quot;|code&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s2">&quot;48694002&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">                    </span><span class="tok-nt">&quot;|value&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s2">&quot;anxiety&quot;</span>
+<span class="tok-w">                </span><span class="tok-p">}</span>
+<span class="tok-w">            </span><span class="tok-p">}</span>
+<span class="tok-w">        </span><span class="tok-p">}</span>
+<span class="tok-w">    </span><span class="tok-p">}</span>
 <span class="tok-p">}</span></code></pre>
 </div>
 </div>
@@ -755,13 +724,13 @@ a_val: <code><a href="/releases/BASE/latest/foundation_types.html#_any_class" ta
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>
-    <span class="tok-nt">&quot;a&quot;</span> <span class="tok-p">:</span> <span class="tok-p">{</span>
-        <span class="tok-nt">&quot;b&quot;</span> <span class="tok-p">:</span> <span class="tok-p">{</span>
-            <span class="tok-nt">&quot;c&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
-                <span class="tok-nt">&quot;d&quot;</span> <span class="tok-p">:</span> <span class="tok-s2">&quot;snomed_ct::48694002|anxiety|&quot;</span>
-            <span class="tok-p">}</span>
-        <span class="tok-p">}</span>
-    <span class="tok-p">}</span>
+<span class="tok-w">    </span><span class="tok-nt">&quot;a&quot;</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">        </span><span class="tok-nt">&quot;b&quot;</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">            </span><span class="tok-nt">&quot;c&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">                </span><span class="tok-nt">&quot;d&quot;</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s2">&quot;snomed_ct::48694002|anxiety|&quot;</span>
+<span class="tok-w">            </span><span class="tok-p">}</span>
+<span class="tok-w">        </span><span class="tok-p">}</span>
+<span class="tok-w">    </span><span class="tok-p">}</span>
 <span class="tok-p">}</span></code></pre>
 </div>
 </div>
@@ -777,7 +746,7 @@ a_val: <code><a href="/releases/BASE/latest/foundation_types.html#_any_class" ta
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>
-    <span class="tok-nt">&quot;a/b/c/d&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;125 mm[Hg]&quot;</span>
+<span class="tok-w">    </span><span class="tok-nt">&quot;a/b/c/d&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s2">&quot;125 mm[Hg]&quot;</span>
 <span class="tok-p">}</span></code></pre>
 </div>
 </div>
@@ -787,10 +756,10 @@ a_val: <code><a href="/releases/BASE/latest/foundation_types.html#_any_class" ta
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>
-    <span class="tok-nt">&quot;a/b/c/d|magnitude&quot;</span><span class="tok-p">:</span> <span class="tok-mi">125</span><span class="tok-p">,</span>
-    <span class="tok-nt">&quot;a/b/c/d|units&quot;</span><span class="tok-p">:</span>    <span class="tok-s2">&quot;mm[Hg]&quot;</span><span class="tok-p">,</span>
-    <span class="tok-nt">&quot;a/b/c/d|xx&quot;</span><span class="tok-p">:</span>       <span class="tok-s2">&quot;xx_val&quot;</span><span class="tok-p">,</span> <span class="tok-err">--</span> <span class="tok-err">other</span> <span class="tok-err">DvQ</span> <span class="tok-err">fields</span>
-    <span class="tok-nt">&quot;a/b/c/d|yy&quot;</span><span class="tok-p">:</span>       <span class="tok-s2">&quot;yy_val&quot;</span>
+<span class="tok-w">    </span><span class="tok-nt">&quot;a/b/c/d|magnitude&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-mi">125</span><span class="tok-p">,</span>
+<span class="tok-w">    </span><span class="tok-nt">&quot;a/b/c/d|units&quot;</span><span class="tok-p">:</span><span class="tok-w">    </span><span class="tok-s2">&quot;mm[Hg]&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">    </span><span class="tok-nt">&quot;a/b/c/d|xx&quot;</span><span class="tok-p">:</span><span class="tok-w">       </span><span class="tok-s2">&quot;xx_val&quot;</span><span class="tok-p">,</span><span class="tok-w"> </span><span class="tok-mi">--</span><span class="tok-w"> </span><span class="tok-err">o</span><span class="tok-kc">t</span><span class="tok-err">her</span><span class="tok-w"> </span><span class="tok-err">DvQ</span><span class="tok-w"> </span><span class="tok-kc">f</span><span class="tok-err">ields</span>
+<span class="tok-w">    </span><span class="tok-nt">&quot;a/b/c/d|yy&quot;</span><span class="tok-p">:</span><span class="tok-w">       </span><span class="tok-s2">&quot;yy_val&quot;</span>
 <span class="tok-p">}</span></code></pre>
 </div>
 </div>
@@ -803,18 +772,18 @@ a_val: <code><a href="/releases/BASE/latest/foundation_types.html#_any_class" ta
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>
-    <span class="tok-nt">&quot;a&quot;</span> <span class="tok-p">:</span> <span class="tok-p">{</span>
-        <span class="tok-nt">&quot;b&quot;</span> <span class="tok-p">:</span> <span class="tok-p">{</span>
-            <span class="tok-nt">&quot;c&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
-                <span class="tok-nt">&quot;d&quot;</span> <span class="tok-p">:</span> <span class="tok-p">{</span>
-                    <span class="tok-nt">&quot;magnitude&quot;</span><span class="tok-p">:</span> <span class="tok-mi">125</span><span class="tok-p">,</span>
-                    <span class="tok-nt">&quot;units&quot;</span><span class="tok-p">:</span>     <span class="tok-s2">&quot;mm[Hg]&quot;</span><span class="tok-p">,</span>
-                    <span class="tok-nt">&quot;xx&quot;</span><span class="tok-p">:</span>        <span class="tok-s2">&quot;xx_val&quot;</span><span class="tok-p">,</span>
-                    <span class="tok-nt">&quot;yy&quot;</span><span class="tok-p">:</span>        <span class="tok-s2">&quot;yy_val&quot;</span>
-                <span class="tok-p">}</span>
-            <span class="tok-p">}</span>
-        <span class="tok-p">}</span>
-    <span class="tok-p">}</span>
+<span class="tok-w">    </span><span class="tok-nt">&quot;a&quot;</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">        </span><span class="tok-nt">&quot;b&quot;</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">            </span><span class="tok-nt">&quot;c&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">                </span><span class="tok-nt">&quot;d&quot;</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">                    </span><span class="tok-nt">&quot;magnitude&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-mi">125</span><span class="tok-p">,</span>
+<span class="tok-w">                    </span><span class="tok-nt">&quot;units&quot;</span><span class="tok-p">:</span><span class="tok-w">     </span><span class="tok-s2">&quot;mm[Hg]&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">                    </span><span class="tok-nt">&quot;xx&quot;</span><span class="tok-p">:</span><span class="tok-w">        </span><span class="tok-s2">&quot;xx_val&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">                    </span><span class="tok-nt">&quot;yy&quot;</span><span class="tok-p">:</span><span class="tok-w">        </span><span class="tok-s2">&quot;yy_val&quot;</span>
+<span class="tok-w">                </span><span class="tok-p">}</span>
+<span class="tok-w">            </span><span class="tok-p">}</span>
+<span class="tok-w">        </span><span class="tok-p">}</span>
+<span class="tok-w">    </span><span class="tok-p">}</span>
 <span class="tok-p">}</span></code></pre>
 </div>
 </div>
@@ -824,13 +793,13 @@ a_val: <code><a href="/releases/BASE/latest/foundation_types.html#_any_class" ta
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>
-    <span class="tok-nt">&quot;a&quot;</span> <span class="tok-p">:</span> <span class="tok-p">{</span>
-        <span class="tok-nt">&quot;b&quot;</span> <span class="tok-p">:</span> <span class="tok-p">{</span>
-            <span class="tok-nt">&quot;c&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
-                <span class="tok-nt">&quot;d&quot;</span> <span class="tok-p">:</span> <span class="tok-s2">&quot;125 mm[Hg]&quot;</span>
-            <span class="tok-p">}</span>
-        <span class="tok-p">}</span>
-    <span class="tok-p">}</span>
+<span class="tok-w">    </span><span class="tok-nt">&quot;a&quot;</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">        </span><span class="tok-nt">&quot;b&quot;</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">            </span><span class="tok-nt">&quot;c&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">                </span><span class="tok-nt">&quot;d&quot;</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s2">&quot;125 mm[Hg]&quot;</span>
+<span class="tok-w">            </span><span class="tok-p">}</span>
+<span class="tok-w">        </span><span class="tok-p">}</span>
+<span class="tok-w">    </span><span class="tok-p">}</span>
 <span class="tok-p">}</span></code></pre>
 </div>
 </div>
@@ -846,8 +815,8 @@ a_val: <code><a href="/releases/BASE/latest/foundation_types.html#_any_class" ta
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>
-    <span class="tok-nt">&quot;a/b/c/d|formalism&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;markdown&quot;</span><span class="tok-p">,</span>
-    <span class="tok-nt">&quot;a/b/c/d|value&quot;</span><span class="tok-p">:</span>     <span class="tok-s2">&quot;This is some markdown https://somwehere.org[linked text]&quot;</span>
+<span class="tok-w">    </span><span class="tok-nt">&quot;a/b/c/d|formalism&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s2">&quot;markdown&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">    </span><span class="tok-nt">&quot;a/b/c/d|value&quot;</span><span class="tok-p">:</span><span class="tok-w">     </span><span class="tok-s2">&quot;This is some markdown https://somwehere.org[linked text]&quot;</span>
 <span class="tok-p">}</span></code></pre>
 </div>
 </div>
@@ -857,16 +826,16 @@ a_val: <code><a href="/releases/BASE/latest/foundation_types.html#_any_class" ta
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>
-    <span class="tok-nt">&quot;a&quot;</span> <span class="tok-p">:</span> <span class="tok-p">{</span>
-        <span class="tok-nt">&quot;b&quot;</span> <span class="tok-p">:</span> <span class="tok-p">{</span>
-            <span class="tok-nt">&quot;c&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
-                <span class="tok-nt">&quot;d&quot;</span> <span class="tok-p">:</span> <span class="tok-p">{</span>
-                    <span class="tok-nt">&quot;formalism&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;markdown&quot;</span><span class="tok-p">,</span>
-                    <span class="tok-nt">&quot;value&quot;</span><span class="tok-p">:</span>     <span class="tok-s2">&quot;This is some markdown https://somwehere.org[linked text]&quot;</span>
-                <span class="tok-p">}</span>
-            <span class="tok-p">}</span>
-        <span class="tok-p">}</span>
-    <span class="tok-p">}</span>
+<span class="tok-w">    </span><span class="tok-nt">&quot;a&quot;</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">        </span><span class="tok-nt">&quot;b&quot;</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">            </span><span class="tok-nt">&quot;c&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">                </span><span class="tok-nt">&quot;d&quot;</span><span class="tok-w"> </span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-p">{</span>
+<span class="tok-w">                    </span><span class="tok-nt">&quot;formalism&quot;</span><span class="tok-p">:</span><span class="tok-w"> </span><span class="tok-s2">&quot;markdown&quot;</span><span class="tok-p">,</span>
+<span class="tok-w">                    </span><span class="tok-nt">&quot;value&quot;</span><span class="tok-p">:</span><span class="tok-w">     </span><span class="tok-s2">&quot;This is some markdown https://somwehere.org[linked text]&quot;</span>
+<span class="tok-w">                </span><span class="tok-p">}</span>
+<span class="tok-w">            </span><span class="tok-p">}</span>
+<span class="tok-w">        </span><span class="tok-p">}</span>
+<span class="tok-w">    </span><span class="tok-p">}</span>
 <span class="tok-p">}</span></code></pre>
 </div>
 </div>
@@ -896,7 +865,7 @@ a_val: <code><a href="/releases/BASE/latest/foundation_types.html#_any_class" ta
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="/releases/SM/latest/S_TYPE.html#_s_type_class" target="_blank" rel="noopener">S_TYPE</a></code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="/releases/SM/development/S_TYPE.html#_s_type_class" target="_blank" rel="noopener">S_TYPE</a></code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
@@ -1531,7 +1500,7 @@ a_val: <code><a href="/releases/RM/latest/data_types.html#_data_value_class" tar
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="/releases/SM/latest/S_TYPE.html#_s_type_class" target="_blank" rel="noopener">S_TYPE</a></code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="/releases/SM/development/S_TYPE.html#_s_type_class" target="_blank" rel="noopener">S_TYPE</a></code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -1636,7 +1605,7 @@ a_val: <code><a href="/releases/RM/latest/data_types.html#_data_value_class" tar
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="/releases/SM/latest/S_TYPE.html#_s_type_class" target="_blank" rel="noopener">S_TYPE</a></code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="/releases/SM/development/S_TYPE.html#_s_type_class" target="_blank" rel="noopener">S_TYPE</a></code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -1694,7 +1663,7 @@ a_val: <code><a href="/releases/RM/latest/data_types.html#_data_value_class" tar
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="/releases/SM/latest/S_TYPE.html#_s_type_class" target="_blank" rel="noopener">S_TYPE</a></code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="/releases/SM/development/S_TYPE.html#_s_type_class" target="_blank" rel="noopener">S_TYPE</a></code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -1809,7 +1778,7 @@ a_val: <code><a href="/releases/RM/latest/data_types.html#_data_value_class" tar
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="/releases/SM/latest/S_TYPE.html#_s_type_class" target="_blank" rel="noopener">S_TYPE</a></code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="/releases/SM/development/S_TYPE.html#_s_type_class" target="_blank" rel="noopener">S_TYPE</a></code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -1902,7 +1871,7 @@ a_val: <code><a href="/releases/RM/latest/data_types.html#_data_value_class" tar
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="/releases/SM/latest/S_TYPE.html#_s_type_class" target="_blank" rel="noopener">S_TYPE</a></code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="/releases/SM/development/S_TYPE.html#_s_type_class" target="_blank" rel="noopener">S_TYPE</a></code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -2078,7 +2047,7 @@ a_val: <code><a href="/releases/RM/latest/data_types.html#_data_value_class" tar
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="/releases/SM/latest/S_TYPE.html#_s_type_class" target="_blank" rel="noopener">S_TYPE</a></code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="/releases/SM/development/S_TYPE.html#_s_type_class" target="_blank" rel="noopener">S_TYPE</a></code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -2948,7 +2917,7 @@ a_val: <code><a href="/releases/RM/latest/data_types.html#_data_value_class" tar
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>healthcare_facility</strong>: <code><a href="/releases/SM/latest/rm.html#_s_party_identified_class" target="_blank" rel="noopener">S_PARTY_IDENTIFIED</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>healthcare_facility</strong>: <code><a href="/releases/SM/development/rm.html#_s_party_identified_class" target="_blank" rel="noopener">S_PARTY_IDENTIFIED</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Equivalent of <code>COMPOSITION.<em>context.health_care_facility</em></code>.</p>
 </div></div></td>
@@ -2972,7 +2941,7 @@ a_val: <code><a href="/releases/RM/latest/data_types.html#_data_value_class" tar
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>workflow_id</strong>: <code><a href="/releases/SM/latest/base.html#_s_object_ref_class" target="_blank" rel="noopener">S_OBJECT_REF</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>workflow_id</strong>: <code><a href="/releases/SM/development/base.html#_s_object_ref_class" target="_blank" rel="noopener">S_OBJECT_REF</a></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Default value for <code>ENTRY.<em>workflow_id</em></code>.</p>
 </div></div></td>
@@ -3001,7 +2970,7 @@ a_val: <code><a href="/releases/RM/latest/data_types.html#_data_value_class" tar
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="/releases/SM/latest/rm.html#_s_composition_class" target="_blank" rel="noopener">S_COMPOSITION</a></code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="/releases/SM/development/rm.html#_s_composition_class" target="_blank" rel="noopener">S_COMPOSITION</a></code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
@@ -3492,12 +3461,45 @@ a_val: <code><a href="/releases/RM/latest/data_types.html#_data_value_class" tar
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_amendment_record"><a class="anchor" href="#_amendment_record"></a>6. Amendment Record</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 54.5454%;">
+<col style="width: 18.1818%;">
+<col style="width: 18.1819%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Issue</th>
+<th class="tableblock halign-left valign-top">Details</th>
+<th class="tableblock halign-left valign-top">Raiser</th>
+<th class="tableblock halign-left valign-top">Completed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>SM Release 1.0.0 (unreleased)</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>0.7.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECSM-2" target="_blank" rel="noopener">SPECSM-2</a>. Add Simplified Information Model 'B' (SIM-B);<br>
+ Initial writing, adapted from the Marand Better Platform 'Web Templates' specification.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">openEHR SEC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>17 Jul 2019</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-27 11:04:40 +0100
+Last updated 2024-08-06 19:01:26 UTC
 </div>
 </div>
-<link rel="stylesheet" href="https://specifications.openehr.org/styles/pygments-default.css">
+<script src="https://specifications.openehr.org/js/asciidoctor-tabs.js"></script>
 </body>
 </html>
