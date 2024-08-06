@@ -4,7 +4,7 @@
 |===
 |Issue|Details|Raiser|Completed
 
-4+^h|*SM Release 1.?.?*
+4+^h|*SM Release 1.0.0 (unreleased)*
 
 |[[latest_issue]]0.7.0
 |{spec_tickets}/SPECSM-2[SPECSM-2^]. Add Simplified Information Model 'B' (SIM-B); +

@@ -4,7 +4,7 @@
 |===
 |Issue|Details|Raiser|Completed
 
-4+^h|*SM Release 1.0.0*
+4+^h|*SM Release 1.0.0 (unreleased)*
 
 |[[latest_issue]]0.9.8
 |Fixes to specific interfaces due to SEC analysis: +
