@@ -3,6 +3,7 @@
     "title": "Service Model",
     "description": "openEHR Service Model Component",
     "keywords": "service model, openehr",
+    "status": "DEVELOPMENT",
     "specifications": [
         {
             "id": "openehr_platform",
