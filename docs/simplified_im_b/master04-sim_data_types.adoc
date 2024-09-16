@@ -28,7 +28,10 @@ The following shows the SDT serial formats for an `S_DV_TEXT` instance:
 [source,json]
 ----
 {
-    "a/b/c/d|value": "anxiety"
+    "a/b/c/d|value": "anxiety",
+    "a/b/c/d/_mapping:0|match": "=",
+    "a/b/c/d/_mapping:0/target|terminology": "SNOMED-CT",
+    "a/b/c/d/_mapping:0/target|code": "21794005"
 }
 ----
 
@@ -44,7 +47,10 @@ TBD: are the inner attributes supposed to have bars or not, i.e. "|value" etc?
         "b" : {
             "c": {
                 "d" : {
-                    "|value": "anxiety"
+                    "|value": "anxiety",
+                    "_mapping:0|match": "=",
+                    "_mapping:0/target|terminology": "SNOMED-CT",
+                    "_mapping:0/target|code": "21794005"
                 }
             }
         }
@@ -85,9 +91,13 @@ The following shows the SDT serial formats for an `S_DV_CODED_TEXT` instance:
 [source,json]
 ----
 {
-    "a/b/c/d|terminology": "snomed_ct",
+    "a/b/c/d|terminology": "SNOMED-CT",
     "a/b/c/d|code": "48694002",
-    "a/b/c/d|value": "anxiety"
+    "a/b/c/d|value": "anxiety",
+    "a/b/c/d/_mapping:0|match": "=",
+    "a/b/c/d/_mapping:0/target|terminology": "ICD-10",
+    "a/b/c/d/_mapping:0/target|code": "H234"
+
 }
 ----
 
@@ -103,9 +113,17 @@ TBD: are the inner attributes supposed to have bars or not, i.e. "|terminology" 
         "b" : {
             "c": {
                 "d" : {
-                    "|terminology": "snomed_ct",
+                    "|terminology": "SNOMED-CT",
                     "|code": "48694002",
-                    "|value": "anxiety"
+                    "|value": "anxiety",
+                    "_mapping" : [
+                        {
+                        "|match": "=",
+                        "target" {
+                            "|terminology": "ICD-10",
+                            "|code": "21794005"
+                        }
+                    ]
                 }
             }
         }
@@ -113,6 +131,36 @@ TBD: are the inner attributes supposed to have bars or not, i.e. "|terminology" 
 }
 ----
 
+==== Ehrscape STRUCTURED variant - Regular structure + regular value form
+
+[.tbd]
+TBD: are the inner attributes supposed to have bars or not, i.e. "|terminology" etc?
+
+[source,json]
+----
+{
+    "a" : {
+        "b" : [{
+            "c": [{
+                "d" : [{
+                    "|terminology": "SNOMED-CT",
+                    "|code": "48694002",
+                    "|value": "anxiety",
+                    "_mapping" : [
+                        {
+                        "|match": "=",
+                        "target" {
+                            "|terminology": "ICD-10",
+                            "|code": "21794005"
+                        }
+                    ]
+                }]
+            }]
+        }]
+    }
+}
+
+----
 ==== Regular structure + terse value form
 
 [source,json]
@@ -121,7 +169,7 @@ TBD: are the inner attributes supposed to have bars or not, i.e. "|terminology" 
     "a" : {
         "b" : {
             "c": {
-                "d" : "snomed_ct::48694002|anxiety|"
+                "d" : "SNOMED-CT::48694002|anxiety|"
             }
         }
     }
@@ -134,6 +182,7 @@ TBD: are the inner attributes supposed to have bars or not, i.e. "|terminology" 
 The following shows the SDT serial formats for an `S_DV_QUANTITY` instance:
 
 ==== Path structure + terse value form
+
 
 [source,json]
 ----
@@ -149,8 +198,82 @@ The following shows the SDT serial formats for an `S_DV_QUANTITY` instance:
 {
     "a/b/c/d|magnitude": 125,
     "a/b/c/d|units":    "mm[Hg]",
-    "a/b/c/d|xx":       "xx_val", -- other DvQ fields
-    "a/b/c/d|yy":       "yy_val"
+    "a/b/c/d|normal_status":  "H",
+    "a/b/c/d|magnitude_status": "~",
+    "a/b/c/d/_normal_range/lower|magnitude": 2.5,
+    "a/b/c/d/_normal_range/lower|unit": "mmol/l",
+    "a/b/c/d/_normal_range/upper|magnitude": 6.6,
+    "a/b/c/d/_normal_range/upper|unit": "mmol/l",
+    "a/b/c/d/_other_reference_ranges:0/meaning|code": "VH",
+    "a/b/c/d/_other_reference_ranges:0/meaning|terminology": "local-ranges",
+    "a/b/c/d/_other_reference_ranges:0/meaning|value": "Very high",
+    "a/b/c/d/_other_reference_ranges:0/lower|magnitude": 10.5,
+    "a/b/c/d/_other_reference_ranges:0/lower|unit": "mmol/l",
+    "a/b/c/d/_other_reference_ranges:0/upper|magnitude": 16.6,
+    "a/b/c/d/_other_reference_ranges:0/upper|unit": "mmol/l"
+}
+
+----
+
+==== Ehrscape STRUCTURED variant - Regular structure + regular value form
+
+[.tbd]
+TBD: are the inner attributes supposed to have bars or not, i.e. "|magnitude" etc?
+
+
+[source,json]
+----
+{
+    "a" : {
+        "b" : [{
+            "c": [{
+                "d" : [{
+                    "|magnitude": 125,
+                    "|units":     "mm[Hg]",
+                    "|normal_status": "H",
+                    "|magnitude_status": "~",
+                    "_normal_range" : [{
+                       "lower" : [{
+                                "|magnitude": 3.5,
+                                "|unit": "mmol/l"
+                                }],
+                        "upper" : [{
+                            "|magnitude": 7.5,
+                            "|unit": "mmol/l"
+                            }]
+                    }],            
+                    "_other_reference_ranges" : [
+                        { //Text-only meaning
+                            "meaning": "Child",
+                            "lower" : [{
+                                "|magnitude": 10.5,
+                                "|unit": "mmol/l"
+                                }],
+                            "upper" : [{
+                                "|magnitude": 10.5,
+                                "|unit": "mmol/l"
+                                }],
+                                
+                        },
+                        { //Coded meaning
+                            "meaning":  [{
+                                "|value": "African-American",
+                                "|terminology" : "SNOMED-CT",
+                                "|code" : "23123456"
+                            }],
+                            "lower" : [{
+                                "|magnitude": 0.5,
+                                "|unit": "mmol/l"
+                                }],
+                            "upper" : [{
+                                "|magnitude": 8.5,
+                                "|unit": "mmol/l"
+                                }]                               
+                        }]     
+                }]
+            }]
+        }]
+    }]
 }
 ----
 
@@ -159,21 +282,60 @@ The following shows the SDT serial formats for an `S_DV_QUANTITY` instance:
 [.tbd]
 TBD: are the inner attributes supposed to have bars or not, i.e. "|magnitude" etc?
 
+
 [source,json]
 ----
 {
-    "a" : {
-        "b" : {
-            "c": {
-                "d" : {
-                    "magnitude": 125,
-                    "units":     "mm[Hg]",
-                    "xx":        "xx_val",
-                    "yy":        "yy_val"
-                }
+  "a" : {
+    "b" : {
+      "c": {
+        "d" : {
+          "|magnitude": 125,
+          "|units": "mm[Hg]",
+          "|normal_status": "H",
+          "|magnitude_status": "~",
+          "_normal_range" : {
+            "lower" : {
+                "|magnitude": 3.5,
+                "|unit": "mmol/l"
+            },
+            "upper" : {
+              "|magnitude": 7.5,
+              "|unit": "mmol/l"
             }
-        }
+          },            
+          "_other_reference_ranges" : [
+            { //Text-only meaning
+              "meaning": "Child",
+              "lower" : {
+                "|magnitude": 10.5,
+                "|unit": "mmol/l"
+              },
+              "upper" : {
+                "|magnitude": 10.5,
+                "|unit": "mmol/l"
+              }
+            },
+            { //Coded meaning
+              "meaning":  {
+                "|value": "African-American",
+                "|terminology" : "SNOMED-CT",
+                "|code" : "23123456"
+              },
+              "lower" : {
+                "|magnitude": 0.5,
+                "|unit": "mmol/l"
+                },
+              "upper" : {
+                "|magnitude": 8.5,
+                "|unit": "mmol/l"
+                }                               
+            }
+          ]
+        }     
+      }
     }
+  }
 }
 ----
 
@@ -192,17 +354,155 @@ TBD: are the inner attributes supposed to have bars or not, i.e. "|magnitude" et
 }
 ----
 
-=== S_DV_PARSABLE
 
-The following shows the SDT serial formats for an `S_DV_PARSABLE` instance:
+=== S_DV_COUNT
 
+The following shows the SDT serial formats for an `S_DV_COUNT` instance:
+
+==== Path structure + terse value form
+
+[source,json]
+----
+{
+    "a/b/c/d": "23",
+}
+----
 ==== Path structure + regular value form
 
 [source,json]
 ----
 {
-    "a/b/c/d|formalism": "markdown",
-    "a/b/c/d|value":     "This is some markdown https://somwehere.org[linked text]"
+    "a/b/c/d": "23",
+}
+----
+
+==== Regular structure + regular value form
+
+In theory, as a DV_ORDERED, DV_COUNT should support other attributes like magnitude_status, normal_status, normal_range etc but not tested yet.
+
+[source,json]
+----
+{
+  "a" : {
+    "b" : {
+      "c": {
+        "d" : 23
+      }
+    }
+  }
+}
+----
+
+==== Ehrscape STRUCTURED variant Regular structure + regular value form
+
+[NOTE]
+Better STRUCTURED (regular) format represents every branch as an array, regardless of whether single or multiple occurrence - needs clarification.
+
+In theory, as a DV_ORDERED, DV_COUNT should support other attributes like magnitude_status, normal_status, normal_range etc but not tested yet.
+
+[source,json]
+----
+{
+    "a" : {
+        "b" : [{
+            "c": [
+                "d" : 23
+            ],
+          }],
+      }]
+}
+----
+
+
+=== S_DV_ORDINAL
+
+The following shows the SDT serial formats for an `S_DV_ORDINAL` instance:
+
+==== Path structure + terse form
+
+[source,json]
+----
+{
+    "a/b/c/d": "1|at0004|Absent|",
+}
+----
+==== Path structure + regular value form
+
+[source,json]
+----
+{
+    "a/b/c/d|ordinal": 1,
+    "a/b/c/d|code": "at0004",
+    "a/b/c/d|value": "Absent",
+}
+----
+
+
+==== Regular structure + regular value form
+
+[source,json]
+----
+{
+  "a" : {
+      "b" : {
+          "c": {
+              "d" : {
+                  "|code": "at0066",
+                  "|value": "Absent",
+                  "|ordinal": 1 
+              } 
+          }
+      }
+  }
+}
+----
+
+==== Ehrscape variant STRUCTURED Regular structure + regular value form
+
+[NOTE]
+Better STRUCTURED (regular) format represents every branch as an array, regardless of whether single or multiple occurrence - needs clarification.
+
+[source,json]
+----
+{
+    "a" : {
+        "b" : [{
+            "c": [{
+                "d" : [{
+                       "|code": "at0066",
+                       "|value": "Absent",
+                       "|ordinal": 1 
+                  }]
+              }],
+          }],
+      }
+}
+----
+
+=== S_DV_IDENTIFIER
+
+The following shows the SDT serial formats for an `S_DV_IDENTIFIER` instance:
+
+
+==== Path structure + terse form
+[NOTE]
+Not supported in Better Ehrscape
+
+[source,json]
+----
+{
+    "a/b/c/d": "1|at0004|Absent|",
+}
+----
+==== Path structure + regular value form
+
+[source,json]
+----
+{
+    "a/b/c/d|identifier": 1,
+    "a/b/c/d|type": "GMC number",
+    "a/b/c/d|assigner": "GMC-UK",
+    "a/b/c/d|issuer": "GMC-UK",
 }
 ----
 
@@ -212,17 +512,44 @@ The following shows the SDT serial formats for an `S_DV_PARSABLE` instance:
 ----
 {
     "a" : {
-        "b" : {
-            "c": {
-                "d" : {
-                    "formalism": "markdown",
-                    "value":     "This is some markdown https://somwehere.org[linked text]"
-                }
-            }
-        }
-    }
+      "b" : {
+          "c": {
+              "d" : {
+                "|identifier": 1,
+                "|type": "GMC number",
+                "|assigner": "GMC-UK",
+                "|issuer": "GMC-UK"
+              },
+            },
+        },
+      }
 }
 ----
+
+==== Ehrscape Regular (STRUCTURED) structure + regular value form
+
+[NOTE]
+Better STRUCTURED (regular) format represents every branch as an array, regardless of whether single or multiple occurrence - needs clarification.
+
+[source,json]
+----
+{
+    "a" : {
+      "b" : [{
+          "c": [{
+              "d" : [{
+                "|identifier": 1,
+                "|type": "GMC number",
+                "|assigner": "GMC-UK",
+                "|issuer": "GMC-UK"
+              }],
+            }],
+        }],
+      }
+}
+----
+
+
 
 == Class Definitions
 
